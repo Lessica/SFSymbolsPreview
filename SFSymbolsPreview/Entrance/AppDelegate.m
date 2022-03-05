@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SFSymbolDatasource.h"
+#import "SFSymbolDataSource.h"
 
 
 @interface AppDelegate()
@@ -19,17 +19,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [NSUserDefaults.standardUserDefaults setValue:@(NO) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
-    
-//    NSString *imageNamed = @"gear";
-//
-//    UIImage *image = [UIImage systemImageNamed:imageNamed];
-//
-//    image = [image toSize:CGSizeMake(1024, 1024 * image.size.height / image.size.width)];
-//
-//    NSString *path = [@"/Users/caine/Downloads/" stringByAppendingFormat:@"%@.png", [imageNamed stringByReplacingOccurrencesOfString:@"."
-//                                                                                                                          withString:@""]];
-//    NSLog(@"%@ %d", image, [UIImagePNGRepresentation(image) writeToFile:path atomically:YES]);
-    
     return YES;
 }
 

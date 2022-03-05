@@ -10,7 +10,7 @@
 
 #import "CategoriesViewController.h"
 #import "SymbolsViewController.h"
-#import "SFSymbolDatasource.h"
+#import "SFSymbolDataSource.h"
 
 
 @interface SceneDelegate()

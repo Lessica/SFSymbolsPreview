@@ -17,30 +17,25 @@
 		7E0C9569247E6BD60029F521 /* SymbolPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C9568247E6BD60029F521 /* SymbolPreviewCell.m */; };
 		7E0C956F247E71570029F521 /* ReusableTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C956E247E71570029F521 /* ReusableTitleView.m */; };
 		7E0C9572247F43180029F521 /* SFSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C9571247F43180029F521 /* SFSymbol.m */; };
-		7E0C9574247F45470029F521 /* SFSymbol.All.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C9573247F45470029F521 /* SFSymbol.All.plist */; };
 		7E0C957D247F588E0029F521 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C957C247F588E0029F521 /* CategoriesViewController.m */; };
 		7E0C9580247F5F280029F521 /* SFSymbolCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C957F247F5F280029F521 /* SFSymbolCategory.m */; };
-		7E0C9582247F67010029F521 /* SFSymbol.Communication.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C9581247F67010029F521 /* SFSymbol.Communication.plist */; };
-		7EE40713247F7DA100A68520 /* SFSymbol.Weather.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40712247F7DA100A68520 /* SFSymbol.Weather.plist */; };
-		7EE40715247F806A00A68520 /* SFSymbol.Devices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40714247F806A00A68520 /* SFSymbol.Devices.plist */; };
-		7EE40718247F818500A68520 /* SFSymbol.Objects&Tools.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40717247F818500A68520 /* SFSymbol.Objects&Tools.plist */; };
-		7EE4071A247F81AF00A68520 /* SFSymbol.Connectivity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40719247F81AF00A68520 /* SFSymbol.Connectivity.plist */; };
-		7EE4071C247F826D00A68520 /* SFSymbol.Transportation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE4071B247F826D00A68520 /* SFSymbol.Transportation.plist */; };
-		7EE4071E247F851800A68520 /* SFSymbol.Nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE4071D247F851800A68520 /* SFSymbol.Nature.plist */; };
-		7EE40721247F861600A68520 /* SFSymbolDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE40720247F861600A68520 /* SFSymbolDatasource.m */; };
-		7EE40723247F87B900A68520 /* SFSymbol.Time.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40722247F87B900A68520 /* SFSymbol.Time.plist */; };
-		7EE40725247F884900A68520 /* SFSymbol.Health.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40724247F884900A68520 /* SFSymbol.Health.plist */; };
-		7EE40727247F890D00A68520 /* SFSymbol.Shapes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40726247F890D00A68520 /* SFSymbol.Shapes.plist */; };
-		7EE4072A247F9FEE00A68520 /* SFSymbol.Human.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40729247F9FEE00A68520 /* SFSymbol.Human.plist */; };
-		7EE4072C247FA29B00A68520 /* SFSymbol.Editing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE4072B247FA29B00A68520 /* SFSymbol.Editing.plist */; };
-		7EE4072E247FA4C600A68520 /* SFSymbol.TextFormatting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE4072D247FA4C600A68520 /* SFSymbol.TextFormatting.plist */; };
-		7EE40730247FA88800A68520 /* SFSymbol.Media.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE4072F247FA88800A68520 /* SFSymbol.Media.plist */; };
-		7EE40732247FAB5700A68520 /* SFSymbol.Keyboard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40731247FAB5700A68520 /* SFSymbol.Keyboard.plist */; };
-		7EE40734247FAC8C00A68520 /* SFSymbol.Commerce.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40733247FAC8C00A68520 /* SFSymbol.Commerce.plist */; };
-		7EE40736247FB0FF00A68520 /* SFSymbol.Arrows.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40735247FB0FF00A68520 /* SFSymbol.Arrows.plist */; };
-		7EE40738247FBC7800A68520 /* SFSymbol.Math.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40737247FBC7800A68520 /* SFSymbol.Math.plist */; };
-		7EE4073A247FBE7200A68520 /* SFSymbol.Indices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EE40739247FBE7200A68520 /* SFSymbol.Indices.plist */; };
+		7EE40721247F861600A68520 /* SFSymbolDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE40720247F861600A68520 /* SFSymbolDataSource.m */; };
 		7EF172792481EC8D00A45B3F /* SymbolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF172782481EC8D00A45B3F /* SymbolDetailsViewController.m */; };
+		CC36F10927D3385D000C4495 /* symbol_search.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10227D3385B000C4495 /* symbol_search.plist */; };
+		CC36F10A27D3385D000C4495 /* name_availability.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10327D3385B000C4495 /* name_availability.plist */; };
+		CC36F10B27D3385D000C4495 /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10427D3385B000C4495 /* categories.plist */; };
+		CC36F10C27D3385D000C4495 /* name_aliases_strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10527D3385C000C4495 /* name_aliases_strings.txt */; };
+		CC36F10D27D3385D000C4495 /* layerset_availability.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10627D3385C000C4495 /* layerset_availability.plist */; };
+		CC36F10E27D3385D000C4495 /* legacy_aliases_strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */; };
+		CC36F10F27D3385D000C4495 /* symbol_categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10827D3385D000C4495 /* symbol_categories.plist */; };
+		CC36F11227D33E8B000C4495 /* SFSymbolAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36F11127D33E8B000C4495 /* SFSymbolAvailability.m */; };
+		CC36F11427D34E02000C4495 /* version.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F11327D34E02000C4495 /* version.plist */; };
+		CCA4D99327D36BE0009D2777 /* colors.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99227D36BE0009D2777 /* colors.csv */; };
+		CCA4D99527D36BE7009D2777 /* symbol_variant_scripts.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */; };
+		CCA4D99927D37130009D2777 /* restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99827D37130009D2777 /* restrictions.plist */; };
+		CCA4D99C27D3775E009D2777 /* symbol_unicodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */; };
+		CCA4D99E27D377BE009D2777 /* symbol_restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */; };
+		CCA4D9A027D37C55009D2777 /* symbols.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99F27D37C55009D2777 /* symbols.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,34 +58,32 @@
 		7E0C956E247E71570029F521 /* ReusableTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReusableTitleView.m; sourceTree = "<group>"; };
 		7E0C9570247F43180029F521 /* SFSymbol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbol.h; sourceTree = "<group>"; };
 		7E0C9571247F43180029F521 /* SFSymbol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbol.m; sourceTree = "<group>"; };
-		7E0C9573247F45470029F521 /* SFSymbol.All.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.All.plist; sourceTree = "<group>"; };
 		7E0C957B247F588E0029F521 /* CategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		7E0C957C247F588E0029F521 /* CategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		7E0C957E247F5F280029F521 /* SFSymbolCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolCategory.h; sourceTree = "<group>"; };
 		7E0C957F247F5F280029F521 /* SFSymbolCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolCategory.m; sourceTree = "<group>"; };
-		7E0C9581247F67010029F521 /* SFSymbol.Communication.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Communication.plist; sourceTree = "<group>"; };
-		7EE40712247F7DA100A68520 /* SFSymbol.Weather.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Weather.plist; sourceTree = "<group>"; };
-		7EE40714247F806A00A68520 /* SFSymbol.Devices.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Devices.plist; sourceTree = "<group>"; };
-		7EE40717247F818500A68520 /* SFSymbol.Objects&Tools.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SFSymbol.Objects&Tools.plist"; sourceTree = "<group>"; };
-		7EE40719247F81AF00A68520 /* SFSymbol.Connectivity.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Connectivity.plist; sourceTree = "<group>"; };
-		7EE4071B247F826D00A68520 /* SFSymbol.Transportation.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Transportation.plist; sourceTree = "<group>"; };
-		7EE4071D247F851800A68520 /* SFSymbol.Nature.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Nature.plist; sourceTree = "<group>"; };
-		7EE4071F247F861600A68520 /* SFSymbolDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolDatasource.h; sourceTree = "<group>"; };
-		7EE40720247F861600A68520 /* SFSymbolDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolDatasource.m; sourceTree = "<group>"; };
-		7EE40722247F87B900A68520 /* SFSymbol.Time.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Time.plist; sourceTree = "<group>"; };
-		7EE40724247F884900A68520 /* SFSymbol.Health.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Health.plist; sourceTree = "<group>"; };
-		7EE40726247F890D00A68520 /* SFSymbol.Shapes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Shapes.plist; sourceTree = "<group>"; };
-		7EE40729247F9FEE00A68520 /* SFSymbol.Human.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Human.plist; sourceTree = "<group>"; };
-		7EE4072B247FA29B00A68520 /* SFSymbol.Editing.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Editing.plist; sourceTree = "<group>"; };
-		7EE4072D247FA4C600A68520 /* SFSymbol.TextFormatting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.TextFormatting.plist; sourceTree = "<group>"; };
-		7EE4072F247FA88800A68520 /* SFSymbol.Media.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Media.plist; sourceTree = "<group>"; };
-		7EE40731247FAB5700A68520 /* SFSymbol.Keyboard.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Keyboard.plist; sourceTree = "<group>"; };
-		7EE40733247FAC8C00A68520 /* SFSymbol.Commerce.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Commerce.plist; sourceTree = "<group>"; };
-		7EE40735247FB0FF00A68520 /* SFSymbol.Arrows.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Arrows.plist; sourceTree = "<group>"; };
-		7EE40737247FBC7800A68520 /* SFSymbol.Math.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Math.plist; sourceTree = "<group>"; };
-		7EE40739247FBE7200A68520 /* SFSymbol.Indices.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SFSymbol.Indices.plist; sourceTree = "<group>"; };
+		7EE4071F247F861600A68520 /* SFSymbolDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolDataSource.h; sourceTree = "<group>"; };
+		7EE40720247F861600A68520 /* SFSymbolDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolDataSource.m; sourceTree = "<group>"; };
 		7EF172772481EC8D00A45B3F /* SymbolDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolDetailsViewController.h; sourceTree = "<group>"; };
 		7EF172782481EC8D00A45B3F /* SymbolDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolDetailsViewController.m; sourceTree = "<group>"; };
+		CC36F10227D3385B000C4495 /* symbol_search.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = symbol_search.plist; sourceTree = "<group>"; };
+		CC36F10327D3385B000C4495 /* name_availability.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = name_availability.plist; sourceTree = "<group>"; };
+		CC36F10427D3385B000C4495 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
+		CC36F10527D3385C000C4495 /* name_aliases_strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = name_aliases_strings.txt; sourceTree = "<group>"; };
+		CC36F10627D3385C000C4495 /* layerset_availability.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = layerset_availability.plist; sourceTree = "<group>"; };
+		CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = legacy_aliases_strings.txt; sourceTree = "<group>"; };
+		CC36F10827D3385D000C4495 /* symbol_categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = symbol_categories.plist; sourceTree = "<group>"; };
+		CC36F11027D33E8B000C4495 /* SFSymbolAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolAvailability.h; sourceTree = "<group>"; };
+		CC36F11127D33E8B000C4495 /* SFSymbolAvailability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolAvailability.m; sourceTree = "<group>"; };
+		CC36F11327D34E02000C4495 /* version.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = version.plist; sourceTree = "<group>"; };
+		CC36F11527D35951000C4495 /* SFSymbolsPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SFSymbolsPreview.entitlements; sourceTree = "<group>"; };
+		CCA4D98E27D367A2009D2777 /* layersets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = layersets.plist; sourceTree = "<group>"; };
+		CCA4D99227D36BE0009D2777 /* colors.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colors.csv; sourceTree = "<group>"; };
+		CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symbol_variant_scripts.csv; sourceTree = "<group>"; };
+		CCA4D99827D37130009D2777 /* restrictions.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = restrictions.plist; sourceTree = "<group>"; };
+		CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbol_unicodes.plist; sourceTree = "<group>"; };
+		CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbol_restrictions.plist; sourceTree = "<group>"; };
+		CCA4D99F27D37C55009D2777 /* symbols.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbols.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,11 +116,12 @@
 		7E0C9544247E65890029F521 /* SFSymbolsPreview */ = {
 			isa = PBXGroup;
 			children = (
+				CC36F11527D35951000C4495 /* SFSymbolsPreview.entitlements */,
 				7EE40728247F8D1400A68520 /* Entrance */,
 				7EE40716247F816200A68520 /* Resource */,
-				7E0C9566247E6BB70029F521 /* M */,
-				7E0C9565247E6BB20029F521 /* V */,
-				7E0C9564247E6BAE0029F521 /* C */,
+				7E0C9566247E6BB70029F521 /* Models */,
+				7E0C9565247E6BB20029F521 /* Views */,
+				7E0C9564247E6BAE0029F521 /* Controllers */,
 				7E0C9551247E658C0029F521 /* Assets.xcassets */,
 				7E0C9553247E658C0029F521 /* LaunchScreen.storyboard */,
 				7E0C9556247E658C0029F521 /* Info.plist */,
@@ -136,7 +130,7 @@
 			path = SFSymbolsPreview;
 			sourceTree = "<group>";
 		};
-		7E0C9564247E6BAE0029F521 /* C */ = {
+		7E0C9564247E6BAE0029F521 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				7E0C957B247F588E0029F521 /* CategoriesViewController.h */,
@@ -148,10 +142,10 @@
 				7E0C9561247E6B520029F521 /* SymbolSearchResultsViewController.h */,
 				7E0C9562247E6B520029F521 /* SymbolSearchResultsViewController.m */,
 			);
-			path = C;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		7E0C9565247E6BB20029F521 /* V */ = {
+		7E0C9565247E6BB20029F521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				7E0C956D247E71570029F521 /* ReusableTitleView.h */,
@@ -159,45 +153,28 @@
 				7E0C9567247E6BD60029F521 /* SymbolPreviewCell.h */,
 				7E0C9568247E6BD60029F521 /* SymbolPreviewCell.m */,
 			);
-			path = V;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		7E0C9566247E6BB70029F521 /* M */ = {
+		7E0C9566247E6BB70029F521 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7E0C9570247F43180029F521 /* SFSymbol.h */,
 				7E0C9571247F43180029F521 /* SFSymbol.m */,
+				CC36F11027D33E8B000C4495 /* SFSymbolAvailability.h */,
+				CC36F11127D33E8B000C4495 /* SFSymbolAvailability.m */,
 				7E0C957E247F5F280029F521 /* SFSymbolCategory.h */,
 				7E0C957F247F5F280029F521 /* SFSymbolCategory.m */,
-				7EE4071F247F861600A68520 /* SFSymbolDatasource.h */,
-				7EE40720247F861600A68520 /* SFSymbolDatasource.m */,
+				7EE4071F247F861600A68520 /* SFSymbolDataSource.h */,
+				7EE40720247F861600A68520 /* SFSymbolDataSource.m */,
 			);
-			path = M;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7EE40716247F816200A68520 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C9573247F45470029F521 /* SFSymbol.All.plist */,
-				7E0C9581247F67010029F521 /* SFSymbol.Communication.plist */,
-				7EE40712247F7DA100A68520 /* SFSymbol.Weather.plist */,
-				7EE40717247F818500A68520 /* SFSymbol.Objects&Tools.plist */,
-				7EE40714247F806A00A68520 /* SFSymbol.Devices.plist */,
-				7EE40719247F81AF00A68520 /* SFSymbol.Connectivity.plist */,
-				7EE4071B247F826D00A68520 /* SFSymbol.Transportation.plist */,
-				7EE40729247F9FEE00A68520 /* SFSymbol.Human.plist */,
-				7EE4071D247F851800A68520 /* SFSymbol.Nature.plist */,
-				7EE4072B247FA29B00A68520 /* SFSymbol.Editing.plist */,
-				7EE4072D247FA4C600A68520 /* SFSymbol.TextFormatting.plist */,
-				7EE4072F247FA88800A68520 /* SFSymbol.Media.plist */,
-				7EE40731247FAB5700A68520 /* SFSymbol.Keyboard.plist */,
-				7EE40733247FAC8C00A68520 /* SFSymbol.Commerce.plist */,
-				7EE40722247F87B900A68520 /* SFSymbol.Time.plist */,
-				7EE40724247F884900A68520 /* SFSymbol.Health.plist */,
-				7EE40726247F890D00A68520 /* SFSymbol.Shapes.plist */,
-				7EE40735247FB0FF00A68520 /* SFSymbol.Arrows.plist */,
-				7EE40739247FBE7200A68520 /* SFSymbol.Indices.plist */,
-				7EE40737247FBC7800A68520 /* SFSymbol.Math.plist */,
+				CCA4D99A27D372EA009D2777 /* system */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -211,6 +188,28 @@
 				7E0C9549247E65890029F521 /* SceneDelegate.m */,
 			);
 			path = Entrance;
+			sourceTree = "<group>";
+		};
+		CCA4D99A27D372EA009D2777 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				CC36F11327D34E02000C4495 /* version.plist */,
+				CC36F10427D3385B000C4495 /* categories.plist */,
+				CCA4D98E27D367A2009D2777 /* layersets.plist */,
+				CCA4D99827D37130009D2777 /* restrictions.plist */,
+				CCA4D99F27D37C55009D2777 /* symbols.plist */,
+				CC36F10827D3385D000C4495 /* symbol_categories.plist */,
+				CC36F10327D3385B000C4495 /* name_availability.plist */,
+				CC36F10627D3385C000C4495 /* layerset_availability.plist */,
+				CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */,
+				CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */,
+				CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */,
+				CC36F10527D3385C000C4495 /* name_aliases_strings.txt */,
+				CC36F10227D3385B000C4495 /* symbol_search.plist */,
+				CCA4D99227D36BE0009D2777 /* colors.csv */,
+				CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */,
+			);
+			path = system;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +238,7 @@
 		7E0C953A247E65890029F521 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "YICAI YANG";
 				TargetAttributes = {
 					7E0C9541247E65890029F521 = {
@@ -270,27 +269,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE40725247F884900A68520 /* SFSymbol.Health.plist in Resources */,
-				7EE40713247F7DA100A68520 /* SFSymbol.Weather.plist in Resources */,
-				7EE4071A247F81AF00A68520 /* SFSymbol.Connectivity.plist in Resources */,
-				7EE40727247F890D00A68520 /* SFSymbol.Shapes.plist in Resources */,
-				7EE4073A247FBE7200A68520 /* SFSymbol.Indices.plist in Resources */,
-				7EE4072E247FA4C600A68520 /* SFSymbol.TextFormatting.plist in Resources */,
-				7E0C9574247F45470029F521 /* SFSymbol.All.plist in Resources */,
-				7EE40715247F806A00A68520 /* SFSymbol.Devices.plist in Resources */,
-				7EE40718247F818500A68520 /* SFSymbol.Objects&Tools.plist in Resources */,
-				7EE4071E247F851800A68520 /* SFSymbol.Nature.plist in Resources */,
-				7EE4072C247FA29B00A68520 /* SFSymbol.Editing.plist in Resources */,
-				7EE4072A247F9FEE00A68520 /* SFSymbol.Human.plist in Resources */,
-				7E0C9582247F67010029F521 /* SFSymbol.Communication.plist in Resources */,
-				7EE40734247FAC8C00A68520 /* SFSymbol.Commerce.plist in Resources */,
-				7EE40730247FA88800A68520 /* SFSymbol.Media.plist in Resources */,
+				CCA4D9A027D37C55009D2777 /* symbols.plist in Resources */,
+				CC36F10F27D3385D000C4495 /* symbol_categories.plist in Resources */,
+				CC36F10A27D3385D000C4495 /* name_availability.plist in Resources */,
+				CCA4D99327D36BE0009D2777 /* colors.csv in Resources */,
+				CC36F10E27D3385D000C4495 /* legacy_aliases_strings.txt in Resources */,
+				CC36F10D27D3385D000C4495 /* layerset_availability.plist in Resources */,
+				CCA4D99527D36BE7009D2777 /* symbol_variant_scripts.csv in Resources */,
+				CC36F10C27D3385D000C4495 /* name_aliases_strings.txt in Resources */,
 				7E0C9555247E658C0029F521 /* LaunchScreen.storyboard in Resources */,
-				7EE4071C247F826D00A68520 /* SFSymbol.Transportation.plist in Resources */,
-				7EE40738247FBC7800A68520 /* SFSymbol.Math.plist in Resources */,
-				7EE40732247FAB5700A68520 /* SFSymbol.Keyboard.plist in Resources */,
-				7EE40723247F87B900A68520 /* SFSymbol.Time.plist in Resources */,
-				7EE40736247FB0FF00A68520 /* SFSymbol.Arrows.plist in Resources */,
+				CC36F10927D3385D000C4495 /* symbol_search.plist in Resources */,
+				CC36F11427D34E02000C4495 /* version.plist in Resources */,
+				CCA4D99927D37130009D2777 /* restrictions.plist in Resources */,
+				CC36F10B27D3385D000C4495 /* categories.plist in Resources */,
+				CCA4D99C27D3775E009D2777 /* symbol_unicodes.plist in Resources */,
+				CCA4D99E27D377BE009D2777 /* symbol_restrictions.plist in Resources */,
 				7E0C9552247E658C0029F521 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,13 +299,14 @@
 				7E0C9569247E6BD60029F521 /* SymbolPreviewCell.m in Sources */,
 				7E0C9547247E65890029F521 /* AppDelegate.m in Sources */,
 				7E0C9558247E658C0029F521 /* main.m in Sources */,
-				7EE40721247F861600A68520 /* SFSymbolDatasource.m in Sources */,
+				7EE40721247F861600A68520 /* SFSymbolDataSource.m in Sources */,
 				7E0C9560247E65F50029F521 /* SymbolsViewController.m in Sources */,
 				7E0C954A247E65890029F521 /* SceneDelegate.m in Sources */,
 				7E0C956F247E71570029F521 /* ReusableTitleView.m in Sources */,
 				7EF172792481EC8D00A45B3F /* SymbolDetailsViewController.m in Sources */,
 				7E0C9563247E6B520029F521 /* SymbolSearchResultsViewController.m in Sources */,
 				7E0C957D247F588E0029F521 /* CategoriesViewController.m in Sources */,
+				CC36F11227D33E8B000C4495 /* SFSymbolAvailability.m in Sources */,
 				7E0C9572247F43180029F521 /* SFSymbol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +351,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -415,6 +410,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -445,8 +441,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SFSymbolsPreview/SFSymbolsPreview.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BHGL3L4A8;
+				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				INFOPLIST_FILE = SFSymbolsPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,6 +451,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.morecats.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -462,8 +460,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SFSymbolsPreview/SFSymbolsPreview.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BHGL3L4A8;
+				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				INFOPLIST_FILE = SFSymbolsPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,6 +470,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.morecats.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
