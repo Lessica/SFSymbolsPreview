@@ -10,15 +10,25 @@
 #import "SFSymbol.h"
 
 
+@protocol SymbolPreviewDelegate <NSObject>
+
+@optional
+- (void)symbolPreviewShowDetailedInfo:(SFSymbol *)symbol;
+
+@end
+
+
 @interface SymbolPreviewCell : UICollectionViewCell
 
-@property( nonatomic, weak ) SFSymbol               *symbol;
+@property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
+@property (nonatomic, weak) SFSymbol *symbol;
 
 @end
 
 
 @interface SymbolPreviewTableCell : UICollectionViewCell
 
-@property( nonatomic, weak ) SFSymbol               *symbol;
+@property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
+@property (nonatomic, weak) SFSymbol *symbol;
 
 @end

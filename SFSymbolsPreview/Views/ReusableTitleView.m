@@ -31,10 +31,11 @@
         [self setTitleLabel:({
             UILabel *f = UILabel.new;
             [f setTextColor:UIColor.secondaryLabelColor];
-            [f setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightRegular]];
+            [f setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]];
+            [f setAdjustsFontForContentSizeCategory:YES];
             [self addSubview:f];
             [f setTranslatesAutoresizingMaskIntoConstraints:NO];
-            [f.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:16].active = YES;
+            [f.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:16].active = YES;
             [f.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
             f;
         })];
@@ -62,19 +63,9 @@
             [f setTranslatesAutoresizingMaskIntoConstraints:NO];
             [f.widthAnchor constraintEqualToAnchor:self.widthAnchor constant:-32.0f].active = YES;
             [f.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
-            [f.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
+            [f.topAnchor constraintEqualToAnchor:self.layoutMarginsGuide.topAnchor constant:8.f].active = YES;
             f;
         })];
-        
-        UILabel *textLabel = UILabel.new;
-        [textLabel setTextColor:UIColor.labelColor];
-        [textLabel setText:NSLocalizedString(@"Number of items in column...", nil)];
-        [textLabel setFont:[UIFont systemFontOfSize:15 weight:UIFontWeightRegular]];
-        [self addSubview:textLabel];
-        [textLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [textLabel.topAnchor constraintEqualToAnchor:self.topAnchor].active = YES;
-        [textLabel.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:16.0f].active = YES;
-        [textLabel.bottomAnchor constraintEqualToAnchor:self.segmentedControl.topAnchor].active = YES;
     }
     return self;
 }

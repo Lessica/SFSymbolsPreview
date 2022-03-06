@@ -104,7 +104,7 @@
         [cell.textLabel setText:[[NSLocalizedString(@"Copy", nil) stringByAppendingString:@" "] stringByAppendingString:self.symbol.name]];
         [cell.textLabel setNumberOfLines:0];
         [cell.textLabel setTextColor:self.view.tintColor];
-        [cell.textLabel setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightRegular]];
+        [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
         [cell.imageView setImage:[UIImage systemImageNamed:@"doc.on.doc"]];
         [cell.imageView setTintColor:self.view.tintColor];
     }
@@ -112,7 +112,7 @@
     {
         [cell.textLabel setText:NSLocalizedString(@"Share...", nil)];
         [cell.textLabel setTextColor:self.view.tintColor];
-        [cell.textLabel setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightRegular]];
+        [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
         [cell.imageView setImage:[UIImage systemImageNamed:@"square.and.arrow.up"]];
         [cell.imageView setTintColor:self.view.tintColor];
     }

@@ -12,7 +12,7 @@
 #import "SFSymbolDataSource.h"
 
 
-@interface SymbolsViewController()
+@interface SymbolsViewController() <SymbolPreviewDelegate>
 {
     dispatch_once_t _onceToken;
 }
@@ -182,6 +182,7 @@
         SymbolPreviewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SymbolPreviewCell.class)
                                                                             forIndexPath:indexPath];
         [cell setSymbol:self.symbolsForDisplay[indexPath.row]];
+        [cell setDelegate:self];
         return cell;
     }
     else
@@ -189,6 +190,7 @@
         SymbolPreviewTableCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SymbolPreviewTableCell.class)
                                                                                  forIndexPath:indexPath];
         [cell setSymbol:self.symbolsForDisplay[indexPath.row]];
+        [cell setDelegate:self];
         return cell;
     }
 }
@@ -281,6 +283,42 @@
     } completion:nil];
     
     storeUserActivityNumberOfItemsInColumn(self.numberOfItemInColumn);
+}
+
+- (void)symbolPreviewShowDetailedInfo:(SFSymbol *)symbol
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%@", symbol.useRestrictions] message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (UIFontTextStyle)preferredTextStyle
+{
+    return self.numberOfItemInColumn <= 1 ? UIFontTextStyleBody : UIFontTextStyleCaption1;
+}
+
+- (UIContextMenuConfiguration *)collectionView:(UICollectionView *)collectionView contextMenuConfigurationForItemAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point
+{
+    SFSymbol *symbol = self.symbolsForDisplay[indexPath.item];
+    NSArray <UIAction *> *cellActions = @[
+        [UIAction actionWithTitle:NSLocalizedString(@"Copy Name", nil) image:[UIImage systemImageNamed:@"doc.on.doc"] identifier:nil handler:^(__kindof UIAction *_Nonnull action) {
+            [[UIPasteboard generalPasteboard] setString:symbol.name];
+        }],
+        [UIAction actionWithTitle:NSLocalizedString(@"Share...", nil) image:[UIImage systemImageNamed:@"square.and.arrow.up"] identifier:nil handler:^(__kindof UIAction *_Nonnull action) {
+            UIActivityViewController *activityVC = [UIActivityViewController.alloc initWithActivityItems:@[ symbol.name, symbol.image ]
+                                                                                   applicationActivities:nil];
+            if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad )
+            {
+                activityVC.popoverPresentationController.sourceView = [collectionView cellForItemAtIndexPath:indexPath];
+                activityVC.popoverPresentationController.sourceRect = activityVC.popoverPresentationController.sourceView.bounds;
+            }
+            [self presentViewController:activityVC animated:YES completion:nil];
+        }],
+    ];
+    return [UIContextMenuConfiguration configurationWithIdentifier:nil previewProvider:nil actionProvider:^UIMenu *_Nullable (NSArray<UIMenuElement *> *_Nonnull suggestedActions) {
+        UIMenu *menu = [UIMenu menuWithTitle:@"" children:cellActions];
+        return menu;
+    }];
 }
 
 @end

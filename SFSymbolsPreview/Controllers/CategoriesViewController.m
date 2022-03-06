@@ -116,7 +116,7 @@
     SFSymbolCategory *category = [self categoryForIndexPath:indexPath];
     
     [cell.textLabel setText:category.name];
-    [cell.textLabel setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightRegular]];
+    [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
     [cell.detailTextLabel setText:@(category.symbols.count).stringValue];
     [cell.imageView setImage:[UIImage systemImageNamed:category.imageNamed]];
     [cell.imageView setTintColor:cell.textLabel.textColor];

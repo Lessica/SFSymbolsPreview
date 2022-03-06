@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [NSUserDefaults.standardUserDefaults setValue:@(NO) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
+    [NSUserDefaults.standardUserDefaults setValue:@(YES) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
     return YES;
 }
 

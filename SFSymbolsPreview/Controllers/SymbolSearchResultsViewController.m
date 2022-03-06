@@ -30,13 +30,15 @@
             NSRange range = [symbol.name rangeOfString:text options:NSCaseInsensitiveSearch];
             if( range.location != NSNotFound )
             {
+                UIFont *bodyFont = [UIFont preferredFontForTextStyle:[self preferredTextStyle]];
                 NSMutableAttributedString *attributedName = [NSAttributedString.alloc initWithString:symbol.name attributes:@{
                     NSForegroundColorAttributeName: UIColor.labelColor,
-                    NSFontAttributeName: [UIFont systemFontOfSize:15 weight:UIFontWeightRegular]
+                    NSFontAttributeName: bodyFont,
                 }].mutableCopy;
+                UIFont *boldFont = [UIFont fontWithDescriptor:[[bodyFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0];
                 [attributedName setAttributes:@{
                     NSForegroundColorAttributeName: tintColor,
-                    NSFontAttributeName: [UIFont systemFontOfSize:15 weight:UIFontWeightMedium]
+                    NSFontAttributeName: boldFont,
                 } range:range];
                 
                 [searchResults addObject:[SFSymbol symbolWithAttributedName:attributedName]];
@@ -58,8 +60,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self.view setBackgroundColor:UIColor.secondarySystemBackgroundColor];
+    
     [self.collectionView setKeyboardDismissMode:UIScrollViewKeyboardDismissModeOnDrag];
     [self.collectionView registerClass:ReusableTitleView.class
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader

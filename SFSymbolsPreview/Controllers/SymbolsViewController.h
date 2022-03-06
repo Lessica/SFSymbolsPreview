@@ -22,5 +22,6 @@
 @property( nonatomic, strong ) UICollectionView                     *collectionView;
 
 - (instancetype)initWithCategory:(SFSymbolCategory *)category;
+- (UIFontTextStyle)preferredTextStyle;
 
 @end
