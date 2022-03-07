@@ -23,14 +23,14 @@ void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight);
 
 @interface SFSymbolDataSource : NSObject
 
-@property( nonatomic, strong, readonly ) NSArray<SFSymbolCategory *>        *categories;
+@property (nonatomic, strong, readonly) NSArray <SFSymbolCategory *> *categories;
 
 + (instancetype)datasource;
 
 @end
 
 
-@interface UIImage( SharingImageExtension )
+@interface UIImage (SharingImageExtension)
 
 - (UIImage *)toSize:(CGSize)size;
 

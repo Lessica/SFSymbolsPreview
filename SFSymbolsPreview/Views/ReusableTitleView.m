@@ -10,9 +10,9 @@
 #import "ReusableTitleView.h"
 
 
-@interface ReusableTitleView()
+@interface ReusableTitleView ()
 
-@property( nonatomic, strong ) UILabel                  *titleLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
@@ -26,7 +26,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if( [super initWithFrame:frame] )
+    if ([super initWithFrame:frame])
     {
         [self setTitleLabel:({
             UILabel *f = UILabel.new;
@@ -46,7 +46,7 @@
 @end
 
 
-@interface ReusableSegmentedControlView()
+@interface ReusableSegmentedControlView ()
 
 @end
 
@@ -54,7 +54,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if( [super initWithFrame:frame] )
+    if ([super initWithFrame:frame])
     {
         [self setSegmentedControl:({
             NSArray <NSString *> *items = IS_IPAD() ? @[ @"One", @"Four", @"Six", @"Eight" ] : @[ @"One", @"Two", @"Three", @"Four" ];

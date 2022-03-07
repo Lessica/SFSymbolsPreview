@@ -11,9 +11,9 @@
 #import "ReusableTitleView.h"
 
 
-@interface SymbolSearchResultsViewController()
+@interface SymbolSearchResultsViewController ()
 
-@property( nonatomic, strong ) SFSymbolCategory         *searchResult;
+@property (nonatomic, strong) SFSymbolCategory *searchResult;
 
 @end
 
@@ -25,21 +25,21 @@
     UIColor *tintColor = self.view.tintColor;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        __block NSMutableArray<SFSymbol *> *searchResults = @[].mutableCopy;
-        [self.category.symbols enumerateObjectsUsingBlock:^(SFSymbol *symbol, NSUInteger index, BOOL *stop){
+        __block NSMutableArray <SFSymbol *> *searchResults = @[].mutableCopy;
+        [self.category.symbols enumerateObjectsUsingBlock:^(SFSymbol *symbol, NSUInteger index, BOOL *stop) {
             NSRange range = [symbol.name rangeOfString:text options:NSCaseInsensitiveSearch];
-            if( range.location != NSNotFound )
+            if (range.location != NSNotFound)
             {
                 UIFont *bodyFont = [UIFont preferredFontForTextStyle:[self preferredTextStyle]];
                 NSMutableAttributedString *attributedName = [NSAttributedString.alloc initWithString:symbol.name attributes:@{
-                    NSForegroundColorAttributeName: UIColor.labelColor,
-                    NSFontAttributeName: bodyFont,
-                }].mutableCopy;
+                                                                 NSForegroundColorAttributeName: UIColor.labelColor,
+                                                                 NSFontAttributeName: bodyFont,
+                                                            }].mutableCopy;
                 UIFont *boldFont = [UIFont fontWithDescriptor:[[bodyFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0];
                 [attributedName setAttributes:@{
-                    NSForegroundColorAttributeName: tintColor,
-                    NSFontAttributeName: boldFont,
-                } range:range];
+                     NSForegroundColorAttributeName: tintColor,
+                     NSFontAttributeName: boldFont,
+                 } range:range];
                 
                 [searchResults addObject:[SFSymbol symbolWithAttributedName:attributedName]];
             }
@@ -52,7 +52,7 @@
     });
 }
 
-- (NSArray<SFSymbol *> *)symbolsForDisplay
+- (NSArray <SFSymbol *> *)symbolsForDisplay
 {
     return self.searchResult.symbols;
 }
@@ -84,7 +84,7 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if( kind == UICollectionElementKindSectionHeader )
+    if (kind == UICollectionElementKindSectionHeader)
     {
         ReusableTitleView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                      withReuseIdentifier:NSStringFromClass(ReusableTitleView.class)

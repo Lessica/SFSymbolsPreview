@@ -10,7 +10,7 @@
 #import "SFSymbolDataSource.h"
 
 
-@interface AppDelegate()
+@interface AppDelegate ()
 
 @end
 

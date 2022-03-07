@@ -9,7 +9,7 @@
 #import "SFSymbolCategory.h"
 
 
-@interface SFSymbolCategory()
+@interface SFSymbolCategory ()
 
 @property (nonatomic, strong) NSMutableArray <SFSymbol *> *mutableSymbols;
 @property (nonatomic, strong) NSMutableSet <NSString *> *mutableSymbolNames;
@@ -25,7 +25,7 @@
 
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName imageNamed:(NSString *)imageNamed
 {
-    if( [super init] )
+    if ([super init])
     {
         _key = categoryKey;
         _name = categoryName;
@@ -38,7 +38,7 @@
 
 - (instancetype)initWithSearchResultsCategoryWithSymbols:(NSArray <SFSymbol *> *)symbols
 {
-    if( [super init] )
+    if ([super init])
     {
         _name = NSLocalizedString(@"Search Results", nil);
         _mutableSymbols = [symbols mutableCopy];

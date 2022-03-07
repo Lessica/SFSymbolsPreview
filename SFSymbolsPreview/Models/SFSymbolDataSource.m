@@ -20,10 +20,10 @@ SFSymbolCategory *lastOpenedCategeory(void)
     __block SFSymbolCategory *lastOpenedCategory;
     
     name = [NSUserDefaults.standardUserDefaults stringForKey:kLastOpenedCategoryNameKey];
-    if( name )
+    if (name)
     {
-        [SFSymbolDataSource.datasource.categories enumerateObjectsUsingBlock:^(SFSymbolCategory *category, NSUInteger index, BOOL *stop){
-            if( [category.name isEqualToString:name] )
+        [SFSymbolDataSource.datasource.categories enumerateObjectsUsingBlock:^(SFSymbolCategory *category, NSUInteger index, BOOL *stop) {
+            if ([category.name isEqualToString:name])
             {
                 lastOpenedCategory = category;
                 *stop = YES;
@@ -65,7 +65,7 @@ void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight)
 }
 
 
-@interface SFSymbolDataSource()
+@interface SFSymbolDataSource ()
 
 @end
 
@@ -83,7 +83,7 @@ void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight)
 
 - (instancetype)init
 {
-    if( [super init] )
+    if ([super init])
     {
         [self loadCategories];
     }
@@ -101,7 +101,7 @@ void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight)
 @end
 
 
-@implementation UIImage( SharingImageExtension )
+@implementation UIImage (SharingImageExtension)
 
 - (UIImage *)toSize:(CGSize)size
 {

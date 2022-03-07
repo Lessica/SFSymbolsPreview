@@ -45,9 +45,9 @@
 @end
 
 
-@interface CategoriesViewController()<UITableViewDelegate, UITableViewDataSource>
+@interface CategoriesViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property( nonatomic, strong ) UITableView                          *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 

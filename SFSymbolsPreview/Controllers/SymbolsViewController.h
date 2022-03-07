@@ -12,14 +12,14 @@
 #import "SymbolDetailsViewController.h"
 
 
-@interface SymbolsViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface SymbolsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property( nonatomic, assign ) NSUInteger                           numberOfItemInColumn;
+@property (nonatomic, assign) NSUInteger numberOfItemInColumn;
 
-@property( nonatomic, strong ) SFSymbolCategory                     *category;
-@property( nonatomic, weak   ) NSArray<SFSymbol *>                  *symbolsForDisplay;
+@property (nonatomic, strong) SFSymbolCategory *category;
+@property (nonatomic, weak) NSArray <SFSymbol *> *symbolsForDisplay;
 
-@property( nonatomic, strong ) UICollectionView                     *collectionView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 - (instancetype)initWithCategory:(SFSymbolCategory *)category;
 - (UIFontTextStyle)preferredTextStyle;

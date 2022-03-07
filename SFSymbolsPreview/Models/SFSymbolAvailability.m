@@ -71,7 +71,7 @@
         return [[[UIDevice currentDevice] systemVersion] localizedStandardCompare:availabilityValue] != NSOrderedAscending;
 #endif
     }
-    return [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){majorVersion, minorVersion, patchVersion}];
+    return [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion) {majorVersion, minorVersion, patchVersion}];
 }
 
 + (SFSymbolAvailabilityPlatform)platformWithName:(NSString *)platformName {

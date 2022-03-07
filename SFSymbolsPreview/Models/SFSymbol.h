@@ -15,10 +15,10 @@ extern NSString * const SFSymbolLayerSetNameHierarchical;
 extern NSString * const SFSymbolLayerSetNamePalette;
 extern NSString * const SFSymbolLayerSetNameMulticolor;
 
-typedef NSString * SFSymbolLayerSetName;
+typedef NSString *SFSymbolLayerSetName;
 
 @interface SFSymbol : NSObject
-
+    
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSAttributedString *attributedName;
 @property (nonatomic, strong, readonly) UIImage *image;

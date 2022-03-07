@@ -9,13 +9,13 @@
 #import "SymbolPreviewCell.h"
 
 
-@interface SymbolPreviewCell()
+@interface SymbolPreviewCell ()
 
-@property( nonatomic, strong ) UIImageView                      *imageView;
-@property( nonatomic, strong ) UILabel                          *textLabel;
-@property( nonatomic, strong ) UIButton                         *infoButton;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UILabel *textLabel;
+@property (nonatomic, strong) UIButton *infoButton;
 
-@property( nonatomic, strong ) UIView                           *selectedHighlightView;
+@property (nonatomic, strong) UIView *selectedHighlightView;
 
 @end
 
@@ -26,7 +26,7 @@
     _symbol = symbol;
     
     self.imageView.image = symbol.image;
-    if( symbol.attributedName )
+    if (symbol.attributedName)
     {
         self.textLabel.attributedText = symbol.attributedName;
     }
@@ -58,7 +58,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if( [super initWithFrame:frame] )
+    if ([super initWithFrame:frame])
     {
         [self setSelectedHighlightView:({
             UIView *f = UIView.new;
@@ -74,15 +74,23 @@
         })];
         
         [self setImageView:({
-            UIImageView *f = [UIImageView.alloc initWithImage:[UIImage systemImageNamed:@"paperplane.fill"]];
+            UIImageView *f = [UIImageView.alloc init];
             [f setContentMode:UIViewContentModeScaleAspectFit];
             [f setTintColor:UIColor.labelColor];
-            [self.selectedHighlightView addSubview:f];
+            UIView *w = [UIView.alloc init];
+            [w setClipsToBounds:YES];
+            [w addSubview:f];
             [f setTranslatesAutoresizingMaskIntoConstraints:NO];
-            [f.heightAnchor constraintEqualToAnchor:self.selectedHighlightView.heightAnchor multiplier:.68f].active = YES;
-            [f.widthAnchor constraintEqualToAnchor:f.heightAnchor].active = YES;
-            [f.centerXAnchor constraintEqualToAnchor:self.selectedHighlightView.centerXAnchor].active = YES;
-            [f.centerYAnchor constraintEqualToAnchor:self.selectedHighlightView.centerYAnchor].active = YES;
+            [f.topAnchor constraintEqualToAnchor:w.topAnchor].active = YES;
+            [f.leadingAnchor constraintEqualToAnchor:w.leadingAnchor].active = YES;
+            [f.trailingAnchor constraintEqualToAnchor:w.trailingAnchor].active = YES;
+            [f.bottomAnchor constraintEqualToAnchor:w.bottomAnchor].active = YES;
+            [self.selectedHighlightView addSubview:w];
+            [w setTranslatesAutoresizingMaskIntoConstraints:NO];
+            [w.heightAnchor constraintEqualToAnchor:self.selectedHighlightView.heightAnchor multiplier:.68f].active = YES;
+            [w.widthAnchor constraintEqualToAnchor:f.heightAnchor].active = YES;
+            [w.centerXAnchor constraintEqualToAnchor:self.selectedHighlightView.centerXAnchor].active = YES;
+            [w.centerYAnchor constraintEqualToAnchor:self.selectedHighlightView.centerYAnchor].active = YES;
             f;
         })];
         [self setTextLabel:({
@@ -124,15 +132,15 @@
 @end
 
 
-@interface SymbolPreviewTableCell()
+@interface SymbolPreviewTableCell ()
 
-@property( nonatomic, strong ) UIImageView                      *imageView;
-@property( nonatomic, strong ) UILabel                          *textLabel;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UILabel *textLabel;
 
-@property( nonatomic, strong ) NSLayoutConstraint               *infoButtonLeadingConstraint;
-@property( nonatomic, strong ) UIButton                         *infoButton;
+@property (nonatomic, strong) NSLayoutConstraint *infoButtonLeadingConstraint;
+@property (nonatomic, strong) UIButton *infoButton;
 
-@property( nonatomic, copy )   NSAttributedString               *attributedText;
+@property (nonatomic, copy)   NSAttributedString *attributedText;
 
 @end
 
@@ -143,7 +151,7 @@
     _symbol = symbol;
     
     self.imageView.image = symbol.image;
-    if( symbol.attributedName )
+    if (symbol.attributedName)
     {
         self.textLabel.attributedText = symbol.attributedName;
         self.attributedText = symbol.attributedName;
@@ -190,7 +198,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if( [super initWithFrame:frame] )
+    if ([super initWithFrame:frame])
     {
         [self.contentView.layer setCornerRadius:2.0f];
         

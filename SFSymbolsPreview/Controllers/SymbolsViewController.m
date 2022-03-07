@@ -12,7 +12,7 @@
 #import "SFSymbolDataSource.h"
 
 
-@interface SymbolsViewController() <SymbolPreviewDelegate>
+@interface SymbolsViewController () <SymbolPreviewDelegate>
 {
     dispatch_once_t _onceToken;
 }
@@ -25,7 +25,7 @@
 
 - (instancetype)initWithCategory:(SFSymbolCategory *)category
 {
-    if( [super init] )
+    if ([super init])
     {
         [self setCategory:category];
         [self setTitle:NSLocalizedString([category.name isEqualToString:@"All"] ? @"SF Symbols" : category.name, nil)];
@@ -33,7 +33,7 @@
     return self;
 }
 
-- (NSArray<SFSymbol *> *)symbolsForDisplay
+- (NSArray <SFSymbol *> *)symbolsForDisplay
 {
     return self.category.symbols;
 }
@@ -70,7 +70,7 @@
     
     [self.navigationItem setLeftBarButtonItem:self.splitViewController.displayModeButtonItem];
     [self.navigationItem setLeftItemsSupplementBackButton:YES];
-        
+    
     [self setCollectionView:({
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout.alloc init];
         [layout setMinimumInteritemSpacing:16];
@@ -116,7 +116,7 @@
 {
     [super viewDidAppear:animated];
     
-    if( [self isMemberOfClass:SymbolsViewController.class] )
+    if ([self isMemberOfClass:SymbolsViewController.class])
     {
         dispatch_once(&_onceToken, ^{
             storeUserActivityLastOpenedCategory(self.category);
@@ -146,7 +146,7 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if( kind == UICollectionElementKindSectionHeader )
+    if (kind == UICollectionElementKindSectionHeader)
     {
         ReusableSegmentedControlView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                                 withReuseIdentifier:NSStringFromClass(ReusableSegmentedControlView.class)
@@ -162,7 +162,7 @@
 {
     CGFloat itemWidth;
     
-    if( self.numberOfItemInColumn > 1 )
+    if (self.numberOfItemInColumn > 1)
     {
         NSUInteger column = IS_IPAD() ? self.numberOfItemInColumn * 2 : self.numberOfItemInColumn;
         itemWidth = (CGRectGetWidth(collectionView.bounds) - 16 * (column + 1)) / column;
@@ -177,7 +177,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if( self.numberOfItemInColumn > 1 )
+    if (self.numberOfItemInColumn > 1)
     {
         SymbolPreviewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SymbolPreviewCell.class)
                                                                             forIndexPath:indexPath];
@@ -196,7 +196,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
     [self.navigationController pushViewController:[SymbolDetailsViewController.alloc initWithSymbol:self.symbolsForDisplay[indexPath.item]]
                                          animated:YES];
 }
@@ -206,35 +206,35 @@
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil
                                                                     message:nil
                                                              preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Ultralight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Ultralight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightUltraLight];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Thin" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Thin" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightThin];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Light" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Light" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightLight];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Regular" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Regular" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightRegular];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Medium" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Medium" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightMedium];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Semibold" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Semibold" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightSemibold];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Bold" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Bold" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightBold];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Heavy" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Heavy" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightHeavy];
     }]];
-    [alertC addAction:[UIAlertAction actionWithTitle:@"Black" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [alertC addAction:[UIAlertAction actionWithTitle:@"Black" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self updatePreferredImageSymbolWeight:UIImageSymbolWeightBlack];
     }]];
     [alertC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
-    if( UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad )
+    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
     {
         alertC.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
     }
@@ -248,18 +248,18 @@
 
 - (void)updateRightBarButtonItemTitle
 {
-    switch( preferredImageSymbolWeight() )
+    switch (preferredImageSymbolWeight())
     {
-        case UIImageSymbolWeightUltraLight: self.navigationItem.rightBarButtonItem.title = @"Ultralight"; break;
-        case UIImageSymbolWeightThin: self.navigationItem.rightBarButtonItem.title = @"Thin"; break;
-        case UIImageSymbolWeightLight: self.navigationItem.rightBarButtonItem.title = @"Light"; break;
-        case UIImageSymbolWeightRegular: self.navigationItem.rightBarButtonItem.title = @"Regular"; break;
-        case UIImageSymbolWeightMedium: self.navigationItem.rightBarButtonItem.title = @"Medium"; break;
-        case UIImageSymbolWeightSemibold: self.navigationItem.rightBarButtonItem.title = @"Semibold"; break;
-        case UIImageSymbolWeightBold: self.navigationItem.rightBarButtonItem.title = @"Bold"; break;
-        case UIImageSymbolWeightHeavy: self.navigationItem.rightBarButtonItem.title = @"Heavy"; break;
-        case UIImageSymbolWeightBlack: self.navigationItem.rightBarButtonItem.title = @"Black"; break;
-        default: self.navigationItem.rightBarButtonItem.title = @"Regular"; break;
+    case UIImageSymbolWeightUltraLight: self.navigationItem.rightBarButtonItem.title = @"Ultralight"; break;
+    case UIImageSymbolWeightThin: self.navigationItem.rightBarButtonItem.title = @"Thin"; break;
+    case UIImageSymbolWeightLight: self.navigationItem.rightBarButtonItem.title = @"Light"; break;
+    case UIImageSymbolWeightRegular: self.navigationItem.rightBarButtonItem.title = @"Regular"; break;
+    case UIImageSymbolWeightMedium: self.navigationItem.rightBarButtonItem.title = @"Medium"; break;
+    case UIImageSymbolWeightSemibold: self.navigationItem.rightBarButtonItem.title = @"Semibold"; break;
+    case UIImageSymbolWeightBold: self.navigationItem.rightBarButtonItem.title = @"Bold"; break;
+    case UIImageSymbolWeightHeavy: self.navigationItem.rightBarButtonItem.title = @"Heavy"; break;
+    case UIImageSymbolWeightBlack: self.navigationItem.rightBarButtonItem.title = @"Black"; break;
+    default: self.navigationItem.rightBarButtonItem.title = @"Regular"; break;
     }
 }
 
@@ -268,8 +268,8 @@
     storeUserActivityPreferredImageSymbolWeight(weight);
     
     [self.collectionView performBatchUpdates:^{
-        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
-    } completion:nil];
+                             [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+                         } completion:nil];
     [self updateRightBarButtonItemTitle];
 }
 
@@ -279,8 +279,8 @@
     [self.searchResultsViewController setNumberOfItemInColumn:segmentedControl.selectedSegmentIndex + 1];
     
     [self.collectionView performBatchUpdates:^{
-        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
-    } completion:nil];
+                             [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+                         } completion:nil];
     
     storeUserActivityNumberOfItemsInColumn(self.numberOfItemInColumn);
 }
@@ -307,7 +307,7 @@
         [UIAction actionWithTitle:NSLocalizedString(@"Share...", nil) image:[UIImage systemImageNamed:@"square.and.arrow.up"] identifier:nil handler:^(__kindof UIAction *_Nonnull action) {
             UIActivityViewController *activityVC = [UIActivityViewController.alloc initWithActivityItems:@[ symbol.name, symbol.image ]
                                                                                    applicationActivities:nil];
-            if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad )
+            if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
             {
                 activityVC.popoverPresentationController.sourceView = [collectionView cellForItemAtIndexPath:indexPath];
                 activityVC.popoverPresentationController.sourceRect = activityVC.popoverPresentationController.sourceView.bounds;
@@ -315,7 +315,7 @@
             [self presentViewController:activityVC animated:YES completion:nil];
         }],
     ];
-    return [UIContextMenuConfiguration configurationWithIdentifier:nil previewProvider:nil actionProvider:^UIMenu *_Nullable (NSArray<UIMenuElement *> *_Nonnull suggestedActions) {
+    return [UIContextMenuConfiguration configurationWithIdentifier:nil previewProvider:nil actionProvider:^UIMenu *_Nullable (NSArray <UIMenuElement *> *_Nonnull suggestedActions) {
         UIMenu *menu = [UIMenu menuWithTitle:@"" children:cellActions];
         return menu;
     }];

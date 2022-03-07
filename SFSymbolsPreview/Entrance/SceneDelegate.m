@@ -13,7 +13,7 @@
 #import "SFSymbolDataSource.h"
 
 
-@interface SceneDelegate()
+@interface SceneDelegate ()
 
 @end
 
@@ -21,7 +21,7 @@
 
 - (UIWindow *)window
 {
-    if( _window == nil )
+    if (_window == nil)
     {
         _window = [UIWindow.alloc initWithFrame:UIScreen.mainScreen.bounds];
     }
@@ -34,7 +34,7 @@
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
-    if( [scene isKindOfClass:UIWindowScene.class] )
+    if ([scene isKindOfClass:UIWindowScene.class])
     {
         [self.window setWindowScene:(UIWindowScene *)scene];
     }

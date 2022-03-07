@@ -35,7 +35,7 @@
 
 - (instancetype)initWithName:(NSString *)name attributedName:(NSAttributedString *)attributedName
 {
-    if( [super init] )
+    if ([super init])
     {
         _name = name;
         _attributedName = attributedName;
