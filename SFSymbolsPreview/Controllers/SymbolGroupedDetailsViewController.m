@@ -187,6 +187,7 @@
             [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
             [cell.imageView setImage:nil];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         }
     }
     
@@ -231,6 +232,13 @@
     }
     
     return @[];
+}
+
+- (void)dealloc
+{
+#ifdef DEBUG
+    NSLog(@"- [%@ dealloc]", NSStringFromClass([self class]));
+#endif
 }
 
 @end

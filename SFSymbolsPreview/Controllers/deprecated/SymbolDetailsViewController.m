@@ -206,4 +206,11 @@
     [self updateRightBarButtonItemTitle];
 }
 
+- (void)dealloc
+{
+#ifdef DEBUG
+    NSLog(@"- [%@ dealloc]", NSStringFromClass([self class]));
+#endif
+}
+
 @end

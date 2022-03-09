@@ -89,7 +89,11 @@
         ReusableTitleView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                      withReuseIdentifier:NSStringFromClass(ReusableTitleView.class)
                                                                             forIndexPath:indexPath];
-        view.title = [NSString stringWithFormat:@"%@: %ld", NSLocalizedString(@"RESULTS", nil), self.symbolsForDisplay.count];
+        if (!self.symbolsForDisplay.count) {
+            view.title = NSLocalizedString(@"No symbol found", nil);
+        } else {
+            view.title = [NSString stringWithFormat:@"%ld %@", self.symbolsForDisplay.count, self.symbolsForDisplay.count > 1 ? NSLocalizedString(@"symbols", nil) : NSLocalizedString(@"symbol", nil)];
+        }
         return view;
     }
     return nil;
@@ -99,6 +103,13 @@
 {
     SymbolGroupedDetailsViewController *detailViewController = [SymbolGroupedDetailsViewController.alloc initWithSymbol:self.symbolsForDisplay[indexPath.item]];
     [self.searchResultDisplayingNavigationController pushViewController:detailViewController animated:YES];
+}
+
+- (void)dealloc
+{
+#ifdef DEBUG
+    NSLog(@"- [%@ dealloc]", NSStringFromClass([self class]));
+#endif
 }
 
 @end

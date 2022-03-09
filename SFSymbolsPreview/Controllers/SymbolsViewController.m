@@ -341,4 +341,11 @@
     [self.collectionView.collectionViewLayout invalidateLayout];
 }
 
+- (void)dealloc
+{
+#ifdef DEBUG
+    NSLog(@"- [%@ dealloc]", NSStringFromClass([self class]));
+#endif
+}
+
 @end

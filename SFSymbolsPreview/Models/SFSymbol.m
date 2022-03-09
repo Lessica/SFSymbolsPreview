@@ -55,11 +55,21 @@
     });
     
     if (!_variantName) {
-        NSString *variantSuffix = [[self.name componentsSeparatedByString:@"."] lastObject];
-        if ([variantSuffix isEqualToString:@"rtl"]) {
-            _variantName = NSLocalizedString(@"Right-to-Left", nil);
+        if (!self.symbolVariants.count) {
+            NSString *variantSuffix = [[self.name componentsSeparatedByString:@"."] lastObject];
+            if ([variantSuffix isEqualToString:@"rtl"]) {
+                _variantName = @"Right-to-Left";
+            } else {
+                _variantName = variantNames[variantSuffix];
+            }
         } else {
-            _variantName = variantNames[variantSuffix] ?: @"Latin";
+            SFSymbol *firstSymbolVariant = self.symbolVariants.firstObject;
+            NSString *variantSuffix = [[firstSymbolVariant.name componentsSeparatedByString:@"."] lastObject];
+            if ([variantSuffix isEqualToString:@"rtl"]) {
+                _variantName = @"Left-to-Right";
+            } else {
+                _variantName = @"Latin";
+            }
         }
     }
     return _variantName;

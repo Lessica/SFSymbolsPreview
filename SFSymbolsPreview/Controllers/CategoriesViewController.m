@@ -12,7 +12,7 @@
 
 
 @interface CategoryCell : UITableViewCell
-
+    
 @end
 
 @implementation CategoryCell
@@ -69,7 +69,7 @@
     [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeAutomatic];
     
     [self setTableView:({
-        UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
         [f setDelegate:self];
         [f setDataSource:self];
         [f setTableFooterView:UIView.new];
@@ -134,18 +134,11 @@
     [self.splitViewController showDetailViewController:navigationC sender:self];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if (section == 0) {
-        return [NSString stringWithFormat:@"SF Symbols\nVersion %@ (%@)", self.versionDictionary[@"CFBundleShortVersionString"], self.versionDictionary[@"CFBundleVersion"]];
-    }
-    return nil;
-}
-
-- (NSDictionary *)versionDictionary {
-    if (!_versionDictionary) {
-        _versionDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"version" ofType:@"plist"]];
-    }
-    return _versionDictionary;
+- (void)dealloc
+{
+#ifdef DEBUG
+    NSLog(@"- [%@ dealloc]", NSStringFromClass([self class]));
+#endif
 }
 
 @end
