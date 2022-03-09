@@ -1,5 +1,5 @@
 //
-//  SymbolGroupedDetailViewController.h
+//  SymbolGroupedDetailsViewController.h
 //  SFSymbolsPreview
 //
 //  Created by Mason Rachel on 2022/3/9.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SymbolGroupedDetailViewController : UIViewController
+@interface SymbolGroupedDetailsViewController : UIViewController
 
 - (instancetype)initWithSymbol:(SFSymbol *)symbol;
 

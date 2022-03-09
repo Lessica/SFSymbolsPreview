@@ -10,6 +10,7 @@
 #import "SymbolsViewController.h"
 #import "ReusableTitleView.h"
 #import "SFSymbolDataSource.h"
+#import "SymbolGroupedDetailsViewController.h"
 
 
 @interface SymbolsViewController () <SymbolPreviewDelegate>
@@ -46,6 +47,7 @@
     
     [self.view setBackgroundColor:UIColor.systemBackgroundColor];
     [self.navigationController.navigationBar setPrefersLargeTitles:YES];
+    [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeAutomatic];
     
     _searchResultsViewController = ({
         SymbolSearchResultsViewController *searchResultsVC = [SymbolSearchResultsViewController.alloc initWithCategory:self.category];
@@ -197,7 +199,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationController pushViewController:[SymbolDetailsViewController.alloc initWithSymbol:self.symbolsForDisplay[indexPath.item]]
+    [self.navigationController pushViewController:[SymbolGroupedDetailsViewController.alloc initWithSymbol:self.symbolsForDisplay[indexPath.item]]
                                          animated:YES];
 }
 

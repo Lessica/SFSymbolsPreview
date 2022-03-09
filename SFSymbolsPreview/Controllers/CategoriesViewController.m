@@ -65,6 +65,7 @@
     [self setTitle:NSLocalizedString(@"Categories", nil)];
     [self.view setBackgroundColor:UIColor.systemBackgroundColor];
     [self.navigationController.navigationBar setPrefersLargeTitles:YES];
+    [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeAutomatic];
     
     [self setTableView:({
         UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];

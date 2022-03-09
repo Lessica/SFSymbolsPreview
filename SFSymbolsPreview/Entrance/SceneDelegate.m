@@ -45,7 +45,10 @@
     SymbolsViewController *symbolsViewController = [SymbolsViewController.alloc initWithCategory:lastOpenedCategeory()];
     
     UINavigationController *masterViewController = [UINavigationController.alloc initWithRootViewController:categoriesViewController];
+    [masterViewController.navigationBar setPrefersLargeTitles:YES];
+    
     UINavigationController *detailViewController = [UINavigationController.alloc initWithRootViewController:symbolsViewController];
+    [detailViewController.navigationBar setPrefersLargeTitles:YES];
     
     [self.window setRootViewController:({
         UISplitViewController *splitViewController = UISplitViewController.new;

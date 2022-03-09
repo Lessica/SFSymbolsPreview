@@ -36,7 +36,7 @@
 		CCA4D99C27D3775E009D2777 /* symbol_unicodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */; };
 		CCA4D99E27D377BE009D2777 /* symbol_restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */; };
 		CCA4D9A027D37C55009D2777 /* symbols.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99F27D37C55009D2777 /* symbols.plist */; };
-		CCE6171127D871B7004E384D /* SymbolGroupedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE6171027D871B7004E384D /* SymbolGroupedDetailViewController.m */; };
+		CCE6171127D871B7004E384D /* SymbolGroupedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE6171027D871B7004E384D /* SymbolGroupedDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,8 +85,8 @@
 		CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbol_unicodes.plist; sourceTree = "<group>"; };
 		CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbol_restrictions.plist; sourceTree = "<group>"; };
 		CCA4D99F27D37C55009D2777 /* symbols.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbols.plist; sourceTree = "<group>"; };
-		CCE6170F27D871B7004E384D /* SymbolGroupedDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolGroupedDetailViewController.h; sourceTree = "<group>"; };
-		CCE6171027D871B7004E384D /* SymbolGroupedDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolGroupedDetailViewController.m; sourceTree = "<group>"; };
+		CCE6170F27D871B7004E384D /* SymbolGroupedDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolGroupedDetailsViewController.h; sourceTree = "<group>"; };
+		CCE6171027D871B7004E384D /* SymbolGroupedDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolGroupedDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +144,8 @@
 				7E0C9562247E6B520029F521 /* SymbolSearchResultsViewController.m */,
 				7EF172772481EC8D00A45B3F /* SymbolDetailsViewController.h */,
 				7EF172782481EC8D00A45B3F /* SymbolDetailsViewController.m */,
-				CCE6170F27D871B7004E384D /* SymbolGroupedDetailViewController.h */,
-				CCE6171027D871B7004E384D /* SymbolGroupedDetailViewController.m */,
+				CCE6170F27D871B7004E384D /* SymbolGroupedDetailsViewController.h */,
+				CCE6171027D871B7004E384D /* SymbolGroupedDetailsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE6171127D871B7004E384D /* SymbolGroupedDetailViewController.m in Sources */,
+				CCE6171127D871B7004E384D /* SymbolGroupedDetailsViewController.m in Sources */,
 				7E0C9580247F5F280029F521 /* SFSymbolCategory.m in Sources */,
 				7E0C9569247E6BD60029F521 /* SymbolPreviewCell.m in Sources */,
 				7E0C9547247E65890029F521 /* AppDelegate.m in Sources */,

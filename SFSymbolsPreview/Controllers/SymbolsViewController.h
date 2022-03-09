@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SFSymbolCategory.h"
 #import "SymbolPreviewCell.h"
-#import "SymbolDetailsViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
