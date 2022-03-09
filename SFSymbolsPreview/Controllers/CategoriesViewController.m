@@ -47,6 +47,7 @@
 
 @interface CategoriesViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) NSDictionary *versionDictionary;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -68,7 +69,7 @@
     [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeAutomatic];
     
     [self setTableView:({
-        UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
+        UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [f setDelegate:self];
         [f setDataSource:self];
         [f setTableFooterView:UIView.new];
@@ -131,6 +132,20 @@
     SymbolsViewController *symbolVC = [SymbolsViewController.alloc initWithCategory:[self categoryForIndexPath:indexPath]];
     UINavigationController *navigationC = [UINavigationController.alloc initWithRootViewController:symbolVC];
     [self.splitViewController showDetailViewController:navigationC sender:self];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if (section == 0) {
+        return [NSString stringWithFormat:@"SF Symbols\nVersion %@ (%@)", self.versionDictionary[@"CFBundleShortVersionString"], self.versionDictionary[@"CFBundleVersion"]];
+    }
+    return nil;
+}
+
+- (NSDictionary *)versionDictionary {
+    if (!_versionDictionary) {
+        _versionDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"version" ofType:@"plist"]];
+    }
+    return _versionDictionary;
 }
 
 @end

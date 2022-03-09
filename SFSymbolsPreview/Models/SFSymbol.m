@@ -16,6 +16,8 @@
 
 @implementation SFSymbol
 
+@synthesize variantName = _variantName;
+@synthesize symbolVariants = _symbolVariants;
 @synthesize layerSetAvailabilities = _layerSetAvailabilities;
 
 + (instancetype)symbolWithName:(NSString *)name
@@ -43,7 +45,57 @@
     return self;
 }
 
-- (SFSymbolAvailability *)availability {
+- (NSString *)variantName
+{
+    static NSDictionary <NSString *, NSString *> *variantNames = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        variantNames = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"symbol_variant_scripts" ofType:@"json"]] options:kNilOptions error:nil];
+    });
+    
+    if (!_variantName) {
+        NSString *variantSuffix = [[self.name componentsSeparatedByString:@"."] lastObject];
+        if ([variantSuffix isEqualToString:@"rtl"]) {
+            _variantName = NSLocalizedString(@"Right-to-Left", nil);
+        } else {
+            _variantName = variantNames[variantSuffix] ?: @"Latin";
+        }
+    }
+    return _variantName;
+}
+
+- (NSArray <SFSymbol *> *)symbolVariants
+{
+    static NSArray <NSString *> *allVariants = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSDictionary *localAvailabilitys = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"name_availability" ofType:@"plist"]];
+        allVariants = [localAvailabilitys[@"symbols"] allKeys];
+    });
+    
+    if (!_symbolVariants) {
+        NSString *variantPrefix = [self.name stringByAppendingString:@"."];
+        NSMutableArray <NSString *> *symbolVariantNames = [[NSMutableArray alloc] init];
+        for (NSString *symbolVariantName in allVariants) {
+            if ([symbolVariantName hasPrefix:variantPrefix] && (symbolVariantName.length - variantPrefix.length == 2 || (symbolVariantName.length - variantPrefix.length == 3 && [[symbolVariantName substringFromIndex:symbolVariantName.length - 3] isEqualToString:@"rtl"])))
+            {
+                [symbolVariantNames addObject:symbolVariantName];
+            }
+        }
+        [symbolVariantNames sortUsingSelector:@selector(localizedStandardCompare:)];
+        NSMutableArray <SFSymbol *> *symbolVariants = [[NSMutableArray alloc] initWithCapacity:symbolVariantNames.count];
+        for (NSString *symbolVariantName in symbolVariantNames) {
+            [symbolVariants addObject:[SFSymbol symbolWithName:symbolVariantName]];
+        }
+        _symbolVariants = symbolVariants;
+    }
+    return _symbolVariants;
+}
+
+- (SFSymbolAvailability *)availability
+{
     static NSMutableDictionary <NSString *, SFSymbolAvailability *> *allAvailabilitys = nil;
     static NSMutableDictionary <NSString *, NSString *> *availabilityMappings = nil;
     
@@ -69,7 +121,8 @@
     return allAvailabilitys[availabilityMappings[self.name]];
 }
 
-- (NSDictionary <SFSymbolLayerSetName, SFSymbolAvailability *> *)layerSetAvailabilities {
+- (NSDictionary <SFSymbolLayerSetName, SFSymbolAvailability *> *)layerSetAvailabilities
+{
     static NSMutableDictionary <NSString *, SFSymbolAvailability *> *allAvailabilitys = nil;
     static NSMutableDictionary <NSString *, NSDictionary <SFSymbolLayerSetName, NSString *> *> *availabilityMappings = nil;
     
@@ -106,7 +159,8 @@
     return _layerSetAvailabilities;
 }
 
-- (NSString *)useRestrictions {
+- (NSString *)useRestrictions
+{
     static NSDictionary <NSString *, NSString *> *allRestrictions = nil;
     static NSDictionary <NSString *, NSString *> *restrictionMappings = nil;
     
@@ -119,7 +173,8 @@
     return allRestrictions[restrictionMappings[self.name]];
 }
 
-- (NSString *)unicodeString {
+- (NSString *)unicodeString
+{
     static NSDictionary <NSString *, NSString *> *unicodeMappings = nil;
     
     static dispatch_once_t onceToken;

@@ -8,9 +8,12 @@
 
 #import "SymbolGroupedDetailsViewController.h"
 #import "SFSymbolDataSource.h"
+#import "SymbolKeyValueTableViewCell.h"
+#import "SymbolActionTableViewCell.h"
+#import "SymbolTextTableViewCell.h"
 
 
-@interface SymbolGroupedDetailsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SymbolGroupedDetailsViewController () <UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate>
 
 @property (nonatomic, strong) SFSymbol *symbol;
 
@@ -62,6 +65,8 @@
         UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
         [f setDelegate:self];
         [f setDataSource:self];
+        [f setDragDelegate:self];
+        [f setDragInteractionEnabled:YES];
         [f setRowHeight:UITableViewAutomaticDimension];
         [f setTableFooterView:UIView.new];
         [self.view addSubview:f];
@@ -70,7 +75,9 @@
         [f.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
         [f.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
         [f.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
-        [f registerClass:UITableViewCell.class forCellReuseIdentifier:NSStringFromClass(UITableViewCell.class)];
+        [f registerClass:SymbolKeyValueTableViewCell.class forCellReuseIdentifier:NSStringFromClass(SymbolKeyValueTableViewCell.class)];
+        [f registerClass:SymbolActionTableViewCell.class forCellReuseIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
+        [f registerClass:SymbolTextTableViewCell.class forCellReuseIdentifier:NSStringFromClass(SymbolTextTableViewCell.class)];
         f;
     })];
     
@@ -96,55 +103,98 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    if (section == 0) {
+        return 1 + self.symbol.symbolVariants.count;
+    } else if (section == 1) {
+        return 3;
+    } else if (section == 2) {
+        return 1;
+    }
+    return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 2) {
+        return NSLocalizedString(@"Availability", nil);
+    }
+    return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     if (section == 0) {
-        NSMutableString *footerString = nil;
-        if (self.symbol.useRestrictions) {
-            footerString = [[NSString stringWithFormat:@"%@\n\n", self.symbol.useRestrictions] mutableCopy];
-        } else {
-            footerString = [NSMutableString string];
-        }
-        [footerString appendFormat:NSLocalizedString(@"Availability: \n%@", nil), self.symbol.availability.description];
-        return footerString;
+        return self.symbol.useRestrictions;
     }
     return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        return self.imageViewCell;
-    }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(UITableViewCell.class)];
-    
     if (indexPath.section == 0) {
-        if (indexPath.row == 1) {
-            [cell.textLabel setText:[[NSLocalizedString(@"Copy", nil) stringByAppendingString:@" "] stringByAppendingString:self.symbol.name]];
-            [cell.textLabel setNumberOfLines:0];
-            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
-            [cell.imageView setImage:[UIImage systemImageNamed:@"doc.on.doc"]];
-            [cell.imageView setTintColor:self.view.tintColor];
-        } else if (indexPath.row == 2) {
-            [cell.textLabel setText:NSLocalizedString(@"Share...", nil)];
-            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
-            [cell.imageView setImage:[UIImage systemImageNamed:@"square.and.arrow.up"]];
-            [cell.imageView setTintColor:self.view.tintColor];
+        if (indexPath.row == 0) {
+            return self.imageViewCell;
         }
     }
     
-    return cell;
+    UITableViewCell *cell = nil;
+    
+    if (indexPath.section == 0) {
+        NSInteger row = indexPath.row - 1;
+        SFSymbol *symbolVariant = self.symbol.symbolVariants[row];
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolKeyValueTableViewCell.class)];
+        [cell.textLabel setText:symbolVariant.variantName];
+        [cell.detailTextLabel setText:symbolVariant.name];
+        [cell.textLabel setNumberOfLines:1];
+        [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+        [cell.imageView setImage:symbolVariant.image];
+        [cell.imageView setTintColor:UIColor.labelColor];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolKeyValueTableViewCell.class)];
+            [cell.textLabel setText:NSLocalizedString(@"Name", nil)];
+            [cell.detailTextLabel setText:self.symbol.name];
+            [cell.textLabel setNumberOfLines:1];
+            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+            [cell.imageView setImage:nil];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        } else if (indexPath.row == 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
+            [cell.textLabel setText:NSLocalizedString(@"Copy Name", nil)];
+            [cell.textLabel setNumberOfLines:1];
+            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+            [cell.imageView setImage:[UIImage systemImageNamed:@"doc.on.doc"]];
+            [cell.imageView setTintColor:self.view.tintColor];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+        } else if (indexPath.row == 2) {
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
+            [cell.textLabel setText:NSLocalizedString(@"Share...", nil)];
+            [cell.textLabel setNumberOfLines:1];
+            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+            [cell.imageView setImage:[UIImage systemImageNamed:@"square.and.arrow.up"]];
+            [cell.imageView setTintColor:self.view.tintColor];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+        }
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolTextTableViewCell.class)];
+            [cell.textLabel setText:self.symbol.availability.description];
+            [cell.textLabel setNumberOfLines:0];
+            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+            [cell.imageView setImage:nil];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
+    }
+    
+    return cell ?: [UITableViewCell new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         if (indexPath.row == 1) {
             UIPasteboard.generalPasteboard.string = self.symbol.name;
         } else if (indexPath.row == 2) {
@@ -158,6 +208,29 @@
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSArray <UIDragItem *> *)tableView:(UITableView *)tableView itemsForBeginningDragSession:(id <UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        SFSymbol *symbol = self.symbol;
+        
+        NSItemProvider *symbolProvider = [[NSItemProvider alloc] initWithObject:symbol.image];
+        UIDragItem *symbolDragItem = [[UIDragItem alloc] initWithItemProvider:symbolProvider];
+        
+        return @[symbolDragItem];
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        SFSymbol *symbol = self.symbol;
+        
+        NSItemProvider *symbolNameProvider = [[NSItemProvider alloc] initWithObject:symbol.name];
+        UIDragItem *symbolNameDragItem = [[UIDragItem alloc] initWithItemProvider:symbolNameProvider];
+        
+        return @[symbolNameDragItem];
+    }
+    
+    return @[];
 }
 
 @end

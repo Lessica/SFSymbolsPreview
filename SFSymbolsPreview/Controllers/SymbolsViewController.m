@@ -332,20 +332,13 @@
     NSItemProvider *symbolProvider = [[NSItemProvider alloc] initWithObject:symbol.image];
     UIDragItem *symbolDragItem = [[UIDragItem alloc] initWithItemProvider:symbolProvider];
     
-//    NSItemProvider *symbolNameProvider = [[NSItemProvider alloc] initWithObject:symbol.name];
-//    UIDragItem *symbolNameDragItem = [[UIDragItem alloc] initWithItemProvider:symbolNameProvider];
-    
-    return @[symbolDragItem, /* symbolNameDragItem */];
+    return @[symbolDragItem];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size
        withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
-    [coordinator animateAlongsideTransition:^(id <UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                     [self.collectionView reloadData];
-                 } completion:^(id <UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                     
-                 }];
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 
 @end

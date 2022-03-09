@@ -24,10 +24,13 @@ typedef NSString *SFSymbolLayerSetName;
 @property (nonatomic, copy, readonly) NSAttributedString *attributedName;
 @property (nonatomic, strong, readonly) UIImage *image;
 
+@property (nonatomic, copy, readonly, nullable) NSString *variantName;
+@property (nonatomic, strong, readonly) NSArray <SFSymbol *> *symbolVariants;
+
 @property (nonatomic, strong, readonly) SFSymbolAvailability *availability;
 @property (nonatomic, strong, readonly) NSDictionary <SFSymbolLayerSetName, SFSymbolAvailability *> *layerSetAvailabilities;
-@property (nonatomic, copy, readonly) NSString *useRestrictions;
-@property (nonatomic, copy, readonly) NSString *unicodeString;
+@property (nonatomic, copy, readonly, nullable) NSString *useRestrictions;
+@property (nonatomic, copy, readonly, nullable) NSString *unicodeString;
 
 + (instancetype)symbolWithName:(NSString *)name;
 + (instancetype)symbolWithAttributedName:(NSAttributedString *)attributedName;

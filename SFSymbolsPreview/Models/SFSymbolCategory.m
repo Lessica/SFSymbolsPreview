@@ -108,11 +108,6 @@
             }
         }
     }];
-    
-    /// Sort (Optional)
-//    [_mutableSymbols sortUsingComparator:^NSComparisonResult(SFSymbol *obj1, SFSymbol *obj2) {
-//        return [obj1.name localizedStandardCompare:obj2.name];
-//    }];
 }
 
 @end
