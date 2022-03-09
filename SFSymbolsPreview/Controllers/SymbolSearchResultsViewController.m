@@ -7,7 +7,7 @@
 //
 
 #import "SymbolSearchResultsViewController.h"
-#import "SymbolDetailsViewController.h"
+#import "SymbolGroupedDetailsViewController.h"
 #import "ReusableTitleView.h"
 
 
@@ -37,9 +37,9 @@
                                                             }].mutableCopy;
                 UIFont *boldFont = [UIFont fontWithDescriptor:[[bodyFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0];
                 [attributedName setAttributes:@{
-                     NSForegroundColorAttributeName: tintColor,
-                     NSFontAttributeName: boldFont,
-                 } range:range];
+                    NSForegroundColorAttributeName: tintColor,
+                    NSFontAttributeName: boldFont,
+                } range:range];
                 
                 [searchResults addObject:[SFSymbol symbolWithAttributedName:attributedName]];
             }
@@ -97,7 +97,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SymbolDetailsViewController *detailViewController = [SymbolDetailsViewController.alloc initWithSymbol:self.symbolsForDisplay[indexPath.item]];
+    SymbolGroupedDetailsViewController *detailViewController = [SymbolGroupedDetailsViewController.alloc initWithSymbol:self.symbolsForDisplay[indexPath.item]];
     [self.searchResultDisplayingNavigationController pushViewController:detailViewController animated:YES];
 }
 

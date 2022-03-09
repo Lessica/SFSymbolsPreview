@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-BOOL IS_IPAD(void);
+BOOL IS_IPAD(UIView *);
 
 SFSymbolCategory *lastOpenedCategeory(void);
 void storeUserActivityLastOpenedCategory(SFSymbolCategory *category);

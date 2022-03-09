@@ -57,7 +57,7 @@
     if ([super initWithFrame:frame])
     {
         [self setSegmentedControl:({
-            NSArray <NSString *> *items = IS_IPAD() ? @[ @"One", @"Four", @"Six", @"Eight" ] : @[ @"One", @"Two", @"Three", @"Four" ];
+            NSArray <NSString *> *items = @[@"", @"", @"", @""];
             UISegmentedControl *f = [UISegmentedControl.alloc initWithItems:items];
             [self addSubview:f];
             [f setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -66,8 +66,27 @@
             [f.topAnchor constraintEqualToAnchor:self.layoutMarginsGuide.topAnchor constant:8.f].active = YES;
             f;
         })];
+        [self updateSegmentedTitles];
     }
     return self;
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [self updateSegmentedTitles];
+}
+
+- (void)updateSegmentedTitles {
+    if (IS_IPAD(self)) {
+        [self.segmentedControl setTitle:NSLocalizedString(@"One", nil) forSegmentAtIndex:0];
+        [self.segmentedControl setTitle:NSLocalizedString(@"Four", nil) forSegmentAtIndex:1];
+        [self.segmentedControl setTitle:NSLocalizedString(@"Six", nil) forSegmentAtIndex:2];
+        [self.segmentedControl setTitle:NSLocalizedString(@"Eight", nil) forSegmentAtIndex:3];
+    } else {
+        [self.segmentedControl setTitle:NSLocalizedString(@"One", nil) forSegmentAtIndex:0];
+        [self.segmentedControl setTitle:NSLocalizedString(@"Two", nil) forSegmentAtIndex:1];
+        [self.segmentedControl setTitle:NSLocalizedString(@"Three", nil) forSegmentAtIndex:2];
+        [self.segmentedControl setTitle:NSLocalizedString(@"Four", nil) forSegmentAtIndex:3];
+    }
 }
 
 @end

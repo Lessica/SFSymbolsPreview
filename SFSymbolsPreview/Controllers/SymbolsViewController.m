@@ -13,7 +13,7 @@
 #import "SymbolGroupedDetailsViewController.h"
 
 
-@interface SymbolsViewController () <SymbolPreviewDelegate>
+@interface SymbolsViewController () <SymbolPreviewDelegate, UICollectionViewDragDelegate>
 {
     dispatch_once_t _onceToken;
 }
@@ -81,6 +81,8 @@
         UICollectionView *f = [UICollectionView.alloc initWithFrame:CGRectZero collectionViewLayout:layout];
         [f setDelegate:self];
         [f setDataSource:self];
+        [f setDragDelegate:self];
+        [f setDragInteractionEnabled:YES];
         [f setAlwaysBounceVertical:YES];
         [f setAlwaysBounceHorizontal:NO];
         [f setShowsVerticalScrollIndicator:YES];
@@ -166,7 +168,7 @@
     
     if (self.numberOfItemInColumn > 1)
     {
-        NSUInteger column = IS_IPAD() ? self.numberOfItemInColumn * 2 : self.numberOfItemInColumn;
+        NSUInteger column = IS_IPAD(collectionView) ? self.numberOfItemInColumn * 2 : self.numberOfItemInColumn;
         itemWidth = (CGRectGetWidth(collectionView.bounds) - 16 * (column + 1)) / column;
         return CGSizeMake(itemWidth - 1, itemWidth * .68f + 44);
     }
@@ -303,10 +305,10 @@
 {
     SFSymbol *symbol = self.symbolsForDisplay[indexPath.item];
     NSArray <UIAction *> *cellActions = @[
-        [UIAction actionWithTitle:NSLocalizedString(@"Copy Name", nil) image:[UIImage systemImageNamed:@"doc.on.doc"] identifier:nil handler:^(__kindof UIAction *_Nonnull action) {
+        [UIAction actionWithTitle:NSLocalizedString(@"Copy Name", nil) image:[UIImage systemImageNamed:@"doc.on.doc"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             [[UIPasteboard generalPasteboard] setString:symbol.name];
         }],
-        [UIAction actionWithTitle:NSLocalizedString(@"Share...", nil) image:[UIImage systemImageNamed:@"square.and.arrow.up"] identifier:nil handler:^(__kindof UIAction *_Nonnull action) {
+        [UIAction actionWithTitle:NSLocalizedString(@"Share...", nil) image:[UIImage systemImageNamed:@"square.and.arrow.up"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             UIActivityViewController *activityVC = [UIActivityViewController.alloc initWithActivityItems:@[ symbol.name, symbol.image ]
                                                                                    applicationActivities:nil];
             if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
@@ -317,10 +319,33 @@
             [self presentViewController:activityVC animated:YES completion:nil];
         }],
     ];
-    return [UIContextMenuConfiguration configurationWithIdentifier:nil previewProvider:nil actionProvider:^UIMenu *_Nullable (NSArray <UIMenuElement *> *_Nonnull suggestedActions) {
+    return [UIContextMenuConfiguration configurationWithIdentifier:nil previewProvider:nil actionProvider:^UIMenu * _Nullable (NSArray <UIMenuElement *> * _Nonnull suggestedActions) {
         UIMenu *menu = [UIMenu menuWithTitle:@"" children:cellActions];
         return menu;
     }];
+}
+
+- (NSArray <UIDragItem *> *)collectionView:(UICollectionView *)collectionView itemsForBeginningDragSession:(id <UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath
+{
+    SFSymbol *symbol = self.symbolsForDisplay[indexPath.item];
+    
+    NSItemProvider *symbolProvider = [[NSItemProvider alloc] initWithObject:symbol.image];
+    UIDragItem *symbolDragItem = [[UIDragItem alloc] initWithItemProvider:symbolProvider];
+    
+//    NSItemProvider *symbolNameProvider = [[NSItemProvider alloc] initWithObject:symbol.name];
+//    UIDragItem *symbolNameDragItem = [[UIDragItem alloc] initWithItemProvider:symbolNameProvider];
+    
+    return @[symbolDragItem, /* symbolNameDragItem */];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    [coordinator animateAlongsideTransition:^(id <UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+                     [self.collectionView reloadData];
+                 } completion:^(id <UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+                     
+                 }];
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
 @end

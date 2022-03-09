@@ -105,7 +105,14 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     if (section == 0) {
-        return self.symbol.useRestrictions;
+        NSMutableString *footerString = nil;
+        if (self.symbol.useRestrictions) {
+            footerString = [[NSString stringWithFormat:@"%@\n\n", self.symbol.useRestrictions] mutableCopy];
+        } else {
+            footerString = [NSMutableString string];
+        }
+        [footerString appendFormat:NSLocalizedString(@"Availability: \n%@", nil), self.symbol.availability.description];
+        return footerString;
     }
     return nil;
 }

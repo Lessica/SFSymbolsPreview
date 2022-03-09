@@ -8,9 +8,9 @@
 
 #import "SFSymbolDataSource.h"
 
-BOOL IS_IPAD(void)
+BOOL IS_IPAD(UIView *targetView)
 {
-    return UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    return [[targetView traitCollection] horizontalSizeClass] == UIUserInterfaceSizeClassRegular;
 }
 
 static NSString *const kLastOpenedCategoryNameKey = @"LastOpenedCategoryName";
