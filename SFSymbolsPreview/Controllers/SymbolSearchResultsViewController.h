@@ -8,9 +8,12 @@
 
 #import "SymbolsViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface SymbolSearchResultsViewController : SymbolsViewController <UISearchResultsUpdating>
 
 @property (nonatomic, weak) UINavigationController *searchResultDisplayingNavigationController;
 
 @end
+
+NS_ASSUME_NONNULL_END

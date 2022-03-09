@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface ReusableTitleView : UICollectionReusableView
 
@@ -15,9 +16,10 @@
 
 @end
 
-
 @interface ReusableSegmentedControlView : UICollectionReusableView
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 
 @end
+
+NS_ASSUME_NONNULL_END

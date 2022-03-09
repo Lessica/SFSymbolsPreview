@@ -8,9 +8,12 @@
 
 #import "SFSymbol.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface SymbolDetailsViewController : UIViewController
 
 - (instancetype)initWithSymbol:(SFSymbol *)symbol;
 
 @end
+
+NS_ASSUME_NONNULL_END

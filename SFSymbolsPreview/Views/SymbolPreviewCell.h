@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SFSymbol.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol SymbolPreviewDelegate <NSObject>
 
@@ -17,7 +18,6 @@
 
 @end
 
-
 @interface SymbolPreviewCell : UICollectionViewCell
 
 @property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
@@ -25,10 +25,11 @@
 
 @end
 
-
 @interface SymbolPreviewTableCell : UICollectionViewCell
 
 @property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
 @property (nonatomic, weak) SFSymbol *symbol;
 
 @end
+
+NS_ASSUME_NONNULL_END

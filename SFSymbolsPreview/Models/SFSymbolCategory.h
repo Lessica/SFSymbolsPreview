@@ -8,6 +8,7 @@
 
 #import "SFSymbol.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface SFSymbolCategory : NSObject
 
@@ -18,7 +19,9 @@
 @property (nonatomic, strong, readonly) NSArray <SFSymbol *> *symbols;
 
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName;
-- (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName imageNamed:(NSString *)imageNamed;
+- (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName imageNamed:(nullable NSString *)imageNamed;
 - (instancetype)initWithSearchResultsCategoryWithSymbols:(NSArray <SFSymbol *> *)symbols;
 
 @end
+
+NS_ASSUME_NONNULL_END

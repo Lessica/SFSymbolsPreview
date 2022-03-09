@@ -8,6 +8,8 @@
 
 #import "SFSymbolCategory.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 BOOL IS_IPAD(void);
 
 SFSymbolCategory *lastOpenedCategeory(void);
@@ -20,7 +22,6 @@ FOUNDATION_EXTERN NSNotificationName const PreferredSymbolWeightDidChangeNotific
 UIImageSymbolWeight preferredImageSymbolWeight(void);
 void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight);
 
-
 @interface SFSymbolDataSource : NSObject
 
 @property (nonatomic, strong, readonly) NSArray <SFSymbolCategory *> *categories;
@@ -29,9 +30,10 @@ void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight);
 
 @end
 
-
 @interface UIImage (SharingImageExtension)
 
 - (UIImage *)toSize:(CGSize)size;
 
 @end
+
+NS_ASSUME_NONNULL_END

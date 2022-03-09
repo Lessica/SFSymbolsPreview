@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SFSymbolAvailability.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 extern NSString * const SFSymbolLayerSetNameMonochrome;
 extern NSString * const SFSymbolLayerSetNameHierarchical;
@@ -32,3 +33,5 @@ typedef NSString *SFSymbolLayerSetName;
 + (instancetype)symbolWithAttributedName:(NSAttributedString *)attributedName;
 
 @end
+
+NS_ASSUME_NONNULL_END

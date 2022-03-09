@@ -11,6 +11,7 @@
 #import "SymbolPreviewCell.h"
 #import "SymbolDetailsViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface SymbolsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -25,3 +26,5 @@
 - (UIFontTextStyle)preferredTextStyle;
 
 @end
+
+NS_ASSUME_NONNULL_END
