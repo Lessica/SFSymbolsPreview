@@ -42,6 +42,7 @@
         _indentationWidth = 14.0;
         _entryPath = path;
         [self setupWithPath];
+        [self calculateIndentationWidthAutomatically];
     }
     return self;
 }
@@ -51,6 +52,7 @@
         _indentationWidth = 14.0;
         _object = object;
         [self setupWithObject];
+        [self calculateIndentationWidthAutomatically];
     }
     return self;
 }
@@ -254,8 +256,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ObjectCell *cell = (ObjectCell *)[tableView dequeueReusableCellWithIdentifier:@"ObjectCell" forIndexPath:indexPath];
-    cell.indentationWidth = self.indentationWidth;
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    {
+        cell.indentationWidth = self.indentationWidth;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     
     ObjectNode *rootNode = self.searchController.isActive ? self.rootNodeForSearch : self.rootNode;
     ObjectNode *cellNode = [rootNode descendantNodeAtIndex:(self.initialRootHidden ? indexPath.row + 1 : indexPath.row)];
@@ -384,6 +390,14 @@
         [self.rootNodeForSearch updateVisibleStateWithPredicate:predicate];
     }
     [self.tableView reloadData];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [self calculateIndentationWidthAutomatically];
+}
+
+- (void)calculateIndentationWidthAutomatically {
+    _indentationWidth = [UIFont preferredFontForTextStyle:UIFontTextStyleBody].pointSize * 2;
 }
 
 #pragma mark -
