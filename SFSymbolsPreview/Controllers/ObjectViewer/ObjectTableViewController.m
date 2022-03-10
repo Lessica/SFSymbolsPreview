@@ -276,13 +276,13 @@
         if ([cellNode isContainerNode]) {
             strKey = [NSString stringWithFormat:@"%@ %@", ([cellNode isExpanded] ? @"▼" : @"▶"), cellKey];
             attrKey = [[NSMutableAttributedString alloc] initWithString:strKey attributes:@{
-                           NSFontAttributeName: [UIFont systemFontOfSize:[UIFont systemFontSize]],
+                           NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleBody],
                            NSForegroundColorAttributeName: cellNode.isNodeOfArray ? [UIColor linkColor] : [UIColor labelColor],
             }];
         } else {
             strKey = [NSString stringWithFormat:@"%@", cellKey];
             attrKey = [[NSMutableAttributedString alloc] initWithString:strKey attributes:@{
-                           NSFontAttributeName: [UIFont systemFontOfSize:[UIFont systemFontSize]],
+                           NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleBody],
                            NSForegroundColorAttributeName: cellNode.isNodeOfArray ? [UIColor linkColor] : [UIColor labelColor],
             }];
         }
@@ -310,12 +310,14 @@
         NSString *strVal = [NSString stringWithFormat:@"%@", [ObjectNode stringValueOfNode:cellNode]];
         if ([cellNode isLeafNode]) {
             attrValue = [[NSMutableAttributedString alloc] initWithString:strVal attributes:@{
-                             NSFontAttributeName: [UIFont systemFontOfSize:[UIFont systemFontSize]],
+                             NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleBody],
                              NSForegroundColorAttributeName: [UIColor secondaryLabelColor],
             }];
         } else {
+            UIFont *bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+            UIFont *italicFont = [UIFont fontWithDescriptor:[[bodyFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitItalic] size:0];
             attrValue = [[NSMutableAttributedString alloc] initWithString:strVal attributes:@{
-                             NSFontAttributeName: [UIFont italicSystemFontOfSize:[UIFont systemFontSize]],
+                             NSFontAttributeName: italicFont,
                              NSForegroundColorAttributeName: [UIColor secondaryLabelColor],
             }];
         }

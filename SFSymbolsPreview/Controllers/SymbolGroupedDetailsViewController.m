@@ -196,6 +196,8 @@
             [textCell.centeredTextLabel setNumberOfLines:0];
             [textCell.centeredTextLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
             [textCell.centeredDetailTextLabel setText:SFSymbolLayerSetDisplayName(SFSymbolLayerSetNameMonochrome)];
+            [textCell.centeredDetailTextLabel setNumberOfLines:1];
+            [textCell.centeredDetailTextLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
             [textCell.imageView setImage:nil];
             [textCell setSelectionStyle:UITableViewCellSelectionStyleDefault];
             [textCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
