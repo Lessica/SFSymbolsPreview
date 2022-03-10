@@ -26,7 +26,7 @@ void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight);
 
 @property (nonatomic, strong, readonly) NSArray <SFSymbolCategory *> *categories;
 
-+ (instancetype)datasource;
++ (instancetype)dataSource;
 
 @end
 

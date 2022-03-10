@@ -1,12 +1,12 @@
 //
-//  CategoriesViewController.m
+//  SFCategoriesViewController.m
 //  SFSymbolsPreview
 //
 //  Created by YICAI YANG on 2020/5/28.
 //  Copyright © 2020 YICAI YANG. All rights reserved.
 //
 
-#import "CategoriesViewController.h"
+#import "SFCategoriesViewController.h"
 #import "SymbolsViewController.h"
 #import "SFSymbolDataSource.h"
 
@@ -45,18 +45,18 @@
 @end
 
 
-@interface CategoriesViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SFCategoriesViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSDictionary *versionDictionary;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-@implementation CategoriesViewController
+@implementation SFCategoriesViewController
 
 - (SFSymbolCategory *)categoryForIndexPath:(NSIndexPath *)indexPath
 {
-    return SFSymbolDataSource.datasource.categories[indexPath.row];
+    return SFSymbolDataSource.dataSource.categories[indexPath.row];
 }
 
 - (void)viewDidLoad
@@ -100,7 +100,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return SFSymbolDataSource.datasource.categories.count;
+    return SFSymbolDataSource.dataSource.categories.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

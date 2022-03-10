@@ -1,5 +1,5 @@
 //
-//  ReusableTitleView.h
+//  SFReusableTitleView.h
 //  SFSymbolsPreview
 //
 //  Created by YICAI YANG on 2020/5/27.
@@ -10,13 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ReusableTitleView : UICollectionReusableView
+@interface SFReusableTitleView : UICollectionReusableView
 
 @property (nonatomic, strong) NSString *title;
 
 @end
 
-@interface ReusableSegmentedControlView : UICollectionReusableView
+@interface SFReusableSegmentedControlView : UICollectionReusableView
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 

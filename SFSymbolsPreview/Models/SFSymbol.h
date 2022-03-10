@@ -18,6 +18,8 @@ extern NSString * const SFSymbolLayerSetNameMulticolor;
 
 typedef NSString *SFSymbolLayerSetName;
 
+extern NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name);
+
 @interface SFSymbol : NSObject
     
 @property (nonatomic, copy, readonly) NSString *name;
@@ -26,11 +28,14 @@ typedef NSString *SFSymbolLayerSetName;
 
 @property (nonatomic, copy, readonly, nullable) NSString *variantName;
 @property (nonatomic, strong, readonly) NSArray <SFSymbol *> *symbolVariants;
+@property (nonatomic, strong, readonly) NSArray <SFSymbol *> *symbolAliases;
 
 @property (nonatomic, strong, readonly) SFSymbolAvailability *availability;
 @property (nonatomic, strong, readonly) NSDictionary <SFSymbolLayerSetName, SFSymbolAvailability *> *layerSetAvailabilities;
 @property (nonatomic, copy, readonly, nullable) NSString *useRestrictions;
 @property (nonatomic, copy, readonly, nullable) NSString *unicodeString;
+
+@property (nonatomic, strong, readonly) NSDictionary *availabilityDictionary;
 
 + (instancetype)symbolWithName:(NSString *)name;
 + (instancetype)symbolWithAttributedName:(NSAttributedString *)attributedName;

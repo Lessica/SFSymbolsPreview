@@ -1,5 +1,5 @@
 //
-//  CategoriesViewController.h
+//  SFCategoriesViewController.h
 //  SFSymbolsPreview
 //
 //  Created by YICAI YANG on 2020/5/28.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CategoriesViewController : UIViewController
+@interface SFCategoriesViewController : UIViewController
 
 @end
 

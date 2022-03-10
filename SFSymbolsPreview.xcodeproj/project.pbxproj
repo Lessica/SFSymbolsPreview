@@ -15,12 +15,11 @@
 		7E0C9560247E65F50029F521 /* SymbolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C955F247E65F50029F521 /* SymbolsViewController.m */; };
 		7E0C9563247E6B520029F521 /* SymbolSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C9562247E6B520029F521 /* SymbolSearchResultsViewController.m */; };
 		7E0C9569247E6BD60029F521 /* SymbolPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C9568247E6BD60029F521 /* SymbolPreviewCell.m */; };
-		7E0C956F247E71570029F521 /* ReusableTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C956E247E71570029F521 /* ReusableTitleView.m */; };
+		7E0C956F247E71570029F521 /* SFReusableTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C956E247E71570029F521 /* SFReusableTitleView.m */; };
 		7E0C9572247F43180029F521 /* SFSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C9571247F43180029F521 /* SFSymbol.m */; };
-		7E0C957D247F588E0029F521 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C957C247F588E0029F521 /* CategoriesViewController.m */; };
+		7E0C957D247F588E0029F521 /* SFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C957C247F588E0029F521 /* SFCategoriesViewController.m */; };
 		7E0C9580247F5F280029F521 /* SFSymbolCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C957F247F5F280029F521 /* SFSymbolCategory.m */; };
 		7EE40721247F861600A68520 /* SFSymbolDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE40720247F861600A68520 /* SFSymbolDataSource.m */; };
-		7EF172792481EC8D00A45B3F /* SymbolDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF172782481EC8D00A45B3F /* SymbolDetailsViewController.m */; };
 		CC36F10927D3385D000C4495 /* symbol_search.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10227D3385B000C4495 /* symbol_search.plist */; };
 		CC36F10A27D3385D000C4495 /* name_availability.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10327D3385B000C4495 /* name_availability.plist */; };
 		CC36F10B27D3385D000C4495 /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10427D3385B000C4495 /* categories.plist */; };
@@ -34,6 +33,9 @@
 		CC5BBDE827D9053E0021B9FB /* SymbolTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5BBDE727D9053E0021B9FB /* SymbolTextTableViewCell.m */; };
 		CC5BBDEB27D9054C0021B9FB /* SymbolActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5BBDEA27D9054C0021B9FB /* SymbolActionTableViewCell.m */; };
 		CC5BBDED27D90EBA0021B9FB /* symbol_variant_scripts.json in Resources */ = {isa = PBXBuildFile; fileRef = CC5BBDEC27D90EBA0021B9FB /* symbol_variant_scripts.json */; };
+		CC7A0FBB27DA3D8200C5DCD5 /* ObjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FB527DA3D8200C5DCD5 /* ObjectCell.m */; };
+		CC7A0FBC27DA3D8200C5DCD5 /* ObjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FB627DA3D8200C5DCD5 /* ObjectTableViewController.m */; };
+		CC7A0FBD27DA3D8200C5DCD5 /* ObjectNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FBA27DA3D8200C5DCD5 /* ObjectNode.m */; };
 		CCA4D99327D36BE0009D2777 /* colors.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99227D36BE0009D2777 /* colors.csv */; };
 		CCA4D99527D36BE7009D2777 /* symbol_variant_scripts.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */; };
 		CCA4D99927D37130009D2777 /* restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99827D37130009D2777 /* restrictions.plist */; };
@@ -59,18 +61,16 @@
 		7E0C9562247E6B520029F521 /* SymbolSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolSearchResultsViewController.m; sourceTree = "<group>"; };
 		7E0C9567247E6BD60029F521 /* SymbolPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolPreviewCell.h; sourceTree = "<group>"; };
 		7E0C9568247E6BD60029F521 /* SymbolPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolPreviewCell.m; sourceTree = "<group>"; };
-		7E0C956D247E71570029F521 /* ReusableTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReusableTitleView.h; sourceTree = "<group>"; };
-		7E0C956E247E71570029F521 /* ReusableTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReusableTitleView.m; sourceTree = "<group>"; };
+		7E0C956D247E71570029F521 /* SFReusableTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFReusableTitleView.h; sourceTree = "<group>"; };
+		7E0C956E247E71570029F521 /* SFReusableTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFReusableTitleView.m; sourceTree = "<group>"; };
 		7E0C9570247F43180029F521 /* SFSymbol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbol.h; sourceTree = "<group>"; };
 		7E0C9571247F43180029F521 /* SFSymbol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbol.m; sourceTree = "<group>"; };
-		7E0C957B247F588E0029F521 /* CategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
-		7E0C957C247F588E0029F521 /* CategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
+		7E0C957B247F588E0029F521 /* SFCategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFCategoriesViewController.h; sourceTree = "<group>"; };
+		7E0C957C247F588E0029F521 /* SFCategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFCategoriesViewController.m; sourceTree = "<group>"; };
 		7E0C957E247F5F280029F521 /* SFSymbolCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolCategory.h; sourceTree = "<group>"; };
 		7E0C957F247F5F280029F521 /* SFSymbolCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolCategory.m; sourceTree = "<group>"; };
 		7EE4071F247F861600A68520 /* SFSymbolDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolDataSource.h; sourceTree = "<group>"; };
 		7EE40720247F861600A68520 /* SFSymbolDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolDataSource.m; sourceTree = "<group>"; };
-		7EF172772481EC8D00A45B3F /* SymbolDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolDetailsViewController.h; sourceTree = "<group>"; };
-		7EF172782481EC8D00A45B3F /* SymbolDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolDetailsViewController.m; sourceTree = "<group>"; };
 		CC36F10227D3385B000C4495 /* symbol_search.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = symbol_search.plist; sourceTree = "<group>"; };
 		CC36F10327D3385B000C4495 /* name_availability.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = name_availability.plist; sourceTree = "<group>"; };
 		CC36F10427D3385B000C4495 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
@@ -89,6 +89,13 @@
 		CC5BBDE927D9054C0021B9FB /* SymbolActionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolActionTableViewCell.h; sourceTree = "<group>"; };
 		CC5BBDEA27D9054C0021B9FB /* SymbolActionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolActionTableViewCell.m; sourceTree = "<group>"; };
 		CC5BBDEC27D90EBA0021B9FB /* symbol_variant_scripts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = symbol_variant_scripts.json; sourceTree = "<group>"; };
+		CC7A0FB427DA3D8200C5DCD5 /* ObjectNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectNode.h; sourceTree = "<group>"; };
+		CC7A0FB527DA3D8200C5DCD5 /* ObjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectCell.m; sourceTree = "<group>"; };
+		CC7A0FB627DA3D8200C5DCD5 /* ObjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectTableViewController.m; sourceTree = "<group>"; };
+		CC7A0FB727DA3D8200C5DCD5 /* ObjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectCell.h; sourceTree = "<group>"; };
+		CC7A0FB827DA3D8200C5DCD5 /* ObjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectTableViewController.h; sourceTree = "<group>"; };
+		CC7A0FB927DA3D8200C5DCD5 /* ObjectNode-Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectNode-Private.h"; sourceTree = "<group>"; };
+		CC7A0FBA27DA3D8200C5DCD5 /* ObjectNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectNode.m; sourceTree = "<group>"; };
 		CCA4D98E27D367A2009D2777 /* layersets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = layersets.plist; sourceTree = "<group>"; };
 		CCA4D99227D36BE0009D2777 /* colors.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colors.csv; sourceTree = "<group>"; };
 		CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symbol_variant_scripts.csv; sourceTree = "<group>"; };
@@ -147,9 +154,9 @@
 		7E0C9564247E6BAE0029F521 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CC5BBDE227D8FE600021B9FB /* deprecated */,
-				7E0C957B247F588E0029F521 /* CategoriesViewController.h */,
-				7E0C957C247F588E0029F521 /* CategoriesViewController.m */,
+				CC7A0FB327DA3D7500C5DCD5 /* ObjectViewer */,
+				7E0C957B247F588E0029F521 /* SFCategoriesViewController.h */,
+				7E0C957C247F588E0029F521 /* SFCategoriesViewController.m */,
 				7E0C955E247E65F50029F521 /* SymbolsViewController.h */,
 				7E0C955F247E65F50029F521 /* SymbolsViewController.m */,
 				7E0C9561247E6B520029F521 /* SymbolSearchResultsViewController.h */,
@@ -163,8 +170,8 @@
 		7E0C9565247E6BB20029F521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C956D247E71570029F521 /* ReusableTitleView.h */,
-				7E0C956E247E71570029F521 /* ReusableTitleView.m */,
+				7E0C956D247E71570029F521 /* SFReusableTitleView.h */,
+				7E0C956E247E71570029F521 /* SFReusableTitleView.m */,
 				7E0C9567247E6BD60029F521 /* SymbolPreviewCell.h */,
 				7E0C9568247E6BD60029F521 /* SymbolPreviewCell.m */,
 				CC5BBDE327D904B40021B9FB /* SymbolKeyValueTableViewCell.h */,
@@ -207,6 +214,7 @@
 				CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */,
 				CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */,
 				CC5BBDEC27D90EBA0021B9FB /* symbol_variant_scripts.json */,
+				CC36F10527D3385C000C4495 /* name_aliases_strings.txt */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -222,25 +230,29 @@
 			path = Entrance;
 			sourceTree = "<group>";
 		};
-		CC5BBDE227D8FE600021B9FB /* deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				7EF172772481EC8D00A45B3F /* SymbolDetailsViewController.h */,
-				7EF172782481EC8D00A45B3F /* SymbolDetailsViewController.m */,
-			);
-			path = deprecated;
-			sourceTree = "<group>";
-		};
 		CC5BBDEF27D916C90021B9FB /* todos */ = {
 			isa = PBXGroup;
 			children = (
-				CC36F10227D3385B000C4495 /* symbol_search.plist */,
-				CC36F10527D3385C000C4495 /* name_aliases_strings.txt */,
 				CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */,
+				CC36F10227D3385B000C4495 /* symbol_search.plist */,
 				CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */,
 				CCA4D99227D36BE0009D2777 /* colors.csv */,
 			);
 			path = todos;
+			sourceTree = "<group>";
+		};
+		CC7A0FB327DA3D7500C5DCD5 /* ObjectViewer */ = {
+			isa = PBXGroup;
+			children = (
+				CC7A0FB727DA3D8200C5DCD5 /* ObjectCell.h */,
+				CC7A0FB527DA3D8200C5DCD5 /* ObjectCell.m */,
+				CC7A0FB927DA3D8200C5DCD5 /* ObjectNode-Private.h */,
+				CC7A0FB427DA3D8200C5DCD5 /* ObjectNode.h */,
+				CC7A0FBA27DA3D8200C5DCD5 /* ObjectNode.m */,
+				CC7A0FB827DA3D8200C5DCD5 /* ObjectTableViewController.h */,
+				CC7A0FB627DA3D8200C5DCD5 /* ObjectTableViewController.m */,
+			);
+			path = ObjectViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,13 +347,15 @@
 				7E0C9547247E65890029F521 /* AppDelegate.m in Sources */,
 				7E0C9558247E658C0029F521 /* main.m in Sources */,
 				7EE40721247F861600A68520 /* SFSymbolDataSource.m in Sources */,
+				CC7A0FBB27DA3D8200C5DCD5 /* ObjectCell.m in Sources */,
 				7E0C9560247E65F50029F521 /* SymbolsViewController.m in Sources */,
 				7E0C954A247E65890029F521 /* SceneDelegate.m in Sources */,
-				7E0C956F247E71570029F521 /* ReusableTitleView.m in Sources */,
+				7E0C956F247E71570029F521 /* SFReusableTitleView.m in Sources */,
+				CC7A0FBC27DA3D8200C5DCD5 /* ObjectTableViewController.m in Sources */,
 				CC5BBDEB27D9054C0021B9FB /* SymbolActionTableViewCell.m in Sources */,
-				7EF172792481EC8D00A45B3F /* SymbolDetailsViewController.m in Sources */,
+				CC7A0FBD27DA3D8200C5DCD5 /* ObjectNode.m in Sources */,
 				7E0C9563247E6B520029F521 /* SymbolSearchResultsViewController.m in Sources */,
-				7E0C957D247F588E0029F521 /* CategoriesViewController.m in Sources */,
+				7E0C957D247F588E0029F521 /* SFCategoriesViewController.m in Sources */,
 				CC36F11227D33E8B000C4495 /* SFSymbolAvailability.m in Sources */,
 				7E0C9572247F43180029F521 /* SFSymbol.m in Sources */,
 			);

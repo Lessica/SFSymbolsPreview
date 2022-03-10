@@ -1,5 +1,5 @@
 //
-//  ReusableTitleView.m
+//  SFReusableTitleView.m
 //  SFSymbolsPreview
 //
 //  Created by YICAI YANG on 2020/5/27.
@@ -7,16 +7,16 @@
 //
 
 #import "SFSymbolDataSource.h"
-#import "ReusableTitleView.h"
+#import "SFReusableTitleView.h"
 
 
-@interface ReusableTitleView ()
+@interface SFReusableTitleView ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
-@implementation ReusableTitleView
+@implementation SFReusableTitleView
 
 - (void)setTitle:(NSString *)title
 {
@@ -46,11 +46,11 @@
 @end
 
 
-@interface ReusableSegmentedControlView ()
+@interface SFReusableSegmentedControlView ()
 
 @end
 
-@implementation ReusableSegmentedControlView
+@implementation SFReusableSegmentedControlView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

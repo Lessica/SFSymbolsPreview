@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SymbolTextTableViewCell : UITableViewCell
 
+@property (nonatomic, strong, readonly) UILabel *centeredTextLabel;
+@property (nonatomic, strong, readonly) UILabel *centeredDetailTextLabel;
+
 @end
 
 NS_ASSUME_NONNULL_END

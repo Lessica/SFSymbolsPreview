@@ -78,7 +78,7 @@
             [f setContentMode:UIViewContentModeScaleAspectFit];
             [f setTintColor:UIColor.labelColor];
             UIView *w = [UIView.alloc init];
-            [w setClipsToBounds:YES];
+            [w setClipsToBounds:NO];
             [w addSubview:f];
             [f setTranslatesAutoresizingMaskIntoConstraints:NO];
             [f.topAnchor constraintEqualToAnchor:w.topAnchor].active = YES;

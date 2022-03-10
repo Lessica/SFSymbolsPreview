@@ -11,6 +11,7 @@
 #import "SymbolKeyValueTableViewCell.h"
 #import "SymbolActionTableViewCell.h"
 #import "SymbolTextTableViewCell.h"
+#import "ObjectViewer/ObjectTableViewController.h"
 
 
 @interface SymbolGroupedDetailsViewController () <UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate>
@@ -27,8 +28,8 @@
 @implementation SymbolGroupedDetailsViewController
 
 - (instancetype)initWithSymbol:(SFSymbol *)symbol {
-    if ([super init]) {
-        [self setSymbol:symbol];
+    if (self = [super init]) {
+        _symbol = symbol;
     }
     return self;
 }
@@ -69,6 +70,8 @@
         [f setDragInteractionEnabled:YES];
         [f setRowHeight:UITableViewAutomaticDimension];
         [f setTableFooterView:UIView.new];
+        [f setAllowsSelection:YES];
+        [f setAllowsMultipleSelection:NO];
         [self.view addSubview:f];
         [f setTranslatesAutoresizingMaskIntoConstraints:NO];
         [f.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
@@ -82,6 +85,13 @@
     })];
     
     [self updatePreviewSymbolImage];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)updatePreviewSymbolImage {
@@ -181,13 +191,15 @@
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolTextTableViewCell.class)];
-            [cell.textLabel setText:self.symbol.availability.description];
-            [cell.textLabel setNumberOfLines:0];
-            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
-            [cell.imageView setImage:nil];
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            SymbolTextTableViewCell *textCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolTextTableViewCell.class)];
+            [textCell.centeredTextLabel setText:self.symbol.availability.description];
+            [textCell.centeredTextLabel setNumberOfLines:0];
+            [textCell.centeredTextLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+            [textCell.centeredDetailTextLabel setText:SFSymbolLayerSetDisplayName(SFSymbolLayerSetNameMonochrome)];
+            [textCell.imageView setImage:nil];
+            [textCell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+            [textCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            cell = textCell;
         }
     }
     
@@ -207,8 +219,27 @@
             }
             [self presentViewController:activityVC animated:YES completion:nil];
         }
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            NSMutableArray <NSDictionary *> *availabilityObject = [[NSMutableArray alloc] initWithCapacity:self.symbol.symbolAliases.count + 1];
+            [availabilityObject addObject:self.symbol.availabilityDictionary];
+            for (SFSymbol *aliasSymbol in self.symbol.symbolAliases) {
+                if (aliasSymbol.availability) {
+                    NSMutableDictionary *aliasDictionary = [aliasSymbol.availabilityDictionary mutableCopy];
+                    [aliasDictionary setObject:NSLocalizedString(@"This name has been deprecated. You should use a more modern name if your app does not need to support older platforms.", nil) forKey:@"__DESCRIPTION__"];
+                    [availabilityObject addObject:aliasDictionary];
+                }
+            }
+            ObjectTableViewController *objectVC = [ObjectTableViewController.alloc initWithObject:availabilityObject];
+            [objectVC setTitle:NSLocalizedString(@"Availability", nil)];
+            [objectVC setInitialRootExpanded:YES];
+            [objectVC setInitialRootHidden:YES];
+            [objectVC setPressToCopy:YES];
+            [self.navigationController pushViewController:objectVC animated:YES];
+        }
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSArray <UIDragItem *> *)tableView:(UITableView *)tableView itemsForBeginningDragSession:(id <UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath

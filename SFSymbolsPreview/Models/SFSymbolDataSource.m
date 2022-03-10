@@ -22,7 +22,7 @@ SFSymbolCategory *lastOpenedCategeory(void)
     name = [NSUserDefaults.standardUserDefaults stringForKey:kLastOpenedCategoryNameKey];
     if (name)
     {
-        [SFSymbolDataSource.datasource.categories enumerateObjectsUsingBlock:^(SFSymbolCategory *category, NSUInteger index, BOOL *stop) {
+        [SFSymbolDataSource.dataSource.categories enumerateObjectsUsingBlock:^(SFSymbolCategory *category, NSUInteger index, BOOL *stop) {
             if ([category.name isEqualToString:name])
             {
                 lastOpenedCategory = category;
@@ -30,7 +30,7 @@ SFSymbolCategory *lastOpenedCategeory(void)
             }
         }];
     }
-    return lastOpenedCategory ? : SFSymbolDataSource.datasource.categories.firstObject;
+    return lastOpenedCategory ? : SFSymbolDataSource.dataSource.categories.firstObject;
 }
 
 void storeUserActivityLastOpenedCategory(SFSymbolCategory *category)
@@ -90,12 +90,12 @@ void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight)
     return self;
 }
 
-+ (instancetype)datasource
++ (instancetype)dataSource
 {
-    static SFSymbolDataSource *datasource;
+    static SFSymbolDataSource *dataSource;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{ datasource = SFSymbolDataSource.new; });
-    return datasource;
+    dispatch_once(&onceToken, ^{ dataSource = SFSymbolDataSource.new; });
+    return dataSource;
 }
 
 @end

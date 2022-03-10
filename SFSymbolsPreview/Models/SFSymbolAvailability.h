@@ -10,26 +10,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum : NSUInteger {
-    SFSymbolAvailabilityPlatform_iOS = 0,
-    SFSymbolAvailabilityPlatform_macCatalyst,
-    SFSymbolAvailabilityPlatform_macOS,
-    SFSymbolAvailabilityPlatform_tvOS,
-    SFSymbolAvailabilityPlatform_watchOS,
-} SFSymbolAvailabilityPlatform;
+extern NSString * const SFSymbolAvailabilityPlatformName_iOS;
+extern NSString * const SFSymbolAvailabilityPlatformName_macCatalyst;
+extern NSString * const SFSymbolAvailabilityPlatformName_macOS;
+extern NSString * const SFSymbolAvailabilityPlatformName_tvOS;
+extern NSString * const SFSymbolAvailabilityPlatformName_watchOS;
+
+typedef NSString *SFSymbolAvailabilityPlatformName;
 
 @interface SFSymbolAvailability : NSObject
 
 @property (nonatomic, copy, readonly) NSString *yearToRelease;
+@property (nonatomic, copy, readonly) NSString *version;
 @property (nonatomic, strong, readonly) NSDictionary *availabilityDictionary;
 
 - (instancetype)initWithYearToRelease:(NSString *)yearToRelease;
 
-- (void)setAvailabilityValue:(NSString *)availabilityValue forPlatform:(SFSymbolAvailabilityPlatform)platform;
-- (NSString *)availabilityValueForPlatform:(SFSymbolAvailabilityPlatform)platform;
+- (void)setAvailabilityValue:(NSString *)availabilityValue forPlatform:(SFSymbolAvailabilityPlatformName)platform;
+- (NSString *)availabilityValueForPlatform:(SFSymbolAvailabilityPlatformName)platform;
 - (BOOL)isCompatibleWithCurrentPlatform;
 
-+ (SFSymbolAvailabilityPlatform)platformWithName:(NSString *)platformName;
++ (nullable SFSymbolAvailabilityPlatformName)platformWithName:(NSString *)platformName;
 
 @end
 

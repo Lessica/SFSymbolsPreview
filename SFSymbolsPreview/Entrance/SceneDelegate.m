@@ -8,7 +8,7 @@
 
 #import "SceneDelegate.h"
 
-#import "CategoriesViewController.h"
+#import "SFCategoriesViewController.h"
 #import "SymbolsViewController.h"
 #import "SFSymbolDataSource.h"
 
@@ -39,7 +39,7 @@
         [self.window setWindowScene:(UIWindowScene *)scene];
     }
     
-    CategoriesViewController *categoriesViewController = CategoriesViewController.new;
+    SFCategoriesViewController *categoriesViewController = SFCategoriesViewController.new;
     categoriesViewController.title = NSLocalizedString(@"Categories", nil);
     
     SymbolsViewController *symbolsViewController = [SymbolsViewController.alloc initWithCategory:lastOpenedCategeory()];

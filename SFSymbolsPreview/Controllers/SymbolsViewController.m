@@ -8,7 +8,7 @@
 
 #import "SymbolSearchResultsViewController.h"
 #import "SymbolsViewController.h"
-#import "ReusableTitleView.h"
+#import "SFReusableTitleView.h"
 #import "SFSymbolDataSource.h"
 #import "SymbolGroupedDetailsViewController.h"
 
@@ -100,8 +100,8 @@
         (f);
     })];
     
-    [self.collectionView registerClass:ReusableSegmentedControlView.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                   withReuseIdentifier:NSStringFromClass(ReusableSegmentedControlView.class)];
+    [self.collectionView registerClass:SFReusableSegmentedControlView.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                   withReuseIdentifier:NSStringFromClass(SFReusableSegmentedControlView.class)];
     
     [NSNotificationCenter.defaultCenter addObserver:self
                                            selector:@selector(notifyPreferredSymbolWeightDidChange:)
@@ -152,8 +152,8 @@
 {
     if (kind == UICollectionElementKindSectionHeader)
     {
-        ReusableSegmentedControlView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                                withReuseIdentifier:NSStringFromClass(ReusableSegmentedControlView.class)
+        SFReusableSegmentedControlView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                                withReuseIdentifier:NSStringFromClass(SFReusableSegmentedControlView.class)
                                                                                        forIndexPath:indexPath];
         view.segmentedControl.selectedSegmentIndex = self.numberOfItemInColumn - 1;
         [view.segmentedControl addTarget:self action:@selector(changeNumberOfItemsInColumn:) forControlEvents:UIControlEventValueChanged];

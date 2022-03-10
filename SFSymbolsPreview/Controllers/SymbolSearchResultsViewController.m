@@ -8,7 +8,7 @@
 
 #import "SymbolSearchResultsViewController.h"
 #import "SymbolGroupedDetailsViewController.h"
-#import "ReusableTitleView.h"
+#import "SFReusableTitleView.h"
 
 
 @interface SymbolSearchResultsViewController ()
@@ -62,9 +62,9 @@
     [super viewDidLoad];
     
     [self.collectionView setKeyboardDismissMode:UIScrollViewKeyboardDismissModeOnDrag];
-    [self.collectionView registerClass:ReusableTitleView.class
+    [self.collectionView registerClass:SFReusableTitleView.class
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                   withReuseIdentifier:NSStringFromClass(ReusableTitleView.class)];
+                   withReuseIdentifier:NSStringFromClass(SFReusableTitleView.class)];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -86,8 +86,8 @@
 {
     if (kind == UICollectionElementKindSectionHeader)
     {
-        ReusableTitleView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                     withReuseIdentifier:NSStringFromClass(ReusableTitleView.class)
+        SFReusableTitleView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                     withReuseIdentifier:NSStringFromClass(SFReusableTitleView.class)
                                                                             forIndexPath:indexPath];
         if (!self.symbolsForDisplay.count) {
             view.title = NSLocalizedString(@"No symbol found", nil);
