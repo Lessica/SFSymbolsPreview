@@ -18,6 +18,8 @@
 
 @implementation SFSymbolCategory
 
+@synthesize tokenizedSymbols = _tokenizedSymbols;
+
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName
 {
     return [self initWithCategoryKey:categoryKey categoryName:categoryName imageNamed:nil];
@@ -56,20 +58,57 @@
     return _mutableSymbols;
 }
 
+- (NSDictionary <NSString *, NSArray <SFSymbol *> *> *)tokenizedSymbols
+{
+    if (!_tokenizedSymbols) {
+        NSArray <SFSymbol *> *allSymbols = self.symbols;
+        NSMutableDictionary <NSString *, NSMutableArray <SFSymbol *> *> *tokenizedSymbolIndex = [[NSMutableDictionary alloc] init];
+        
+        for (SFSymbol *symbol in allSymbols) {
+            
+            // append accurate tokens
+            for (NSString *symbolToken in symbol.accurateTokens) {
+                if (![tokenizedSymbolIndex objectForKey:symbolToken]) {
+                    [tokenizedSymbolIndex setObject:[[NSMutableArray alloc] init] forKey:symbolToken];
+                }
+                NSMutableArray <SFSymbol *> *tokenizedSymbols = tokenizedSymbolIndex[symbolToken];
+                [tokenizedSymbols addObject:symbol];
+            }
+            
+            // append fuzzy tokens
+            for (NSString *fuzzyToken in symbol.fuzzyTokens) {
+                NSString *fuzzyKey = [@"?" stringByAppendingString:fuzzyToken];
+                if (![tokenizedSymbolIndex objectForKey:fuzzyKey]) {
+                    [tokenizedSymbolIndex setObject:[[NSMutableArray alloc] init] forKey:fuzzyKey];
+                }
+                NSMutableArray <SFSymbol *> *tokenizedSymbols = tokenizedSymbolIndex[fuzzyKey];
+                [tokenizedSymbols addObject:symbol];
+            }
+        }
+        
+#ifdef DEBUG
+        NSLog(@"tokenized symbols for category %@ initialized, %ld tokens in total.", self.name, tokenizedSymbolIndex.count);
+#endif
+        _tokenizedSymbols = tokenizedSymbolIndex;
+    }
+    return _tokenizedSymbols;
+}
+
 - (void)loadSymbols
 {
-    static NSMutableArray <NSString *> *uncategoriedSymbols = nil;
+    static NSArray <NSString *> *allSymbolNames = nil;
+    static NSMutableArray <NSString *> *uncategoriedSymbolNames = nil;
     static NSDictionary <NSString *, NSArray <NSString *> *> *categoryMappings = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSArray <NSString *> *localSymbols = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"symbols" ofType:@"plist"]];
-        uncategoriedSymbols = [[NSMutableArray alloc] initWithCapacity:localSymbols.count];
+        allSymbolNames = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"symbols" ofType:@"plist"]];
+        uncategoriedSymbolNames = [[NSMutableArray alloc] initWithCapacity:allSymbolNames.count];
         NSMutableDictionary <NSString *, NSMutableArray <NSString *> *> *cachedCategoryMappings = [[NSMutableDictionary alloc] init];
         NSDictionary <NSString *, NSArray <NSString *> *> *localCategoryMappings = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"symbol_categories" ofType:@"plist"]];
-        for (NSString *symbolName in localSymbols) {
+        for (NSString *symbolName in allSymbolNames) {
             NSArray <NSString *> *categoryNames = localCategoryMappings[symbolName];
             if (!categoryNames) {
-                [uncategoriedSymbols addObject:symbolName];
+                [uncategoriedSymbolNames addObject:symbolName];
                 continue;
             }
             for (NSString *categoryName in categoryNames) {
@@ -82,14 +121,10 @@
         categoryMappings = cachedCategoryMappings;
     });
     
-    if (categoryMappings[self.key])
-    {
+    if (categoryMappings[self.key]) {
         [self loadSymbolsWithSymbolNames:categoryMappings[self.key]];
     } else if ([self.key isEqualToString:@"all"]) {
-        [self loadSymbolsWithSymbolNames:uncategoriedSymbols];
-        for (NSArray <NSString *> *symbolNames in [categoryMappings objectEnumerator]) {
-            [self loadSymbolsWithSymbolNames:symbolNames];
-        }
+        [self loadSymbolsWithSymbolNames:allSymbolNames];
     }
 }
 

@@ -35,6 +35,10 @@ extern NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name);
 @property (nonatomic, copy, readonly, nullable) NSString *useRestrictions;
 @property (nonatomic, copy, readonly, nullable) NSString *unicodeString;
 
+@property (nonatomic, strong, readonly) NSSet <NSString *> *accurateTokens;
+@property (nonatomic, strong, readonly) NSSet <NSString *> *fuzzyTokens;
+@property (nonatomic, assign, readonly) NSUInteger initializedOrder;
+
 @property (nonatomic, strong, readonly) NSDictionary *availabilityDictionary;
 
 + (instancetype)symbolWithName:(NSString *)name;

@@ -215,6 +215,8 @@
 				CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */,
 				CC5BBDEC27D90EBA0021B9FB /* symbol_variant_scripts.json */,
 				CC36F10527D3385C000C4495 /* name_aliases_strings.txt */,
+				CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */,
+				CC36F10227D3385B000C4495 /* symbol_search.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -233,8 +235,6 @@
 		CC5BBDEF27D916C90021B9FB /* todos */ = {
 			isa = PBXGroup;
 			children = (
-				CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */,
-				CC36F10227D3385B000C4495 /* symbol_search.plist */,
 				CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */,
 				CCA4D99227D36BE0009D2777 /* colors.csv */,
 			);

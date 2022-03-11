@@ -43,6 +43,8 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
 @synthesize symbolAliases = _symbolAliases;
 @synthesize layerSetAvailabilities = _layerSetAvailabilities;
 @synthesize availabilityDictionary = _availabilityDictionary;
+@synthesize accurateTokens = _accurateTokens;
+@synthesize fuzzyTokens = _fuzzyTokens;
 
 + (instancetype)symbolWithName:(NSString *)name
 {
@@ -148,10 +150,12 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
 
 - (instancetype)initWithName:(NSString *)name attributedName:(NSAttributedString *)attributedName
 {
+    static NSUInteger order = 0;
     if ([super init])
     {
         _name = name;
         _attributedName = attributedName;
+        _initializedOrder = ++order;
     }
     return self;
 }
@@ -220,25 +224,51 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
     return _symbolVariants;
 }
 
-- (NSArray <SFSymbol *> *)symbolAliases
++ (NSArray <NSString *> *)symbolNameAliasesOfSymbolWithName:(NSString *)name
 {
-    static NSDictionary <NSString *, NSString *> *allAliases = nil;
+    static NSDictionary <NSString *, NSString *> *allNameAliases = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        allAliases = [NSDictionary.alloc initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"name_aliases_strings" ofType:@"txt"]];
+        allNameAliases = [NSDictionary.alloc initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"name_aliases_strings" ofType:@"txt"]];
     });
     
-    if (!_symbolAliases) {
-        NSMutableArray <NSString *> *aliasNames = [[NSMutableArray alloc] init];
-        for (NSString *aliasName in allAliases) {
-            NSString *aliasValue = allAliases[aliasName];
-            if ([aliasValue isEqualToString:self.name]) {
-                [aliasNames addObject:aliasName];
-            }
+    NSMutableArray <NSString *> *aliasNames = [[NSMutableArray alloc] init];
+    for (NSString *aliasName in allNameAliases) {
+        NSString *aliasValue = allNameAliases[aliasName];
+        if ([aliasValue isEqualToString:name]) {
+            [aliasNames addObject:aliasName];
         }
-        NSMutableArray <SFSymbol *> *symbolAliases = [[NSMutableArray alloc] initWithCapacity:aliasNames.count];
-        for (NSString *aliasName in aliasNames) {
+    }
+    
+    return [aliasNames copy];
+}
+
++ (NSArray <NSString *> *)symbolLegacyAliasesOfSymbolWithName:(NSString *)name
+{
+    static NSDictionary <NSString *, NSString *> *allLegacyAliases = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        allLegacyAliases = [NSDictionary.alloc initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"legacy_aliases_strings" ofType:@"txt"]];
+    });
+    
+    NSMutableArray <NSString *> *aliasNames = [[NSMutableArray alloc] init];
+    for (NSString *aliasName in allLegacyAliases) {
+        NSString *aliasValue = allLegacyAliases[aliasName];
+        if ([aliasValue isEqualToString:name]) {
+            [aliasNames addObject:aliasName];
+        }
+    }
+    
+    return [aliasNames copy];
+}
+
+- (NSArray <SFSymbol *> *)symbolAliases
+{
+    if (!_symbolAliases) {
+        NSMutableArray <SFSymbol *> *symbolAliases = [[NSMutableArray alloc] init];
+        for (NSString *aliasName in [SFSymbol symbolNameAliasesOfSymbolWithName:self.name]) {
             [symbolAliases addObject:[SFSymbol symbolWithName:aliasName]];
         }
         _symbolAliases = symbolAliases;
@@ -320,6 +350,42 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
         _availabilityDictionary = object;
     }
     return _availabilityDictionary;
+}
+
++ (NSArray <NSString *> *)searchTokensOfSymbolWithName:(NSString *)name
+{
+    static NSDictionary <NSString *, NSArray <NSString *> *> *allTokens = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        allTokens = [[NSDictionary alloc] initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"symbol_search" ofType:@"plist"]];
+    });
+    
+    return allTokens[name];
+}
+
+- (NSSet <NSString *> *)accurateTokens
+{
+    if (!_accurateTokens) {
+        NSMutableSet <NSString *> *searchTokens = [[NSMutableSet alloc] initWithArray:([SFSymbol searchTokensOfSymbolWithName:self.name] ?: @[])];
+        for (NSString *nameAlias in [SFSymbol symbolNameAliasesOfSymbolWithName:self.name]) {
+            [searchTokens addObjectsFromArray:[nameAlias componentsSeparatedByString:@"."]];
+        }
+        for (NSString *legacyAlias in [SFSymbol symbolLegacyAliasesOfSymbolWithName:self.name]) {
+            [searchTokens addObjectsFromArray:[legacyAlias componentsSeparatedByString:@"."]];
+        }
+        [searchTokens removeObject:@""];
+        _accurateTokens = searchTokens;
+    }
+    return _accurateTokens;
+}
+
+- (NSSet <NSString *> *)fuzzyTokens
+{
+    if (!_fuzzyTokens) {
+        _fuzzyTokens = [[NSSet alloc] initWithArray:[self.name componentsSeparatedByString:@"."]];
+    }
+    return _fuzzyTokens;
 }
 
 @end

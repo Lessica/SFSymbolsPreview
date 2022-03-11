@@ -60,6 +60,13 @@
         UISearchController *searchController = [UISearchController.alloc initWithSearchResultsController:self.searchResultsViewController];
         searchController.searchResultsUpdater = self.searchResultsViewController;
         searchController.searchBar.placeholder = NSLocalizedString(@"Search", nil);
+        searchController.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        searchController.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+        searchController.searchBar.spellCheckingType = UITextSpellCheckingTypeNo;
+        searchController.searchBar.smartQuotesType = UITextSmartQuotesTypeNo;
+        searchController.searchBar.smartDashesType = UITextSmartDashesTypeNo;
+        searchController.searchBar.smartInsertDeleteType = UITextSmartInsertDeleteTypeNo;
+        searchController.searchBar.keyboardType = UIKeyboardTypeASCIICapable;
         searchController;
     })];
     [self.navigationItem setHidesSearchBarWhenScrolling:NO];
