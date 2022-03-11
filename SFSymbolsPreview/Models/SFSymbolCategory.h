@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSString *imageNamed;
 
 @property (nonatomic, strong, readonly) NSArray <SFSymbol *> *symbols;
-@property (nonatomic, strong, readonly) NSDictionary <NSString *, NSArray <SFSymbol *> *> *tokenizedSymbols;
+@property (nonatomic, strong, readonly) NSDictionary <NSString *, NSSet <SFSymbol *> *> *tokenizedSymbols;
 
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName;
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName imageNamed:(nullable NSString *)imageNamed;

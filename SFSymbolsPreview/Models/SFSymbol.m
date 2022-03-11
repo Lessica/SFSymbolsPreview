@@ -43,8 +43,8 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
 @synthesize symbolAliases = _symbolAliases;
 @synthesize layerSetAvailabilities = _layerSetAvailabilities;
 @synthesize availabilityDictionary = _availabilityDictionary;
-@synthesize accurateTokens = _accurateTokens;
-@synthesize fuzzyTokens = _fuzzyTokens;
+@synthesize accurateSearchTokens = _accurateSearchTokens;
+@synthesize fuzzySearchTokens = _fuzzySearchTokens;
 
 + (instancetype)symbolWithName:(NSString *)name
 {
@@ -358,9 +358,9 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
     return allTokens[name];
 }
 
-- (NSSet <NSString *> *)accurateTokens
+- (NSSet <NSString *> *)accurateSearchTokens
 {
-    if (!_accurateTokens) {
+    if (!_accurateSearchTokens) {
         NSMutableSet <NSString *> *searchTokens = [[NSMutableSet alloc] initWithArray:([SFSymbol searchTokensOfSymbolWithName:self.name] ?: @[])];
         for (NSString *nameAlias in [SFSymbol symbolNameAliasesOfSymbolWithName:self.name]) {
             [searchTokens addObjectsFromArray:[nameAlias componentsSeparatedByString:@"."]];
@@ -369,17 +369,17 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
             [searchTokens addObjectsFromArray:[legacyAlias componentsSeparatedByString:@"."]];
         }
         [searchTokens removeObject:@""];
-        _accurateTokens = searchTokens;
+        _accurateSearchTokens = searchTokens;
     }
-    return _accurateTokens;
+    return _accurateSearchTokens;
 }
 
-- (NSSet <NSString *> *)fuzzyTokens
+- (NSSet <NSString *> *)fuzzySearchTokens
 {
-    if (!_fuzzyTokens) {
-        _fuzzyTokens = [[NSSet alloc] initWithArray:[self.name componentsSeparatedByString:@"."]];
+    if (!_fuzzySearchTokens) {
+        _fuzzySearchTokens = [[NSSet alloc] initWithArray:[self.name componentsSeparatedByString:@"."]];
     }
-    return _fuzzyTokens;
+    return _fuzzySearchTokens;
 }
 
 @end

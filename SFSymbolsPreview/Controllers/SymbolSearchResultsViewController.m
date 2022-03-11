@@ -9,6 +9,7 @@
 #import "SymbolSearchResultsViewController.h"
 #import "SymbolGroupedDetailsViewController.h"
 #import "SFReusableTitleView.h"
+#import <mach/mach_time.h>
 
 
 @interface SymbolSearchResultsViewController ()
@@ -23,44 +24,112 @@
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    [self performSelector:@selector(updateSearchWithText:) withObject:searchController.searchBar.text afterDelay:0.5];
+    [self performSelector:@selector(updateSearchWithText:) withObject:searchController.searchBar.text afterDelay:0.2];
+}
+
+static double MachTimeToSecs(uint64_t time)
+{
+    mach_timebase_info_data_t timebase;
+    mach_timebase_info(&timebase);
+    return (double)time * (double)timebase.numer /
+                (double)timebase.denom / 1e9;
 }
 
 - (void)updateSearchWithText:(NSString *)text
 {
+    if (!text.length) {
+        [self setSearchTokens:nil];
+        [self setSearchResult:[SFSymbolCategory.alloc initWithSearchResultsCategoryWithSymbols:@[]]];
+        [self.collectionView reloadData];
+        return;
+    }
+    
     NSString *lowercasedText = [[NSString stringWithFormat:@"%@", text] lowercaseString];
-    NSSet <NSString *> *inputTokens = [[NSSet alloc] initWithArray:[lowercasedText componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" ."]]];
+    NSSet <NSString *> *inputTokens = [[NSSet alloc] initWithArray:[lowercasedText componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]]];
+    
+    NSArray <SFSymbol *> *allSymbols = self.category.symbols;
+    NSDictionary <NSString *, NSSet <SFSymbol *> *> *tokenizedSymbols = self.category.tokenizedSymbols;
+    NSArray <NSString *> *allTokens = tokenizedSymbols.allKeys;
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         
-        NSArray <SFSymbol *> *allSymbols = self.category.symbols;
-        NSDictionary <NSString *, NSArray <SFSymbol *> *> *tokenizedSymbols = self.category.tokenizedSymbols;
-        NSArray <NSString *> *allTokens = tokenizedSymbols.allKeys;
-        
+        uint64_t begin = mach_absolute_time();
+        uint64_t end;
         NSMutableSet <SFSymbol *> *filteredSymbols = [[NSMutableSet alloc] initWithArray:allSymbols];
         for (NSString *inputToken in inputTokens) {
-            if (inputToken.length == 0) {
+            if (inputToken.length == 0)
                 continue;
-            }
+            
             NSMutableArray <NSString *> *possibleTokens = [[NSMutableArray alloc] initWithCapacity:allTokens.count];
             for (NSString *token in allTokens) {
-                if ([token hasPrefix:@"?"]) {
+                BOOL isFuzzyMatch = [token hasPrefix:@"?"];
+                if (isFuzzyMatch) {
+                    // case-insensitive fuzzy search
                     NSString *realToken = [token substringFromIndex:1];
                     if ([realToken rangeOfString:inputToken options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch].location != NSNotFound) {
                         [possibleTokens addObject:token];
                     }
                 } else if ([token isEqualToString:inputToken]) {
+                    // matches keyword exactly
                     [possibleTokens addObject:token];
                 }
             }
+            
             NSMutableSet <SFSymbol *> *possibleSymbols = [[NSMutableSet alloc] initWithCapacity:possibleTokens.count];
             for (NSString *possibleToken in possibleTokens) {
-                [possibleSymbols addObjectsFromArray:tokenizedSymbols[possibleToken]];
+                [possibleSymbols unionSet:tokenizedSymbols[possibleToken]];
             }
+            
             [filteredSymbols intersectSet:possibleSymbols];
         }
         
+#ifdef DEBUG
+        end = mach_absolute_time();
+        NSLog(@"%gs elapsed - filter", MachTimeToSecs(end - begin));
+        begin = end;
+#endif
+        
+        for (SFSymbol *filteredSymbol in filteredSymbols) {
+            NSMutableString *filteredSymbolName = [filteredSymbol.name mutableCopy];
+            
+            NSSet <NSString *> *nameTokens = [NSSet setWithArray:[filteredSymbolName componentsSeparatedByString:@"."]];
+            if (!nameTokens.count)
+                continue;
+            
+            NSMutableSet <NSString *> *intersectTokens = [nameTokens mutableCopy];
+            [intersectTokens intersectSet:inputTokens];
+            
+            double intersectScore = (double)intersectTokens.count / nameTokens.count;
+            
+            NSMutableIndexSet *fuzzyIndexSet = [NSMutableIndexSet indexSet];
+            for (NSString *inputToken in inputTokens) {
+                NSRange fuzzyRange = [filteredSymbolName rangeOfString:inputToken options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
+                if (fuzzyRange.location != NSNotFound) {
+                    [fuzzyIndexSet addIndexesInRange:fuzzyRange];
+                }
+            }
+            
+            [filteredSymbolName replaceOccurrencesOfString:@"." withString:@"" options:kNilOptions range:NSMakeRange(0, filteredSymbolName.length)];
+            if (!filteredSymbolName.length)
+                continue;
+            
+            double fuzzyScore = (double)fuzzyIndexSet.count / filteredSymbolName.length;
+            
+            filteredSymbol.bestMatchedScore = MAX(intersectScore, fuzzyScore);
+        }
+        
+#ifdef DEBUG
+        end = mach_absolute_time();
+        NSLog(@"%gs elapsed - score", MachTimeToSecs(end - begin));
+        begin = end;
+#endif
+        
         NSArray <SFSymbol *> *filteredOrderedSymbols = [[filteredSymbols allObjects] sortedArrayUsingComparator:^NSComparisonResult (SFSymbol * _Nonnull obj1, SFSymbol * _Nonnull obj2) {
+            if (obj1.bestMatchedScore > obj2.bestMatchedScore) {
+                return NSOrderedAscending;
+            } else if (obj1.bestMatchedScore < obj2.bestMatchedScore) {
+                return NSOrderedDescending;
+            }
             if (obj1.initializedOrder > obj2.initializedOrder) {
                 return NSOrderedDescending;
             } else if (obj1.initializedOrder < obj2.initializedOrder) {
@@ -68,6 +137,12 @@
             }
             return NSOrderedSame;
         }];
+        
+#ifdef DEBUG
+        end = mach_absolute_time();
+        NSLog(@"%gs elapsed - sort", MachTimeToSecs(end - begin));
+        begin = end;
+#endif
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self setSearchTokens:inputTokens];

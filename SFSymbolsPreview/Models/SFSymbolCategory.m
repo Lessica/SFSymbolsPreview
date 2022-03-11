@@ -58,38 +58,38 @@
     return _mutableSymbols;
 }
 
-- (NSDictionary <NSString *, NSArray <SFSymbol *> *> *)tokenizedSymbols
+- (NSDictionary <NSString *, NSSet <SFSymbol *> *> *)tokenizedSymbols
 {
     if (!_tokenizedSymbols) {
         NSArray <SFSymbol *> *allSymbols = self.symbols;
-        NSMutableDictionary <NSString *, NSMutableArray <SFSymbol *> *> *tokenizedSymbolIndex = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary <NSString *, NSMutableSet <SFSymbol *> *> *symbolSets = [[NSMutableDictionary alloc] init];
         
         for (SFSymbol *symbol in allSymbols) {
             
             // append accurate tokens
-            for (NSString *symbolToken in symbol.accurateTokens) {
-                if (![tokenizedSymbolIndex objectForKey:symbolToken]) {
-                    [tokenizedSymbolIndex setObject:[[NSMutableArray alloc] init] forKey:symbolToken];
+            for (NSString *symbolToken in symbol.accurateSearchTokens) {
+                if (![symbolSets objectForKey:symbolToken]) {
+                    [symbolSets setObject:[[NSMutableSet alloc] init] forKey:symbolToken];
                 }
-                NSMutableArray <SFSymbol *> *tokenizedSymbols = tokenizedSymbolIndex[symbolToken];
-                [tokenizedSymbols addObject:symbol];
+                NSMutableSet <SFSymbol *> *symbols = [symbolSets objectForKey:symbolToken];
+                [symbols addObject:symbol];
             }
             
             // append fuzzy tokens
-            for (NSString *fuzzyToken in symbol.fuzzyTokens) {
+            for (NSString *fuzzyToken in symbol.fuzzySearchTokens) {
                 NSString *fuzzyKey = [@"?" stringByAppendingString:fuzzyToken];
-                if (![tokenizedSymbolIndex objectForKey:fuzzyKey]) {
-                    [tokenizedSymbolIndex setObject:[[NSMutableArray alloc] init] forKey:fuzzyKey];
+                if (![symbolSets objectForKey:fuzzyKey]) {
+                    [symbolSets setObject:[[NSMutableSet alloc] init] forKey:fuzzyKey];
                 }
-                NSMutableArray <SFSymbol *> *tokenizedSymbols = tokenizedSymbolIndex[fuzzyKey];
-                [tokenizedSymbols addObject:symbol];
+                NSMutableSet <SFSymbol *> *symbols = [symbolSets objectForKey:fuzzyKey];
+                [symbols addObject:symbol];
             }
         }
         
 #ifdef DEBUG
-        NSLog(@"tokenized symbols for category %@ initialized, %ld tokens in total.", self.name, tokenizedSymbolIndex.count);
+        NSLog(@"tokenized symbols for category %@ initialized, %ld tokens in total.", self.name, symbolSets.count);
 #endif
-        _tokenizedSymbols = tokenizedSymbolIndex;
+        _tokenizedSymbols = symbolSets;
     }
     return _tokenizedSymbols;
 }
