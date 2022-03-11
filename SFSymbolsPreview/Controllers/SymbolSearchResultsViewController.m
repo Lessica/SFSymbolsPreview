@@ -13,6 +13,7 @@
 
 @interface SymbolSearchResultsViewController ()
 
+@property (nonatomic, strong) NSSet <NSString *> *searchTokens;
 @property (nonatomic, strong) SFSymbolCategory *searchResult;
 
 @end
@@ -21,17 +22,19 @@
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    NSString *text = [[NSString stringWithFormat:@"%@", searchController.searchBar.text] lowercaseString];
-    UIColor *tintColor = self.view.tintColor;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self performSelector:@selector(updateSearchWithText:) withObject:searchController.searchBar.text afterDelay:0.5];
+}
+
+- (void)updateSearchWithText:(NSString *)text
+{
+    NSString *lowercasedText = [[NSString stringWithFormat:@"%@", text] lowercaseString];
+    NSSet <NSString *> *inputTokens = [[NSSet alloc] initWithArray:[lowercasedText componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" ."]]];
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         
-        __block NSMutableArray <SFSymbol *> *searchResults = [NSMutableArray.alloc init];
-        
         NSArray <SFSymbol *> *allSymbols = self.category.symbols;
         NSDictionary <NSString *, NSArray <SFSymbol *> *> *tokenizedSymbols = self.category.tokenizedSymbols;
-        
-        NSSet <NSString *> *inputTokens = [[NSSet alloc] initWithArray:[text componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" ."]]];
         NSArray <NSString *> *allTokens = tokenizedSymbols.allKeys;
         
         NSMutableSet <SFSymbol *> *filteredSymbols = [[NSMutableSet alloc] initWithArray:allSymbols];
@@ -57,7 +60,7 @@
             [filteredSymbols intersectSet:possibleSymbols];
         }
         
-        NSArray <SFSymbol *> *filteredOrderedSymbols = [[filteredSymbols allObjects] sortedArrayUsingComparator:^NSComparisonResult(SFSymbol * _Nonnull obj1, SFSymbol * _Nonnull obj2) {
+        NSArray <SFSymbol *> *filteredOrderedSymbols = [[filteredSymbols allObjects] sortedArrayUsingComparator:^NSComparisonResult (SFSymbol * _Nonnull obj1, SFSymbol * _Nonnull obj2) {
             if (obj1.initializedOrder > obj2.initializedOrder) {
                 return NSOrderedDescending;
             } else if (obj1.initializedOrder < obj2.initializedOrder) {
@@ -66,38 +69,12 @@
             return NSOrderedSame;
         }];
         
-        for (SFSymbol *symbol in filteredOrderedSymbols) {
-            UIFont *bodyFont = [UIFont preferredFontForTextStyle:[self preferredTextStyle]];
-            NSMutableAttributedString *attributedName = [NSAttributedString.alloc initWithString:symbol.name attributes:@{
-                NSForegroundColorAttributeName: UIColor.secondaryLabelColor,
-                NSFontAttributeName: bodyFont,
-            }].mutableCopy;
-            
-            for (NSString *token in inputTokens) {
-                NSRange range = [symbol.name rangeOfString:token options:NSCaseInsensitiveSearch];
-                if (range.location != NSNotFound)
-                {
-                    UIFont *boldFont = [UIFont fontWithDescriptor:[[bodyFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0];
-                    [attributedName setAttributes:@{
-                        NSForegroundColorAttributeName: tintColor,
-                        NSFontAttributeName: boldFont,
-                    } range:range];
-                }
-            }
-            
-            [searchResults addObject:[SFSymbol symbolWithAttributedName:attributedName]];
-        }
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self setSearchResult:[SFSymbolCategory.alloc initWithSearchResultsCategoryWithSymbols:searchResults]];
+            [self setSearchTokens:inputTokens];
+            [self setSearchResult:[SFSymbolCategory.alloc initWithSearchResultsCategoryWithSymbols:filteredOrderedSymbols]];
             [self.collectionView reloadData];
         });
     });
-}
-
-- (NSArray <SFSymbol *> *)symbolsForDisplay
-{
-    return self.searchResult.symbols;
 }
 
 - (void)viewDidLoad
@@ -108,6 +85,11 @@
     [self.collectionView registerClass:SFReusableTitleView.class
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                    withReuseIdentifier:NSStringFromClass(SFReusableTitleView.class)];
+}
+
+- (NSArray <SFSymbol *> *)symbolsForDisplay
+{
+    return self.searchResult.symbols;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -130,8 +112,8 @@
     if (kind == UICollectionElementKindSectionHeader)
     {
         SFReusableTitleView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                     withReuseIdentifier:NSStringFromClass(SFReusableTitleView.class)
-                                                                            forIndexPath:indexPath];
+                                                                       withReuseIdentifier:NSStringFromClass(SFReusableTitleView.class)
+                                                                              forIndexPath:indexPath];
         if (!self.symbolsForDisplay.count) {
             view.title = NSLocalizedString(@"No symbol found", nil);
         } else {
@@ -140,6 +122,43 @@
         return view;
     }
     return nil;
+}
+
+- (NSAttributedString *)attributedSymbolNameWithSearchToken:(NSString *)name
+{
+    UIColor *tintColor = self.view.tintColor;
+    UIFont *bodyFont = [UIFont preferredFontForTextStyle:self.preferredTextStyle];
+    NSMutableAttributedString *attributedName = [NSAttributedString.alloc initWithString:name attributes:@{
+                                                     NSForegroundColorAttributeName: UIColor.secondaryLabelColor,
+                                                     NSFontAttributeName: bodyFont,
+                                                }].mutableCopy;
+    
+    for (NSString *token in self.searchTokens) {
+        NSRange range = [name rangeOfString:token options:NSCaseInsensitiveSearch];
+        if (range.location != NSNotFound)
+        {
+            UIFont *boldFont = [UIFont fontWithDescriptor:[[bodyFont fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:0];
+            [attributedName setAttributes:@{
+                 NSForegroundColorAttributeName: tintColor,
+                 NSFontAttributeName: boldFont,
+             } range:range];
+        }
+    }
+    
+    return [attributedName copy];
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [super collectionView:collectionView cellForItemAtIndexPath:indexPath];
+    SFSymbol *symbol = self.symbolsForDisplay[indexPath.row];
+    
+    if (self.numberOfItemInColumn > 1)
+        [(SymbolPreviewCell *)cell setAttributedText:[self attributedSymbolNameWithSearchToken:symbol.name]];
+    else
+        [(SymbolPreviewTableCell *)cell setAttributedText:[self attributedSymbolNameWithSearchToken:symbol.name]];
+    
+    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

@@ -25,17 +25,14 @@
 {
     _symbol = symbol;
     
+    self.textLabel.text = symbol.name;
     self.imageView.image = symbol.image;
-    if (symbol.attributedName)
-    {
-        self.textLabel.attributedText = symbol.attributedName;
-    }
-    else
-    {
-        self.textLabel.text = symbol.name;
-    }
-    
     self.infoButton.hidden = !symbol.useRestrictions;
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+    self.textLabel.attributedText = attributedText;
 }
 
 - (void)setSelected:(BOOL)selected
@@ -140,8 +137,6 @@
 @property (nonatomic, strong) NSLayoutConstraint *infoButtonLeadingConstraint;
 @property (nonatomic, strong) UIButton *infoButton;
 
-@property (nonatomic, copy)   NSAttributedString *attributedText;
-
 @end
 
 @implementation SymbolPreviewTableCell
@@ -150,21 +145,17 @@
 {
     _symbol = symbol;
     
+    self.textLabel.text = symbol.name;
     self.imageView.image = symbol.image;
-    if (symbol.attributedName)
-    {
-        self.textLabel.attributedText = symbol.attributedName;
-        self.attributedText = symbol.attributedName;
-    }
-    else
-    {
-        self.textLabel.text = symbol.name;
-        self.attributedText = nil;
-    }
     
     BOOL hasRestrictions = symbol.useRestrictions != nil;
     self.infoButtonLeadingConstraint.active = hasRestrictions;
     self.infoButton.hidden = !hasRestrictions;
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+    self.textLabel.attributedText = attributedText;
 }
 
 - (void)setSelected:(BOOL)selected

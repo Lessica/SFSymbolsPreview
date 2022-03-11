@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
 @property (nonatomic, weak) SFSymbol *symbol;
+@property (nonatomic, copy) NSAttributedString *attributedText;
 
 @end
 
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
 @property (nonatomic, weak) SFSymbol *symbol;
+@property (nonatomic, copy) NSAttributedString *attributedText;
 
 @end
 

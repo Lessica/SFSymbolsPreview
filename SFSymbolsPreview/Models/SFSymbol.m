@@ -48,12 +48,7 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
 
 + (instancetype)symbolWithName:(NSString *)name
 {
-    return [SFSymbol.alloc initWithName:name attributedName:nil];
-}
-
-+ (instancetype)symbolWithAttributedName:(NSAttributedString *)attributedName
-{
-    return [SFSymbol.alloc initWithName:attributedName.string attributedName:attributedName];
+    return [SFSymbol.alloc initWithName:name];
 }
 
 + (NSDictionary *)_nameAvailabilityObject
@@ -148,13 +143,12 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
     return [UIImage systemImageNamed:self.name withConfiguration:[UIImageSymbolConfiguration configurationWithWeight:preferredImageSymbolWeight()]];
 }
 
-- (instancetype)initWithName:(NSString *)name attributedName:(NSAttributedString *)attributedName
+- (instancetype)initWithName:(NSString *)name
 {
     static NSUInteger order = 0;
     if ([super init])
     {
         _name = name;
-        _attributedName = attributedName;
         _initializedOrder = ++order;
     }
     return self;

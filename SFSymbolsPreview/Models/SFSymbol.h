@@ -23,7 +23,6 @@ extern NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name);
 @interface SFSymbol : NSObject
     
 @property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, copy, readonly) NSAttributedString *attributedName;
 @property (nonatomic, strong, readonly) UIImage *image;
 
 @property (nonatomic, copy, readonly, nullable) NSString *variantName;
@@ -42,7 +41,6 @@ extern NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name);
 @property (nonatomic, strong, readonly) NSDictionary *availabilityDictionary;
 
 + (instancetype)symbolWithName:(NSString *)name;
-+ (instancetype)symbolWithAttributedName:(NSAttributedString *)attributedName;
 
 @end
 
