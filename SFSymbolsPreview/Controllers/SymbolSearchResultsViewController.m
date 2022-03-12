@@ -99,7 +99,7 @@ static double MachTimeToSecs(uint64_t time)
             NSMutableSet <NSString *> *intersectTokens = [nameTokens mutableCopy];
             [intersectTokens intersectSet:inputTokens];
             
-            double intersectScore = (double)intersectTokens.count / nameTokens.count;
+            double intersectScore = (double)intersectTokens.count + (double)intersectTokens.count / nameTokens.count;
             
             NSMutableIndexSet *fuzzyIndexSet = [NSMutableIndexSet indexSet];
             for (NSString *inputToken in inputTokens) {

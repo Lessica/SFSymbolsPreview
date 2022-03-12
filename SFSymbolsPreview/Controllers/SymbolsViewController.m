@@ -94,6 +94,7 @@
         [f setAlwaysBounceHorizontal:NO];
         [f setShowsVerticalScrollIndicator:YES];
         [f setShowsHorizontalScrollIndicator:NO];
+        [f setAllowsSelection:YES];
         [f setAllowsMultipleSelection:NO];
         [f setBackgroundColor:UIColor.clearColor];
         [f setTranslatesAutoresizingMaskIntoConstraints:NO];
