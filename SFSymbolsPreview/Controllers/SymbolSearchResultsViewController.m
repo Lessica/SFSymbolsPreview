@@ -45,7 +45,7 @@ static double MachTimeToSecs(uint64_t time)
     }
     
     NSString *lowercasedText = [[NSString stringWithFormat:@"%@", text] lowercaseString];
-    NSSet <NSString *> *inputTokens = [[NSSet alloc] initWithArray:[lowercasedText componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]]];
+    NSSet <NSString *> *inputTokens = [[NSSet alloc] initWithArray:[lowercasedText componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" .,"]]];
     
     NSArray <SFSymbol *> *allSymbols = self.category.symbols;
     NSDictionary <NSString *, NSSet <SFSymbol *> *> *tokenizedSymbols = self.category.tokenizedSymbols;
@@ -190,7 +190,7 @@ static double MachTimeToSecs(uint64_t time)
                                                                        withReuseIdentifier:NSStringFromClass(SFReusableTitleView.class)
                                                                               forIndexPath:indexPath];
         if (!self.symbolsForDisplay.count) {
-            view.title = NSLocalizedString(@"No symbol found", nil);
+            view.title = [NSString stringWithFormat:NSLocalizedString(@"No symbol found in %@.", nil), self.category.name];
         } else {
             view.title = [NSString stringWithFormat:@"%ld %@", self.symbolsForDisplay.count, self.symbolsForDisplay.count > 1 ? NSLocalizedString(@"symbols", nil) : NSLocalizedString(@"symbol", nil)];
         }

@@ -361,7 +361,8 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
 - (NSSet <NSString *> *)accurateSearchTokens
 {
     if (!_accurateSearchTokens) {
-        NSMutableSet <NSString *> *searchTokens = [[NSMutableSet alloc] initWithArray:([SFSymbol searchTokensOfSymbolWithName:self.name] ?: @[])];
+        NSMutableSet <NSString *> *searchTokens = [[NSMutableSet alloc] initWithObjects:self.unicodeString, nil];
+        [searchTokens addObjectsFromArray:([SFSymbol searchTokensOfSymbolWithName:self.name] ?: @[])];
         for (NSString *nameAlias in [SFSymbol symbolNameAliasesOfSymbolWithName:self.name]) {
             [searchTokens addObjectsFromArray:[nameAlias componentsSeparatedByString:@"."]];
         }

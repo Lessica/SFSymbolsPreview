@@ -22,10 +22,14 @@
 	<true/>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>SFSymbols Preview needs access your Photos to save image.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFSymbolsFallback.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
+		<true/>
 		<key>UISceneConfigurations</key>
 		<dict>
 			<key>UIWindowSceneSessionRoleApplication</key>
@@ -51,10 +55,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SFSymbolsFallback.ttf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
