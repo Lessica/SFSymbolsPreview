@@ -36,6 +36,8 @@
 		CC7A0FBB27DA3D8200C5DCD5 /* ObjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FB527DA3D8200C5DCD5 /* ObjectCell.m */; };
 		CC7A0FBC27DA3D8200C5DCD5 /* ObjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FB627DA3D8200C5DCD5 /* ObjectTableViewController.m */; };
 		CC7A0FBD27DA3D8200C5DCD5 /* ObjectNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FBA27DA3D8200C5DCD5 /* ObjectNode.m */; };
+		CC7A0FBF27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC7A0FBE27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf */; };
+		CC7A0FC327DCD52C00C5DCD5 /* NSData+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FC227DCD52C00C5DCD5 /* NSData+Hexadecimal.m */; };
 		CCA4D99327D36BE0009D2777 /* colors.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99227D36BE0009D2777 /* colors.csv */; };
 		CCA4D99527D36BE7009D2777 /* symbol_variant_scripts.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */; };
 		CCA4D99927D37130009D2777 /* restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99827D37130009D2777 /* restrictions.plist */; };
@@ -96,6 +98,9 @@
 		CC7A0FB827DA3D8200C5DCD5 /* ObjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectTableViewController.h; sourceTree = "<group>"; };
 		CC7A0FB927DA3D8200C5DCD5 /* ObjectNode-Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectNode-Private.h"; sourceTree = "<group>"; };
 		CC7A0FBA27DA3D8200C5DCD5 /* ObjectNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectNode.m; sourceTree = "<group>"; };
+		CC7A0FBE27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFSymbolsFallback.ttf; sourceTree = "<group>"; };
+		CC7A0FC127DCD52C00C5DCD5 /* NSData+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Hexadecimal.h"; sourceTree = "<group>"; };
+		CC7A0FC227DCD52C00C5DCD5 /* NSData+Hexadecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hexadecimal.m"; sourceTree = "<group>"; };
 		CCA4D98E27D367A2009D2777 /* layersets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = layersets.plist; sourceTree = "<group>"; };
 		CCA4D99227D36BE0009D2777 /* colors.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colors.csv; sourceTree = "<group>"; };
 		CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symbol_variant_scripts.csv; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 				7E0C9566247E6BB70029F521 /* Models */,
 				7E0C9565247E6BB20029F521 /* Views */,
 				7E0C9564247E6BAE0029F521 /* Controllers */,
+				CC7A0FC027DCD51400C5DCD5 /* Extensions */,
 				7E0C9551247E658C0029F521 /* Assets.xcassets */,
 				7E0C9553247E658C0029F521 /* LaunchScreen.storyboard */,
 				7E0C9556247E658C0029F521 /* Info.plist */,
@@ -217,6 +223,8 @@
 				CC36F10527D3385C000C4495 /* name_aliases_strings.txt */,
 				CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */,
 				CC36F10227D3385B000C4495 /* symbol_search.plist */,
+				CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */,
+				CC7A0FBE27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -235,7 +243,6 @@
 		CC5BBDEF27D916C90021B9FB /* todos */ = {
 			isa = PBXGroup;
 			children = (
-				CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */,
 				CCA4D99227D36BE0009D2777 /* colors.csv */,
 			);
 			path = todos;
@@ -253,6 +260,15 @@
 				CC7A0FB627DA3D8200C5DCD5 /* ObjectTableViewController.m */,
 			);
 			path = ObjectViewer;
+			sourceTree = "<group>";
+		};
+		CC7A0FC027DCD51400C5DCD5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC7A0FC127DCD52C00C5DCD5 /* NSData+Hexadecimal.h */,
+				CC7A0FC227DCD52C00C5DCD5 /* NSData+Hexadecimal.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +343,7 @@
 				CC5BBDED27D90EBA0021B9FB /* symbol_variant_scripts.json in Resources */,
 				CC36F10B27D3385D000C4495 /* categories.plist in Resources */,
 				CCA4D99C27D3775E009D2777 /* symbol_unicodes.plist in Resources */,
+				CC7A0FBF27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf in Resources */,
 				CCA4D99E27D377BE009D2777 /* symbol_restrictions.plist in Resources */,
 				7E0C9552247E658C0029F521 /* Assets.xcassets in Resources */,
 			);
@@ -353,6 +370,7 @@
 				7E0C956F247E71570029F521 /* SFReusableTitleView.m in Sources */,
 				CC7A0FBC27DA3D8200C5DCD5 /* ObjectTableViewController.m in Sources */,
 				CC5BBDEB27D9054C0021B9FB /* SymbolActionTableViewCell.m in Sources */,
+				CC7A0FC327DCD52C00C5DCD5 /* NSData+Hexadecimal.m in Sources */,
 				CC7A0FBD27DA3D8200C5DCD5 /* ObjectNode.m in Sources */,
 				7E0C9563247E6B520029F521 /* SymbolSearchResultsViewController.m in Sources */,
 				7E0C957D247F588E0029F521 /* SFCategoriesViewController.m in Sources */,
@@ -495,7 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				INFOPLIST_FILE = SFSymbolsPreview/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				INFOPLIST_FILE = SFSymbolsPreview/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

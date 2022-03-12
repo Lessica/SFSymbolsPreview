@@ -120,7 +120,7 @@
     if (section == 0) {
         return 1 + self.symbol.symbolVariants.count;
     } else if (section == 1) {
-        return 3;
+        return 4;
     } else if (section == 2) {
         return 1;
     }
@@ -163,6 +163,7 @@
         [cell.imageView setImage:symbolVariant.image];
         [cell.imageView setTintColor:UIColor.labelColor];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolKeyValueTableViewCell.class)];
@@ -172,6 +173,7 @@
             [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
             [cell.imageView setImage:nil];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
         } else if (indexPath.row == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
             [cell.textLabel setText:NSLocalizedString(@"Copy Name", nil)];
@@ -180,7 +182,17 @@
             [cell.imageView setImage:[UIImage systemImageNamed:@"doc.on.doc"]];
             [cell.imageView setTintColor:self.view.tintColor];
             [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
         } else if (indexPath.row == 2) {
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
+            [cell.textLabel setText:NSLocalizedString(@"Copy Symbol", nil)];
+            [cell.textLabel setNumberOfLines:1];
+            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+            [cell.imageView setImage:[UIImage systemImageNamed:@"doc.on.doc.fill"]];
+            [cell.imageView setTintColor:self.view.tintColor];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+            [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+        } else if (indexPath.row == 3) {
             cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
             [cell.textLabel setText:NSLocalizedString(@"Share...", nil)];
             [cell.textLabel setNumberOfLines:1];
@@ -188,6 +200,7 @@
             [cell.imageView setImage:[UIImage systemImageNamed:@"square.and.arrow.up"]];
             [cell.imageView setTintColor:self.view.tintColor];
             [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
@@ -210,6 +223,8 @@
         if (indexPath.row == 1) {
             UIPasteboard.generalPasteboard.string = self.symbol.name;
         } else if (indexPath.row == 2) {
+            UIPasteboard.generalPasteboard.string = self.symbol.unicodeString;
+        } else if (indexPath.row == 3) {
             UIActivityViewController *activityVC = [UIActivityViewController.alloc initWithActivityItems:@[ self.symbol.name, self.imageView.image ]
                                                                                    applicationActivities:nil];
             if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
@@ -237,6 +252,17 @@
             [objectVC setInitialRootHidden:YES];
             [objectVC setPressToCopy:YES];
             [self.navigationController pushViewController:objectVC animated:YES];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        if (indexPath.row == 2) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"These glyphs seem to have been given code points in Unicode's Supplementary Private Use Area B. Perhaps the iOS apps don't have the ability to deal with that yet.", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
         }
     }
 }

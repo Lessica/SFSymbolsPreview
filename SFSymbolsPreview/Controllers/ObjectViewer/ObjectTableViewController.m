@@ -85,6 +85,7 @@
     }
     
     self.view.backgroundColor = [UIColor systemBackgroundColor];
+    [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeNever];
     
     self.searchController = ({
         UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];

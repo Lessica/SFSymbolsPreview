@@ -11,6 +11,7 @@
 #import "SFReusableTitleView.h"
 #import "SFSymbolDataSource.h"
 #import "SymbolGroupedDetailsViewController.h"
+#import "NSData+Hexadecimal.h"
 
 
 @interface SymbolsViewController () <SymbolPreviewDelegate, UICollectionViewDragDelegate>
@@ -315,6 +316,9 @@
     NSArray <UIAction *> *cellActions = @[
         [UIAction actionWithTitle:NSLocalizedString(@"Copy Name", nil) image:[UIImage systemImageNamed:@"doc.on.doc"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             [[UIPasteboard generalPasteboard] setString:symbol.name];
+        }],
+        [UIAction actionWithTitle:NSLocalizedString(@"Copy Symbol", nil) image:[UIImage systemImageNamed:@"doc.on.doc.fill"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
+            [[UIPasteboard generalPasteboard] setString:symbol.unicodeString];
         }],
         [UIAction actionWithTitle:NSLocalizedString(@"Share...", nil) image:[UIImage systemImageNamed:@"square.and.arrow.up"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             UIActivityViewController *activityVC = [UIActivityViewController.alloc initWithActivityItems:@[ symbol.name, symbol.image ]
