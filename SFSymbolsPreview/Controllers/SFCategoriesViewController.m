@@ -68,6 +68,10 @@
     [self.navigationController.navigationBar setPrefersLargeTitles:YES];
     [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeAutomatic];
     
+    [self.navigationItem setRightBarButtonItems:@[
+        [UIBarButtonItem.alloc initWithImage:[UIImage systemImageNamed:@"gear"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsItemTapped:)],
+    ]];
+    
     [self setTableView:({
         UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
         [f setDelegate:self];
@@ -84,6 +88,11 @@
     })];
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)settingsItemTapped:(UIBarButtonItem *)sender
+{
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

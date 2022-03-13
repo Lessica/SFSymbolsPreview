@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7027FABB62D0D51492B19DDF /* libPods-SFSymbolsPreview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86802AD8D6BDAF81C550762A /* libPods-SFSymbolsPreview.a */; };
 		7E0C9547247E65890029F521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C9546247E65890029F521 /* AppDelegate.m */; };
 		7E0C954A247E65890029F521 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C9549247E65890029F521 /* SceneDelegate.m */; };
 		7E0C9552247E658C0029F521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C9551247E658C0029F521 /* Assets.xcassets */; };
@@ -48,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AC79A240E7B601DA91945A6 /* Pods-SFSymbolsPreview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFSymbolsPreview.debug.xcconfig"; path = "Target Support Files/Pods-SFSymbolsPreview/Pods-SFSymbolsPreview.debug.xcconfig"; sourceTree = "<group>"; };
+		4907949C136C32846895E058 /* Pods-SFSymbolsPreview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFSymbolsPreview.release.xcconfig"; path = "Target Support Files/Pods-SFSymbolsPreview/Pods-SFSymbolsPreview.release.xcconfig"; sourceTree = "<group>"; };
 		7E0C9542247E65890029F521 /* SF Symbols.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SF Symbols.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0C9545247E65890029F521 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7E0C9546247E65890029F521 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		7E0C957F247F5F280029F521 /* SFSymbolCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolCategory.m; sourceTree = "<group>"; };
 		7EE4071F247F861600A68520 /* SFSymbolDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolDataSource.h; sourceTree = "<group>"; };
 		7EE40720247F861600A68520 /* SFSymbolDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolDataSource.m; sourceTree = "<group>"; };
+		86802AD8D6BDAF81C550762A /* libPods-SFSymbolsPreview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SFSymbolsPreview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC36F10227D3385B000C4495 /* symbol_search.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = symbol_search.plist; sourceTree = "<group>"; };
 		CC36F10327D3385B000C4495 /* name_availability.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = name_availability.plist; sourceTree = "<group>"; };
 		CC36F10427D3385B000C4495 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7027FABB62D0D51492B19DDF /* libPods-SFSymbolsPreview.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +133,8 @@
 			children = (
 				7E0C9544247E65890029F521 /* SFSymbolsPreview */,
 				7E0C9543247E65890029F521 /* Products */,
+				ACC80429322446D58FE5EDEA /* Pods */,
+				C078522ACB532C3C8BB9B5FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,6 +247,24 @@
 			path = Entrance;
 			sourceTree = "<group>";
 		};
+		ACC80429322446D58FE5EDEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3AC79A240E7B601DA91945A6 /* Pods-SFSymbolsPreview.debug.xcconfig */,
+				4907949C136C32846895E058 /* Pods-SFSymbolsPreview.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C078522ACB532C3C8BB9B5FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86802AD8D6BDAF81C550762A /* libPods-SFSymbolsPreview.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CC5BBDEF27D916C90021B9FB /* todos */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E0C955B247E658C0029F521 /* Build configuration list for PBXNativeTarget "SFSymbolsPreview" */;
 			buildPhases = (
+				7E67FD968BA9824F0EF11CF2 /* [CP] Check Pods Manifest.lock */,
 				7E0C953E247E65890029F521 /* Sources */,
 				7E0C953F247E65890029F521 /* Frameworks */,
 				7E0C9540247E65890029F521 /* Resources */,
@@ -350,6 +376,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E67FD968BA9824F0EF11CF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SFSymbolsPreview-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7E0C953E247E65890029F521 /* Sources */ = {
@@ -507,6 +558,7 @@
 		};
 		7E0C955C247E658C0029F521 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AC79A240E7B601DA91945A6 /* Pods-SFSymbolsPreview.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SFSymbolsPreview/SFSymbolsPreview.entitlements;
@@ -528,6 +580,7 @@
 		};
 		7E0C955D247E658C0029F521 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4907949C136C32846895E058 /* Pods-SFSymbolsPreview.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SFSymbolsPreview/SFSymbolsPreview.entitlements;

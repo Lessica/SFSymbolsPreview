@@ -140,7 +140,7 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
 
 - (UIImage *)image
 {
-    return [UIImage systemImageNamed:self.name withConfiguration:[UIImageSymbolConfiguration configurationWithWeight:preferredImageSymbolWeight()]];
+    return [UIImage systemImageNamed:self.name withConfiguration:preferredImageSymbolConfiguration()];
 }
 
 - (instancetype)initWithName:(NSString *)name

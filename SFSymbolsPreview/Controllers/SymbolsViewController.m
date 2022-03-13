@@ -75,7 +75,7 @@
     [self.navigationItem setRightBarButtonItem:[UIBarButtonItem.alloc initWithTitle:@"Regular"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
-                                                                             action:@selector(changePreferredImageSymbolWeight)]];
+                                                                             action:@selector(changePreferredImageSymbolWeight:)]];
     [self updateRightBarButtonItemTitle];
     
     [self.navigationItem setLeftBarButtonItem:self.splitViewController.displayModeButtonItem];
@@ -113,8 +113,8 @@
                    withReuseIdentifier:NSStringFromClass(SFReusableSegmentedControlView.class)];
     
     [NSNotificationCenter.defaultCenter addObserver:self
-                                           selector:@selector(notifyPreferredSymbolWeightDidChange:)
-                                               name:PreferredSymbolWeightDidChangeNotification
+                                           selector:@selector(notifyPreferredSymbolConfigurationDidChange:)
+                                               name:PreferredSymbolConfigurationDidChangeNotification
                                              object:nil];
 }
 
@@ -214,7 +214,7 @@
                                          animated:YES];
 }
 
-- (void)changePreferredImageSymbolWeight
+- (void)changePreferredImageSymbolWeight:(id)sender
 {
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil
                                                                     message:nil
@@ -254,14 +254,14 @@
     [self presentViewController:alertC animated:YES completion:nil];
 }
 
-- (void)notifyPreferredSymbolWeightDidChange:(NSNotification *)notification
+- (void)notifyPreferredSymbolConfigurationDidChange:(NSNotification *)notification
 {
-    [self updatePreferredImageSymbolWeight:preferredImageSymbolWeight()];
+    [self updatePreferredImageSymbolConfiguration:preferredImageSymbolConfiguration()];
 }
 
 - (void)updateRightBarButtonItemTitle
 {
-    switch (preferredImageSymbolWeight())
+    switch (preferredImageSymbolConfiguration().weight)
     {
     case UIImageSymbolWeightUltraLight: self.navigationItem.rightBarButtonItem.title = @"Ultralight"; break;
     case UIImageSymbolWeightThin: self.navigationItem.rightBarButtonItem.title = @"Thin"; break;
@@ -278,7 +278,12 @@
 
 - (void)updatePreferredImageSymbolWeight:(UIImageSymbolWeight)weight
 {
-    storeUserActivityPreferredImageSymbolWeight(weight);
+    [self updatePreferredImageSymbolConfiguration:[preferredImageSymbolConfiguration() configurationByApplyingConfiguration:[UIImageSymbolConfiguration configurationWithWeight:weight]]];
+}
+
+- (void)updatePreferredImageSymbolConfiguration:(UIImageSymbolConfiguration *)configuration
+{
+    storePreferredImageSymbolConfiguration(configuration);
     
     [self.collectionView performBatchUpdates:^{
                              [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];

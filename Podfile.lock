@@ -1,0 +1,16 @@
+PODS:
+  - XUI (1.1.2)
+
+DEPENDENCIES:
+  - XUI (from `../XUI`)
+
+EXTERNAL SOURCES:
+  XUI:
+    :path: "../XUI"
+
+SPEC CHECKSUMS:
+  XUI: de0dd8c99edeaa5b60303240df9d53cc0cdfd1a7
+
+PODFILE CHECKSUM: f5f980f21d40ed05ada21339c1b08ea0c749cfdf
+
+COCOAPODS: 1.11.2

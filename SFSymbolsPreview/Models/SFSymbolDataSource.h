@@ -18,12 +18,23 @@ void storeUserActivityLastOpenedCategory(SFSymbolCategory *category);
 NSUInteger numberOfItemsInColumn(void);
 void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems);
 
-FOUNDATION_EXTERN NSNotificationName const PreferredSymbolWeightDidChangeNotification;
-UIImageSymbolWeight preferredImageSymbolWeight(void);
-void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight);
+FOUNDATION_EXTERN NSNotificationName const PreferredSymbolConfigurationDidChangeNotification;
+UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void);
+void storePreferredImageSymbolConfiguration(UIImageSymbolConfiguration *configuration);
+
+@interface UIImageSymbolConfiguration (Private)
+
+@property (nonatomic, assign) UIImageSymbolWeight weight;
+@property (nonatomic, assign) UIImageSymbolScale scale;
+@property (nonatomic, assign) CGFloat fixedPointSize;
+@property (nonatomic, assign) CGFloat pointSizeForScalingWithTextStyle;
+@property (nonatomic, assign) CGFloat customFontPointSizeMultiplier;
+@property (nonatomic, copy) UIFontTextStyle textStyle;
+
+@end
 
 @interface SFSymbolDataSource : NSObject
-
+    
 @property (nonatomic, strong, readonly) NSArray <SFSymbolCategory *> *categories;
 
 + (instancetype)dataSource;

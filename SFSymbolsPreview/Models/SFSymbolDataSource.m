@@ -51,17 +51,19 @@ void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems)
     [NSUserDefaults.standardUserDefaults setInteger:numberOfItems forKey:kNumberOfItemsInColumnKey];
 }
 
-NSNotificationName const PreferredSymbolWeightDidChangeNotification = @"PreferredSymbolWeightDidChangeNotification";
-static NSString *const kPreferredImageSymbolWeightKey = @"PreferredImageSymbolWeight";
-UIImageSymbolWeight preferredImageSymbolWeight(void)
+NSNotificationName const PreferredSymbolConfigurationDidChangeNotification = @"PreferredSymbolConfigurationDidChangeNotification";
+static NSString *const kPreferredImageSymbolConfigurationKey = @"PreferredImageSymbolConfiguration";
+UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void)
 {
-    NSUInteger weight = [NSUserDefaults.standardUserDefaults integerForKey:kPreferredImageSymbolWeightKey];
-    return (weight >= UIImageSymbolWeightUltraLight && weight <= UIImageSymbolWeightBlack) ? weight : UIImageSymbolWeightRegular;
+    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:kPreferredImageSymbolConfigurationKey];
+    UIImageSymbolConfiguration *configuration = [NSKeyedUnarchiver unarchivedObjectOfClass:[UIImageSymbolConfiguration class] fromData:encodedObject error:nil];
+    return configuration ?: [UIImageSymbolConfiguration unspecifiedConfiguration];
 }
 
-void storeUserActivityPreferredImageSymbolWeight(UIImageSymbolWeight weight)
+void storePreferredImageSymbolConfiguration(UIImageSymbolConfiguration *configuration)
 {
-    [NSUserDefaults.standardUserDefaults setInteger:weight forKey:kPreferredImageSymbolWeightKey];
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:configuration requiringSecureCoding:YES error:nil];
+    [NSUserDefaults.standardUserDefaults setObject:encodedObject forKey:kPreferredImageSymbolConfigurationKey];
 }
 
 
