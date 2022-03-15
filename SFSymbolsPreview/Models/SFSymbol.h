@@ -11,14 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSString * const SFSymbolLayerSetNameMonochrome;
-extern NSString * const SFSymbolLayerSetNameHierarchical;
-extern NSString * const SFSymbolLayerSetNamePalette;
-extern NSString * const SFSymbolLayerSetNameMulticolor;
+FOUNDATION_EXTERN NSString * const SFSymbolLayerSetNameMonochrome;
+FOUNDATION_EXTERN NSString * const SFSymbolLayerSetNameHierarchical;
+FOUNDATION_EXTERN NSString * const SFSymbolLayerSetNamePalette;
+FOUNDATION_EXTERN NSString * const SFSymbolLayerSetNameMulticolor;
 
 typedef NSString *SFSymbolLayerSetName;
 
-extern NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name);
+FOUNDATION_EXTERN NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name);
 
 @interface SFSymbol : NSObject
     

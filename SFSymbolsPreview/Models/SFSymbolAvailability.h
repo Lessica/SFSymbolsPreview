@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSString * const SFSymbolAvailabilityPlatformName_iOS;
-extern NSString * const SFSymbolAvailabilityPlatformName_macCatalyst;
-extern NSString * const SFSymbolAvailabilityPlatformName_macOS;
-extern NSString * const SFSymbolAvailabilityPlatformName_tvOS;
-extern NSString * const SFSymbolAvailabilityPlatformName_watchOS;
+FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_iOS;
+FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_macCatalyst;
+FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_macOS;
+FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_tvOS;
+FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_watchOS;
 
 typedef NSString *SFSymbolAvailabilityPlatformName;
 

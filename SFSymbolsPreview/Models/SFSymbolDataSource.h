@@ -19,9 +19,11 @@ void storeUserActivityLastOpenedCategory(SFSymbolCategory *category);
 NSUInteger numberOfItemsInColumn(void);
 void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems);
 
-FOUNDATION_EXTERN NSNotificationName const PreferredSymbolConfigurationDidChangeNotification;
+FOUNDATION_EXTERN NSNotificationName const SFPreferredSymbolConfigurationDidChangeNotification;
 UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void);
 void storePreferredImageSymbolConfiguration(UIImageSymbolConfiguration *configuration);
+
+FOUNDATION_EXTERN NSNotificationName const SFSymbolFavoritesDidUpdateNotification;
 
 @interface UIImageSymbolConfiguration (Private)
 

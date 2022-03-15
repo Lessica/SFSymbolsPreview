@@ -11,14 +11,28 @@
 
 @interface SFSymbolCategory ()
 
+@property (nonatomic, copy) NSString *favoriteItemPath;
+
 @property (nonatomic, strong) NSMutableArray <SFSymbol *> *mutableSymbols;
-@property (nonatomic, strong) NSMutableSet <NSString *> *mutableSymbolNames;
+@property (nonatomic, strong) NSMutableArray <NSString *> *mutableSymbolNames;
+@property (nonatomic, strong) NSMutableDictionary <NSString *, SFSymbol *> *mutableFastSymbolNames;
 
 @end
 
 @implementation SFSymbolCategory
 
 @synthesize tokenizedSymbols = _tokenizedSymbols;
+
++ (instancetype)favoriteCategory
+{
+    static SFSymbolCategory *_category = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *libraryPath = [[[NSFileManager defaultManager] URLForDirectory:NSLibraryDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] path];
+        _category = [[SFSymbolCategory alloc] initWithFavoriteItemPath:[libraryPath stringByAppendingPathComponent:@"favorite.plist"]];
+    });
+    return _category;
+}
 
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName
 {
@@ -27,7 +41,7 @@
 
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName imageNamed:(NSString *)imageNamed
 {
-    if ([super init])
+    if (self = [super init])
     {
         _key = categoryKey;
         _name = categoryName;
@@ -38,18 +52,33 @@
     return self;
 }
 
+- (instancetype)initWithFavoriteItemPath:(NSString *)favoriteItemPath
+{
+    if (self = [super init])
+    {
+        _name = NSLocalizedString(@"Favorites", nil);
+        _favoriteItemPath = favoriteItemPath;
+        
+        [self loadSymbols];
+    }
+    return self;
+}
+
 - (instancetype)initWithSearchResultsCategoryWithSymbols:(NSArray <SFSymbol *> *)symbols
 {
-    if ([super init])
+    if (self = [super init])
     {
         _name = NSLocalizedString(@"Search Results", nil);
         _mutableSymbols = [symbols mutableCopy];
         
-        NSMutableSet <NSString *> *cachedSymbolNames = [[NSMutableSet alloc] initWithCapacity:symbols.count];
+        NSMutableArray <NSString *> *cachedSymbolNames = [[NSMutableArray alloc] initWithCapacity:symbols.count];
+        NSMutableDictionary <NSString *, SFSymbol *> *cachedFastSymbolNames = [[NSMutableDictionary alloc] initWithCapacity:symbols.count];
         for (SFSymbol *symbol in symbols) {
             [cachedSymbolNames addObject:symbol.name];
+            [cachedFastSymbolNames setObject:symbol forKey:symbol.name];
         }
         _mutableSymbolNames = cachedSymbolNames;
+        _mutableFastSymbolNames = cachedFastSymbolNames;
     }
     return self;
 }
@@ -121,7 +150,9 @@
         categoryMappings = cachedCategoryMappings;
     });
     
-    if (categoryMappings[self.key]) {
+    if (self.favoriteItemPath) {
+        [self loadSymbolsWithSymbolNames:([NSArray arrayWithContentsOfFile:self.favoriteItemPath] ?: @[])];
+    } else if (categoryMappings[self.key]) {
         [self loadSymbolsWithSymbolNames:categoryMappings[self.key]];
     } else if ([self.key isEqualToString:@"all"]) {
         [self loadSymbolsWithSymbolNames:allSymbolNames];
@@ -132,7 +163,8 @@
 {
     if (!_mutableSymbols) {
         _mutableSymbols = [[NSMutableArray alloc] initWithCapacity:symbolNames.count];
-        _mutableSymbolNames = [[NSMutableSet alloc] initWithCapacity:symbolNames.count];
+        _mutableSymbolNames = [[NSMutableArray alloc] initWithCapacity:symbolNames.count];
+        _mutableFastSymbolNames = [[NSMutableDictionary alloc] initWithCapacity:symbolNames.count];
     }
     [symbolNames enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *stop) {
         if (![self->_mutableSymbolNames containsObject:name]) {
@@ -140,9 +172,42 @@
             SFSymbol *symbol = [SFSymbol symbolWithName:name];
             if ([symbol.availability isCompatibleWithCurrentPlatform]) {
                 [self->_mutableSymbols addObject:symbol];
+                [self->_mutableFastSymbolNames setObject:symbol forKey:symbol.name];
             }
         }
     }];
+}
+
+- (BOOL)isFavoriteCategory
+{
+    return _favoriteItemPath != nil;
+}
+
+- (void)addSymbols:(NSArray <SFSymbol *> *)objects
+{
+    NSArray <SFSymbol *> *allSymbols = objects;
+    [_mutableSymbols addObjectsFromArray:allSymbols];
+    for (SFSymbol *symbol in allSymbols) {
+        [_mutableSymbolNames addObject:symbol.name];
+        [_mutableFastSymbolNames setObject:symbol forKey:symbol.name];
+    }
+    [_mutableSymbolNames writeToFile:self.favoriteItemPath atomically:YES];
+}
+
+- (void)removeSymbols:(NSArray <SFSymbol *> *)objects
+{
+    NSArray <SFSymbol *> *allSymbols = objects;
+    [_mutableSymbols removeObjectsInArray:allSymbols];
+    for (SFSymbol *symbol in allSymbols) {
+        [_mutableSymbolNames removeObject:symbol.name];
+        [_mutableFastSymbolNames removeObjectForKey:symbol.name];
+    }
+    [_mutableSymbolNames writeToFile:self.favoriteItemPath atomically:YES];
+}
+
+- (BOOL)hasSymbol:(SFSymbol *)symbol
+{
+    return [_mutableFastSymbolNames objectForKey:symbol.name] != nil;
 }
 
 @end

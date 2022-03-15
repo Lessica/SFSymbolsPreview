@@ -114,7 +114,11 @@
     
     [NSNotificationCenter.defaultCenter addObserver:self
                                            selector:@selector(notifyPreferredSymbolConfigurationDidChange:)
-                                               name:PreferredSymbolConfigurationDidChangeNotification
+                                               name:SFPreferredSymbolConfigurationDidChangeNotification
+                                             object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(notifySymbolFavoritesDidUpdate:)
+                                               name:SFSymbolFavoritesDidUpdateNotification
                                              object:nil];
 }
 
@@ -194,6 +198,7 @@
     {
         SymbolPreviewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SymbolPreviewCell.class)
                                                                             forIndexPath:indexPath];
+        [cell setHidesFavoriteButton:self.category.isFavoriteCategory];
         [cell setSymbol:self.symbolsForDisplay[indexPath.row]];
         [cell setDelegate:self];
         return cell;
@@ -202,6 +207,7 @@
     {
         SymbolPreviewTableCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SymbolPreviewTableCell.class)
                                                                                  forIndexPath:indexPath];
+        [cell setHidesFavoriteButton:self.category.isFavoriteCategory];
         [cell setSymbol:self.symbolsForDisplay[indexPath.row]];
         [cell setDelegate:self];
         return cell;
@@ -259,6 +265,38 @@
     [self updatePreferredImageSymbolConfiguration:preferredImageSymbolConfiguration()];
 }
 
+- (void)notifySymbolFavoritesDidUpdate:(NSNotification *)notification
+{
+    UICollectionViewCell *targetCell = nil;
+    for (UICollectionViewCell *cell in [self.collectionView visibleCells]) {
+        if ([cell isKindOfClass:[SymbolPreviewCell class]]) {
+            if ([notification.object isEqual:[(SymbolPreviewCell *)cell symbol]])
+            {
+                targetCell = cell;
+                break;
+            }
+        } else if ([cell isKindOfClass:[SymbolPreviewTableCell class]]) {
+            if ([notification.object isEqual:[(SymbolPreviewTableCell *)cell symbol]])
+            {
+                targetCell = cell;
+                break;
+            }
+        }
+    }
+    if (targetCell) {
+        NSIndexPath *targetIndexPath = [self.collectionView indexPathForCell:targetCell];
+        if (targetIndexPath) {
+            if (self.category.isFavoriteCategory) {
+                [self.collectionView performBatchUpdates:^{
+                    [self->_collectionView deleteItemsAtIndexPaths:@[targetIndexPath]];
+                } completion:^(BOOL finished) { }];
+            } else {
+                [self.collectionView reloadItemsAtIndexPaths:@[targetIndexPath]];
+            }
+        }
+    }
+}
+
 - (void)updateRightBarButtonItemTitle
 {
     switch (preferredImageSymbolConfiguration().weight)
@@ -310,6 +348,46 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)symbolPreviewRemoveFromFavorite:(SFSymbol *)symbol
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Do you want to remove “%@” from “Favorites“ collection?", nil), symbol.name] message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Confirm", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UICollectionView *collectionView = self.collectionView;
+        UICollectionViewCell *targetCell = nil;
+        for (UICollectionViewCell *cell in [collectionView visibleCells]) {
+            if ([cell isKindOfClass:[SymbolPreviewCell class]]) {
+                if ([symbol isEqual:[(SymbolPreviewCell *)cell symbol]])
+                {
+                    targetCell = cell;
+                    break;
+                }
+            } else if ([cell isKindOfClass:[SymbolPreviewTableCell class]]) {
+                if ([symbol isEqual:[(SymbolPreviewTableCell *)cell symbol]])
+                {
+                    targetCell = cell;
+                    break;
+                }
+            }
+        }
+        if (targetCell) {
+            NSIndexPath *targetIndexPath = [collectionView indexPathForCell:targetCell];
+            if (targetIndexPath) {
+                SFSymbolCategory *favoriteCategory = [SFSymbolCategory favoriteCategory];
+                [favoriteCategory removeSymbols:@[symbol]];
+                if (self.category.isFavoriteCategory) {
+                    [collectionView performBatchUpdates:^{
+                        [collectionView deleteItemsAtIndexPaths:@[targetIndexPath]];
+                    } completion:^(BOOL finished) { }];
+                } else {
+                    [collectionView reloadItemsAtIndexPaths:@[targetIndexPath]];
+                }
+            }
+        }
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 - (UIFontTextStyle)preferredTextStyle
 {
     return self.numberOfItemInColumn <= 1 ? UIFontTextStyleBody : UIFontTextStyleCaption1;
@@ -318,6 +396,9 @@
 - (UIContextMenuConfiguration *)collectionView:(UICollectionView *)collectionView contextMenuConfigurationForItemAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point
 {
     SFSymbol *symbol = self.symbolsForDisplay[indexPath.item];
+    SFSymbolCategory *favoriteCategory = [SFSymbolCategory favoriteCategory];
+    BOOL isFavoriteCategory = [self.category isFavoriteCategory];
+    BOOL isFavoriteSymbol = isFavoriteCategory || [[favoriteCategory symbols] containsObject:symbol];
     NSArray <UIAction *> *cellActions = @[
         [UIAction actionWithTitle:NSLocalizedString(@"Copy Name", nil) image:[UIImage systemImageNamed:@"doc.on.doc"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             [[UIPasteboard generalPasteboard] setString:symbol.name];
@@ -336,9 +417,27 @@
             [self presentViewController:activityVC animated:YES completion:nil];
         }],
     ];
+    UIMenu *cellMenu = [UIMenu menuWithTitle:@"" image:nil identifier:nil options:UIMenuOptionsDisplayInline children:cellActions];
+    NSArray <UIMenuElement *> *inlineActions = @[
+        cellMenu,
+        [UIAction actionWithTitle:isFavoriteSymbol ? NSLocalizedString(@"Remove from Favorites", nil) : NSLocalizedString(@"Add to Favorites", nil) image:isFavoriteSymbol ? [UIImage systemImageNamed:@"heart.slash"] : [UIImage systemImageNamed:@"heart"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
+            if (isFavoriteSymbol) {
+                [favoriteCategory removeSymbols:@[symbol]];
+                if (isFavoriteCategory) {
+                    [collectionView performBatchUpdates:^{
+                        [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                    } completion:^(BOOL finished) { }];
+                }
+            } else {
+                [favoriteCategory addSymbols:@[symbol]];
+            }
+            if (!isFavoriteCategory) {
+                [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+            }
+        }],
+    ];
     return [UIContextMenuConfiguration configurationWithIdentifier:nil previewProvider:nil actionProvider:^UIMenu * _Nullable (NSArray <UIMenuElement *> * _Nonnull suggestedActions) {
-        UIMenu *menu = [UIMenu menuWithTitle:@"" children:cellActions];
-        return menu;
+        return [UIMenu menuWithTitle:@"" children:inlineActions];
     }];
 }
 

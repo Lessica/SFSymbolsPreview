@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UITableViewCell *imageViewCell;
 @property (nonatomic, strong) UIImageView *imageView;
 
+@property (nonatomic, strong) UIButton *favButton;
+
 @end
 
 @implementation SymbolGroupedDetailsViewController
@@ -41,6 +43,21 @@
     [self.view setBackgroundColor:UIColor.systemGroupedBackgroundColor];
     [self.navigationController.navigationBar setPrefersLargeTitles:YES];
     [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeAutomatic];
+    
+    [self setFavButton:({
+        UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
+        [b setFrame:CGRectMake(0, 0, 48, 44)];
+        [b setImage:[UIImage systemImageNamed:@"heart.fill" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:UIImageSymbolScaleLarge]] forState:UIControlStateSelected];
+        [b setImage:[UIImage systemImageNamed:@"heart" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:UIImageSymbolScaleLarge]] forState:UIControlStateNormal];
+        [b.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [b setTintColor:[UIColor systemPinkColor]];
+        [b addTarget:self action:@selector(favButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        b;
+    })];
+    
+    [self.navigationItem setRightBarButtonItem:({
+        [[UIBarButtonItem alloc] initWithCustomView:self.favButton];
+    })];
     
     [self setImageView:({
         UIImageView *v = UIImageView.new;
@@ -84,6 +101,7 @@
         f;
     })];
     
+    [self updateFavoriteState];
     [self updatePreviewSymbolImage];
 }
 
@@ -92,6 +110,10 @@
     [super viewWillAppear:animated];
     
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)updateFavoriteState {
+    [self.favButton setSelected:[[SFSymbolCategory favoriteCategory] hasSymbol:self.symbol]];
 }
 
 - (void)updatePreviewSymbolImage {
@@ -261,7 +283,7 @@
 {
     if (indexPath.section == 1) {
         if (indexPath.row == 2) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"These glyphs seem to have been given code points in Unicode's Supplementary Private Use Area B. Perhaps the iOS apps don't have the ability to deal with that yet.", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"These glyphs seem to have been given code points in Unicode‘s Supplementary Private Use Area B. Perhaps the iOS apps don‘t have the ability to deal with that yet.", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alertController animated:YES completion:nil];
         }
@@ -270,16 +292,20 @@
 
 - (NSArray <UIDragItem *> *)tableView:(UITableView *)tableView itemsForBeginningDragSession:(id <UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        SFSymbol *symbol = self.symbol;
+    if (indexPath.section == 0) {
+        SFSymbol *symbol = nil;
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            symbol = self.symbol;
+        } else {
+            NSInteger row = indexPath.row - 1;
+            symbol = self.symbol.symbolVariants[row];
+        }
         
         NSItemProvider *symbolProvider = [[NSItemProvider alloc] initWithObject:symbol.image];
         UIDragItem *symbolDragItem = [[UIDragItem alloc] initWithItemProvider:symbolProvider];
         
         return @[symbolDragItem];
-    }
-    
-    if (indexPath.section == 1 && indexPath.row == 0) {
+    } else if (indexPath.section == 1 && indexPath.row == 0) {
         SFSymbol *symbol = self.symbol;
         
         NSItemProvider *symbolNameProvider = [[NSItemProvider alloc] initWithObject:symbol.name];
@@ -289,6 +315,18 @@
     }
     
     return @[];
+}
+
+- (void)favButtonTapped:(UIBarButtonItem *)sender
+{
+    SFSymbolCategory *favoriteCategory = [SFSymbolCategory favoriteCategory];
+    if ([favoriteCategory hasSymbol:self.symbol]) {
+        [favoriteCategory removeSymbols:@[self.symbol]];
+    } else {
+        [favoriteCategory addSymbols:@[self.symbol]];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:SFSymbolFavoritesDidUpdateNotification object:self.symbol];
+    [self updateFavoriteState];
 }
 
 - (void)dealloc

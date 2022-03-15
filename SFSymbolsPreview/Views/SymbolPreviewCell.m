@@ -7,12 +7,13 @@
 //
 
 #import "SymbolPreviewCell.h"
-
+#import "SFSymbolCategory.h"
 
 @interface SymbolPreviewCell ()
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *textLabel;
+@property (nonatomic, strong) UIButton *favButton;
 @property (nonatomic, strong) UIButton *infoButton;
 
 @property (nonatomic, strong) UIView *selectedHighlightView;
@@ -28,6 +29,15 @@
     self.textLabel.text = symbol.name;
     self.imageView.image = symbol.image;
     self.infoButton.hidden = !symbol.useRestrictions;
+    self.favButton.hidden = _hidesFavoriteButton || ![[SFSymbolCategory favoriteCategory] hasSymbol:symbol];
+}
+
+- (void)setHidesFavoriteButton:(BOOL)hidesFavoriteButton
+{
+    _hidesFavoriteButton = hidesFavoriteButton;
+    if ([self.favButton isHidden] != hidesFavoriteButton) {
+        [self.favButton setHidden:hidesFavoriteButton];
+    }
 }
 
 - (void)setAttributedText:(NSAttributedString *)attributedText
@@ -41,7 +51,8 @@
     
     [self.selectedHighlightView setBackgroundColor:selected ? self.tintColor : UIColor.secondarySystemBackgroundColor];
     [self.imageView setTintColor:selected ? UIColor.whiteColor : UIColor.labelColor];
-    [self.infoButton setTintColor:selected ? UIColor.whiteColor : self.tintColor];
+    [self.favButton setTintColor:selected ? UIColor.whiteColor : UIColor.systemPinkColor];
+    [self.infoButton setTintColor:selected ? UIColor.whiteColor : UIColor.secondaryLabelColor];
 }
 
 - (void)setHighlighted:(BOOL)highlighted
@@ -50,7 +61,8 @@
     
     [self.selectedHighlightView setBackgroundColor:highlighted ? self.tintColor : UIColor.secondarySystemBackgroundColor];
     [self.imageView setTintColor:highlighted ? UIColor.whiteColor : UIColor.labelColor];
-    [self.infoButton setTintColor:highlighted ? UIColor.whiteColor : self.tintColor];
+    [self.favButton setTintColor:highlighted ? UIColor.whiteColor : UIColor.systemPinkColor];
+    [self.infoButton setTintColor:highlighted ? UIColor.whiteColor : UIColor.secondaryLabelColor];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -105,8 +117,25 @@
             [f.centerXAnchor constraintEqualToAnchor:self.imageView.centerXAnchor].active = YES;
             f;
         })];
+        [self setFavButton:({
+            UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
+            [b setImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
+            [b.imageView setContentMode:UIViewContentModeScaleAspectFit];
+            [b setTintColor:[UIColor systemPinkColor]];
+            [self.selectedHighlightView addSubview:b];
+            [b setTranslatesAutoresizingMaskIntoConstraints:NO];
+            [b.heightAnchor constraintEqualToConstant:18.f].active = YES;
+            [b.widthAnchor constraintEqualToAnchor:b.heightAnchor].active = YES;
+            [b.leadingAnchor constraintEqualToAnchor:self.selectedHighlightView.leadingAnchor constant:4.f].active = YES;
+            [b.bottomAnchor constraintEqualToAnchor:self.selectedHighlightView.bottomAnchor constant:-4.f].active = YES;
+            [b addTarget:self action:@selector(favButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            b;
+        })];
         [self setInfoButton:({
-            UIButton *b = [UIButton buttonWithType:UIButtonTypeInfoDark];
+            UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
+            [b setImage:[UIImage systemImageNamed:@"info.circle.fill"] forState:UIControlStateNormal];
+            [b.imageView setContentMode:UIViewContentModeScaleAspectFit];
+            [b setTintColor:[UIColor secondaryLabelColor]];
             [self.selectedHighlightView addSubview:b];
             [b setTranslatesAutoresizingMaskIntoConstraints:NO];
             [b.heightAnchor constraintEqualToConstant:18.f].active = YES;
@@ -126,6 +155,12 @@
     }
 }
 
+- (void)favButtonTapped:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(symbolPreviewRemoveFromFavorite:)]) {
+        [self.delegate symbolPreviewRemoveFromFavorite:self.symbol];
+    }
+}
+
 @end
 
 
@@ -136,6 +171,7 @@
 
 @property (nonatomic, strong) NSLayoutConstraint *infoButtonLeadingConstraint;
 @property (nonatomic, strong) UIButton *infoButton;
+@property (nonatomic, strong) UIButton *favButton;
 
 @end
 
@@ -147,10 +183,26 @@
     
     self.textLabel.text = symbol.name;
     self.imageView.image = symbol.image;
-    
     BOOL hasRestrictions = symbol.useRestrictions != nil;
     self.infoButtonLeadingConstraint.active = hasRestrictions;
-    self.infoButton.hidden = !hasRestrictions;
+    
+    BOOL isFavHidden = _hidesFavoriteButton || ![[SFSymbolCategory favoriteCategory] hasSymbol:symbol];
+    BOOL isInfoHidden = !isFavHidden || !hasRestrictions;
+    
+    if (self.infoButton.hidden != isInfoHidden) {
+        self.infoButton.hidden = isInfoHidden;
+    }
+    if (self.favButton.hidden != isFavHidden) {
+        self.favButton.hidden = isFavHidden;
+    }
+}
+
+- (void)setHidesFavoriteButton:(BOOL)hidesFavoriteButton
+{
+    _hidesFavoriteButton = hidesFavoriteButton;
+    if ([self.favButton isHidden] != hidesFavoriteButton) {
+        [self.favButton setHidden:hidesFavoriteButton];
+    }
 }
 
 - (void)setAttributedText:(NSAttributedString *)attributedText
@@ -173,7 +225,7 @@
 - (void)setColorsHighlighted:(BOOL)highlighted {
     [self.contentView setBackgroundColor:highlighted ? self.tintColor : UIColor.clearColor];
     [self.imageView setTintColor:highlighted ? UIColor.whiteColor : UIColor.labelColor];
-    [self.infoButton setTintColor:highlighted ? UIColor.whiteColor : self.tintColor];
+    [self.infoButton setTintColor:highlighted ? UIColor.whiteColor : UIColor.secondaryLabelColor];
     if (self.attributedText) {
         if (highlighted) {
             NSMutableAttributedString *mAttributedText = [self.attributedText mutableCopy];
@@ -224,7 +276,10 @@
             f;
         })];
         [self setInfoButton:({
-            UIButton *b = [UIButton buttonWithType:UIButtonTypeInfoDark];
+            UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
+            [b setImage:[UIImage systemImageNamed:@"info.circle.fill"] forState:UIControlStateNormal];
+            [b.imageView setContentMode:UIViewContentModeScaleAspectFit];
+            [b setTintColor:[UIColor secondaryLabelColor]];
             [self.contentView addSubview:b];
             [b setTranslatesAutoresizingMaskIntoConstraints:NO];
             [b.heightAnchor constraintEqualToConstant:18.f].active = YES;
@@ -238,6 +293,20 @@
             NSLayoutConstraint *c = [self.infoButton.leadingAnchor constraintGreaterThanOrEqualToAnchor:self.textLabel.trailingAnchor constant:8.f];
             c.active = YES;
             c;
+        })];
+        [self setFavButton:({
+            UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
+            [b setImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
+            [b.imageView setContentMode:UIViewContentModeScaleAspectFit];
+            [b setTintColor:[UIColor systemPinkColor]];
+            [self.contentView addSubview:b];
+            [b setTranslatesAutoresizingMaskIntoConstraints:NO];
+            [b.heightAnchor constraintEqualToConstant:18.f].active = YES;
+            [b.widthAnchor constraintEqualToAnchor:b.heightAnchor].active = YES;
+            [b.topAnchor constraintEqualToAnchor:self.infoButton.topAnchor].active = YES;
+            [b.leadingAnchor constraintEqualToAnchor:self.infoButton.leadingAnchor].active = YES;
+            [b addTarget:self action:@selector(favButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            b;
         })];
         
         UIView *stroke = UIView.new;
@@ -256,6 +325,12 @@
 - (void)infoButtonTapped:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(symbolPreviewShowDetailedInfo:)]) {
         [self.delegate symbolPreviewShowDetailedInfo:self.symbol];
+    }
+}
+
+- (void)favButtonTapped:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(symbolPreviewRemoveFromFavorite:)]) {
+        [self.delegate symbolPreviewRemoveFromFavorite:self.symbol];
     }
 }
 

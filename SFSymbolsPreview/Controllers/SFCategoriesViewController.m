@@ -69,9 +69,16 @@
     [self.navigationController.navigationBar setPrefersLargeTitles:YES];
     [self.navigationItem setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeAutomatic];
     
-    [self.navigationItem setRightBarButtonItems:@[
-        [UIBarButtonItem.alloc initWithImage:[UIImage systemImageNamed:@"gear"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsItemTapped:)],
-    ]];
+    if (@available(iOS 15.0, *)) {
+        [self.navigationItem setRightBarButtonItems:@[
+            [UIBarButtonItem.alloc initWithImage:[UIImage systemImageNamed:@"gear"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsItemTapped:)],
+            [UIBarButtonItem.alloc initWithImage:[[[UIImage systemImageNamed:@"heart.fill"] imageWithTintColor:[UIColor systemPinkColor]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(bookmarkItemTapped:)],
+        ]];
+    } else {
+        [self.navigationItem setRightBarButtonItems:@[
+            [UIBarButtonItem.alloc initWithImage:[[[UIImage systemImageNamed:@"heart.fill"] imageWithTintColor:[UIColor systemPinkColor]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(bookmarkItemTapped:)],
+        ]];
+    }
     
     [self setTableView:({
         UITableView *f = [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -89,6 +96,13 @@
     })];
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)bookmarkItemTapped:(UIBarButtonItem *)sender
+{
+    SymbolsViewController *symbolVC = [SymbolsViewController.alloc initWithCategory:[SFSymbolCategory favoriteCategory]];
+    UINavigationController *navigationC = [UINavigationController.alloc initWithRootViewController:symbolVC];
+    [self.splitViewController showDetailViewController:navigationC sender:self];
 }
 
 - (void)settingsItemTapped:(UIBarButtonItem *)sender

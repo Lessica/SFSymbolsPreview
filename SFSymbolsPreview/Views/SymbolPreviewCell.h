@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 - (void)symbolPreviewShowDetailedInfo:(SFSymbol *)symbol;
 
+@optional
+- (void)symbolPreviewRemoveFromFavorite:(SFSymbol *)symbol;
+
 @end
 
 @interface SymbolPreviewCell : UICollectionViewCell
@@ -23,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
 @property (nonatomic, weak) SFSymbol *symbol;
 @property (nonatomic, copy) NSAttributedString *attributedText;
+@property (nonatomic, assign) BOOL hidesFavoriteButton;
 
 @end
 
@@ -31,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id <SymbolPreviewDelegate> delegate;
 @property (nonatomic, weak) SFSymbol *symbol;
 @property (nonatomic, copy) NSAttributedString *attributedText;
+@property (nonatomic, assign) BOOL hidesFavoriteButton;
 
 @end
 

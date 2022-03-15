@@ -383,4 +383,9 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
     return _fuzzySearchTokens;
 }
 
+- (BOOL)isEqual:(SFSymbol *)object
+{
+    return [self.name isEqualToString:object.name];
+}
+
 @end

@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName imageNamed:(nullable NSString *)imageNamed;
 - (instancetype)initWithSearchResultsCategoryWithSymbols:(NSArray <SFSymbol *> *)symbols;
 
++ (instancetype)favoriteCategory;
+- (BOOL)isFavoriteCategory;
+- (void)addSymbols:(NSArray <SFSymbol *> *)objects;
+- (void)removeSymbols:(NSArray <SFSymbol *> *)objects;
+- (BOOL)hasSymbol:(SFSymbol *)symbol;
+
 @end
 
 NS_ASSUME_NONNULL_END

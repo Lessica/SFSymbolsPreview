@@ -52,7 +52,7 @@ void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems)
     [NSUserDefaults.standardUserDefaults setInteger:numberOfItems forKey:kNumberOfItemsInColumnKey];
 }
 
-NSNotificationName const PreferredSymbolConfigurationDidChangeNotification = @"PreferredSymbolConfigurationDidChangeNotification";
+NSNotificationName const SFPreferredSymbolConfigurationDidChangeNotification = @"SFPreferredSymbolConfigurationDidChangeNotification";
 static NSString *const kPreferredImageSymbolConfigurationKey = @"PreferredImageSymbolConfiguration";
 UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void)
 {
@@ -126,6 +126,8 @@ void storePreferredImageSymbolConfiguration(UIImageSymbolConfiguration *configur
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:configuration requiringSecureCoding:YES error:nil];
     [NSUserDefaults.standardUserDefaults setObject:encodedObject forKey:kPreferredImageSymbolConfigurationKey];
 }
+
+NSNotificationName const SFSymbolFavoritesDidUpdateNotification = @"SFSymbolFavoritesDidUpdateNotification";
 
 
 @interface SFSymbolDataSource ()
