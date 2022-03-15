@@ -10,24 +10,26 @@ SF Symbols are free to use, but why [Adaptivity](https://apps.apple.com/app/id10
 
 ## TODOs
 
-- [ ] Collection: Restricted
-- [ ] Collection: Language Localized
-- [ ] Collection: Right-to-Left Localized
-- [ ] Collection: Added
-- [ ] Collection: Renamed
-- [ ] Custom Collections
-- [ ] Settings: Render Mode
-- [ ] Settings: Tint color(s)
+I won't implement all features in [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone) because I don't think these <del>features</del> make any sense.
+
+- [ ] <del>Collection: Restricted</del>
+- [ ] <del>Collection: Language Localized</del>
+- [ ] <del>Collection: Right-to-Left Localized</del>
+- [ ] <del>Collection: Added</del>
+- [ ] <del>Collection: Renamed</del>
+- [x] My Favorites
+- [x] Settings: Render Mode
+- [x] Settings: Tint color(s)
 - [ ] Settings: Annotations
     - [ ] Annotation: Baseline
-    - [ ] Annotation: Availability
-    - [ ] Annotation: Favorite
-    - [ ] Annotation: Language Localized
-    - [ ] Annotation: Right-to-Left Localized
+    - [x] Annotation: Favorite
+    - [ ] <del>Annotation: Availability</del>
+    - [ ] <del>Annotation: Language Localized</del>
+    - [ ] <del>Annotation: Right-to-Left Localized</del>
 - [ ] Symbol Views: Variant Dynamic Views
 - [ ] RTL Support
 - [ ] Multiple Window Support
-- [ ] Limit the view to only include symbols that are available in a specific iOS version (13, 14.0, 14.2, 14.5 or 15), displaying names that are appropriate for that version (which also work on later versions)
+- [ ] <del>Limit the view to only include symbols that are available in a specific iOS version (13, 14.0, 14.2, 14.5 or 15), displaying names that are appropriate for that version (which also work on later versions).</del>
 
 
 # Screenshot Preview
