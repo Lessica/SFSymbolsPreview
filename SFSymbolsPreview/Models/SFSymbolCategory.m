@@ -269,12 +269,33 @@
     [self syncFavoriteIfNeeded];
 }
 
+- (void)insertSymbols:(NSArray <SFSymbol *> *)array atIndexes:(NSIndexSet *)indexes
+{
+    [_mutableSymbols insertObjects:array atIndexes:indexes];
+    NSMutableArray <NSString *> *symbolNames = [NSMutableArray arrayWithCapacity:array.count];
+    for (SFSymbol *symbol in array) {
+        [symbolNames addObject:symbol.name];
+        [_mutableFastSymbolNames setObject:symbol forKey:symbol.name];
+    }
+    [_mutableSymbolNames insertObjects:symbolNames atIndexes:indexes];
+    [self syncFavoriteIfNeeded];
+}
+
 - (void)removeSymbolAtIndex:(NSUInteger)index
 {
     [_mutableSymbols removeObjectAtIndex:index];
     NSString *symbolName = [_mutableSymbolNames objectAtIndex:index];
     [_mutableSymbolNames removeObjectAtIndex:index];
     [_mutableFastSymbolNames removeObjectForKey:symbolName];
+    [self syncFavoriteIfNeeded];
+}
+
+- (void)removeSymbolsAtIndexes:(NSIndexSet *)indexes
+{
+    [_mutableSymbols removeObjectsAtIndexes:indexes];
+    NSArray <NSString *> *symbolNames = [_mutableSymbolNames objectsAtIndexes:indexes];
+    [_mutableSymbolNames removeObjectsAtIndexes:indexes];
+    [_mutableFastSymbolNames removeObjectsForKeys:symbolNames];
     [self syncFavoriteIfNeeded];
 }
 

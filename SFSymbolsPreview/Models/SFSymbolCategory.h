@@ -38,7 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeSymbolsInArray:(NSArray <SFSymbol *> *)objects;
 - (void)removeSymbol:(SFSymbol *)object;
 - (void)insertSymbol:(SFSymbol *)object atIndex:(NSUInteger)index;
+- (void)insertSymbols:(NSArray <SFSymbol *> *)array atIndexes:(NSIndexSet *)indexes;
 - (void)removeSymbolAtIndex:(NSUInteger)index;
+- (void)removeSymbolsAtIndexes:(NSIndexSet *)indexes;
 - (void)removeAllSymbols;
 
 @end

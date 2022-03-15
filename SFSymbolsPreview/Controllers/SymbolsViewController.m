@@ -458,13 +458,31 @@
     return @[symbolDragItem];
 }
 
+/*
+- (NSArray <UIDragItem *> *)collectionView:(UICollectionView *)collectionView itemsForAddingToDragSession:(id<UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point
+{
+    SFSymbol *symbol = self.symbolsForDisplay[indexPath.item];
+    
+    NSItemProvider *symbolProvider = [[NSItemProvider alloc] initWithObject:symbol.image];
+    UIDragItem *symbolDragItem = [[UIDragItem alloc] initWithItemProvider:symbolProvider];
+    symbolDragItem.localObject = symbol;
+    
+    return @[symbolDragItem];
+}
+ */
+
 - (UICollectionViewDropProposal *)collectionView:(UICollectionView *)collectionView dropSessionDidUpdate:(id<UIDropSession>)session withDestinationIndexPath:(NSIndexPath *)destinationIndexPath
 {
     if (!self.isFavoriteCategory) {
         return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationCancel];
     }
     if ([collectionView hasActiveDrag]) {
-        return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationMove intent:UICollectionViewDropIntentInsertAtDestinationIndexPath];
+        if (session.items.count == 1) {
+            return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationMove intent:UICollectionViewDropIntentInsertAtDestinationIndexPath];
+        } else if (session.items.count > 1) {
+            /// FIXME: animation
+            return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationMove intent:UICollectionViewDropIntentUnspecified];
+        }
     }
     return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationForbidden];
 }
@@ -485,28 +503,51 @@
 
 - (void)reorderItemsWithCoordinator:(id <UICollectionViewDropCoordinator>)coordinator destinationIndexPath:(NSIndexPath *)destinationIndexPath collectionView:(UICollectionView *)collectionView
 {
-    if (!coordinator.items.count) {
+    if (!coordinator.items.count || !destinationIndexPath) {
         return;
     }
     
-    id <UICollectionViewDropItem> dropItem = [coordinator.items firstObject];
+    NSArray <id <UICollectionViewDropItem>> *dropItems = coordinator.items;
     
-    if (!dropItem.sourceIndexPath || !destinationIndexPath || ![dropItem.dragItem.localObject isKindOfClass:[SFSymbol class]]) {
-        return;
+    NSMutableArray <NSIndexPath *> *sourceIndexPaths = [[NSMutableArray alloc] initWithCapacity:dropItems.count];
+    NSMutableIndexSet *sourceIndexSet = [[NSMutableIndexSet alloc] init];
+    
+    NSMutableArray <NSIndexPath *> *destinationIndexPaths = [[NSMutableArray alloc] initWithCapacity:dropItems.count];
+    NSMutableIndexSet *destinationIndexSet = [[NSMutableIndexSet alloc] init];
+    
+    NSMutableArray <SFSymbol *> *symbols = [[NSMutableArray alloc] initWithCapacity:dropItems.count];
+    
+    NSUInteger indexOffset = 0;
+    for (id <UICollectionViewDropItem> dropItem in dropItems) {
+        if (!dropItem.sourceIndexPath || ![dropItem.dragItem.localObject isKindOfClass:[SFSymbol class]]) {
+            return;
+        }
+        
+        [sourceIndexPaths addObject:dropItem.sourceIndexPath];
+        [sourceIndexSet addIndex:dropItem.sourceIndexPath.item];
+        
+        [destinationIndexPaths addObject:[NSIndexPath indexPathForItem:destinationIndexPath.item + indexOffset inSection:destinationIndexPath.section]];
+        [destinationIndexSet addIndex:destinationIndexPath.item + indexOffset];
+        
+        [symbols addObject:(SFSymbol *)dropItem.dragItem.localObject];
+        
+        indexOffset += 1;
     }
     
-    NSIndexPath *sourceIndexPath = dropItem.sourceIndexPath;
     [collectionView performBatchUpdates:^{
         [self.category setSyncFavoriteAutomatically:NO];
-        [self.category removeSymbolAtIndex:sourceIndexPath.item];
-        [self.category insertSymbol:(SFSymbol *)dropItem.dragItem.localObject atIndex:destinationIndexPath.item];
+        [self.category removeSymbolsAtIndexes:sourceIndexSet];
+        [self.category insertSymbols:symbols atIndexes:destinationIndexSet];
         [self.category syncFavorite];
         [self.category setSyncFavoriteAutomatically:YES];
         
-        [collectionView deleteItemsAtIndexPaths:@[sourceIndexPath]];
-        [collectionView insertItemsAtIndexPaths:@[destinationIndexPath]];
+        [collectionView deleteItemsAtIndexPaths:sourceIndexPaths];
+        [collectionView insertItemsAtIndexPaths:destinationIndexPaths];
     } completion:^(BOOL finished) { }];
-    [coordinator dropItem:dropItem.dragItem toItemAtIndexPath:destinationIndexPath];
+    
+    for (id <UICollectionViewDropItem> dropItem in dropItems) {
+        [coordinator dropItem:dropItem.dragItem toItemAtIndexPath:destinationIndexPath];
+    }
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size
