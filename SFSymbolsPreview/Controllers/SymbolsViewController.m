@@ -14,12 +14,13 @@
 #import "NSData+Hexadecimal.h"
 
 
-@interface SymbolsViewController () <SymbolPreviewDelegate, UICollectionViewDragDelegate>
+@interface SymbolsViewController () <SymbolPreviewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate>
 {
     dispatch_once_t _onceToken;
 }
 
 @property (nonatomic, strong) SymbolSearchResultsViewController *searchResultsViewController;
+@property (nonatomic, assign, readonly) BOOL isFavoriteCategory;
 
 @end
 
@@ -38,6 +39,11 @@
 - (NSArray <SFSymbol *> *)symbolsForDisplay
 {
     return self.category.symbols;
+}
+
+- (BOOL)isFavoriteCategory
+{
+    return self.category.isFavoriteCategory;
 }
 
 - (void)viewDidLoad
@@ -90,6 +96,7 @@
         [f setDelegate:self];
         [f setDataSource:self];
         [f setDragDelegate:self];
+        [f setDropDelegate:self];
         [f setDragInteractionEnabled:YES];
         [f setAlwaysBounceVertical:YES];
         [f setAlwaysBounceHorizontal:NO];
@@ -166,8 +173,8 @@
     if (kind == UICollectionElementKindSectionHeader)
     {
         SFReusableSegmentedControlView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                                withReuseIdentifier:NSStringFromClass(SFReusableSegmentedControlView.class)
-                                                                                       forIndexPath:indexPath];
+                                                                                  withReuseIdentifier:NSStringFromClass(SFReusableSegmentedControlView.class)
+                                                                                         forIndexPath:indexPath];
         view.segmentedControl.selectedSegmentIndex = self.numberOfItemInColumn - 1;
         [view.segmentedControl addTarget:self action:@selector(changeNumberOfItemsInColumn:) forControlEvents:UIControlEventValueChanged];
         return view;
@@ -198,7 +205,7 @@
     {
         SymbolPreviewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SymbolPreviewCell.class)
                                                                             forIndexPath:indexPath];
-        [cell setHidesFavoriteButton:self.category.isFavoriteCategory];
+        [cell setHidesFavoriteButton:self.isFavoriteCategory];
         [cell setSymbol:self.symbolsForDisplay[indexPath.row]];
         [cell setDelegate:self];
         return cell;
@@ -207,7 +214,7 @@
     {
         SymbolPreviewTableCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(SymbolPreviewTableCell.class)
                                                                                  forIndexPath:indexPath];
-        [cell setHidesFavoriteButton:self.category.isFavoriteCategory];
+        [cell setHidesFavoriteButton:self.isFavoriteCategory];
         [cell setSymbol:self.symbolsForDisplay[indexPath.row]];
         [cell setDelegate:self];
         return cell;
@@ -286,7 +293,7 @@
     if (targetCell) {
         NSIndexPath *targetIndexPath = [self.collectionView indexPathForCell:targetCell];
         if (targetIndexPath) {
-            if (self.category.isFavoriteCategory) {
+            if (self.isFavoriteCategory) {
                 [self.collectionView performBatchUpdates:^{
                     [self->_collectionView deleteItemsAtIndexPaths:@[targetIndexPath]];
                 } completion:^(BOOL finished) { }];
@@ -374,8 +381,8 @@
             NSIndexPath *targetIndexPath = [collectionView indexPathForCell:targetCell];
             if (targetIndexPath) {
                 SFSymbolCategory *favoriteCategory = [SFSymbolCategory favoriteCategory];
-                [favoriteCategory removeSymbols:@[symbol]];
-                if (self.category.isFavoriteCategory) {
+                [favoriteCategory removeSymbolsInArray:@[symbol]];
+                if (self.isFavoriteCategory) {
                     [collectionView performBatchUpdates:^{
                         [collectionView deleteItemsAtIndexPaths:@[targetIndexPath]];
                     } completion:^(BOOL finished) { }];
@@ -397,8 +404,7 @@
 {
     SFSymbol *symbol = self.symbolsForDisplay[indexPath.item];
     SFSymbolCategory *favoriteCategory = [SFSymbolCategory favoriteCategory];
-    BOOL isFavoriteCategory = [self.category isFavoriteCategory];
-    BOOL isFavoriteSymbol = isFavoriteCategory || [[favoriteCategory symbols] containsObject:symbol];
+    BOOL isFavoriteSymbol = self.isFavoriteCategory || [[favoriteCategory symbols] containsObject:symbol];
     NSArray <UIAction *> *cellActions = @[
         [UIAction actionWithTitle:NSLocalizedString(@"Copy Name", nil) image:[UIImage systemImageNamed:@"doc.on.doc"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             [[UIPasteboard generalPasteboard] setString:symbol.name];
@@ -422,16 +428,16 @@
         cellMenu,
         [UIAction actionWithTitle:isFavoriteSymbol ? NSLocalizedString(@"Remove from Favorites", nil) : NSLocalizedString(@"Add to Favorites", nil) image:isFavoriteSymbol ? [UIImage systemImageNamed:@"heart.slash"] : [UIImage systemImageNamed:@"heart"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             if (isFavoriteSymbol) {
-                [favoriteCategory removeSymbols:@[symbol]];
-                if (isFavoriteCategory) {
+                [favoriteCategory removeSymbolsInArray:@[symbol]];
+                if (self.isFavoriteCategory) {
                     [collectionView performBatchUpdates:^{
                         [collectionView deleteItemsAtIndexPaths:@[indexPath]];
                     } completion:^(BOOL finished) { }];
                 }
             } else {
-                [favoriteCategory addSymbols:@[symbol]];
+                [favoriteCategory addSymbolsFromArray:@[symbol]];
             }
-            if (!isFavoriteCategory) {
+            if (!self.isFavoriteCategory) {
                 [collectionView reloadItemsAtIndexPaths:@[indexPath]];
             }
         }],
@@ -447,12 +453,65 @@
     
     NSItemProvider *symbolProvider = [[NSItemProvider alloc] initWithObject:symbol.image];
     UIDragItem *symbolDragItem = [[UIDragItem alloc] initWithItemProvider:symbolProvider];
+    symbolDragItem.localObject = symbol;
     
     return @[symbolDragItem];
 }
 
+- (UICollectionViewDropProposal *)collectionView:(UICollectionView *)collectionView dropSessionDidUpdate:(id<UIDropSession>)session withDestinationIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    if (!self.isFavoriteCategory) {
+        return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationCancel];
+    }
+    if ([collectionView hasActiveDrag]) {
+        return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationMove intent:UICollectionViewDropIntentInsertAtDestinationIndexPath];
+    }
+    return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationForbidden];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView performDropWithCoordinator:(id <UICollectionViewDropCoordinator>)coordinator
+{
+    NSIndexPath *destinationIndexPath = nil;
+    if (coordinator.destinationIndexPath != nil) {
+        destinationIndexPath = coordinator.destinationIndexPath;
+    } else {
+        NSUInteger row = [collectionView numberOfItemsInSection:0];
+        destinationIndexPath = [NSIndexPath indexPathForItem:row - 1 inSection:0];
+    }
+    if (coordinator.proposal.operation == UIDropOperationMove) {
+        [self reorderItemsWithCoordinator:coordinator destinationIndexPath:destinationIndexPath collectionView:collectionView];
+    }
+}
+
+- (void)reorderItemsWithCoordinator:(id <UICollectionViewDropCoordinator>)coordinator destinationIndexPath:(NSIndexPath *)destinationIndexPath collectionView:(UICollectionView *)collectionView
+{
+    if (!coordinator.items.count) {
+        return;
+    }
+    
+    id <UICollectionViewDropItem> dropItem = [coordinator.items firstObject];
+    
+    if (!dropItem.sourceIndexPath || !destinationIndexPath || ![dropItem.dragItem.localObject isKindOfClass:[SFSymbol class]]) {
+        return;
+    }
+    
+    NSIndexPath *sourceIndexPath = dropItem.sourceIndexPath;
+    [collectionView performBatchUpdates:^{
+        [self.category setSyncFavoriteAutomatically:NO];
+        [self.category removeSymbolAtIndex:sourceIndexPath.item];
+        [self.category insertSymbol:(SFSymbol *)dropItem.dragItem.localObject atIndex:destinationIndexPath.item];
+        [self.category syncFavorite];
+        [self.category setSyncFavoriteAutomatically:YES];
+        
+        [collectionView deleteItemsAtIndexPaths:@[sourceIndexPath]];
+        [collectionView insertItemsAtIndexPaths:@[destinationIndexPath]];
+    } completion:^(BOOL finished) { }];
+    [coordinator dropItem:dropItem.dragItem toItemAtIndexPath:destinationIndexPath];
+}
+
 - (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+       withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
+{
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     [self.collectionView.collectionViewLayout invalidateLayout];
 }

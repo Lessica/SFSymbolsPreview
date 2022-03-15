@@ -56,8 +56,9 @@
 {
     if (self = [super init])
     {
-        _name = NSLocalizedString(@"Favorites", nil);
+        _name = NSLocalizedString(@"My Favorites", nil);
         _favoriteItemPath = favoriteItemPath;
+        _syncFavoriteAutomatically = YES;
         
         [self loadSymbols];
     }
@@ -183,7 +184,46 @@
     return _favoriteItemPath != nil;
 }
 
-- (void)addSymbols:(NSArray <SFSymbol *> *)objects
+- (void)syncFavoriteIfNeeded
+{
+    if (self.isFavoriteCategory && self.syncFavoriteAutomatically) {
+        [_mutableSymbolNames writeToFile:self.favoriteItemPath atomically:YES];
+    }
+}
+
+- (void)syncFavorite
+{
+    if (self.isFavoriteCategory) {
+        [_mutableSymbolNames writeToFile:self.favoriteItemPath atomically:YES];
+    }
+}
+
+- (BOOL)containsSymbol:(SFSymbol *)symbol
+{
+    return [_mutableFastSymbolNames objectForKey:symbol.name] != nil;
+}
+
+- (NSUInteger)indexOfSymbol:(SFSymbol *)symbol
+{
+    return [_mutableSymbols indexOfObject:symbol];
+}
+
+- (NSUInteger)indexOfSymbolWithName:(NSString *)symbolName
+{
+    return [_mutableSymbolNames indexOfObject:symbolName];
+}
+
+- (SFSymbol *)symbolAtIndex:(NSUInteger)index
+{
+    return [_mutableSymbols objectAtIndex:index];
+}
+
+- (SFSymbol *)symbolWithName:(NSString *)symbolName
+{
+    return [_mutableFastSymbolNames objectForKey:symbolName];
+}
+
+- (void)addSymbolsFromArray:(NSArray <SFSymbol *> *)objects
 {
     NSArray <SFSymbol *> *allSymbols = objects;
     [_mutableSymbols addObjectsFromArray:allSymbols];
@@ -191,10 +231,10 @@
         [_mutableSymbolNames addObject:symbol.name];
         [_mutableFastSymbolNames setObject:symbol forKey:symbol.name];
     }
-    [_mutableSymbolNames writeToFile:self.favoriteItemPath atomically:YES];
+    [self syncFavoriteIfNeeded];
 }
 
-- (void)removeSymbols:(NSArray <SFSymbol *> *)objects
+- (void)removeSymbolsInArray:(NSArray <SFSymbol *> *)objects
 {
     NSArray <SFSymbol *> *allSymbols = objects;
     [_mutableSymbols removeObjectsInArray:allSymbols];
@@ -202,12 +242,48 @@
         [_mutableSymbolNames removeObject:symbol.name];
         [_mutableFastSymbolNames removeObjectForKey:symbol.name];
     }
-    [_mutableSymbolNames writeToFile:self.favoriteItemPath atomically:YES];
+    [self syncFavoriteIfNeeded];
 }
 
-- (BOOL)hasSymbol:(SFSymbol *)symbol
+- (void)addSymbol:(SFSymbol *)object
 {
-    return [_mutableFastSymbolNames objectForKey:symbol.name] != nil;
+    [_mutableSymbols addObject:object];
+    [_mutableSymbolNames addObject:object.name];
+    [_mutableFastSymbolNames setObject:object forKey:object.name];
+    [self syncFavoriteIfNeeded];
+}
+
+- (void)removeSymbol:(SFSymbol *)object
+{
+    [_mutableSymbols removeObject:object];
+    [_mutableSymbolNames removeObject:object.name];
+    [_mutableFastSymbolNames removeObjectForKey:object.name];
+    [self syncFavoriteIfNeeded];
+}
+
+- (void)insertSymbol:(SFSymbol *)object atIndex:(NSUInteger)index
+{
+    [_mutableSymbols insertObject:object atIndex:index];
+    [_mutableSymbolNames insertObject:object.name atIndex:index];
+    [_mutableFastSymbolNames setObject:object forKey:object.name];
+    [self syncFavoriteIfNeeded];
+}
+
+- (void)removeSymbolAtIndex:(NSUInteger)index
+{
+    [_mutableSymbols removeObjectAtIndex:index];
+    NSString *symbolName = [_mutableSymbolNames objectAtIndex:index];
+    [_mutableSymbolNames removeObjectAtIndex:index];
+    [_mutableFastSymbolNames removeObjectForKey:symbolName];
+    [self syncFavoriteIfNeeded];
+}
+
+- (void)removeAllSymbols
+{
+    [_mutableSymbols removeAllObjects];
+    [_mutableSymbolNames removeAllObjects];
+    [_mutableFastSymbolNames removeAllObjects];
+    [self syncFavoriteIfNeeded];
 }
 
 @end

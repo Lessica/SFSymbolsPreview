@@ -23,11 +23,23 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithCategoryKey:(NSString *)categoryKey categoryName:(NSString *)categoryName imageNamed:(nullable NSString *)imageNamed;
 - (instancetype)initWithSearchResultsCategoryWithSymbols:(NSArray <SFSymbol *> *)symbols;
 
+@property (nonatomic, assign) BOOL syncFavoriteAutomatically;
 + (instancetype)favoriteCategory;
 - (BOOL)isFavoriteCategory;
-- (void)addSymbols:(NSArray <SFSymbol *> *)objects;
-- (void)removeSymbols:(NSArray <SFSymbol *> *)objects;
-- (BOOL)hasSymbol:(SFSymbol *)symbol;
+- (void)syncFavorite;
+
+- (BOOL)containsSymbol:(SFSymbol *)symbol;
+- (NSUInteger)indexOfSymbol:(SFSymbol *)symbol;
+- (NSUInteger)indexOfSymbolWithName:(NSString *)symbolName;
+- (SFSymbol *)symbolAtIndex:(NSUInteger)index;
+- (SFSymbol *)symbolWithName:(NSString *)symbolName;
+- (void)addSymbolsFromArray:(NSArray <SFSymbol *> *)objects;
+- (void)addSymbol:(SFSymbol *)object;
+- (void)removeSymbolsInArray:(NSArray <SFSymbol *> *)objects;
+- (void)removeSymbol:(SFSymbol *)object;
+- (void)insertSymbol:(SFSymbol *)object atIndex:(NSUInteger)index;
+- (void)removeSymbolAtIndex:(NSUInteger)index;
+- (void)removeAllSymbols;
 
 @end
 

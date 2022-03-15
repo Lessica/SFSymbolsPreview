@@ -113,7 +113,7 @@
 }
 
 - (void)updateFavoriteState {
-    [self.favButton setSelected:[[SFSymbolCategory favoriteCategory] hasSymbol:self.symbol]];
+    [self.favButton setSelected:[[SFSymbolCategory favoriteCategory] containsSymbol:self.symbol]];
 }
 
 - (void)updatePreviewSymbolImage {
@@ -320,10 +320,10 @@
 - (void)favButtonTapped:(UIBarButtonItem *)sender
 {
     SFSymbolCategory *favoriteCategory = [SFSymbolCategory favoriteCategory];
-    if ([favoriteCategory hasSymbol:self.symbol]) {
-        [favoriteCategory removeSymbols:@[self.symbol]];
+    if ([favoriteCategory containsSymbol:self.symbol]) {
+        [favoriteCategory removeSymbolsInArray:@[self.symbol]];
     } else {
-        [favoriteCategory addSymbols:@[self.symbol]];
+        [favoriteCategory addSymbolsFromArray:@[self.symbol]];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:SFSymbolFavoritesDidUpdateNotification object:self.symbol];
     [self updateFavoriteState];

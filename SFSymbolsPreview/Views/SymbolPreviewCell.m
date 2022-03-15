@@ -29,7 +29,7 @@
     self.textLabel.text = symbol.name;
     self.imageView.image = symbol.image;
     self.infoButton.hidden = !symbol.useRestrictions;
-    self.favButton.hidden = _hidesFavoriteButton || ![[SFSymbolCategory favoriteCategory] hasSymbol:symbol];
+    self.favButton.hidden = _hidesFavoriteButton || ![[SFSymbolCategory favoriteCategory] containsSymbol:symbol];
 }
 
 - (void)setHidesFavoriteButton:(BOOL)hidesFavoriteButton
@@ -186,7 +186,7 @@
     BOOL hasRestrictions = symbol.useRestrictions != nil;
     self.infoButtonLeadingConstraint.active = hasRestrictions;
     
-    BOOL isFavHidden = _hidesFavoriteButton || ![[SFSymbolCategory favoriteCategory] hasSymbol:symbol];
+    BOOL isFavHidden = _hidesFavoriteButton || ![[SFSymbolCategory favoriteCategory] containsSymbol:symbol];
     BOOL isInfoHidden = !isFavHidden || !hasRestrictions;
     
     if (self.infoButton.hidden != isInfoHidden) {
