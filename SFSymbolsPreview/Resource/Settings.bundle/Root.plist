@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Generic</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Render Mode</string>
+			<key>Key</key>
+			<string>SFRenderMode</string>
+			<key>Titles</key>
+			<array>
+				<string>Monochrome</string>
+				<string>Hierarchical</string>
+				<string>Palette</string>
+				<string>Multicolor</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>monochrome</string>
+				<string>hierarchical</string>
+				<string>palette</string>
+				<string>multicolor</string>
+			</array>
+			<key>DefaultValue</key>
+			<string>monochrome</string>
+			<key>Icon</key>
+			<string>paintpalette</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Colors</string>
+			<key>FooterText</key>
+			<string>SF Symbols 3.2 (67)</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Primary Color</string>
+			<key>Key</key>
+			<string>SFPrimaryColor</string>
+			<key>Titles</key>
+			<array>
+				<string>System Red Color</string>
+				<string>System Orange Color</string>
+				<string>System Yellow Color</string>
+				<string>System Green Color</string>
+				<string>System Mint Color</string>
+				<string>System Teal Color</string>
+				<string>System Cyan Color</string>
+				<string>System Blue Color</string>
+				<string>System Indigo Color</string>
+				<string>System Purple Color</string>
+				<string>System Pink Color</string>
+				<string>System Brown Color</string>
+				<string>White</string>
+				<string>System Gray Color</string>
+				<string>Black</string>
+				<string>Label Color</string>
+				<string>Secondary Label Color</string>
+				<string>Tertiary Label Color</string>
+				<string>Quaternary Label Color</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>systemRedColor:#FF3B30/#FF453A</string>
+				<string>systemOrangeColor:#FF9500/#FF9F0A</string>
+				<string>systemYellowColor:#FFCC00/#FFD60A</string>
+				<string>systemGreenColor:#28CD41/#32D74B</string>
+				<string>systemMintColor:#00C7BE/#66D4CF</string>
+				<string>systemTealColor:#59ADC4/#6AC4DC</string>
+				<string>systemCyanColor:#55BEF0/#5AC8F5</string>
+				<string>systemBlueColor:#007AFF/#0A84FF</string>
+				<string>systemIndigoColor:#5856D6/#5E5CE6</string>
+				<string>systemPurpleColor:#AF52DE/#BF5AF2</string>
+				<string>systemPinkColor:#FF2D55/#FF375F</string>
+				<string>systemBrownColor:#A2845E/#AC8E68</string>
+				<string>white:#FFFFFF/#FFFFFF</string>
+				<string>systemGrayColor:#8E8E93/#98989D</string>
+				<string>black:#000000/#000000</string>
+				<string>labelColor:#000000D9/#FFFFFFD9</string>
+				<string>secondaryLabelColor:#00000080/#FFFFFF8C</string>
+				<string>tertiaryLabelColor:#00000040/#FFFFFF40</string>
+				<string>quaternaryLabelColor:#0000001A/#FFFFFF1A</string>
+			</array>
+			<key>Icons</key>
+			<array>
+				<string>square.fill:#FF3B30/#FF453A</string>
+				<string>square.fill:#FF9500/#FF9F0A</string>
+				<string>square.fill:#FFCC00/#FFD60A</string>
+				<string>square.fill:#28CD41/#32D74B</string>
+				<string>square.fill:#00C7BE/#66D4CF</string>
+				<string>square.fill:#59ADC4/#6AC4DC</string>
+				<string>square.fill:#55BEF0/#5AC8F5</string>
+				<string>square.fill:#007AFF/#0A84FF</string>
+				<string>square.fill:#5856D6/#5E5CE6</string>
+				<string>square.fill:#AF52DE/#BF5AF2</string>
+				<string>square.fill:#FF2D55/#FF375F</string>
+				<string>square.fill:#A2845E/#AC8E68</string>
+				<string>square.fill:#FFFFFF</string>
+				<string>square.fill:#8E8E93/#98989D</string>
+				<string>square.fill:#000000</string>
+				<string>square.fill:#000000D9/#FFFFFFD9</string>
+				<string>square.fill:#00000080/#FFFFFF8C</string>
+				<string>square.fill:#00000040/#FFFFFF40</string>
+				<string>square.fill:#0000001A/#FFFFFF1A</string>
+			</array>
+			<key>DefaultValue</key>
+			<string>labelColor:#000000D9/#FFFFFFD9</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Secondary Color</string>
+			<key>Key</key>
+			<string>SFSecondaryColor</string>
+			<key>Titles</key>
+			<array>
+				<string>System Red Color</string>
+				<string>System Orange Color</string>
+				<string>System Yellow Color</string>
+				<string>System Green Color</string>
+				<string>System Mint Color</string>
+				<string>System Teal Color</string>
+				<string>System Cyan Color</string>
+				<string>System Blue Color</string>
+				<string>System Indigo Color</string>
+				<string>System Purple Color</string>
+				<string>System Pink Color</string>
+				<string>System Brown Color</string>
+				<string>White</string>
+				<string>System Gray Color</string>
+				<string>Black</string>
+				<string>Label Color</string>
+				<string>Secondary Label Color</string>
+				<string>Tertiary Label Color</string>
+				<string>Quaternary Label Color</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>systemRedColor:#FF3B30/#FF453A</string>
+				<string>systemOrangeColor:#FF9500/#FF9F0A</string>
+				<string>systemYellowColor:#FFCC00/#FFD60A</string>
+				<string>systemGreenColor:#28CD41/#32D74B</string>
+				<string>systemMintColor:#00C7BE/#66D4CF</string>
+				<string>systemTealColor:#59ADC4/#6AC4DC</string>
+				<string>systemCyanColor:#55BEF0/#5AC8F5</string>
+				<string>systemBlueColor:#007AFF/#0A84FF</string>
+				<string>systemIndigoColor:#5856D6/#5E5CE6</string>
+				<string>systemPurpleColor:#AF52DE/#BF5AF2</string>
+				<string>systemPinkColor:#FF2D55/#FF375F</string>
+				<string>systemBrownColor:#A2845E/#AC8E68</string>
+				<string>white:#FFFFFF/#FFFFFF</string>
+				<string>systemGrayColor:#8E8E93/#98989D</string>
+				<string>black:#000000/#000000</string>
+				<string>labelColor:#000000D9/#FFFFFFD9</string>
+				<string>secondaryLabelColor:#00000080/#FFFFFF8C</string>
+				<string>tertiaryLabelColor:#00000040/#FFFFFF40</string>
+				<string>quaternaryLabelColor:#0000001A/#FFFFFF1A</string>
+			</array>
+			<key>Icons</key>
+			<array>
+				<string>square.fill:#FF3B30/#FF453A</string>
+				<string>square.fill:#FF9500/#FF9F0A</string>
+				<string>square.fill:#FFCC00/#FFD60A</string>
+				<string>square.fill:#28CD41/#32D74B</string>
+				<string>square.fill:#00C7BE/#66D4CF</string>
+				<string>square.fill:#59ADC4/#6AC4DC</string>
+				<string>square.fill:#55BEF0/#5AC8F5</string>
+				<string>square.fill:#007AFF/#0A84FF</string>
+				<string>square.fill:#5856D6/#5E5CE6</string>
+				<string>square.fill:#AF52DE/#BF5AF2</string>
+				<string>square.fill:#FF2D55/#FF375F</string>
+				<string>square.fill:#A2845E/#AC8E68</string>
+				<string>square.fill:#FFFFFF</string>
+				<string>square.fill:#8E8E93/#98989D</string>
+				<string>square.fill:#000000</string>
+				<string>square.fill:#000000D9/#FFFFFFD9</string>
+				<string>square.fill:#00000080/#FFFFFF8C</string>
+				<string>square.fill:#00000040/#FFFFFF40</string>
+				<string>square.fill:#0000001A/#FFFFFF1A</string>
+			</array>
+			<key>DefaultValue</key>
+			<string>secondaryLabelColor:#00000080/#FFFFFF8C</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Tertiary Color</string>
+			<key>Key</key>
+			<string>SFTertiaryColor</string>
+			<key>Titles</key>
+			<array>
+				<string>System Red Color</string>
+				<string>System Orange Color</string>
+				<string>System Yellow Color</string>
+				<string>System Green Color</string>
+				<string>System Mint Color</string>
+				<string>System Teal Color</string>
+				<string>System Cyan Color</string>
+				<string>System Blue Color</string>
+				<string>System Indigo Color</string>
+				<string>System Purple Color</string>
+				<string>System Pink Color</string>
+				<string>System Brown Color</string>
+				<string>White</string>
+				<string>System Gray Color</string>
+				<string>Black</string>
+				<string>Label Color</string>
+				<string>Secondary Label Color</string>
+				<string>Tertiary Label Color</string>
+				<string>Quaternary Label Color</string>
+				<string>None</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>systemRedColor:#FF3B30/#FF453A</string>
+				<string>systemOrangeColor:#FF9500/#FF9F0A</string>
+				<string>systemYellowColor:#FFCC00/#FFD60A</string>
+				<string>systemGreenColor:#28CD41/#32D74B</string>
+				<string>systemMintColor:#00C7BE/#66D4CF</string>
+				<string>systemTealColor:#59ADC4/#6AC4DC</string>
+				<string>systemCyanColor:#55BEF0/#5AC8F5</string>
+				<string>systemBlueColor:#007AFF/#0A84FF</string>
+				<string>systemIndigoColor:#5856D6/#5E5CE6</string>
+				<string>systemPurpleColor:#AF52DE/#BF5AF2</string>
+				<string>systemPinkColor:#FF2D55/#FF375F</string>
+				<string>systemBrownColor:#A2845E/#AC8E68</string>
+				<string>white:#FFFFFF/#FFFFFF</string>
+				<string>systemGrayColor:#8E8E93/#98989D</string>
+				<string>black:#000000/#000000</string>
+				<string>labelColor:#000000D9/#FFFFFFD9</string>
+				<string>secondaryLabelColor:#00000080/#FFFFFF8C</string>
+				<string>tertiaryLabelColor:#00000040/#FFFFFF40</string>
+				<string>quaternaryLabelColor:#0000001A/#FFFFFF1A</string>
+				<string>none</string>
+			</array>
+			<key>Icons</key>
+			<array>
+				<string>square.fill:#FF3B30/#FF453A</string>
+				<string>square.fill:#FF9500/#FF9F0A</string>
+				<string>square.fill:#FFCC00/#FFD60A</string>
+				<string>square.fill:#28CD41/#32D74B</string>
+				<string>square.fill:#00C7BE/#66D4CF</string>
+				<string>square.fill:#59ADC4/#6AC4DC</string>
+				<string>square.fill:#55BEF0/#5AC8F5</string>
+				<string>square.fill:#007AFF/#0A84FF</string>
+				<string>square.fill:#5856D6/#5E5CE6</string>
+				<string>square.fill:#AF52DE/#BF5AF2</string>
+				<string>square.fill:#FF2D55/#FF375F</string>
+				<string>square.fill:#A2845E/#AC8E68</string>
+				<string>square.fill:#FFFFFF</string>
+				<string>square.fill:#8E8E93/#98989D</string>
+				<string>square.fill:#000000</string>
+				<string>square.fill:#000000D9/#FFFFFFD9</string>
+				<string>square.fill:#00000080/#FFFFFF8C</string>
+				<string>square.fill:#00000040/#FFFFFF40</string>
+				<string>square.fill:#0000001A/#FFFFFF1A</string>
+				<string>square.fill:#00000000</string>
+			</array>
+			<key>DefaultValue</key>
+			<string>none</string>
+		</dict>
+	</array>
+</dict>
+</plist>

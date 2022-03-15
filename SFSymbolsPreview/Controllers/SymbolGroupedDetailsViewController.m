@@ -109,7 +109,8 @@
         image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
     }
-    self.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    self.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAutomatic];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

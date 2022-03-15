@@ -6,6 +6,7 @@
 //  Copyright © 2020 YICAI YANG. All rights reserved.
 //
 
+#import "SFSymbol.h"
 #import "SFSymbolCategory.h"
 
 NS_ASSUME_NONNULL_BEGIN

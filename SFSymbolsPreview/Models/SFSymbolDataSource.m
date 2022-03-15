@@ -7,6 +7,7 @@
 //
 
 #import "SFSymbolDataSource.h"
+#import "UIColor+HexColor.h"
 
 BOOL IS_IPAD(UIView *targetView)
 {
@@ -55,8 +56,68 @@ NSNotificationName const PreferredSymbolConfigurationDidChangeNotification = @"P
 static NSString *const kPreferredImageSymbolConfigurationKey = @"PreferredImageSymbolConfiguration";
 UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void)
 {
-    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:kPreferredImageSymbolConfigurationKey];
+    NSData *encodedObject = [NSUserDefaults.standardUserDefaults objectForKey:kPreferredImageSymbolConfigurationKey];
+    
     UIImageSymbolConfiguration *configuration = [NSKeyedUnarchiver unarchivedObjectOfClass:[UIImageSymbolConfiguration class] fromData:encodedObject error:nil];
+    
+    UIFontWeight fontWeight = configuration.weight;
+    SFSymbolLayerSetName layerSetName = [NSUserDefaults.standardUserDefaults objectForKey:@"SFRenderMode"];
+    configuration = [UIImageSymbolConfiguration configurationWithWeight:fontWeight];
+    
+    UIColor *primaryColor = nil;
+    
+    if ([layerSetName isEqualToString:SFSymbolLayerSetNameHierarchical] || [layerSetName isEqualToString:SFSymbolLayerSetNamePalette]) {
+        NSString *primaryColorString = [NSUserDefaults.standardUserDefaults objectForKey:@"SFPrimaryColor"];
+        if (primaryColorString) {
+            primaryColor = [UIColor colorWithHex:[[primaryColorString componentsSeparatedByString:@":"] lastObject]];
+        } else {
+            primaryColor = [UIColor labelColor];
+        }
+        
+        if (primaryColor) {
+            if (@available(iOS 15.0, *)) {
+                configuration = [configuration configurationByApplyingConfiguration:[UIImageSymbolConfiguration configurationWithHierarchicalColor:primaryColor]];
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
+    UIColor *secondaryColor = nil;
+    UIColor *tertiaryColor = nil;
+    
+    if ([layerSetName isEqualToString:SFSymbolLayerSetNamePalette]) {
+        NSString *secondaryColorString = [NSUserDefaults.standardUserDefaults objectForKey:@"SFSecondaryColor"];
+        if (secondaryColorString) {
+            secondaryColor = [UIColor colorWithHex:[[secondaryColorString componentsSeparatedByString:@":"] lastObject]];
+        } else {
+            secondaryColor = [UIColor secondaryLabelColor];
+        }
+        
+        NSString *tertiaryColorString = [NSUserDefaults.standardUserDefaults objectForKey:@"SFTertiaryColor"];
+        if (tertiaryColorString) {
+            tertiaryColor = [UIColor colorWithHex:[[tertiaryColorString componentsSeparatedByString:@":"] lastObject]];
+        } else {
+            tertiaryColor = [UIColor clearColor];
+        }
+        
+        if (@available(iOS 15.0, *)) {
+            configuration = [configuration configurationByApplyingConfiguration:[UIImageSymbolConfiguration configurationWithPaletteColors:@[
+                primaryColor, secondaryColor, tertiaryColor,
+            ]]];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    if ([layerSetName isEqualToString:SFSymbolLayerSetNameMulticolor]) {
+        if (@available(iOS 15.0, *)) {
+            configuration = [configuration configurationByApplyingConfiguration:[UIImageSymbolConfiguration configurationPreferringMulticolor]];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
     return configuration ?: [UIImageSymbolConfiguration unspecifiedConfiguration];
 }
 

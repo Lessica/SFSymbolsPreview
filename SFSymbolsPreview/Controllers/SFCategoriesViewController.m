@@ -9,6 +9,7 @@
 #import "SFCategoriesViewController.h"
 #import "SymbolsViewController.h"
 #import "SFSymbolDataSource.h"
+#import <XUI/XUI.h>
 
 
 @interface CategoryCell : UITableViewCell
@@ -92,7 +93,18 @@
 
 - (void)settingsItemTapped:(UIBarButtonItem *)sender
 {
+    // to specify the path for Settings.bundle
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
     
+    // to specify the root entry for that bundle
+    NSString *xuiPath = [[NSBundle bundleWithPath:bundlePath] pathForResource:@"Root" ofType:@"plist"];
+    
+    // present or push it!
+    XUIListViewController *xuiController = [[XUIListViewController alloc] initWithPath:xuiPath withBundlePath:bundlePath];
+    [xuiController setTitle:NSLocalizedString(@"Settings", nil)];
+    
+    XUINavigationController *navController = [[XUINavigationController alloc] initWithRootViewController:xuiController];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

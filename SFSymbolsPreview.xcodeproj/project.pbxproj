@@ -46,6 +46,8 @@
 		CCA4D99E27D377BE009D2777 /* symbol_restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */; };
 		CCA4D9A027D37C55009D2777 /* symbols.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99F27D37C55009D2777 /* symbols.plist */; };
 		CCE6171127D871B7004E384D /* SymbolGroupedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE6171027D871B7004E384D /* SymbolGroupedDetailsViewController.m */; };
+		CCEED35E27E043E10041247B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCEED35D27E043E10041247B /* Settings.bundle */; };
+		CCEED36127E084090041247B /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEED36027E084090041247B /* UIColor+HexColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,9 @@
 		CCA4D99F27D37C55009D2777 /* symbols.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbols.plist; sourceTree = "<group>"; };
 		CCE6170F27D871B7004E384D /* SymbolGroupedDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolGroupedDetailsViewController.h; sourceTree = "<group>"; };
 		CCE6171027D871B7004E384D /* SymbolGroupedDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolGroupedDetailsViewController.m; sourceTree = "<group>"; };
+		CCEED35D27E043E10041247B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		CCEED35F27E084090041247B /* UIColor+HexColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		CCEED36027E084090041247B /* UIColor+HexColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +237,7 @@
 				CC36F10227D3385B000C4495 /* symbol_search.plist */,
 				CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */,
 				CC7A0FBE27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf */,
+				CCEED35D27E043E10041247B /* Settings.bundle */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -253,7 +259,6 @@
 				3AC79A240E7B601DA91945A6 /* Pods-SFSymbolsPreview.debug.xcconfig */,
 				4907949C136C32846895E058 /* Pods-SFSymbolsPreview.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -292,6 +297,8 @@
 			children = (
 				CC7A0FC127DCD52C00C5DCD5 /* NSData+Hexadecimal.h */,
 				CC7A0FC227DCD52C00C5DCD5 /* NSData+Hexadecimal.m */,
+				CCEED35F27E084090041247B /* UIColor+HexColor.h */,
+				CCEED36027E084090041247B /* UIColor+HexColor.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -362,6 +369,7 @@
 				CC36F10D27D3385D000C4495 /* layerset_availability.plist in Resources */,
 				CCA4D99527D36BE7009D2777 /* symbol_variant_scripts.csv in Resources */,
 				CC36F10C27D3385D000C4495 /* name_aliases_strings.txt in Resources */,
+				CCEED35E27E043E10041247B /* Settings.bundle in Resources */,
 				7E0C9555247E658C0029F521 /* LaunchScreen.storyboard in Resources */,
 				CC36F10927D3385D000C4495 /* symbol_search.plist in Resources */,
 				CC36F11427D34E02000C4495 /* version.plist in Resources */,
@@ -421,6 +429,7 @@
 				7E0C956F247E71570029F521 /* SFReusableTitleView.m in Sources */,
 				CC7A0FBC27DA3D8200C5DCD5 /* ObjectTableViewController.m in Sources */,
 				CC5BBDEB27D9054C0021B9FB /* SymbolActionTableViewCell.m in Sources */,
+				CCEED36127E084090041247B /* UIColor+HexColor.m in Sources */,
 				CC7A0FC327DCD52C00C5DCD5 /* NSData+Hexadecimal.m in Sources */,
 				CC7A0FBD27DA3D8200C5DCD5 /* ObjectNode.m in Sources */,
 				7E0C9563247E6B520029F521 /* SymbolSearchResultsViewController.m in Sources */,
