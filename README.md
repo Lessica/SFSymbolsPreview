@@ -10,7 +10,7 @@ SF Symbols are free to use, but why [Adaptivity](https://apps.apple.com/app/id10
 
 ## TODOs
 
-I won't implement all features in [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone) because I don't think these <del>features</del> make any sense.
+I won't implement all features in [Adaptivity](https://apps.apple.com/app/id1054670022?platform=iphone) because I don't think these <del>features</del> make much sense. It's an app, not a database.
 
 - [ ] <del>Collection: Restricted</del>
 - [ ] <del>Collection: Language Localized</del>
