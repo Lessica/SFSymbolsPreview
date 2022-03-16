@@ -275,6 +275,11 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
     return [SFSymbol nameAvailabilityOfSymbolWithName:self.name];
 }
 
+- (NSSet <SFSymbolLayerSetName> *)supportedLayerSets
+{
+    return [NSSet setWithArray:[self.layerSetAvailabilities allKeys]];
+}
+
 - (NSDictionary <SFSymbolLayerSetName, SFSymbolAvailability *> *)layerSetAvailabilities
 {
     if (!_layerSetAvailabilities) {
@@ -288,6 +293,11 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
         _layerSetAvailabilities = availabilities;
     }
     return _layerSetAvailabilities;
+}
+
+- (BOOL)supportsMulticolor
+{
+    return self.layerSetAvailabilities[SFSymbolLayerSetNameMulticolor] != nil;
 }
 
 + (NSString *)useRestrictionsOfSymbolWithName:(NSString *)name

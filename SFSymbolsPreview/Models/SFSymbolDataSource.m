@@ -57,6 +57,11 @@ void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems)
     [NSUserDefaults.standardUserDefaults setInteger:numberOfItems forKey:kNumberOfItemsInColumnKey];
 }
 
+SFSymbolLayerSetName preferredRenderMode(void)
+{
+    return (SFSymbolLayerSetName)[NSUserDefaults.standardUserDefaults objectForKey:@"SFRenderMode"];
+}
+
 NSNotificationName const SFPreferredSymbolConfigurationDidChangeNotification = @"SFPreferredSymbolConfigurationDidChangeNotification";
 static NSString *const kPreferredImageSymbolConfigurationKey = @"SFPreferredImageSymbolConfiguration";
 UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void)
@@ -115,7 +120,7 @@ UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void)
         }
     }
     
-    if ([layerSetName isEqualToString:SFSymbolLayerSetNameMulticolor]) {
+    else if ([layerSetName isEqualToString:SFSymbolLayerSetNameMulticolor]) {
         if (@available(iOS 15.0, *)) {
             configuration = [configuration configurationByApplyingConfiguration:[UIImageSymbolConfiguration configurationPreferringMulticolor]];
         } else {

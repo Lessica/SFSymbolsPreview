@@ -10,7 +10,27 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Generic</string>
+			<string>Annotation</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Baseline</string>
+			<key>Key</key>
+			<string>SFBaseline</string>
+			<key>DefaultValue</key>
+			<false/>
+			<key>Icon</key>
+			<string>ruler</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Colors</string>
+			<key>FooterText</key>
+			<string>SF Symbols 3.2 (67)</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -37,14 +57,6 @@
 			<string>monochrome</string>
 			<key>Icon</key>
 			<string>paintpalette</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>Colors</string>
-			<key>FooterText</key>
-			<string>SF Symbols 3.2 (67)</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -121,6 +133,8 @@
 			</array>
 			<key>DefaultValue</key>
 			<string>labelColor:#000000D9/#FFFFFFD9</string>
+			<key>UseChildIcon</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -197,6 +211,8 @@
 			</array>
 			<key>DefaultValue</key>
 			<string>secondaryLabelColor:#00000080/#FFFFFF8C</string>
+			<key>UseChildIcon</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -272,10 +288,12 @@
 				<string>square.fill:#00000080/#FFFFFF8C</string>
 				<string>square.fill:#00000040/#FFFFFF40</string>
 				<string>square.fill:#0000001A/#FFFFFF1A</string>
-				<string>square.fill:#00000000</string>
+				<string>square.dashed</string>
 			</array>
 			<key>DefaultValue</key>
 			<string>none</string>
+			<key>UseChildIcon</key>
+			<true/>
 		</dict>
 	</array>
 </dict>

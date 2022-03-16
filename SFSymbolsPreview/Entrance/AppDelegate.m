@@ -20,19 +20,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [NSUserDefaults.standardUserDefaults setValue:@(YES) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
-    
-    NSURL *fontURL = [[NSBundle mainBundle] URLForResource:@"SFSymbolsFallback" withExtension:@"ttf"];
-    CTFontManagerRegisterFontURLs((__bridge CFArrayRef)@[fontURL], kCTFontManagerScopePersistent, true, ^bool(CFArrayRef  _Nonnull errors, bool done) {
-#ifdef DEBUG
-        if (done) {
-            NSLog(@"font registered successfully");
-        } else {
-            NSLog(@"font registeration failed: %@", errors);
-        }
-#endif
-        return true;
-    });
-    
     return YES;
 }
 

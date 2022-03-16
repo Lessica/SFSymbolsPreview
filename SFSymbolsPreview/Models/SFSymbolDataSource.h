@@ -11,17 +11,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-BOOL IS_IPAD(UIView *);
+FOUNDATION_EXTERN BOOL IS_IPAD(UIView *);
 
-SFSymbolCategory *lastOpenedCategeory(void);
-void storeUserActivityLastOpenedCategory(SFSymbolCategory *category);
+FOUNDATION_EXTERN SFSymbolCategory *lastOpenedCategeory(void);
+FOUNDATION_EXTERN void storeUserActivityLastOpenedCategory(SFSymbolCategory *category);
 
-NSUInteger numberOfItemsInColumn(void);
-void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems);
+FOUNDATION_EXTERN NSUInteger numberOfItemsInColumn(void);
+FOUNDATION_EXTERN void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems);
 
 FOUNDATION_EXTERN NSNotificationName const SFPreferredSymbolConfigurationDidChangeNotification;
-UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void);
-void storePreferredImageSymbolConfiguration(UIImageSymbolConfiguration *configuration);
+FOUNDATION_EXTERN SFSymbolLayerSetName preferredRenderMode(void);
+FOUNDATION_EXTERN UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void);
+FOUNDATION_EXTERN void storePreferredImageSymbolConfiguration(UIImageSymbolConfiguration *configuration);
 
 FOUNDATION_EXTERN NSNotificationName const SFSymbolFavoritesDidUpdateNotification;
 

@@ -17,6 +17,7 @@
 @interface SymbolGroupedDetailsViewController () <UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate>
 
 @property (nonatomic, strong) SFSymbol *symbol;
+@property (nonatomic, assign, readonly) BOOL isSymbolBeingDisplayedInMonochrome;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -116,6 +117,19 @@
     [self.favButton setSelected:[[SFSymbolCategory favoriteCategory] containsSymbol:self.symbol]];
 }
 
+- (BOOL)isSymbolBeingDisplayedInMonochrome
+{
+    if ([preferredRenderMode() isEqualToString:SFSymbolLayerSetNameMonochrome])
+    {
+        return YES;
+    }
+    if (!self.symbol.supportsMulticolor && [preferredRenderMode() isEqualToString:SFSymbolLayerSetNameMulticolor])
+    {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)updatePreviewSymbolImage {
     UIImage *image = nil;
     {
@@ -132,7 +146,11 @@
         UIGraphicsEndImageContext();
     }
     
-    self.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    if (self.isSymbolBeingDisplayedInMonochrome) {
+        self.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    } else {
+        self.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
