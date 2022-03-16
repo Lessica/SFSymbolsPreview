@@ -9,6 +9,8 @@
 #import "SFSymbolCategory.h"
 
 
+NSString * const SFSymbolFavoriteCategoryKey = @"__FAV__";
+
 @interface SFSymbolCategory ()
 
 @property (nonatomic, copy) NSString *favoriteItemPath;
@@ -57,6 +59,7 @@
     if (self = [super init])
     {
         _name = NSLocalizedString(@"My Favorites", nil);
+        _key = SFSymbolFavoriteCategoryKey;
         _favoriteItemPath = favoriteItemPath;
         _syncFavoriteAutomatically = YES;
         

@@ -14,33 +14,38 @@ BOOL IS_IPAD(UIView *targetView)
     return [[targetView traitCollection] horizontalSizeClass] == UIUserInterfaceSizeClassRegular;
 }
 
-static NSString *const kLastOpenedCategoryNameKey = @"LastOpenedCategoryName";
+static NSString *const kLastOpenedCategoryKey = @"SFLastOpenedCategoryKey";
 SFSymbolCategory *lastOpenedCategeory(void)
 {
-    NSString *name;
-    __block SFSymbolCategory *lastOpenedCategory;
-    
-    name = [NSUserDefaults.standardUserDefaults stringForKey:kLastOpenedCategoryNameKey];
-    if (name)
+    NSString *categoryKey = [NSUserDefaults.standardUserDefaults stringForKey:kLastOpenedCategoryKey];
+    if ([categoryKey isEqualToString:SFSymbolFavoriteCategoryKey])
     {
+        return [SFSymbolCategory favoriteCategory];
+    }
+    else
+    {
+        __block SFSymbolCategory *lastOpenedCategory = nil;
         [SFSymbolDataSource.dataSource.categories enumerateObjectsUsingBlock:^(SFSymbolCategory *category, NSUInteger index, BOOL *stop) {
-            if ([category.name isEqualToString:name])
+            if ([category.key isEqualToString:categoryKey])
             {
                 lastOpenedCategory = category;
                 *stop = YES;
             }
         }];
+        return lastOpenedCategory ? : SFSymbolDataSource.dataSource.categories.firstObject;
     }
-    return lastOpenedCategory ? : SFSymbolDataSource.dataSource.categories.firstObject;
 }
 
 void storeUserActivityLastOpenedCategory(SFSymbolCategory *category)
 {
-    [NSUserDefaults.standardUserDefaults setObject:category.name forKey:kLastOpenedCategoryNameKey];
+    if (!category.key) {
+        return;
+    }
+    [NSUserDefaults.standardUserDefaults setObject:category.key forKey:kLastOpenedCategoryKey];
 }
 
 
-static NSString *const kNumberOfItemsInColumnKey = @"NumberOfItemsInColumn";
+static NSString *const kNumberOfItemsInColumnKey = @"SFNumberOfItemsInColumn";
 NSUInteger numberOfItemsInColumn(void)
 {
     NSUInteger numberOfItems = [NSUserDefaults.standardUserDefaults integerForKey:kNumberOfItemsInColumnKey];
@@ -53,7 +58,7 @@ void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems)
 }
 
 NSNotificationName const SFPreferredSymbolConfigurationDidChangeNotification = @"SFPreferredSymbolConfigurationDidChangeNotification";
-static NSString *const kPreferredImageSymbolConfigurationKey = @"PreferredImageSymbolConfiguration";
+static NSString *const kPreferredImageSymbolConfigurationKey = @"SFPreferredImageSymbolConfiguration";
 UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void)
 {
     NSData *encodedObject = [NSUserDefaults.standardUserDefaults objectForKey:kPreferredImageSymbolConfigurationKey];

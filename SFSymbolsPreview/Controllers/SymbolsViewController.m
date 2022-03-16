@@ -458,18 +458,10 @@
     return @[symbolDragItem];
 }
 
-/*
 - (NSArray <UIDragItem *> *)collectionView:(UICollectionView *)collectionView itemsForAddingToDragSession:(id<UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point
 {
-    SFSymbol *symbol = self.symbolsForDisplay[indexPath.item];
-    
-    NSItemProvider *symbolProvider = [[NSItemProvider alloc] initWithObject:symbol.image];
-    UIDragItem *symbolDragItem = [[UIDragItem alloc] initWithItemProvider:symbolProvider];
-    symbolDragItem.localObject = symbol;
-    
-    return @[symbolDragItem];
+    return [self collectionView:collectionView itemsForBeginningDragSession:session atIndexPath:indexPath];
 }
- */
 
 - (UICollectionViewDropProposal *)collectionView:(UICollectionView *)collectionView dropSessionDidUpdate:(id<UIDropSession>)session withDestinationIndexPath:(NSIndexPath *)destinationIndexPath
 {
@@ -481,7 +473,7 @@
             return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationMove intent:UICollectionViewDropIntentInsertAtDestinationIndexPath];
         } else if (session.items.count > 1) {
             /// FIXME: animation
-            return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationMove intent:UICollectionViewDropIntentUnspecified];
+            return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationCancel intent:UICollectionViewDropIntentUnspecified];
         }
     }
     return [[UICollectionViewDropProposal alloc] initWithDropOperation:UIDropOperationForbidden];

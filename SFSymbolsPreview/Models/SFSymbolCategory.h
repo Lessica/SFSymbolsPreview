@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXTERN NSString * const SFSymbolFavoriteCategoryKey;
+
 @interface SFSymbolCategory : NSObject
 
 @property (nonatomic, strong, readonly) NSString *key;
