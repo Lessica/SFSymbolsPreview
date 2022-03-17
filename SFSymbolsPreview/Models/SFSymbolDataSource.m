@@ -59,7 +59,7 @@ void storeUserActivityNumberOfItemsInColumn(NSUInteger numberOfItems)
 
 SFSymbolLayerSetName preferredRenderMode(void)
 {
-    return (SFSymbolLayerSetName)[NSUserDefaults.standardUserDefaults objectForKey:@"SFRenderMode"];
+    return (SFSymbolLayerSetName)[NSUserDefaults.standardUserDefaults objectForKey:@"SFRenderMode"] ?: SFSymbolLayerSetNameMonochrome;
 }
 
 NSNotificationName const SFPreferredSymbolConfigurationDidChangeNotification = @"SFPreferredSymbolConfigurationDidChangeNotification";
@@ -71,7 +71,7 @@ UIImageSymbolConfiguration *preferredImageSymbolConfiguration(void)
     UIImageSymbolConfiguration *configuration = [NSKeyedUnarchiver unarchivedObjectOfClass:[UIImageSymbolConfiguration class] fromData:encodedObject error:nil];
     
     UIFontWeight fontWeight = configuration.weight;
-    SFSymbolLayerSetName layerSetName = [NSUserDefaults.standardUserDefaults objectForKey:@"SFRenderMode"];
+    SFSymbolLayerSetName layerSetName = [NSUserDefaults.standardUserDefaults objectForKey:@"SFRenderMode"] ?: SFSymbolLayerSetNameMonochrome;
     configuration = [UIImageSymbolConfiguration configurationWithWeight:fontWeight];
     
     UIColor *primaryColor = nil;

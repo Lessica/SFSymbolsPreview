@@ -11,6 +11,7 @@
 #import "SymbolKeyValueTableViewCell.h"
 #import "SymbolActionTableViewCell.h"
 #import "SymbolTextTableViewCell.h"
+#import "SFOutlineImageView.h"
 #import "ObjectViewer/ObjectTableViewController.h"
 
 
@@ -22,7 +23,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) UITableViewCell *imageViewCell;
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) SFOutlineImageView *imageView;
 
 @property (nonatomic, strong) UIButton *favButton;
 
@@ -61,14 +62,14 @@
     })];
     
     [self setImageView:({
-        UIImageView *v = UIImageView.new;
+        SFOutlineImageView *v = SFOutlineImageView.new;
         [v setContentMode:UIViewContentModeScaleAspectFit];
         [v setTintColor:UIColor.labelColor];
         v;
     })];
     
     [self setImageViewCell:({
-        UIImageView *v = self.imageView;
+        SFOutlineImageView *v = self.imageView;
         UITableViewCell *c = [UITableViewCell.alloc initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         [c setSelectionStyle:UITableViewCellSelectionStyleNone];
         [c.contentView addSubview:v];
@@ -76,7 +77,7 @@
         [v.topAnchor constraintEqualToAnchor:c.contentView.topAnchor].active = YES;
         [v.bottomAnchor constraintEqualToAnchor:c.contentView.bottomAnchor].active = YES;
         [v.centerXAnchor constraintEqualToAnchor:c.contentView.centerXAnchor].active = YES;
-        [v.leadingAnchor constraintEqualToAnchor:c.contentView.leadingAnchor].active = YES;
+        [v.leadingAnchor constraintGreaterThanOrEqualToAnchor:c.contentView.leadingAnchor].active = YES;
         c;
     })];
     

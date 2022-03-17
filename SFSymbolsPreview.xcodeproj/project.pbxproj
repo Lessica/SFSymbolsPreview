@@ -21,6 +21,7 @@
 		7E0C957D247F588E0029F521 /* SFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C957C247F588E0029F521 /* SFCategoriesViewController.m */; };
 		7E0C9580247F5F280029F521 /* SFSymbolCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C957F247F5F280029F521 /* SFSymbolCategory.m */; };
 		7EE40721247F861600A68520 /* SFSymbolDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE40720247F861600A68520 /* SFSymbolDataSource.m */; };
+		CC171F6F27E2CF3000981050 /* SFOutlineImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC171F6E27E2CF3000981050 /* SFOutlineImageView.m */; };
 		CC36F10927D3385D000C4495 /* symbol_search.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10227D3385B000C4495 /* symbol_search.plist */; };
 		CC36F10A27D3385D000C4495 /* name_availability.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10327D3385B000C4495 /* name_availability.plist */; };
 		CC36F10B27D3385D000C4495 /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC36F10427D3385B000C4495 /* categories.plist */; };
@@ -79,6 +80,8 @@
 		7EE4071F247F861600A68520 /* SFSymbolDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFSymbolDataSource.h; sourceTree = "<group>"; };
 		7EE40720247F861600A68520 /* SFSymbolDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSymbolDataSource.m; sourceTree = "<group>"; };
 		86802AD8D6BDAF81C550762A /* libPods-SFSymbolsPreview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SFSymbolsPreview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC171F6D27E2CF3000981050 /* SFOutlineImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFOutlineImageView.h; sourceTree = "<group>"; };
+		CC171F6E27E2CF3000981050 /* SFOutlineImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFOutlineImageView.m; sourceTree = "<group>"; };
 		CC36F10227D3385B000C4495 /* symbol_search.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = symbol_search.plist; sourceTree = "<group>"; };
 		CC36F10327D3385B000C4495 /* name_availability.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = name_availability.plist; sourceTree = "<group>"; };
 		CC36F10427D3385B000C4495 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				CC5BBDEA27D9054C0021B9FB /* SymbolActionTableViewCell.m */,
 				CC5BBDE627D9053E0021B9FB /* SymbolTextTableViewCell.h */,
 				CC5BBDE727D9053E0021B9FB /* SymbolTextTableViewCell.m */,
+				CC171F6D27E2CF3000981050 /* SFOutlineImageView.h */,
+				CC171F6E27E2CF3000981050 /* SFOutlineImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				7E0C9560247E65F50029F521 /* SymbolsViewController.m in Sources */,
 				7E0C954A247E65890029F521 /* SceneDelegate.m in Sources */,
 				7E0C956F247E71570029F521 /* SFReusableTitleView.m in Sources */,
+				CC171F6F27E2CF3000981050 /* SFOutlineImageView.m in Sources */,
 				CC7A0FBC27DA3D8200C5DCD5 /* ObjectTableViewController.m in Sources */,
 				CC5BBDEB27D9054C0021B9FB /* SymbolActionTableViewCell.m in Sources */,
 				CCEED36127E084090041247B /* UIColor+HexColor.m in Sources */,
@@ -571,7 +577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.morecats.SFSymbolsPreview;
+				PRODUCT_BUNDLE_IDENTIFIER = com.82flex.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -593,7 +599,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.morecats.SFSymbolsPreview;
+				PRODUCT_BUNDLE_IDENTIFIER = com.82flex.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
