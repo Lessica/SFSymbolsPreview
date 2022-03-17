@@ -10,27 +10,9 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Annotation</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Baseline</string>
-			<key>Key</key>
-			<string>SFBaseline</string>
-			<key>DefaultValue</key>
-			<false/>
-			<key>Icon</key>
-			<string>ruler</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
 			<string>Colors</string>
 			<key>FooterText</key>
-			<string>SF Symbols 3.2 (67)</string>
+			<string>SF Symbols Preview 3.2 (67)</string>
 		</dict>
 		<dict>
 			<key>Type</key>

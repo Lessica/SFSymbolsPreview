@@ -577,6 +577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 32.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.82flex.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
 				SUPPORTS_MACCATALYST = YES;
@@ -599,6 +600,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 32.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.82flex.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
 				SUPPORTS_MACCATALYST = YES;
