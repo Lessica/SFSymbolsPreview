@@ -23,3 +23,9 @@ src_categories_plist_path = f"{src_metadata_path}/categories.plist"
 dst_categories_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/categories.plist"
 os.system(f"cp {src_categories_plist_path} {dst_categories_plist_path}")
 os.system(f"plutil -convert xml1 {dst_categories_plist_path}")
+
+# copy and convert symbol_search.plist to xml1
+src_symbol_search_plist_path = f"{src_metadata_path}/symbol_search.plist"
+dst_symbol_search_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/symbol_search.plist"
+os.system(f"cp {src_symbol_search_plist_path} {dst_symbol_search_plist_path}")
+os.system(f"plutil -convert xml1 {dst_symbol_search_plist_path}")
