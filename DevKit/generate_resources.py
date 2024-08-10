@@ -47,3 +47,13 @@ src_symbol_categories_plist_path = f"{src_metadata_path}/symbol_categories.plist
 dst_symbol_categories_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/symbol_categories.plist"
 os.system(f"cp {src_symbol_categories_plist_path} {dst_symbol_categories_plist_path}")
 os.system(f"plutil -convert xml1 {dst_symbol_categories_plist_path}")
+
+# copy legacy_aliases.strings to legacy_aliases_strings.txt
+src_legacy_aliases_strings_path = f"{src_metadata_path}/legacy_aliases.strings"
+dst_legacy_aliases_strings_path = f"{parent_path}/SFSymbolsPreview/Resources/legacy_aliases_strings.txt"
+os.system(f"cp {src_legacy_aliases_strings_path} {dst_legacy_aliases_strings_path}")
+
+# copy name_aliases.strings to name_aliases_strings.txt
+src_name_aliases_strings_path = f"{src_metadata_path}/name_aliases.strings"
+dst_name_aliases_strings_path = f"{parent_path}/SFSymbolsPreview/Resources/name_aliases_strings.txt"
+os.system(f"cp {src_name_aliases_strings_path} {dst_name_aliases_strings_path}")
