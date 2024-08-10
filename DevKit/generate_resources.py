@@ -35,3 +35,9 @@ src_layerset_availability_plist_path = f"{src_metadata_path}/layerset_availabili
 dst_layerset_availability_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/layerset_availability.plist"
 os.system(f"cp {src_layerset_availability_plist_path} {dst_layerset_availability_plist_path}")
 os.system(f"plutil -convert xml1 {dst_layerset_availability_plist_path}")
+
+# copy and convert name_availability.plist to xml1
+src_name_availability_plist_path = f"{src_metadata_path}/name_availability.plist"
+dst_name_availability_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/name_availability.plist"
+os.system(f"cp {src_name_availability_plist_path} {dst_name_availability_plist_path}")
+os.system(f"plutil -convert xml1 {dst_name_availability_plist_path}")
