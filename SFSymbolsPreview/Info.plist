@@ -24,10 +24,6 @@
 	<true/>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>SFSymbols Preview needs access your Photos to save image.</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SFSymbolsFallback.ttf</string>
-	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -17,6 +17,7 @@ NSString * const SFSymbolAvailabilityPlatformName_macCatalyst = @"macCatalyst";
 NSString * const SFSymbolAvailabilityPlatformName_macOS = @"macOS";
 NSString * const SFSymbolAvailabilityPlatformName_tvOS = @"tvOS";
 NSString * const SFSymbolAvailabilityPlatformName_watchOS = @"watchOS";
+NSString * const SFSymbolAvailabilityPlatformName_visionOS = @"visionOS";
 
 @interface SFSymbolAvailability ()
 
@@ -49,6 +50,9 @@ NSString * const SFSymbolAvailabilityPlatformName_watchOS = @"watchOS";
 }
 
 - (void)setAvailabilityValue:(NSString *)availabilityValue forPlatform:(SFSymbolAvailabilityPlatformName)platform {
+    if (!availabilityValue || !platform) {
+        return;
+    }
     [_internalDictionary setObject:availabilityValue forKey:platform];
 }
 
@@ -64,17 +68,20 @@ NSString * const SFSymbolAvailabilityPlatformName_watchOS = @"watchOS";
     if (@available(iOS 13, *)) {
         currentPlatform = SFSymbolAvailabilityPlatformName_iOS;
     }
-    if (@available(macOS 10.15, *)) {
+    else if (@available(macOS 10.15, *)) {
         currentPlatform = SFSymbolAvailabilityPlatformName_macOS;
     }
-    if (@available(tvOS 13, *)) {
+    else if (@available(tvOS 13, *)) {
         currentPlatform = SFSymbolAvailabilityPlatformName_tvOS;
     }
-    if (@available(watchOS 6, *)) {
+    else if (@available(watchOS 6, *)) {
         currentPlatform = SFSymbolAvailabilityPlatformName_watchOS;
     }
-    if (@available(macCatalyst 13, *)) {
+    else if (@available(macCatalyst 13, *)) {
         currentPlatform = SFSymbolAvailabilityPlatformName_macCatalyst;
+    }
+    else if (@available(visionOS 1, *)) {
+        currentPlatform = SFSymbolAvailabilityPlatformName_visionOS;
     }
     NSString *availabilityValue = [self availabilityValueForPlatform:currentPlatform];
     NSMutableArray <NSString *> *availabilityVersionValues = [[availabilityValue componentsSeparatedByString:@"."] mutableCopy];
@@ -107,6 +114,9 @@ NSString * const SFSymbolAvailabilityPlatformName_watchOS = @"watchOS";
     if ([platformName isEqualToString:@"watchOS"]) {
         return SFSymbolAvailabilityPlatformName_watchOS;
     }
+    if ([platformName isEqualToString:@"visionOS"]) {
+        return SFSymbolAvailabilityPlatformName_visionOS;
+    }
     return nil;
 }
 
@@ -126,6 +136,9 @@ NSString * const SFSymbolAvailabilityPlatformName_watchOS = @"watchOS";
     }
     if ([self availabilityValueForPlatform:SFSymbolAvailabilityPlatformName_watchOS]) {
         [s appendFormat:@"• watchOS %@+\n", [self availabilityValueForPlatform:SFSymbolAvailabilityPlatformName_watchOS]];
+    }
+    if ([self availabilityValueForPlatform:SFSymbolAvailabilityPlatformName_visionOS]) {
+        [s appendFormat:@"• visionOS %@+\n", [self availabilityValueForPlatform:SFSymbolAvailabilityPlatformName_visionOS]];
     }
     if (!s.length) {
         return [super description];

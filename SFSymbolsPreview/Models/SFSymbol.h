@@ -33,7 +33,6 @@ FOUNDATION_EXTERN NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName nam
 @property (nonatomic, strong, readonly) NSSet <SFSymbolLayerSetName> *supportedLayerSets;
 @property (nonatomic, strong, readonly) NSDictionary <SFSymbolLayerSetName, SFSymbolAvailability *> *layerSetAvailabilities;
 @property (nonatomic, copy, readonly, nullable) NSString *useRestrictions;
-@property (nonatomic, copy, readonly, nullable) NSString *unicodeString;
 
 - (BOOL)supportsMulticolor;
 

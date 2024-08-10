@@ -151,7 +151,10 @@ NSNotificationName const SFSymbolFavoritesDidUpdateNotification = @"SFSymbolFavo
     NSArray <NSDictionary *> *localCategories = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"categories" ofType:@"plist"]];
     NSMutableArray <SFSymbolCategory *> *cachedCategories = [[NSMutableArray alloc] initWithCapacity:localCategories.count];
     for (NSDictionary *localCategory in localCategories) {
-        [cachedCategories addObject:[[SFSymbolCategory alloc] initWithCategoryKey:localCategory[@"key"] categoryName:(localCategory[@"label"] ?: localCategory[@"name"]) imageNamed:localCategory[@"icon"]]];
+        SFSymbolCategory *cachedCategory = [[SFSymbolCategory alloc] initWithCategoryKey:localCategory[@"key"] categoryName:(localCategory[@"label"] ?: localCategory[@"name"]) imageNamed:localCategory[@"icon"]];
+        if (cachedCategory.symbols.count > 0) {
+            [cachedCategories addObject:cachedCategory];
+        }
     }
     _categories = cachedCategories;
 }

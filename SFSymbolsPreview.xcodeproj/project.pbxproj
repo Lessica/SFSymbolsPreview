@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,13 +38,9 @@
 		CC7A0FBB27DA3D8200C5DCD5 /* ObjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FB527DA3D8200C5DCD5 /* ObjectCell.m */; };
 		CC7A0FBC27DA3D8200C5DCD5 /* ObjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FB627DA3D8200C5DCD5 /* ObjectTableViewController.m */; };
 		CC7A0FBD27DA3D8200C5DCD5 /* ObjectNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FBA27DA3D8200C5DCD5 /* ObjectNode.m */; };
-		CC7A0FBF27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC7A0FBE27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf */; };
 		CC7A0FC327DCD52C00C5DCD5 /* NSData+Hexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7A0FC227DCD52C00C5DCD5 /* NSData+Hexadecimal.m */; };
 		CCA4D99327D36BE0009D2777 /* colors.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99227D36BE0009D2777 /* colors.csv */; };
 		CCA4D99527D36BE7009D2777 /* symbol_variant_scripts.csv in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */; };
-		CCA4D99927D37130009D2777 /* restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99827D37130009D2777 /* restrictions.plist */; };
-		CCA4D99C27D3775E009D2777 /* symbol_unicodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */; };
-		CCA4D99E27D377BE009D2777 /* symbol_restrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */; };
 		CCA4D9A027D37C55009D2777 /* symbols.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCA4D99F27D37C55009D2777 /* symbols.plist */; };
 		CCE6171127D871B7004E384D /* SymbolGroupedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE6171027D871B7004E384D /* SymbolGroupedDetailsViewController.m */; };
 		CCEED35E27E043E10041247B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCEED35D27E043E10041247B /* Settings.bundle */; };
@@ -107,15 +103,11 @@
 		CC7A0FB827DA3D8200C5DCD5 /* ObjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectTableViewController.h; sourceTree = "<group>"; };
 		CC7A0FB927DA3D8200C5DCD5 /* ObjectNode-Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectNode-Private.h"; sourceTree = "<group>"; };
 		CC7A0FBA27DA3D8200C5DCD5 /* ObjectNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectNode.m; sourceTree = "<group>"; };
-		CC7A0FBE27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFSymbolsFallback.ttf; sourceTree = "<group>"; };
 		CC7A0FC127DCD52C00C5DCD5 /* NSData+Hexadecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Hexadecimal.h"; sourceTree = "<group>"; };
 		CC7A0FC227DCD52C00C5DCD5 /* NSData+Hexadecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hexadecimal.m"; sourceTree = "<group>"; };
 		CCA4D98E27D367A2009D2777 /* layersets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = layersets.plist; sourceTree = "<group>"; };
 		CCA4D99227D36BE0009D2777 /* colors.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colors.csv; sourceTree = "<group>"; };
 		CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symbol_variant_scripts.csv; sourceTree = "<group>"; };
-		CCA4D99827D37130009D2777 /* restrictions.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = restrictions.plist; sourceTree = "<group>"; };
-		CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbol_unicodes.plist; sourceTree = "<group>"; };
-		CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbol_restrictions.plist; sourceTree = "<group>"; };
 		CCA4D99F27D37C55009D2777 /* symbols.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = symbols.plist; sourceTree = "<group>"; };
 		CCE6170F27D871B7004E384D /* SymbolGroupedDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolGroupedDetailsViewController.h; sourceTree = "<group>"; };
 		CCE6171027D871B7004E384D /* SymbolGroupedDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolGroupedDetailsViewController.m; sourceTree = "<group>"; };
@@ -228,19 +220,15 @@
 				CC36F11327D34E02000C4495 /* version.plist */,
 				CC36F10427D3385B000C4495 /* categories.plist */,
 				CCA4D98E27D367A2009D2777 /* layersets.plist */,
-				CCA4D99827D37130009D2777 /* restrictions.plist */,
 				CCA4D99F27D37C55009D2777 /* symbols.plist */,
 				CC36F10827D3385D000C4495 /* symbol_categories.plist */,
 				CC36F10327D3385B000C4495 /* name_availability.plist */,
 				CC36F10627D3385C000C4495 /* layerset_availability.plist */,
-				CCA4D99D27D377BE009D2777 /* symbol_restrictions.plist */,
 				CCA4D99427D36BE7009D2777 /* symbol_variant_scripts.csv */,
 				CC5BBDEC27D90EBA0021B9FB /* symbol_variant_scripts.json */,
 				CC36F10527D3385C000C4495 /* name_aliases_strings.txt */,
 				CC36F10727D3385C000C4495 /* legacy_aliases_strings.txt */,
 				CC36F10227D3385B000C4495 /* symbol_search.plist */,
-				CCA4D99B27D3775E009D2777 /* symbol_unicodes.plist */,
-				CC7A0FBE27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf */,
 				CCA4D99227D36BE0009D2777 /* colors.csv */,
 				CCEED35D27E043E10041247B /* Settings.bundle */,
 			);
@@ -327,7 +315,8 @@
 		7E0C953A247E65890029F521 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1310;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1540;
 				ORGANIZATIONNAME = "YICAI YANG";
 				TargetAttributes = {
 					7E0C9541247E65890029F521 = {
@@ -370,12 +359,8 @@
 				7E0C9555247E658C0029F521 /* LaunchScreen.storyboard in Resources */,
 				CC36F10927D3385D000C4495 /* symbol_search.plist in Resources */,
 				CC36F11427D34E02000C4495 /* version.plist in Resources */,
-				CCA4D99927D37130009D2777 /* restrictions.plist in Resources */,
 				CC5BBDED27D90EBA0021B9FB /* symbol_variant_scripts.json in Resources */,
 				CC36F10B27D3385D000C4495 /* categories.plist in Resources */,
-				CCA4D99C27D3775E009D2777 /* symbol_unicodes.plist in Resources */,
-				CC7A0FBF27DCD0EE00C5DCD5 /* SFSymbolsFallback.ttf in Resources */,
-				CCA4D99E27D377BE009D2777 /* symbol_restrictions.plist in Resources */,
 				7E0C9552247E658C0029F521 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -488,6 +474,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -514,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -547,6 +535,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -572,15 +561,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				INFOPLIST_FILE = SFSymbolsPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SF Symbols";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 32.1;
+				MARKETING_VERSION = 51.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.82flex.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -595,15 +587,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				INFOPLIST_FILE = SFSymbolsPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SF Symbols";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 32.1;
+				MARKETING_VERSION = 51.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.82flex.SFSymbolsPreview;
 				PRODUCT_NAME = "SF Symbols";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

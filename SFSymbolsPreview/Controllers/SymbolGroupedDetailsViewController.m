@@ -162,7 +162,7 @@
     if (section == 0) {
         return 1 + self.symbol.symbolVariants.count;
     } else if (section == 1) {
-        return 4;
+        return 3;
     } else if (section == 2) {
         return 1;
     }
@@ -227,15 +227,6 @@
             [cell setAccessoryType:UITableViewCellAccessoryNone];
         } else if (indexPath.row == 2) {
             cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
-            [cell.textLabel setText:NSLocalizedString(@"Copy Symbol", nil)];
-            [cell.textLabel setNumberOfLines:1];
-            [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
-            [cell.imageView setImage:[UIImage systemImageNamed:@"doc.on.doc.fill"]];
-            [cell.imageView setTintColor:self.view.tintColor];
-            [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
-            [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
-        } else if (indexPath.row == 3) {
-            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
             [cell.textLabel setText:NSLocalizedString(@"Share...", nil)];
             [cell.textLabel setNumberOfLines:1];
             [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
@@ -265,8 +256,6 @@
         if (indexPath.row == 1) {
             UIPasteboard.generalPasteboard.string = self.symbol.name;
         } else if (indexPath.row == 2) {
-            UIPasteboard.generalPasteboard.string = self.symbol.unicodeString;
-        } else if (indexPath.row == 3) {
             UIActivityViewController *activityVC = [UIActivityViewController.alloc initWithActivityItems:@[ self.symbol.name, self.imageView.image ]
                                                                                    applicationActivities:nil];
             if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad) {

@@ -15,6 +15,7 @@ FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_macCatalyst;
 FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_macOS;
 FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_tvOS;
 FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_watchOS;
+FOUNDATION_EXTERN NSString * const SFSymbolAvailabilityPlatformName_visionOS;
 
 typedef NSString *SFSymbolAvailabilityPlatformName;
 

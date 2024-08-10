@@ -211,7 +211,10 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
         [symbolVariantNames sortUsingSelector:@selector(localizedStandardCompare:)];
         NSMutableArray <SFSymbol *> *symbolVariants = [[NSMutableArray alloc] initWithCapacity:symbolVariantNames.count];
         for (NSString *symbolVariantName in symbolVariantNames) {
-            [symbolVariants addObject:[SFSymbol symbolWithName:symbolVariantName]];
+            SFSymbol *symbolVariant = [SFSymbol symbolWithName:symbolVariantName];
+            if ([symbolVariant.availability isCompatibleWithCurrentPlatform]) {
+                [symbolVariants addObject:symbolVariant];
+            }
         }
         _symbolVariants = symbolVariants;
     }
@@ -319,23 +322,6 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
     return [SFSymbol useRestrictionsOfSymbolWithName:self.name];
 }
 
-+ (NSString *)unicodeStringOfSymbolWithName:(NSString *)name
-{
-    static NSDictionary <NSString *, NSString *> *unicodeMappings = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        unicodeMappings = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"symbol_unicodes" ofType:@"plist"]];
-    });
-    
-    return unicodeMappings[name];
-}
-
-- (NSString *)unicodeString
-{
-    return [SFSymbol unicodeStringOfSymbolWithName:self.name];
-}
-
 - (NSDictionary *)availabilityDictionary {
     if (!_availabilityDictionary) {
         NSMutableDictionary *object = [[NSMutableDictionary alloc] init];
@@ -371,7 +357,7 @@ NSString *SFSymbolLayerSetDisplayName(SFSymbolLayerSetName name)
 - (NSSet <NSString *> *)accurateSearchTokens
 {
     if (!_accurateSearchTokens) {
-        NSMutableSet <NSString *> *searchTokens = [[NSMutableSet alloc] initWithObjects:self.unicodeString, nil];
+        NSMutableSet <NSString *> *searchTokens = [[NSMutableSet alloc] init];
         [searchTokens addObjectsFromArray:([SFSymbol searchTokensOfSymbolWithName:self.name] ?: @[])];
         for (NSString *nameAlias in [SFSymbol symbolNameAliasesOfSymbolWithName:self.name]) {
             [searchTokens addObjectsFromArray:[nameAlias componentsSeparatedByString:@"."]];
