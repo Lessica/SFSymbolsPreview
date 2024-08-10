@@ -2,7 +2,7 @@
 //  SymbolGroupedDetailsViewController.m
 //  SFSymbolsPreview
 //
-//  Created by Mason Rachel on 2022/3/9.
+//  Created by Lessica on 2022/3/9.
 //  Copyright © 2022 YICAI YANG. All rights reserved.
 //
 
@@ -227,7 +227,7 @@
             [cell setAccessoryType:UITableViewCellAccessoryNone];
         } else if (indexPath.row == 2) {
             cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(SymbolActionTableViewCell.class)];
-            [cell.textLabel setText:NSLocalizedString(@"Share...", nil)];
+            [cell.textLabel setText:NSLocalizedString(@"Share…", nil)];
             [cell.textLabel setNumberOfLines:1];
             [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
             [cell.imageView setImage:[UIImage systemImageNamed:@"square.and.arrow.up"]];
@@ -283,17 +283,6 @@
             [objectVC setInitialRootHidden:YES];
             [objectVC setPressToCopy:YES];
             [self.navigationController pushViewController:objectVC animated:YES];
-        }
-    }
-}
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 1) {
-        if (indexPath.row == 2) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"These glyphs seem to have been given code points in Unicode‘s Supplementary Private Use Area B. Perhaps the iOS apps don‘t have the ability to deal with that yet.", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:alertController animated:YES completion:nil];
         }
     }
 }

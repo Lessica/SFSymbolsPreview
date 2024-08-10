@@ -1,0 +1,116 @@
+/* No comment provided by engineer. */
+"(%lu bytes)" = "(%lu bytes)";
+
+/* No comment provided by engineer. */
+"(%lu items)" = "(%lu items)";
+
+/* No comment provided by engineer. */
+"(null)" = "(null)";
+
+/* ObjectTableViewController */
+"<%@: %p>" = "<%@: %p>";
+
+/* No comment provided by engineer. */
+"Add to Favorites" = "Add to Favorites";
+
+/* No comment provided by engineer. */
+"Availability" = "Availability";
+
+/* No comment provided by engineer. */
+"Cancel" = "Cancel";
+
+/* No comment provided by engineer. */
+"Categories" = "Categories";
+
+/* ObjectTableViewController */
+"Collapse Recursively" = "Collapse Recursively";
+
+/* No comment provided by engineer. */
+"Confirm" = "Confirm";
+
+/* ObjectTableViewController */
+"Copy Key" = "Copy Key";
+
+/* No comment provided by engineer. */
+"Copy Name" = "Copy Name";
+
+/* ObjectTableViewController */
+"Copy Value" = "Copy Value";
+
+/* No comment provided by engineer. */
+"Do you want to remove “%@” from “Favorites“ collection?" = "Do you want to remove “%@” from “Favorites“ collection?";
+
+/* No comment provided by engineer. */
+"Eight" = "Eight";
+
+/* ObjectTableViewController */
+"Expand Recursively" = "Expand Recursively";
+
+/* ObjectTableViewController */
+"Focus" = "Focus";
+
+/* No comment provided by engineer. */
+"Four" = "Four";
+
+/* No comment provided by engineer. */
+"Item #%lu" = "Item #%lu";
+
+/* No comment provided by engineer. */
+"My Favorites" = "My Favorites";
+
+/* No comment provided by engineer. */
+"Name" = "Name";
+
+/* No comment provided by engineer. */
+"NO" = "NO";
+
+/* No comment provided by engineer. */
+"No symbol found in %@." = "No symbol found in %@.";
+
+/* ObjectTableViewController */
+"Object Viewer" = "Object Viewer";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"One" = "One";
+
+/* No comment provided by engineer. */
+"Remove from Favorites" = "Remove from Favorites";
+
+/* ObjectTableViewController */
+"Root" = "Root";
+
+/* No comment provided by engineer. */
+"Search" = "Search";
+
+/* No comment provided by engineer. */
+"Search Results" = "Search Results";
+
+/* No comment provided by engineer. */
+"Settings" = "Settings";
+
+/* No comment provided by engineer. */
+"Share…" = "Share…";
+
+/* No comment provided by engineer. */
+"Six" = "Six";
+
+/* No comment provided by engineer. */
+"symbol" = "symbol";
+
+/* No comment provided by engineer. */
+"symbols" = "symbols";
+
+/* No comment provided by engineer. */
+"This name has been deprecated. You should use a more modern name if your app does not need to support older platforms." = "This name has been deprecated. You should use a more modern name if your app does not need to support older platforms.";
+
+/* No comment provided by engineer. */
+"Three" = "Three";
+
+/* No comment provided by engineer. */
+"Two" = "Two";
+
+/* No comment provided by engineer. */
+"YES" = "YES";

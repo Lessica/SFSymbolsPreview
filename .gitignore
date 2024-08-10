@@ -1,3 +1,7 @@
+/build
+/packages
+compile_commands.json
+*.xcarchive
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,xcode,objective-c,cocoapods
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,xcode,objective-c,cocoapods
@@ -17,7 +21,8 @@ Pods/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*

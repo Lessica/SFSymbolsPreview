@@ -2,7 +2,7 @@
 //  SymbolTextTableViewCell.h
 //  SFSymbolsPreview
 //
-//  Created by Mason Rachel on 2022/3/9.
+//  Created by Lessica on 2022/3/9.
 //  Copyright © 2022 YICAI YANG. All rights reserved.
 //
 

@@ -409,7 +409,7 @@
         [UIAction actionWithTitle:NSLocalizedString(@"Copy Name", nil) image:[UIImage systemImageNamed:@"doc.on.doc"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             [[UIPasteboard generalPasteboard] setString:symbol.name];
         }],
-        [UIAction actionWithTitle:NSLocalizedString(@"Share...", nil) image:[UIImage systemImageNamed:@"square.and.arrow.up"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
+        [UIAction actionWithTitle:NSLocalizedString(@"Share…", nil) image:[UIImage systemImageNamed:@"square.and.arrow.up"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
             UIActivityViewController *activityVC = [UIActivityViewController.alloc initWithActivityItems:@[ symbol.name, symbol.image ]
                                                                                    applicationActivities:nil];
             if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)

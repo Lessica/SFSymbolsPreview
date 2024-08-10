@@ -1,0 +1,116 @@
+/* No comment provided by engineer. */
+"(%lu bytes)" = "(%lu 字节)";
+
+/* No comment provided by engineer. */
+"(%lu items)" = "(%lu 项)";
+
+/* No comment provided by engineer. */
+"(null)" = "(空)";
+
+/* ObjectTableViewController */
+"<%@: %p>" = "<%@: %p>";
+
+/* No comment provided by engineer. */
+"Add to Favorites" = "添加到收藏夹";
+
+/* No comment provided by engineer. */
+"Availability" = "可用性";
+
+/* No comment provided by engineer. */
+"Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"Categories" = "类别";
+
+/* ObjectTableViewController */
+"Collapse Recursively" = "递归折叠";
+
+/* No comment provided by engineer. */
+"Confirm" = "确认";
+
+/* ObjectTableViewController */
+"Copy Key" = "拷贝键";
+
+/* No comment provided by engineer. */
+"Copy Name" = "拷贝名称";
+
+/* ObjectTableViewController */
+"Copy Value" = "拷贝值";
+
+/* No comment provided by engineer. */
+"Do you want to remove “%@” from “Favorites“ collection?" = "您是否要从“收藏夹”中移除“%@”？";
+
+/* No comment provided by engineer. */
+"Eight" = "八列";
+
+/* ObjectTableViewController */
+"Expand Recursively" = "递归展开";
+
+/* ObjectTableViewController */
+"Focus" = "聚焦";
+
+/* No comment provided by engineer. */
+"Four" = "四列";
+
+/* No comment provided by engineer. */
+"Item #%lu" = "项 #%lu";
+
+/* No comment provided by engineer. */
+"My Favorites" = "我的收藏夹";
+
+/* No comment provided by engineer. */
+"Name" = "名称";
+
+/* No comment provided by engineer. */
+"NO" = "否";
+
+/* No comment provided by engineer. */
+"No symbol found in %@." = "在 %@ 中未找到符号。";
+
+/* ObjectTableViewController */
+"Object Viewer" = "对象查看器";
+
+/* No comment provided by engineer. */
+"OK" = "好";
+
+/* No comment provided by engineer. */
+"One" = "单列";
+
+/* No comment provided by engineer. */
+"Remove from Favorites" = "从收藏夹中移除";
+
+/* ObjectTableViewController */
+"Root" = "根";
+
+/* No comment provided by engineer. */
+"Search" = "搜索";
+
+/* No comment provided by engineer. */
+"Search Results" = "搜索结果";
+
+/* No comment provided by engineer. */
+"Settings" = "设置";
+
+/* No comment provided by engineer. */
+"Share…" = "分享…";
+
+/* No comment provided by engineer. */
+"Six" = "六列";
+
+/* No comment provided by engineer. */
+"symbol" = "符号";
+
+/* No comment provided by engineer. */
+"symbols" = "符号";
+
+/* No comment provided by engineer. */
+"This name has been deprecated. You should use a more modern name if your app does not need to support older platforms." = "此名称已被弃用。如果您的应用程序不需要支持旧平台，则应使用更现代的名称。";
+
+/* No comment provided by engineer. */
+"Three" = "三列";
+
+/* No comment provided by engineer. */
+"Two" = "双列";
+
+/* No comment provided by engineer. */
+"YES" = "是";

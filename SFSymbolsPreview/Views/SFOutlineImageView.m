@@ -2,7 +2,7 @@
 //  SFOutlineImageView.m
 //  SFSymbolsPreview
 //
-//  Created by Mason Rachel on 2022/3/17.
+//  Created by Lessica on 2022/3/17.
 //  Copyright © 2022 YICAI YANG. All rights reserved.
 //
 

@@ -1,0 +1,36 @@
+[update]
+tasks = ["interfaces", "code", "normalize"]
+
+[update.interfaces]
+paths = ["SFSymbolsPreview"]
+subpathsToIgnore = [".git", "carthage", "pods", "build", ".build", "docs"]
+defaultToBase = false
+ignoreEmptyStrings = false
+unstripped = false
+ignoreKeys = ["#bartycrouch-ignore!", "#bc-ignore!", "#i!"]
+
+[update.code]
+codePaths = ["SFSymbolsPreview"]
+subpathsToIgnore = [".git", "carthage", "pods", "build", ".build", "docs"]
+localizablePaths = ["SFSymbolsPreview"]
+defaultToKeys = false
+additive = false
+customFunction = "LocalizedStringResource"
+unstripped = false
+plistArguments = true
+ignoreKeys = ["#bartycrouch-ignore!", "#bc-ignore!", "#i!"]
+overrideComments = false
+
+[update.normalize]
+paths = ["SFSymbolsPreview"]
+subpathsToIgnore = [".git", "carthage", "pods", "build", ".build", "docs"]
+sourceLocale = "en"
+harmonizeWithSource = true
+sortByKeys = true
+separateWithEmptyLine = true
+
+[lint]
+paths = ["SFSymbolsPreview"]
+subpathsToIgnore = [".git", "carthage", "pods", "build", ".build", "docs"]
+duplicateKeys = true
+emptyValues = true
