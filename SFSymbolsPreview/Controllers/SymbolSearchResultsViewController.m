@@ -27,6 +27,7 @@
     [self performSelector:@selector(updateSearchWithText:) withObject:searchController.searchBar.text afterDelay:0.2];
 }
 
+#ifdef DEBUG
 static double MachTimeToSecs(uint64_t time)
 {
     mach_timebase_info_data_t timebase;
@@ -34,6 +35,7 @@ static double MachTimeToSecs(uint64_t time)
     return (double)time * (double)timebase.numer /
                 (double)timebase.denom / 1e9;
 }
+#endif
 
 - (void)updateSearchWithText:(NSString *)text
 {
@@ -53,8 +55,11 @@ static double MachTimeToSecs(uint64_t time)
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         
+#ifdef DEBUG
         uint64_t begin = mach_absolute_time();
         uint64_t end;
+#endif
+        
         NSMutableSet <SFSymbol *> *filteredSymbols = [[NSMutableSet alloc] initWithArray:allSymbols];
         for (NSString *inputToken in inputTokens) {
             if (inputToken.length == 0)
