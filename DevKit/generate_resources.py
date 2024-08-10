@@ -57,3 +57,9 @@ os.system(f"cp {src_legacy_aliases_strings_path} {dst_legacy_aliases_strings_pat
 src_name_aliases_strings_path = f"{src_metadata_path}/name_aliases.strings"
 dst_name_aliases_strings_path = f"{parent_path}/SFSymbolsPreview/Resources/name_aliases_strings.txt"
 os.system(f"cp {src_name_aliases_strings_path} {dst_name_aliases_strings_path}")
+
+# copy colors.csv
+src_colors_csv_path = f"{src_app_path}/Frameworks/SFSymbolsKit.framework/Versions/A/Frameworks/SFSymbolsShared.framework/Versions/A/Resources/colors.csv"
+src_colors_csv_path = f"{src_app_path}/Frameworks/SFSymbolsKit.framework/Versions/A/Frameworks/SFSymbolsShared.framework/Versions/A/Resources/colors.csv"
+dst_colors_csv_path = f"{parent_path}/SFSymbolsPreview/Resources/colors.csv"
+os.system(f"cp {src_colors_csv_path} {dst_colors_csv_path}")
