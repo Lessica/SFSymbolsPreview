@@ -63,3 +63,25 @@ src_colors_csv_path = f"{src_app_path}/Frameworks/SFSymbolsKit.framework/Version
 src_colors_csv_path = f"{src_app_path}/Frameworks/SFSymbolsKit.framework/Versions/A/Frameworks/SFSymbolsShared.framework/Versions/A/Resources/colors.csv"
 dst_colors_csv_path = f"{parent_path}/SFSymbolsPreview/Resources/colors.csv"
 os.system(f"cp {src_colors_csv_path} {dst_colors_csv_path}")
+
+# copy SymbolVariantScripts.csv to symbol_variant_scripts.csv
+src_symbol_variant_scripts_csv_path = f"{src_app_path}/Frameworks/SFSymbolsKit.framework/Versions/A/Frameworks/SFSymbolsShared.framework/Versions/A/Resources/SymbolVariantScripts.csv"
+dst_symbol_variant_scripts_csv_path = f"{parent_path}/SFSymbolsPreview/Resources/symbol_variant_scripts.csv"
+os.system(f"cp {src_symbol_variant_scripts_csv_path} {dst_symbol_variant_scripts_csv_path}")
+
+# convert symbol_variant_scripts.csv to symbol_variant_scripts.json
+# Script,Extension
+
+# convert csv to json
+import csv
+import json
+
+csv_file = open(dst_symbol_variant_scripts_csv_path, 'r')   
+csv_reader = csv.DictReader(csv_file)
+
+json_data = dict()
+for row in csv_reader:
+    json_data[row['Extension']] = row['Script']
+
+json_file = open(f"{parent_path}/SFSymbolsPreview/Resources/symbol_variant_scripts.json", "w")
+json.dump(json_data, json_file, indent=4, sort_keys=True)
