@@ -159,7 +159,7 @@
 			children = (
 				CC36F11527D35951000C4495 /* SFSymbolsPreview.entitlements */,
 				7EE40728247F8D1400A68520 /* Entrance */,
-				7EE40716247F816200A68520 /* Resource */,
+				7EE40716247F816200A68520 /* Resources */,
 				7E0C9566247E6BB70029F521 /* Models */,
 				7E0C9565247E6BB20029F521 /* Views */,
 				7E0C9564247E6BAE0029F521 /* Controllers */,
@@ -222,7 +222,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		7EE40716247F816200A68520 /* Resource */ = {
+		7EE40716247F816200A68520 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				CC36F11327D34E02000C4495 /* version.plist */,
@@ -244,7 +244,7 @@
 				CCA4D99227D36BE0009D2777 /* colors.csv */,
 				CCEED35D27E043E10041247B /* Settings.bundle */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7EE40728247F8D1400A68520 /* Entrance */ = {
