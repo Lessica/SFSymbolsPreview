@@ -41,3 +41,9 @@ src_name_availability_plist_path = f"{src_metadata_path}/name_availability.plist
 dst_name_availability_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/name_availability.plist"
 os.system(f"cp {src_name_availability_plist_path} {dst_name_availability_plist_path}")
 os.system(f"plutil -convert xml1 {dst_name_availability_plist_path}")
+
+# copy and convert symbol_categories.plist to xml1
+src_symbol_categories_plist_path = f"{src_metadata_path}/symbol_categories.plist"
+dst_symbol_categories_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/symbol_categories.plist"
+os.system(f"cp {src_symbol_categories_plist_path} {dst_symbol_categories_plist_path}")
+os.system(f"plutil -convert xml1 {dst_symbol_categories_plist_path}")
