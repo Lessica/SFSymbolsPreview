@@ -29,3 +29,9 @@ src_symbol_search_plist_path = f"{src_metadata_path}/symbol_search.plist"
 dst_symbol_search_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/symbol_search.plist"
 os.system(f"cp {src_symbol_search_plist_path} {dst_symbol_search_plist_path}")
 os.system(f"plutil -convert xml1 {dst_symbol_search_plist_path}")
+
+# copy and convert layerset_availability.plist to xml1
+src_layerset_availability_plist_path = f"{src_metadata_path}/layerset_availability.plist"
+dst_layerset_availability_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/layerset_availability.plist"
+os.system(f"cp {src_layerset_availability_plist_path} {dst_layerset_availability_plist_path}")
+os.system(f"plutil -convert xml1 {dst_layerset_availability_plist_path}")
