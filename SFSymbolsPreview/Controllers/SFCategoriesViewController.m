@@ -155,7 +155,13 @@
     [cell.textLabel setText:category.name];
     [cell.textLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
     [cell.detailTextLabel setText:@(category.symbols.count).stringValue];
-    [cell.imageView setImage:[UIImage systemImageNamed:category.imageNamed]];
+
+    UIImage *categoryImage = [UIImage systemImageNamed:category.imageNamed];
+    if (!categoryImage) {
+        categoryImage = [UIImage systemImageNamed:@"questionmark.circle"];
+    }
+    [cell.imageView setImage:categoryImage];
+
     [cell.imageView setTintColor:cell.textLabel.textColor];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     

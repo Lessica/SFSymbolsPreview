@@ -1,8 +1,9 @@
-"Enabled" = "Enabled";
+"Colors" = "Colors";
 
-/* A single strings file, whose title is specified in your preferences schema. The strings files provide the localized content to display to the user for each of your preferences. */
-"Group" = "Group";
+"Primary Color" = "Primary Color";
 
-"Name" = "Name";
+"Render Mode" = "Render Mode";
 
-"none given" = "none given";
+"Secondary Color" = "Secondary Color";
+
+"Tertiary Color" = "Tertiary Color";
