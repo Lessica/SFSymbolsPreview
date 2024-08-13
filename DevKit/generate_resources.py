@@ -86,13 +86,13 @@ for row in csv_reader:
 json_file = open(f"{parent_path}/SFSymbolsPreview/Resources/symbol_variant_scripts.json", "w")
 json.dump(json_data, json_file, indent=4, sort_keys=True)
 
-# generate symbols.plist from symbol_categories.plist
+# generate symbols.plist from name_availability.plist
 import plistlib
 
-with open(dst_symbol_categories_plist_path, 'rb') as dst_symbol_categories_plist_file:
-    symbol_categories_plist = plistlib.loads(dst_symbol_categories_plist_file.read())
+with open(dst_name_availability_plist_path, 'rb') as dst_name_availability_plist_file:
+    name_availability_plist = plistlib.loads(dst_name_availability_plist_file.read())
 
-symbols_plist = list(symbol_categories_plist.keys())
+symbols_plist = list(name_availability_plist['symbols'].keys())
 dst_symbols_plist_path = f"{parent_path}/SFSymbolsPreview/Resources/symbols.plist"
 with open(dst_symbols_plist_path, 'wb') as dst_symbols_plist_file:
     plistlib.dump(symbols_plist, dst_symbols_plist_file)

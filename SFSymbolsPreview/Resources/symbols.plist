@@ -807,8 +807,26 @@
 	<string>9.square.fill.ar</string>
 	<string>9.square.fill.hi</string>
 	<string>9.square.hi</string>
+	<string>a</string>
+	<string>a.book.closed</string>
+	<string>a.book.closed.ar</string>
+	<string>a.book.closed.fill</string>
+	<string>a.book.closed.fill.ar</string>
+	<string>a.book.closed.fill.he</string>
+	<string>a.book.closed.fill.hi</string>
+	<string>a.book.closed.fill.ja</string>
+	<string>a.book.closed.fill.ko</string>
+	<string>a.book.closed.fill.th</string>
+	<string>a.book.closed.fill.zh</string>
+	<string>a.book.closed.he</string>
+	<string>a.book.closed.hi</string>
+	<string>a.book.closed.ja</string>
+	<string>a.book.closed.ko</string>
+	<string>a.book.closed.th</string>
+	<string>a.book.closed.zh</string>
 	<string>a.circle</string>
 	<string>a.circle.fill</string>
+	<string>a.magnify</string>
 	<string>a.square</string>
 	<string>a.square.fill</string>
 	<string>abc</string>
@@ -835,7 +853,9 @@
 	<string>airplayaudio.badge.exclamationmark</string>
 	<string>airplayaudio.circle</string>
 	<string>airplayaudio.circle.fill</string>
+	<string>airplayvideo</string>
 	<string>airplayvideo.badge.exclamationmark</string>
+	<string>airplayvideo.circle</string>
 	<string>airplayvideo.circle.fill</string>
 	<string>airpod.gen3.left</string>
 	<string>airpod.gen3.right</string>
@@ -870,9 +890,22 @@
 	<string>alarm.fill</string>
 	<string>alarm.waves.left.and.right</string>
 	<string>alarm.waves.left.and.right.fill</string>
+	<string>align.horizontal.center</string>
+	<string>align.horizontal.center.fill</string>
+	<string>align.horizontal.left</string>
+	<string>align.horizontal.left.fill</string>
+	<string>align.horizontal.right</string>
+	<string>align.horizontal.right.fill</string>
+	<string>align.vertical.bottom</string>
+	<string>align.vertical.bottom.fill</string>
+	<string>align.vertical.center</string>
+	<string>align.vertical.center.fill</string>
+	<string>align.vertical.top</string>
+	<string>align.vertical.top.fill</string>
 	<string>allergens</string>
 	<string>allergens.fill</string>
 	<string>alt</string>
+	<string>alternatingcurrent</string>
 	<string>amplifier</string>
 	<string>angle</string>
 	<string>ant</string>
@@ -888,11 +921,18 @@
 	<string>app.badge.checkmark</string>
 	<string>app.badge.checkmark.fill</string>
 	<string>app.badge.fill</string>
+	<string>app.connected.to.app.below.fill</string>
+	<string>app.dashed</string>
 	<string>app.fill</string>
+	<string>app.gift</string>
+	<string>app.gift.fill</string>
+	<string>appclip</string>
+	<string>apple.logo</string>
 	<string>apple.terminal</string>
 	<string>apple.terminal.fill</string>
 	<string>apple.terminal.on.rectangle</string>
 	<string>apple.terminal.on.rectangle.fill</string>
+	<string>applelogo</string>
 	<string>applepencil</string>
 	<string>applepencil.adapter.usb.c</string>
 	<string>applepencil.adapter.usb.c.fill</string>
@@ -900,6 +940,8 @@
 	<string>applepencil.gen1</string>
 	<string>applepencil.gen2</string>
 	<string>applepencil.tip</string>
+	<string>applescript</string>
+	<string>applescript.fill</string>
 	<string>appletv</string>
 	<string>appletv.fill</string>
 	<string>appletvremote.gen1</string>
@@ -941,7 +983,11 @@
 	<string>archivebox.circle</string>
 	<string>archivebox.circle.fill</string>
 	<string>archivebox.fill</string>
+	<string>arkit</string>
 	<string>arkit.badge.xmark</string>
+	<string>arrow.2.circlepath</string>
+	<string>arrow.2.circlepath.circle</string>
+	<string>arrow.2.circlepath.circle.fill</string>
 	<string>arrow.2.squarepath</string>
 	<string>arrow.3.trianglepath</string>
 	<string>arrow.backward</string>
@@ -954,6 +1000,7 @@
 	<string>arrow.backward.to.line.circle.fill</string>
 	<string>arrow.backward.to.line.square</string>
 	<string>arrow.backward.to.line.square.fill</string>
+	<string>arrow.branch</string>
 	<string>arrow.circlepath</string>
 	<string>arrow.clockwise</string>
 	<string>arrow.clockwise.circle</string>
@@ -1043,6 +1090,7 @@
 	<string>arrow.down.square</string>
 	<string>arrow.down.square.fill</string>
 	<string>arrow.down.to.line</string>
+	<string>arrow.down.to.line.alt</string>
 	<string>arrow.down.to.line.circle</string>
 	<string>arrow.down.to.line.circle.fill</string>
 	<string>arrow.down.to.line.compact</string>
@@ -1078,25 +1126,34 @@
 	<string>arrow.left.square</string>
 	<string>arrow.left.square.fill</string>
 	<string>arrow.left.to.line</string>
+	<string>arrow.left.to.line.alt</string>
 	<string>arrow.left.to.line.circle</string>
 	<string>arrow.left.to.line.circle.fill</string>
 	<string>arrow.left.to.line.compact</string>
 	<string>arrow.left.to.line.square</string>
 	<string>arrow.left.to.line.square.fill</string>
+	<string>arrow.merge</string>
 	<string>arrow.rectanglepath</string>
 	<string>arrow.right</string>
 	<string>arrow.right.and.line.vertical.and.arrow.left</string>
+	<string>arrow.right.arrow.left</string>
+	<string>arrow.right.arrow.left.circle</string>
+	<string>arrow.right.arrow.left.circle.fill</string>
+	<string>arrow.right.arrow.left.square</string>
+	<string>arrow.right.arrow.left.square.fill</string>
 	<string>arrow.right.circle</string>
 	<string>arrow.right.circle.fill</string>
 	<string>arrow.right.doc.on.clipboard</string>
 	<string>arrow.right.square</string>
 	<string>arrow.right.square.fill</string>
 	<string>arrow.right.to.line</string>
+	<string>arrow.right.to.line.alt</string>
 	<string>arrow.right.to.line.circle</string>
 	<string>arrow.right.to.line.circle.fill</string>
 	<string>arrow.right.to.line.compact</string>
 	<string>arrow.right.to.line.square</string>
 	<string>arrow.right.to.line.square.fill</string>
+	<string>arrow.swap</string>
 	<string>arrow.triangle.2.circlepath</string>
 	<string>arrow.triangle.2.circlepath.camera</string>
 	<string>arrow.triangle.2.circlepath.camera.fill</string>
@@ -1130,6 +1187,7 @@
 	<string>arrow.up.and.down.and.sparkles</string>
 	<string>arrow.up.and.down.circle</string>
 	<string>arrow.up.and.down.circle.fill</string>
+	<string>arrow.up.and.down.righttriangle.up.fill.righttriangle.down.fill</string>
 	<string>arrow.up.and.down.righttriangle.up.righttriangle.down</string>
 	<string>arrow.up.and.down.righttriangle.up.righttriangle.down.fill</string>
 	<string>arrow.up.and.down.square</string>
@@ -1205,12 +1263,16 @@
 	<string>arrow.up.right.and.arrow.down.left</string>
 	<string>arrow.up.right.and.arrow.down.left.circle</string>
 	<string>arrow.up.right.and.arrow.down.left.circle.fill</string>
+	<string>arrow.up.right.and.arrow.down.left.rectangle</string>
+	<string>arrow.up.right.and.arrow.down.left.rectangle.fill</string>
 	<string>arrow.up.right.and.arrow.down.left.square</string>
 	<string>arrow.up.right.and.arrow.down.left.square.fill</string>
 	<string>arrow.up.right.bottomleft.rectangle</string>
 	<string>arrow.up.right.bottomleft.rectangle.fill</string>
 	<string>arrow.up.right.circle</string>
 	<string>arrow.up.right.circle.fill</string>
+	<string>arrow.up.right.diamond</string>
+	<string>arrow.up.right.diamond.fill</string>
 	<string>arrow.up.right.square</string>
 	<string>arrow.up.right.square.fill</string>
 	<string>arrow.up.right.video</string>
@@ -1218,6 +1280,7 @@
 	<string>arrow.up.square</string>
 	<string>arrow.up.square.fill</string>
 	<string>arrow.up.to.line</string>
+	<string>arrow.up.to.line.alt</string>
 	<string>arrow.up.to.line.circle</string>
 	<string>arrow.up.to.line.circle.fill</string>
 	<string>arrow.up.to.line.compact</string>
@@ -1349,6 +1412,7 @@
 	<string>arrowtriangle.left.circle</string>
 	<string>arrowtriangle.left.circle.fill</string>
 	<string>arrowtriangle.left.fill</string>
+	<string>arrowtriangle.left.fill.and.line.vertical.and.arrowtriangle.right.fill</string>
 	<string>arrowtriangle.left.square</string>
 	<string>arrowtriangle.left.square.fill</string>
 	<string>arrowtriangle.right</string>
@@ -1357,6 +1421,7 @@
 	<string>arrowtriangle.right.circle</string>
 	<string>arrowtriangle.right.circle.fill</string>
 	<string>arrowtriangle.right.fill</string>
+	<string>arrowtriangle.right.fill.and.line.vertical.and.arrowtriangle.left.fill</string>
 	<string>arrowtriangle.right.square</string>
 	<string>arrowtriangle.right.square.fill</string>
 	<string>arrowtriangle.up</string>
@@ -1369,6 +1434,8 @@
 	<string>arrowtriangle.up.square.fill</string>
 	<string>aspectratio</string>
 	<string>aspectratio.fill</string>
+	<string>asterisk</string>
+	<string>asterisk.circle</string>
 	<string>asterisk.circle.fill</string>
 	<string>at</string>
 	<string>at.badge.minus</string>
@@ -1388,6 +1455,11 @@
 	<string>australsign.circle.fill</string>
 	<string>australsign.square</string>
 	<string>australsign.square.fill</string>
+	<string>auto.brakesignal</string>
+	<string>auto.headlight.high.beam</string>
+	<string>auto.headlight.high.beam.fill</string>
+	<string>auto.headlight.low.beam</string>
+	<string>auto.headlight.low.beam.fill</string>
 	<string>automatic.brakesignal</string>
 	<string>automatic.headlight.high.beam</string>
 	<string>automatic.headlight.high.beam.fill</string>
@@ -1398,6 +1470,10 @@
 	<string>autostartstop.trianglebadge.exclamationmark</string>
 	<string>av.remote</string>
 	<string>av.remote.fill</string>
+	<string>axel.2</string>
+	<string>axel.2.front.and.rear.engaged</string>
+	<string>axel.2.front.engaged</string>
+	<string>axel.2.rear.engaged</string>
 	<string>axle.2</string>
 	<string>axle.2.driveshaft.disengaged</string>
 	<string>axle.2.front.and.rear.engaged</string>
@@ -1454,6 +1530,8 @@
 	<string>bandage.fill</string>
 	<string>banknote</string>
 	<string>banknote.fill</string>
+	<string>barcode</string>
+	<string>barcode.viewfinder</string>
 	<string>barometer</string>
 	<string>baseball</string>
 	<string>baseball.circle</string>
@@ -1468,14 +1546,23 @@
 	<string>basketball.fill</string>
 	<string>bathtub</string>
 	<string>bathtub.fill</string>
+	<string>battery.0</string>
 	<string>battery.0percent</string>
+	<string>battery.100</string>
+	<string>battery.100.bolt</string>
+	<string>battery.100.bolt.rtl</string>
+	<string>battery.100.circle</string>
+	<string>battery.100.circle.fill</string>
 	<string>battery.100percent</string>
 	<string>battery.100percent.bolt</string>
 	<string>battery.100percent.bolt.rtl</string>
 	<string>battery.100percent.circle</string>
 	<string>battery.100percent.circle.fill</string>
+	<string>battery.25</string>
 	<string>battery.25percent</string>
+	<string>battery.50</string>
 	<string>battery.50percent</string>
+	<string>battery.75</string>
 	<string>battery.75percent</string>
 	<string>batteryblock</string>
 	<string>batteryblock.fill</string>
@@ -1484,6 +1571,11 @@
 	<string>beach.umbrella</string>
 	<string>beach.umbrella.fill</string>
 	<string>beats.earphones</string>
+	<string>beats.fit.pro</string>
+	<string>beats.fit.pro.chargingcase</string>
+	<string>beats.fit.pro.chargingcase.fill</string>
+	<string>beats.fit.pro.left</string>
+	<string>beats.fit.pro.right</string>
 	<string>beats.fitpro</string>
 	<string>beats.fitpro.chargingcase</string>
 	<string>beats.fitpro.chargingcase.fill</string>
@@ -1516,6 +1608,8 @@
 	<string>bed.double.circle.fill</string>
 	<string>bed.double.fill</string>
 	<string>bell</string>
+	<string>bell.and.waveform</string>
+	<string>bell.and.waveform.fill</string>
 	<string>bell.and.waves.left.and.right</string>
 	<string>bell.and.waves.left.and.right.fill</string>
 	<string>bell.badge</string>
@@ -1540,6 +1634,8 @@
 	<string>bicycle</string>
 	<string>bicycle.circle</string>
 	<string>bicycle.circle.fill</string>
+	<string>bin.xmark</string>
+	<string>bin.xmark.fill</string>
 	<string>binoculars</string>
 	<string>binoculars.circle</string>
 	<string>binoculars.circle.fill</string>
@@ -1564,6 +1660,8 @@
 	<string>bold.italic.underline</string>
 	<string>bold.underline</string>
 	<string>bolt</string>
+	<string>bolt.badge.a</string>
+	<string>bolt.badge.a.fill</string>
 	<string>bolt.badge.automatic</string>
 	<string>bolt.badge.automatic.fill</string>
 	<string>bolt.badge.checkmark</string>
@@ -1582,6 +1680,8 @@
 	<string>bolt.circle</string>
 	<string>bolt.circle.fill</string>
 	<string>bolt.fill</string>
+	<string>bolt.fill.batteryblock</string>
+	<string>bolt.fill.batteryblock.fill</string>
 	<string>bolt.heart</string>
 	<string>bolt.heart.fill</string>
 	<string>bolt.horizontal</string>
@@ -1590,6 +1690,7 @@
 	<string>bolt.horizontal.fill</string>
 	<string>bolt.horizontal.icloud</string>
 	<string>bolt.horizontal.icloud.fill</string>
+	<string>bolt.ring.closed</string>
 	<string>bolt.shield</string>
 	<string>bolt.shield.fill</string>
 	<string>bolt.slash</string>
@@ -1625,6 +1726,12 @@
 	<string>books.vertical.circle</string>
 	<string>books.vertical.circle.fill</string>
 	<string>books.vertical.fill</string>
+	<string>box.truck</string>
+	<string>box.truck.badge.clock</string>
+	<string>box.truck.badge.clock.fill</string>
+	<string>box.truck.badge.clock.fill.rtl</string>
+	<string>box.truck.badge.clock.rtl</string>
+	<string>box.truck.fill</string>
 	<string>brain</string>
 	<string>brain.fill</string>
 	<string>brain.filled.head.profile</string>
@@ -1673,8 +1780,14 @@
 	<string>building.2.crop.circle</string>
 	<string>building.2.crop.circle.fill</string>
 	<string>building.2.fill</string>
+	<string>building.columns</string>
+	<string>building.columns.circle</string>
 	<string>building.columns.circle.fill</string>
+	<string>building.columns.fill</string>
 	<string>building.fill</string>
+	<string>burn</string>
+	<string>burst</string>
+	<string>burst.fill</string>
 	<string>bus</string>
 	<string>bus.doubledecker</string>
 	<string>bus.doubledecker.fill</string>
@@ -1737,6 +1850,7 @@
 	<string>camera.circle</string>
 	<string>camera.circle.fill</string>
 	<string>camera.fill</string>
+	<string>camera.fill.badge.ellipsis</string>
 	<string>camera.filters</string>
 	<string>camera.macro</string>
 	<string>camera.macro.circle</string>
@@ -1752,6 +1866,8 @@
 	<string>camera.metering.unknown.ar</string>
 	<string>camera.on.rectangle</string>
 	<string>camera.on.rectangle.fill</string>
+	<string>camera.rotate</string>
+	<string>camera.rotate.fill</string>
 	<string>camera.shutter.button</string>
 	<string>camera.shutter.button.fill</string>
 	<string>camera.viewfinder</string>
@@ -1759,9 +1875,19 @@
 	<string>capslock</string>
 	<string>capslock.fill</string>
 	<string>capsule</string>
+	<string>capsule.bottomhalf.filled</string>
 	<string>capsule.fill</string>
+	<string>capsule.inset.filled</string>
+	<string>capsule.lefthalf.filled</string>
 	<string>capsule.portrait</string>
+	<string>capsule.portrait.bottomhalf.filled</string>
 	<string>capsule.portrait.fill</string>
+	<string>capsule.portrait.inset.filled</string>
+	<string>capsule.portrait.lefthalf.filled</string>
+	<string>capsule.portrait.righthalf.filled</string>
+	<string>capsule.portrait.tophalf.filled</string>
+	<string>capsule.righthalf.filled</string>
+	<string>capsule.tophalf.filled</string>
 	<string>captions.bubble</string>
 	<string>captions.bubble.fill</string>
 	<string>car</string>
@@ -2051,10 +2177,25 @@
 	<string>chart.bar.xaxis.ascending.badge.clock</string>
 	<string>chart.bar.xaxis.ascending.badge.clock.rtl</string>
 	<string>chart.dots.scatter</string>
+	<string>chart.line.downtrend.xyaxis</string>
+	<string>chart.line.downtrend.xyaxis.circle</string>
 	<string>chart.line.downtrend.xyaxis.circle.fill</string>
+	<string>chart.line.flattrend.xyaxis</string>
+	<string>chart.line.flattrend.xyaxis.circle</string>
 	<string>chart.line.flattrend.xyaxis.circle.fill</string>
+	<string>chart.line.uptrend.xyaxis</string>
+	<string>chart.line.uptrend.xyaxis.circle</string>
 	<string>chart.line.uptrend.xyaxis.circle.fill</string>
+	<string>chart.pie</string>
+	<string>chart.pie.fill</string>
 	<string>chart.xyaxis.line</string>
+	<string>checkerboard.rectangle</string>
+	<string>checkerboard.shield</string>
+	<string>checklist</string>
+	<string>checklist.checked</string>
+	<string>checklist.checked.rtl</string>
+	<string>checklist.rtl</string>
+	<string>checklist.unchecked</string>
 	<string>checkmark</string>
 	<string>checkmark.applewatch</string>
 	<string>checkmark.bubble</string>
@@ -2118,6 +2259,8 @@
 	<string>chevron.left.2</string>
 	<string>chevron.left.circle</string>
 	<string>chevron.left.circle.fill</string>
+	<string>chevron.left.forwardslash.chevron.right</string>
+	<string>chevron.left.slash.chevron.right</string>
 	<string>chevron.left.square</string>
 	<string>chevron.left.square.fill</string>
 	<string>chevron.left.to.line</string>
@@ -2157,17 +2300,23 @@
 	<string>circle.badge.questionmark.fill.ar</string>
 	<string>circle.badge.xmark</string>
 	<string>circle.badge.xmark.fill</string>
+	<string>circle.bottomhalf.fill</string>
+	<string>circle.bottomhalf.filled</string>
 	<string>circle.bottomhalf.filled.inverse</string>
 	<string>circle.bottomrighthalf.checkered</string>
+	<string>circle.bottomthird.split</string>
 	<string>circle.circle</string>
 	<string>circle.circle.fill</string>
 	<string>circle.dashed</string>
+	<string>circle.dashed.inset.fill</string>
 	<string>circle.dashed.inset.filled</string>
 	<string>circle.dashed.rectangle</string>
+	<string>circle.dotted</string>
 	<string>circle.dotted.and.circle</string>
 	<string>circle.dotted.circle</string>
 	<string>circle.dotted.circle.fill</string>
 	<string>circle.fill</string>
+	<string>circle.fill.square.fill</string>
 	<string>circle.filled.ipad</string>
 	<string>circle.filled.ipad.fill</string>
 	<string>circle.filled.ipad.landscape</string>
@@ -2175,17 +2324,36 @@
 	<string>circle.filled.iphone</string>
 	<string>circle.filled.iphone.fill</string>
 	<string>circle.filled.pattern.diagonalline.rectangle</string>
+	<string>circle.grid.2x1</string>
+	<string>circle.grid.2x1.fill</string>
+	<string>circle.grid.2x1.left.filled</string>
+	<string>circle.grid.2x1.right.filled</string>
+	<string>circle.grid.2x2</string>
+	<string>circle.grid.2x2.fill</string>
+	<string>circle.grid.3x3</string>
+	<string>circle.grid.3x3.circle</string>
 	<string>circle.grid.3x3.circle.fill</string>
+	<string>circle.grid.3x3.fill</string>
 	<string>circle.grid.cross</string>
+	<string>circle.grid.cross.down.fill</string>
 	<string>circle.grid.cross.down.filled</string>
 	<string>circle.grid.cross.fill</string>
+	<string>circle.grid.cross.left.fill</string>
 	<string>circle.grid.cross.left.filled</string>
+	<string>circle.grid.cross.right.fill</string>
 	<string>circle.grid.cross.right.filled</string>
+	<string>circle.grid.cross.up.fill</string>
 	<string>circle.grid.cross.up.filled</string>
+	<string>circle.grid.hex</string>
+	<string>circle.grid.hex.fill</string>
+	<string>circle.hexagongrid</string>
+	<string>circle.hexagongrid.circle</string>
 	<string>circle.hexagongrid.circle.fill</string>
 	<string>circle.hexagongrid.fill</string>
 	<string>circle.hexagonpath</string>
 	<string>circle.hexagonpath.fill</string>
+	<string>circle.inset.filled</string>
+	<string>circle.lefthalf.fill</string>
 	<string>circle.lefthalf.filled</string>
 	<string>circle.lefthalf.filled.inverse</string>
 	<string>circle.lefthalf.filled.righthalf.striped.horizontal</string>
@@ -2194,12 +2362,24 @@
 	<string>circle.lefthalf.striped.horizontal.inverse</string>
 	<string>circle.rectangle.dashed</string>
 	<string>circle.rectangle.filled.pattern.diagonalline</string>
+	<string>circle.righthalf.fill</string>
 	<string>circle.righthalf.filled</string>
 	<string>circle.righthalf.filled.inverse</string>
+	<string>circle.slash</string>
+	<string>circle.slash.fill</string>
 	<string>circle.square</string>
 	<string>circle.square.fill</string>
+	<string>circle.tophalf.fill</string>
+	<string>circle.tophalf.filled</string>
 	<string>circle.tophalf.filled.inverse</string>
+	<string>circlebadge</string>
+	<string>circlebadge.2</string>
+	<string>circlebadge.2.fill</string>
 	<string>circlebadge.fill</string>
+	<string>circles.hexagongrid</string>
+	<string>circles.hexagongrid.fill</string>
+	<string>circles.hexagonpath</string>
+	<string>circles.hexagonpath.fill</string>
 	<string>clear</string>
 	<string>clear.fill</string>
 	<string>clipboard</string>
@@ -2304,6 +2484,8 @@
 	<string>compass.drawing</string>
 	<string>computermouse</string>
 	<string>computermouse.fill</string>
+	<string>cone</string>
+	<string>cone.fill</string>
 	<string>contact.sensor</string>
 	<string>contact.sensor.fill</string>
 	<string>contextualmenu.and.cursorarrow</string>
@@ -2345,10 +2527,18 @@
 	<string>cruzeirosign.square</string>
 	<string>cruzeirosign.square.fill</string>
 	<string>cube</string>
+	<string>cube.box</string>
+	<string>cube.box.fill</string>
 	<string>cube.fill</string>
+	<string>cube.transparent</string>
+	<string>cube.transparent.fill</string>
 	<string>cup.and.saucer</string>
 	<string>cup.and.saucer.fill</string>
+	<string>curlybraces</string>
+	<string>curlybraces.square</string>
 	<string>curlybraces.square.fill</string>
+	<string>cursor.rays</string>
+	<string>cursorarrow</string>
 	<string>cursorarrow.and.square.on.square.dashed</string>
 	<string>cursorarrow.click</string>
 	<string>cursorarrow.click.2</string>
@@ -2359,9 +2549,14 @@
 	<string>cursorarrow.slash</string>
 	<string>cursorarrow.slash.square</string>
 	<string>cursorarrow.slash.square.fill</string>
+	<string>cursorarrow.square</string>
 	<string>cursorarrow.square.fill</string>
 	<string>curtains.closed</string>
 	<string>curtains.open</string>
+	<string>cylinder</string>
+	<string>cylinder.fill</string>
+	<string>cylinder.split.1x2</string>
+	<string>cylinder.split.1x2.fill</string>
 	<string>d.circle</string>
 	<string>d.circle.fill</string>
 	<string>d.square</string>
@@ -2391,15 +2586,27 @@
 	<string>desktopcomputer.trianglebadge.exclamationmark</string>
 	<string>deskview</string>
 	<string>deskview.fill</string>
+	<string>dial</string>
+	<string>dial.fill</string>
 	<string>dial.high</string>
 	<string>dial.high.fill</string>
 	<string>dial.low</string>
 	<string>dial.low.fill</string>
+	<string>dial.max</string>
+	<string>dial.max.fill</string>
 	<string>dial.medium</string>
 	<string>dial.medium.fill</string>
+	<string>dial.min</string>
+	<string>dial.min.fill</string>
 	<string>diamond</string>
+	<string>diamond.bottomhalf.filled</string>
+	<string>diamond.circle</string>
 	<string>diamond.circle.fill</string>
 	<string>diamond.fill</string>
+	<string>diamond.inset.filled</string>
+	<string>diamond.lefthalf.filled</string>
+	<string>diamond.righthalf.filled</string>
+	<string>diamond.tophalf.filled</string>
 	<string>dice</string>
 	<string>dice.fill</string>
 	<string>die.face.1</string>
@@ -2426,6 +2633,7 @@
 	<string>digitalcrown.horizontal.press.fill</string>
 	<string>digitalcrown.press</string>
 	<string>digitalcrown.press.fill</string>
+	<string>directcurrent</string>
 	<string>dishwasher</string>
 	<string>dishwasher.circle</string>
 	<string>dishwasher.circle.fill</string>
@@ -2434,12 +2642,28 @@
 	<string>display.2</string>
 	<string>display.and.arrow.down</string>
 	<string>display.trianglebadge.exclamationmark</string>
+	<string>distribute.horizontal.center</string>
+	<string>distribute.horizontal.center.fill</string>
+	<string>distribute.horizontal.left</string>
+	<string>distribute.horizontal.left.fill</string>
+	<string>distribute.horizontal.right</string>
+	<string>distribute.horizontal.right.fill</string>
+	<string>distribute.vertical.bottom</string>
+	<string>distribute.vertical.bottom.fill</string>
+	<string>distribute.vertical.center</string>
+	<string>distribute.vertical.center.fill</string>
+	<string>distribute.vertical.top</string>
+	<string>distribute.vertical.top.fill</string>
 	<string>divide</string>
 	<string>divide.circle</string>
 	<string>divide.circle.fill</string>
 	<string>divide.square</string>
 	<string>divide.square.fill</string>
 	<string>doc</string>
+	<string>doc.append</string>
+	<string>doc.append.fill</string>
+	<string>doc.append.fill.rtl</string>
+	<string>doc.append.rtl</string>
 	<string>doc.badge.arrow.up</string>
 	<string>doc.badge.arrow.up.fill</string>
 	<string>doc.badge.clock</string>
@@ -2457,19 +2681,47 @@
 	<string>doc.on.clipboard.fill</string>
 	<string>doc.on.doc</string>
 	<string>doc.on.doc.fill</string>
+	<string>doc.plaintext</string>
+	<string>doc.plaintext.fill</string>
 	<string>doc.questionmark</string>
 	<string>doc.questionmark.ar</string>
 	<string>doc.questionmark.fill</string>
 	<string>doc.questionmark.fill.ar</string>
 	<string>doc.questionmark.fill.rtl</string>
 	<string>doc.questionmark.rtl</string>
+	<string>doc.richtext</string>
+	<string>doc.richtext.ar</string>
+	<string>doc.richtext.fill</string>
+	<string>doc.richtext.fill.ar</string>
+	<string>doc.richtext.fill.he</string>
+	<string>doc.richtext.fill.hi</string>
+	<string>doc.richtext.fill.ja</string>
+	<string>doc.richtext.fill.ko</string>
+	<string>doc.richtext.fill.th</string>
+	<string>doc.richtext.fill.zh</string>
+	<string>doc.richtext.he</string>
+	<string>doc.richtext.hi</string>
+	<string>doc.richtext.ja</string>
+	<string>doc.richtext.ko</string>
+	<string>doc.richtext.th</string>
+	<string>doc.richtext.zh</string>
 	<string>doc.text</string>
 	<string>doc.text.below.ecg</string>
+	<string>doc.text.below.ecg.fill</string>
+	<string>doc.text.below.ecg.fill.rtl</string>
 	<string>doc.text.below.ecg.rtl</string>
 	<string>doc.text.fill</string>
+	<string>doc.text.fill.viewfinder</string>
+	<string>doc.text.image</string>
+	<string>doc.text.image.fill</string>
 	<string>doc.text.magnifyingglass</string>
+	<string>doc.text.viewfinder</string>
 	<string>doc.viewfinder</string>
 	<string>doc.viewfinder.fill</string>
+	<string>doc.zipper</string>
+	<string>dock.arrow.down.rectangle</string>
+	<string>dock.arrow.up.rectangle</string>
+	<string>dock.rectangle</string>
 	<string>dog</string>
 	<string>dog.circle</string>
 	<string>dog.circle.fill</string>
@@ -2507,6 +2759,7 @@
 	<string>dot.arrowtriangles.up.right.down.left.circle</string>
 	<string>dot.circle.and.cursorarrow</string>
 	<string>dot.circle.and.hand.point.up.left.fill</string>
+	<string>dot.circle.viewfinder</string>
 	<string>dot.radiowaves.forward</string>
 	<string>dot.radiowaves.left.and.right</string>
 	<string>dot.radiowaves.right</string>
@@ -2514,13 +2767,22 @@
 	<string>dot.scope</string>
 	<string>dot.scope.display</string>
 	<string>dot.scope.laptopcomputer</string>
+	<string>dot.square</string>
 	<string>dot.square.fill</string>
+	<string>dot.squareshape</string>
 	<string>dot.squareshape.fill</string>
+	<string>dot.squareshape.split.2x2</string>
+	<string>dot.viewfinder</string>
+	<string>dots.and.line.vertical.and.cursorarrow.rectangle</string>
 	<string>dpad</string>
+	<string>dpad.down.fill</string>
 	<string>dpad.down.filled</string>
 	<string>dpad.fill</string>
+	<string>dpad.left.fill</string>
 	<string>dpad.left.filled</string>
+	<string>dpad.right.fill</string>
 	<string>dpad.right.filled</string>
+	<string>dpad.up.fill</string>
 	<string>dpad.up.filled</string>
 	<string>drop</string>
 	<string>drop.circle</string>
@@ -2549,6 +2811,7 @@
 	<string>e.square</string>
 	<string>e.square.fill</string>
 	<string>ear</string>
+	<string>ear.and.waveform</string>
 	<string>ear.badge.checkmark</string>
 	<string>ear.badge.waveform</string>
 	<string>ear.fill</string>
@@ -2561,6 +2824,8 @@
 	<string>eject.circle</string>
 	<string>eject.circle.fill</string>
 	<string>eject.fill</string>
+	<string>ellipses.bubble</string>
+	<string>ellipses.bubble.fill</string>
 	<string>ellipsis</string>
 	<string>ellipsis.bubble</string>
 	<string>ellipsis.bubble.fill</string>
@@ -2591,9 +2856,11 @@
 	<string>envelope.badge.person.crop.fill</string>
 	<string>envelope.badge.shield.half.filled</string>
 	<string>envelope.badge.shield.half.filled.fill</string>
+	<string>envelope.badge.shield.leadinghalf.fill</string>
 	<string>envelope.circle</string>
 	<string>envelope.circle.fill</string>
 	<string>envelope.fill</string>
+	<string>envelope.fill.badge.shield.trailinghalf.fill</string>
 	<string>envelope.open</string>
 	<string>envelope.open.badge.clock</string>
 	<string>envelope.open.fill</string>
@@ -2667,6 +2934,8 @@
 	<string>exclamationmark.magnifyingglass</string>
 	<string>exclamationmark.octagon</string>
 	<string>exclamationmark.octagon.fill</string>
+	<string>exclamationmark.questionmark</string>
+	<string>exclamationmark.questionmark.ar</string>
 	<string>exclamationmark.shield</string>
 	<string>exclamationmark.shield.fill</string>
 	<string>exclamationmark.square</string>
@@ -2735,6 +3004,7 @@
 	<string>face.dashed</string>
 	<string>face.dashed.fill</string>
 	<string>face.smiling</string>
+	<string>face.smiling.fill</string>
 	<string>face.smiling.inverse</string>
 	<string>faceid</string>
 	<string>facemask</string>
@@ -2755,10 +3025,16 @@
 	<string>fan.oscillation.fill</string>
 	<string>fan.slash</string>
 	<string>fan.slash.fill</string>
+	<string>fanblades</string>
+	<string>fanblades.fill</string>
+	<string>fanblades.slash</string>
+	<string>fanblades.slash.fill</string>
 	<string>faxmachine</string>
 	<string>faxmachine.fill</string>
 	<string>ferry</string>
 	<string>ferry.fill</string>
+	<string>fiberchannel</string>
+	<string>fibrechannel</string>
 	<string>field.of.view.ultrawide</string>
 	<string>field.of.view.ultrawide.fill</string>
 	<string>field.of.view.wide</string>
@@ -2849,6 +3125,10 @@
 	<string>figure.seated.side.air.distribution.upper.angled.and.lower.angled</string>
 	<string>figure.seated.side.air.distribution.upper.angled.and.middle</string>
 	<string>figure.seated.side.air.distribution.upper.angled.and.middle.and.lower.angled</string>
+	<string>figure.seated.side.air.lower</string>
+	<string>figure.seated.side.air.upper</string>
+	<string>figure.seated.side.air.upper.and.lower</string>
+	<string>figure.seated.side.air.windshield</string>
 	<string>figure.seated.side.airbag.off</string>
 	<string>figure.seated.side.airbag.off.2</string>
 	<string>figure.seated.side.airbag.on</string>
@@ -2956,6 +3236,8 @@
 	<string>flask.fill</string>
 	<string>fleuron</string>
 	<string>fleuron.fill</string>
+	<string>flip.horizontal</string>
+	<string>flip.horizontal.fill</string>
 	<string>flipphone</string>
 	<string>florinsign</string>
 	<string>florinsign.arrow.circlepath</string>
@@ -2963,9 +3245,13 @@
 	<string>florinsign.circle.fill</string>
 	<string>florinsign.square</string>
 	<string>florinsign.square.fill</string>
+	<string>flowchart</string>
+	<string>flowchart.fill</string>
 	<string>fluid.brakesignal</string>
 	<string>fluid.transmission</string>
+	<string>fn</string>
 	<string>folder</string>
+	<string>folder.badge.gear</string>
 	<string>folder.badge.gearshape</string>
 	<string>folder.badge.minus</string>
 	<string>folder.badge.person.crop</string>
@@ -2975,6 +3261,7 @@
 	<string>folder.circle</string>
 	<string>folder.circle.fill</string>
 	<string>folder.fill</string>
+	<string>folder.fill.badge.gear</string>
 	<string>folder.fill.badge.gearshape</string>
 	<string>folder.fill.badge.minus</string>
 	<string>folder.fill.badge.person.crop</string>
@@ -3023,12 +3310,21 @@
 	<string>fuelpump.slash</string>
 	<string>fuelpump.slash.fill</string>
 	<string>function</string>
+	<string>fx</string>
 	<string>g.circle</string>
 	<string>g.circle.fill</string>
 	<string>g.square</string>
 	<string>g.square.fill</string>
 	<string>gamecontroller</string>
 	<string>gamecontroller.fill</string>
+	<string>gauge</string>
+	<string>gauge.badge.minus</string>
+	<string>gauge.badge.plus</string>
+	<string>gauge.high</string>
+	<string>gauge.low</string>
+	<string>gauge.medium</string>
+	<string>gauge.medium.badge.minus</string>
+	<string>gauge.medium.badge.plus</string>
 	<string>gauge.open.with.lines.needle.33percent</string>
 	<string>gauge.open.with.lines.needle.33percent.and.arrowtriangle</string>
 	<string>gauge.open.with.lines.needle.33percent.and.arrowtriangle.from.0percent.to.50percent</string>
@@ -3059,6 +3355,7 @@
 	<string>gearshape.2</string>
 	<string>gearshape.2.fill</string>
 	<string>gearshape.arrow.triangle.2.circlepath</string>
+	<string>gearshape.circle</string>
 	<string>gearshape.circle.fill</string>
 	<string>gearshape.fill</string>
 	<string>gearshift.layout.sixspeed</string>
@@ -3144,6 +3441,8 @@
 	<string>greaterthan.square.fill</string>
 	<string>greetingcard</string>
 	<string>greetingcard.fill</string>
+	<string>grid</string>
+	<string>grid.circle</string>
 	<string>grid.circle.fill</string>
 	<string>guaranisign</string>
 	<string>guaranisign.arrow.circlepath</string>
@@ -3160,10 +3459,15 @@
 	<string>h.circle.fill</string>
 	<string>h.square</string>
 	<string>h.square.fill</string>
+	<string>h.square.fill.on.square.fill</string>
+	<string>h.square.on.square</string>
+	<string>h.square.on.square.fill</string>
 	<string>hammer</string>
 	<string>hammer.circle</string>
 	<string>hammer.circle.fill</string>
 	<string>hammer.fill</string>
+	<string>hand.app</string>
+	<string>hand.app.fill</string>
 	<string>hand.draw</string>
 	<string>hand.draw.fill</string>
 	<string>hand.point.down</string>
@@ -3216,6 +3520,8 @@
 	<string>hands.and.sparkles.fill</string>
 	<string>hands.clap</string>
 	<string>hands.clap.fill</string>
+	<string>hands.sparkles</string>
+	<string>hands.sparkles.fill</string>
 	<string>hanger</string>
 	<string>hare</string>
 	<string>hare.circle</string>
@@ -3235,6 +3541,7 @@
 	<string>headphones</string>
 	<string>headphones.circle</string>
 	<string>headphones.circle.fill</string>
+	<string>hearingaid.ear</string>
 	<string>hearingdevice.and.signal.meter</string>
 	<string>hearingdevice.and.signal.meter.fill</string>
 	<string>hearingdevice.ear</string>
@@ -3257,8 +3564,13 @@
 	<string>heat.waves</string>
 	<string>heater.vertical</string>
 	<string>heater.vertical.fill</string>
+	<string>helm</string>
 	<string>hexagon</string>
+	<string>hexagon.bottomhalf.filled</string>
 	<string>hexagon.fill</string>
+	<string>hexagon.lefthalf.filled</string>
+	<string>hexagon.righthalf.filled</string>
+	<string>hexagon.tophalf.filled</string>
 	<string>hifireceiver</string>
 	<string>hifireceiver.fill</string>
 	<string>hifispeaker</string>
@@ -3305,9 +3617,11 @@
 	<string>hourglass</string>
 	<string>hourglass.and.lock</string>
 	<string>hourglass.badge.plus</string>
+	<string>hourglass.bottomhalf.fill</string>
 	<string>hourglass.bottomhalf.filled</string>
 	<string>hourglass.circle</string>
 	<string>hourglass.circle.fill</string>
+	<string>hourglass.tophalf.fill</string>
 	<string>hourglass.tophalf.filled</string>
 	<string>house</string>
 	<string>house.and.flag</string>
@@ -3390,6 +3704,10 @@
 	<string>ipad.gen2.badge.play</string>
 	<string>ipad.gen2.landscape</string>
 	<string>ipad.gen2.landscape.badge.play</string>
+	<string>ipad.homebutton</string>
+	<string>ipad.homebutton.badge.play</string>
+	<string>ipad.homebutton.landscape</string>
+	<string>ipad.homebutton.landscape.badge.play</string>
 	<string>ipad.landscape</string>
 	<string>ipad.landscape.badge.play</string>
 	<string>ipad.rear.camera</string>
@@ -3434,6 +3752,17 @@
 	<string>iphone.gen3.slash</string>
 	<string>iphone.gen3.slash.circle</string>
 	<string>iphone.gen3.slash.circle.fill</string>
+	<string>iphone.homebutton</string>
+	<string>iphone.homebutton.badge.play</string>
+	<string>iphone.homebutton.circle</string>
+	<string>iphone.homebutton.circle.fill</string>
+	<string>iphone.homebutton.landscape</string>
+	<string>iphone.homebutton.radiowaves.left.and.right</string>
+	<string>iphone.homebutton.radiowaves.left.and.right.circle</string>
+	<string>iphone.homebutton.radiowaves.left.and.right.circle.fill</string>
+	<string>iphone.homebutton.slash</string>
+	<string>iphone.homebutton.slash.circle</string>
+	<string>iphone.homebutton.slash.circle.fill</string>
 	<string>iphone.landscape</string>
 	<string>iphone.radiowaves.left.and.right</string>
 	<string>iphone.radiowaves.left.and.right.circle</string>
@@ -3460,6 +3789,10 @@
 	<string>j.circle.fill</string>
 	<string>j.square</string>
 	<string>j.square.fill</string>
+	<string>j.square.fill.on.square.fill</string>
+	<string>j.square.on.square</string>
+	<string>j.square.on.square.fill</string>
+	<string>k</string>
 	<string>k.circle</string>
 	<string>k.circle.fill</string>
 	<string>k.square</string>
@@ -3488,6 +3821,7 @@
 	<string>keyboard.chevron.compact.left</string>
 	<string>keyboard.chevron.compact.left.fill</string>
 	<string>keyboard.fill</string>
+	<string>keyboard.macwindow</string>
 	<string>keyboard.onehanded.left</string>
 	<string>keyboard.onehanded.left.fill</string>
 	<string>keyboard.onehanded.right</string>
@@ -3506,6 +3840,8 @@
 	<string>l.circle</string>
 	<string>l.circle.fill</string>
 	<string>l.joystick</string>
+	<string>l.joystick.down</string>
+	<string>l.joystick.down.fill</string>
 	<string>l.joystick.fill</string>
 	<string>l.joystick.press.down</string>
 	<string>l.joystick.press.down.fill</string>
@@ -3517,18 +3853,24 @@
 	<string>l.joystick.tilt.right.fill</string>
 	<string>l.joystick.tilt.up</string>
 	<string>l.joystick.tilt.up.fill</string>
+	<string>l.rectangle.roundedbottom</string>
+	<string>l.rectangle.roundedbottom.fill</string>
 	<string>l.square</string>
 	<string>l.square.fill</string>
 	<string>l1.button.roundedbottom.horizontal</string>
 	<string>l1.button.roundedbottom.horizontal.fill</string>
 	<string>l1.circle</string>
 	<string>l1.circle.fill</string>
+	<string>l1.rectangle.roundedbottom</string>
+	<string>l1.rectangle.roundedbottom.fill</string>
 	<string>l2.button.angledtop.vertical.left</string>
 	<string>l2.button.angledtop.vertical.left.fill</string>
 	<string>l2.button.roundedtop.horizontal</string>
 	<string>l2.button.roundedtop.horizontal.fill</string>
 	<string>l2.circle</string>
 	<string>l2.circle.fill</string>
+	<string>l2.rectangle.roundedtop</string>
+	<string>l2.rectangle.roundedtop.fill</string>
 	<string>l3.button.angledbottom.horizontal.left</string>
 	<string>l3.button.angledbottom.horizontal.left.fill</string>
 	<string>l4.button.horizontal</string>
@@ -3547,10 +3889,15 @@
 	<string>lamp.table</string>
 	<string>lamp.table.fill</string>
 	<string>lane</string>
+	<string>lanyardcard</string>
+	<string>lanyardcard.fill</string>
 	<string>laptopcomputer</string>
 	<string>laptopcomputer.and.arrow.down</string>
+	<string>laptopcomputer.and.ipad</string>
+	<string>laptopcomputer.and.iphone</string>
 	<string>laptopcomputer.slash</string>
 	<string>laptopcomputer.trianglebadge.exclamationmark</string>
+	<string>largecircle.fill.circle</string>
 	<string>larisign</string>
 	<string>larisign.arrow.circlepath</string>
 	<string>larisign.circle</string>
@@ -3559,7 +3906,9 @@
 	<string>larisign.square.fill</string>
 	<string>laser.burst</string>
 	<string>lasso</string>
+	<string>lasso.and.sparkles</string>
 	<string>lasso.badge.sparkles</string>
+	<string>lasso.sparkles</string>
 	<string>latch.2.case</string>
 	<string>latch.2.case.fill</string>
 	<string>laurel.leading</string>
@@ -3568,7 +3917,10 @@
 	<string>lb.button.roundedbottom.horizontal.fill</string>
 	<string>lb.circle</string>
 	<string>lb.circle.fill</string>
+	<string>lb.rectangle.roundedbottom</string>
+	<string>lb.rectangle.roundedbottom.fill</string>
 	<string>leaf</string>
+	<string>leaf.arrow.circlepath</string>
 	<string>leaf.arrow.triangle.circlepath</string>
 	<string>leaf.circle</string>
 	<string>leaf.circle.fill</string>
@@ -3641,14 +3993,32 @@
 	<string>lightswitch.on.fill</string>
 	<string>lightswitch.on.square</string>
 	<string>lightswitch.on.square.fill</string>
+	<string>line.2.horizontal.decrease.circle</string>
 	<string>line.2.horizontal.decrease.circle.fill</string>
+	<string>line.3.crossed.swirl.circle</string>
+	<string>line.3.crossed.swirl.circle.fill</string>
+	<string>line.3.horizontal</string>
 	<string>line.3.horizontal.button.angledtop.vertical.right</string>
 	<string>line.3.horizontal.button.angledtop.vertical.right.fill</string>
 	<string>line.3.horizontal.circle</string>
 	<string>line.3.horizontal.circle.fill</string>
+	<string>line.3.horizontal.decrease</string>
+	<string>line.3.horizontal.decrease.circle</string>
 	<string>line.3.horizontal.decrease.circle.fill</string>
+	<string>line.diagonal</string>
+	<string>line.diagonal.arrow</string>
+	<string>line.horizontal.2.decrease.circle</string>
+	<string>line.horizontal.2.decrease.circle.fill</string>
+	<string>line.horizontal.3</string>
+	<string>line.horizontal.3.circle</string>
+	<string>line.horizontal.3.circle.fill</string>
+	<string>line.horizontal.3.decrease</string>
+	<string>line.horizontal.3.decrease.circle</string>
+	<string>line.horizontal.3.decrease.circle.fill</string>
+	<string>line.horizontal.star.fill.line.horizontal</string>
 	<string>lines.measurement.horizontal</string>
 	<string>lines.measurement.vertical</string>
+	<string>lineweight</string>
 	<string>link</string>
 	<string>link.badge.plus</string>
 	<string>link.circle</string>
@@ -3661,15 +4031,22 @@
 	<string>lirasign.circle.fill</string>
 	<string>lirasign.square</string>
 	<string>lirasign.square.fill</string>
+	<string>list.and.film</string>
 	<string>list.bullet</string>
+	<string>list.bullet.below.rectangle</string>
 	<string>list.bullet.circle</string>
 	<string>list.bullet.circle.fill</string>
 	<string>list.bullet.clipboard</string>
 	<string>list.bullet.clipboard.fill</string>
 	<string>list.bullet.indent</string>
+	<string>list.bullet.rectangle</string>
+	<string>list.bullet.rectangle.fill</string>
+	<string>list.bullet.rectangle.portrait</string>
+	<string>list.bullet.rectangle.portrait.fill</string>
 	<string>list.clipboard</string>
 	<string>list.clipboard.fill</string>
 	<string>list.dash</string>
+	<string>list.dash.header.rectangle</string>
 	<string>list.number</string>
 	<string>list.number.ar</string>
 	<string>list.number.hi</string>
@@ -3677,6 +4054,7 @@
 	<string>list.star</string>
 	<string>list.triangle</string>
 	<string>livephoto</string>
+	<string>livephoto.badge.a</string>
 	<string>livephoto.badge.automatic</string>
 	<string>livephoto.play</string>
 	<string>livephoto.slash</string>
@@ -3690,6 +4068,7 @@
 	<string>location.circle</string>
 	<string>location.circle.fill</string>
 	<string>location.fill</string>
+	<string>location.fill.viewfinder</string>
 	<string>location.magnifyingglass</string>
 	<string>location.north</string>
 	<string>location.north.circle</string>
@@ -3703,6 +4082,7 @@
 	<string>location.slash.fill</string>
 	<string>location.square</string>
 	<string>location.square.fill</string>
+	<string>location.viewfinder</string>
 	<string>lock</string>
 	<string>lock.app.dashed</string>
 	<string>lock.applewatch</string>
@@ -3739,6 +4119,7 @@
 	<string>lock.rectangle.stack</string>
 	<string>lock.rectangle.stack.fill</string>
 	<string>lock.rotation</string>
+	<string>lock.rotation.open</string>
 	<string>lock.shield</string>
 	<string>lock.shield.fill</string>
 	<string>lock.slash</string>
@@ -3749,6 +4130,8 @@
 	<string>lock.square.stack.fill</string>
 	<string>lock.trianglebadge.exclamationmark</string>
 	<string>lock.trianglebadge.exclamationmark.fill</string>
+	<string>logo.playstation</string>
+	<string>logo.xbox</string>
 	<string>loupe</string>
 	<string>lsb.button.angledbottom.horizontal.left</string>
 	<string>lsb.button.angledbottom.horizontal.left.fill</string>
@@ -3756,6 +4139,8 @@
 	<string>lt.button.roundedtop.horizontal.fill</string>
 	<string>lt.circle</string>
 	<string>lt.circle.fill</string>
+	<string>lt.rectangle.roundedtop</string>
+	<string>lt.rectangle.roundedtop.fill</string>
 	<string>lungs</string>
 	<string>lungs.fill</string>
 	<string>m.circle</string>
@@ -3791,6 +4176,8 @@
 	<string>macwindow.and.cursorarrow</string>
 	<string>macwindow.and.cursorarrow.rtl</string>
 	<string>macwindow.badge.plus</string>
+	<string>macwindow.on.rectangle</string>
+	<string>macwindow.on.rectangle.rtl</string>
 	<string>magazine</string>
 	<string>magazine.fill</string>
 	<string>magicmouse</string>
@@ -3800,6 +4187,12 @@
 	<string>magnifyingglass.circle.fill</string>
 	<string>magsafe.batterypack</string>
 	<string>magsafe.batterypack.fill</string>
+	<string>mail</string>
+	<string>mail.and.text.magnifyingglass</string>
+	<string>mail.and.text.magnifyingglass.rtl</string>
+	<string>mail.fill</string>
+	<string>mail.stack</string>
+	<string>mail.stack.fill</string>
 	<string>manatsign</string>
 	<string>manatsign.arrow.circlepath</string>
 	<string>manatsign.circle</string>
@@ -3828,13 +4221,21 @@
 	<string>medical.thermometer.fill</string>
 	<string>megaphone</string>
 	<string>megaphone.fill</string>
+	<string>memories</string>
 	<string>memories.badge.minus</string>
 	<string>memories.badge.plus</string>
 	<string>memorychip</string>
 	<string>memorychip.fill</string>
+	<string>menubar.arrow.down.rectangle</string>
+	<string>menubar.arrow.up.rectangle</string>
+	<string>menubar.dock.rectangle</string>
+	<string>menubar.dock.rectangle.badge.record</string>
+	<string>menubar.rectangle</string>
 	<string>menucard</string>
 	<string>menucard.fill</string>
 	<string>message</string>
+	<string>message.and.waveform</string>
+	<string>message.and.waveform.fill</string>
 	<string>message.badge</string>
 	<string>message.badge.circle</string>
 	<string>message.badge.circle.fill</string>
@@ -3902,6 +4303,7 @@
 	<string>minus.rectangle.fill</string>
 	<string>minus.rectangle.portrait</string>
 	<string>minus.rectangle.portrait.fill</string>
+	<string>minus.slash.plus</string>
 	<string>minus.square</string>
 	<string>minus.square.fill</string>
 	<string>mirror.side.left</string>
@@ -3926,6 +4328,7 @@
 	<string>moon.stars.circle</string>
 	<string>moon.stars.circle.fill</string>
 	<string>moon.stars.fill</string>
+	<string>moon.zzz</string>
 	<string>moon.zzz.fill</string>
 	<string>moonphase.first.quarter</string>
 	<string>moonphase.first.quarter.inverse</string>
@@ -3951,6 +4354,8 @@
 	<string>moonset.circle</string>
 	<string>moonset.circle.fill</string>
 	<string>moonset.fill</string>
+	<string>mosaic</string>
+	<string>mosaic.fill</string>
 	<string>mount</string>
 	<string>mount.fill</string>
 	<string>mountain.2</string>
@@ -3972,13 +4377,18 @@
 	<string>multiply.circle.fill</string>
 	<string>multiply.square</string>
 	<string>multiply.square.fill</string>
+	<string>music.house</string>
+	<string>music.house.fill</string>
 	<string>music.mic</string>
 	<string>music.mic.circle</string>
 	<string>music.mic.circle.fill</string>
+	<string>music.note</string>
 	<string>music.note.house</string>
 	<string>music.note.house.fill</string>
+	<string>music.note.list</string>
 	<string>music.note.tv</string>
 	<string>music.note.tv.fill</string>
+	<string>music.quarternote.3</string>
 	<string>mustache</string>
 	<string>mustache.fill</string>
 	<string>n.circle</string>
@@ -4024,7 +4434,11 @@
 	<string>o.square.fill</string>
 	<string>oar.2.crossed</string>
 	<string>octagon</string>
+	<string>octagon.bottomhalf.filled</string>
 	<string>octagon.fill</string>
+	<string>octagon.lefthalf.filled</string>
+	<string>octagon.righthalf.filled</string>
+	<string>octagon.tophalf.filled</string>
 	<string>oilcan</string>
 	<string>oilcan.fill</string>
 	<string>opticaldisc</string>
@@ -4035,9 +4449,19 @@
 	<string>opticid.fill</string>
 	<string>option</string>
 	<string>oval</string>
+	<string>oval.bottomhalf.filled</string>
 	<string>oval.fill</string>
+	<string>oval.inset.filled</string>
+	<string>oval.lefthalf.filled</string>
 	<string>oval.portrait</string>
+	<string>oval.portrait.bottomhalf.filled</string>
 	<string>oval.portrait.fill</string>
+	<string>oval.portrait.inset.filled</string>
+	<string>oval.portrait.lefthalf.filled</string>
+	<string>oval.portrait.righthalf.filled</string>
+	<string>oval.portrait.tophalf.filled</string>
+	<string>oval.righthalf.filled</string>
+	<string>oval.tophalf.filled</string>
 	<string>oven</string>
 	<string>oven.fill</string>
 	<string>p.circle</string>
@@ -4062,8 +4486,10 @@
 	<string>paintbrush.pointed.fill</string>
 	<string>paintpalette</string>
 	<string>paintpalette.fill</string>
+	<string>pano</string>
 	<string>pano.badge.play</string>
 	<string>pano.badge.play.fill</string>
+	<string>pano.fill</string>
 	<string>paperclip</string>
 	<string>paperclip.badge.ellipsis</string>
 	<string>paperclip.circle</string>
@@ -4072,7 +4498,9 @@
 	<string>paperplane.circle</string>
 	<string>paperplane.circle.fill</string>
 	<string>paperplane.fill</string>
+	<string>paragraph</string>
 	<string>paragraphsign</string>
+	<string>parentheses</string>
 	<string>parkinglight</string>
 	<string>parkinglight.fill</string>
 	<string>parkingsign</string>
@@ -4096,6 +4524,7 @@
 	<string>pawprint.circle.fill</string>
 	<string>pawprint.fill</string>
 	<string>pc</string>
+	<string>peacesign</string>
 	<string>pedal.accelerator</string>
 	<string>pedal.accelerator.fill</string>
 	<string>pedal.brake</string>
@@ -4105,6 +4534,7 @@
 	<string>pedestrian.gate.closed</string>
 	<string>pedestrian.gate.open</string>
 	<string>pencil</string>
+	<string>pencil.and.ellipsis.rectangle</string>
 	<string>pencil.and.list.clipboard</string>
 	<string>pencil.and.list.clipboard.rtl</string>
 	<string>pencil.and.outline</string>
@@ -4125,7 +4555,11 @@
 	<string>pencil.tip.crop.circle.badge.plus.fill</string>
 	<string>pencil.tip.crop.circle.fill</string>
 	<string>pentagon</string>
+	<string>pentagon.bottomhalf.filled</string>
 	<string>pentagon.fill</string>
+	<string>pentagon.lefthalf.filled</string>
+	<string>pentagon.righthalf.filled</string>
+	<string>pentagon.tophalf.filled</string>
 	<string>percent</string>
 	<string>percent.ar</string>
 	<string>person</string>
@@ -4142,6 +4576,8 @@
 	<string>person.2.gobackward</string>
 	<string>person.2.slash</string>
 	<string>person.2.slash.fill</string>
+	<string>person.2.square.stack</string>
+	<string>person.2.square.stack.fill</string>
 	<string>person.2.wave.2</string>
 	<string>person.2.wave.2.fill</string>
 	<string>person.3</string>
@@ -4156,7 +4592,9 @@
 	<string>person.badge.key</string>
 	<string>person.badge.key.fill</string>
 	<string>person.badge.minus</string>
+	<string>person.badge.minus.fill</string>
 	<string>person.badge.plus</string>
+	<string>person.badge.plus.fill</string>
 	<string>person.badge.shield.checkmark</string>
 	<string>person.badge.shield.checkmark.fill</string>
 	<string>person.bubble</string>
@@ -4173,6 +4611,7 @@
 	<string>person.crop.circle.badge.checkmark</string>
 	<string>person.crop.circle.badge.clock</string>
 	<string>person.crop.circle.badge.clock.fill</string>
+	<string>person.crop.circle.badge.exclam</string>
 	<string>person.crop.circle.badge.exclamationmark</string>
 	<string>person.crop.circle.badge.exclamationmark.fill</string>
 	<string>person.crop.circle.badge.fill</string>
@@ -4190,8 +4629,12 @@
 	<string>person.crop.circle.dashed.circle.fill</string>
 	<string>person.crop.circle.fill</string>
 	<string>person.crop.circle.fill.badge.checkmark</string>
+	<string>person.crop.circle.fill.badge.exclam</string>
+	<string>person.crop.circle.fill.badge.exclamationmark</string>
 	<string>person.crop.circle.fill.badge.minus</string>
 	<string>person.crop.circle.fill.badge.plus</string>
+	<string>person.crop.circle.fill.badge.questionmark</string>
+	<string>person.crop.circle.fill.badge.questionmark.ar</string>
 	<string>person.crop.circle.fill.badge.xmark</string>
 	<string>person.crop.rectangle</string>
 	<string>person.crop.rectangle.badge.plus</string>
@@ -4205,6 +4648,7 @@
 	<string>person.crop.square.badge.video</string>
 	<string>person.crop.square.badge.video.fill</string>
 	<string>person.crop.square.fill</string>
+	<string>person.crop.square.fill.and.at.rectangle</string>
 	<string>person.crop.square.filled.and.at.rectangle</string>
 	<string>person.crop.square.filled.and.at.rectangle.fill</string>
 	<string>person.fill</string>
@@ -4249,6 +4693,8 @@
 	<string>pesosign.square</string>
 	<string>pesosign.square.fill</string>
 	<string>phone</string>
+	<string>phone.and.waveform</string>
+	<string>phone.and.waveform.fill</string>
 	<string>phone.arrow.down.left</string>
 	<string>phone.arrow.down.left.fill</string>
 	<string>phone.arrow.right</string>
@@ -4264,6 +4710,8 @@
 	<string>phone.bubble</string>
 	<string>phone.bubble.fill</string>
 	<string>phone.bubble.fill.rtl</string>
+	<string>phone.bubble.left</string>
+	<string>phone.bubble.left.fill</string>
 	<string>phone.bubble.rtl</string>
 	<string>phone.circle</string>
 	<string>phone.circle.fill</string>
@@ -4275,8 +4723,12 @@
 	<string>phone.down.fill</string>
 	<string>phone.down.waves.left.and.right</string>
 	<string>phone.fill</string>
+	<string>phone.fill.arrow.down.left</string>
+	<string>phone.fill.arrow.right</string>
+	<string>phone.fill.arrow.up.right</string>
 	<string>phone.fill.badge.checkmark</string>
 	<string>phone.fill.badge.plus</string>
+	<string>phone.fill.connection</string>
 	<string>photo</string>
 	<string>photo.artframe</string>
 	<string>photo.artframe.circle</string>
@@ -4314,8 +4766,15 @@
 	<string>pin.slash.fill</string>
 	<string>pin.square</string>
 	<string>pin.square.fill</string>
+	<string>pip</string>
+	<string>pip.enter</string>
+	<string>pip.exit</string>
+	<string>pip.fill</string>
+	<string>pip.remove</string>
+	<string>pip.swap</string>
 	<string>pipe.and.drop</string>
 	<string>pipe.and.drop.fill</string>
+	<string>placeholdertext.fill</string>
 	<string>platter.2.filled.ipad</string>
 	<string>platter.2.filled.ipad.landscape</string>
 	<string>platter.2.filled.iphone</string>
@@ -4339,7 +4798,10 @@
 	<string>play.laptopcomputer</string>
 	<string>play.rectangle</string>
 	<string>play.rectangle.fill</string>
+	<string>play.rectangle.on.rectangle</string>
+	<string>play.rectangle.on.rectangle.circle</string>
 	<string>play.rectangle.on.rectangle.circle.fill</string>
+	<string>play.rectangle.on.rectangle.fill</string>
 	<string>play.slash</string>
 	<string>play.slash.fill</string>
 	<string>play.square</string>
@@ -4354,6 +4816,7 @@
 	<string>playpause.fill</string>
 	<string>playstation.logo</string>
 	<string>plus</string>
+	<string>plus.app</string>
 	<string>plus.app.fill</string>
 	<string>plus.bubble</string>
 	<string>plus.bubble.fill</string>
@@ -4367,12 +4830,19 @@
 	<string>plus.message.fill</string>
 	<string>plus.rectangle</string>
 	<string>plus.rectangle.fill</string>
+	<string>plus.rectangle.fill.on.folder.fill</string>
+	<string>plus.rectangle.fill.on.rectangle.fill</string>
 	<string>plus.rectangle.on.folder</string>
 	<string>plus.rectangle.on.folder.fill</string>
+	<string>plus.rectangle.on.rectangle</string>
 	<string>plus.rectangle.portrait</string>
 	<string>plus.rectangle.portrait.fill</string>
+	<string>plus.slash.minus</string>
 	<string>plus.square</string>
+	<string>plus.square.dashed</string>
 	<string>plus.square.fill</string>
+	<string>plus.square.fill.on.square.fill</string>
+	<string>plus.square.on.square</string>
 	<string>plus.viewfinder</string>
 	<string>plusminus</string>
 	<string>plusminus.circle</string>
@@ -4385,8 +4855,17 @@
 	<string>point.bottomleft.forward.to.point.topright.filled.scurvepath</string>
 	<string>point.bottomleft.forward.to.point.topright.scurvepath</string>
 	<string>point.bottomleft.forward.to.point.topright.scurvepath.fill</string>
+	<string>point.fill.topleft.down.curvedto.point.fill.bottomright.up</string>
+	<string>point.filled.topleft.down.curvedto.point.bottomright.up</string>
 	<string>point.forward.to.point.capsulepath</string>
 	<string>point.forward.to.point.capsulepath.fill</string>
+	<string>point.topleft.down.curvedto.point.bottomright.up</string>
+	<string>point.topleft.down.curvedto.point.bottomright.up.fill</string>
+	<string>point.topleft.down.curvedto.point.filled.bottomright.up</string>
+	<string>point.topleft.down.to.point.bottomright.curvepath</string>
+	<string>point.topleft.down.to.point.bottomright.curvepath.fill</string>
+	<string>point.topleft.down.to.point.bottomright.filled.curvepath</string>
+	<string>point.topleft.filled.down.to.point.bottomright.curvepath</string>
 	<string>polishzlotysign</string>
 	<string>polishzlotysign.arrow.circlepath</string>
 	<string>polishzlotysign.circle</string>
@@ -4403,6 +4882,8 @@
 	<string>power.dotted</string>
 	<string>powercord</string>
 	<string>powercord.fill</string>
+	<string>poweroff</string>
+	<string>poweron</string>
 	<string>poweroutlet.strip</string>
 	<string>poweroutlet.strip.fill</string>
 	<string>poweroutlet.type.a</string>
@@ -4467,23 +4948,36 @@
 	<string>poweroutlet.type.o.square.fill</string>
 	<string>powerplug</string>
 	<string>powerplug.fill</string>
+	<string>powersleep</string>
 	<string>printer</string>
 	<string>printer.dotmatrix</string>
 	<string>printer.dotmatrix.fill</string>
+	<string>printer.dotmatrix.fill.and.paper.fill</string>
 	<string>printer.dotmatrix.filled.and.paper</string>
 	<string>printer.fill</string>
+	<string>printer.fill.and.paper.fill</string>
 	<string>printer.filled.and.paper</string>
 	<string>projective</string>
+	<string>purchased</string>
+	<string>purchased.circle</string>
 	<string>purchased.circle.fill</string>
 	<string>puzzlepiece</string>
 	<string>puzzlepiece.extension</string>
 	<string>puzzlepiece.extension.fill</string>
 	<string>puzzlepiece.fill</string>
+	<string>pyramid</string>
+	<string>pyramid.fill</string>
 	<string>q.circle</string>
 	<string>q.circle.fill</string>
 	<string>q.square</string>
 	<string>q.square.fill</string>
+	<string>qrcode</string>
+	<string>qrcode.viewfinder</string>
 	<string>questionmark</string>
+	<string>questionmark.app</string>
+	<string>questionmark.app.ar</string>
+	<string>questionmark.app.dashed</string>
+	<string>questionmark.app.dashed.ar</string>
 	<string>questionmark.app.fill</string>
 	<string>questionmark.app.fill.ar</string>
 	<string>questionmark.ar</string>
@@ -4506,12 +5000,16 @@
 	<string>questionmark.key.filled</string>
 	<string>questionmark.square</string>
 	<string>questionmark.square.ar</string>
+	<string>questionmark.square.dashed</string>
+	<string>questionmark.square.dashed.ar</string>
 	<string>questionmark.square.fill</string>
 	<string>questionmark.square.fill.ar</string>
 	<string>questionmark.video</string>
 	<string>questionmark.video.ar</string>
 	<string>questionmark.video.fill</string>
 	<string>questionmark.video.fill.ar</string>
+	<string>questionmark.video.fill.rtl</string>
+	<string>questionmark.video.rtl</string>
 	<string>quote.bubble</string>
 	<string>quote.bubble.fill</string>
 	<string>quote.bubble.fill.rtl</string>
@@ -4524,6 +5022,8 @@
 	<string>r.circle</string>
 	<string>r.circle.fill</string>
 	<string>r.joystick</string>
+	<string>r.joystick.down</string>
+	<string>r.joystick.down.fill</string>
 	<string>r.joystick.fill</string>
 	<string>r.joystick.press.down</string>
 	<string>r.joystick.press.down.fill</string>
@@ -4535,38 +5035,60 @@
 	<string>r.joystick.tilt.right.fill</string>
 	<string>r.joystick.tilt.up</string>
 	<string>r.joystick.tilt.up.fill</string>
+	<string>r.rectangle.roundedbottom</string>
+	<string>r.rectangle.roundedbottom.fill</string>
 	<string>r.square</string>
 	<string>r.square.fill</string>
+	<string>r.square.fill.on.square.fill</string>
+	<string>r.square.on.square</string>
+	<string>r.square.on.square.fill</string>
 	<string>r1.button.roundedbottom.horizontal</string>
 	<string>r1.button.roundedbottom.horizontal.fill</string>
 	<string>r1.circle</string>
 	<string>r1.circle.fill</string>
+	<string>r1.rectangle.roundedbottom</string>
+	<string>r1.rectangle.roundedbottom.fill</string>
 	<string>r2.button.angledtop.vertical.right</string>
 	<string>r2.button.angledtop.vertical.right.fill</string>
 	<string>r2.button.roundedtop.horizontal</string>
 	<string>r2.button.roundedtop.horizontal.fill</string>
 	<string>r2.circle</string>
 	<string>r2.circle.fill</string>
+	<string>r2.rectangle.roundedtop</string>
+	<string>r2.rectangle.roundedtop.fill</string>
 	<string>r3.button.angledbottom.horizontal.right</string>
 	<string>r3.button.angledbottom.horizontal.right.fill</string>
 	<string>r4.button.horizontal</string>
 	<string>r4.button.horizontal.fill</string>
 	<string>radio</string>
 	<string>radio.fill</string>
+	<string>radiowaves.left</string>
+	<string>radiowaves.right</string>
 	<string>rainbow</string>
 	<string>rays</string>
 	<string>rb.button.roundedbottom.horizontal</string>
 	<string>rb.button.roundedbottom.horizontal.fill</string>
 	<string>rb.circle</string>
 	<string>rb.circle.fill</string>
+	<string>rb.rectangle.roundedbottom</string>
+	<string>rb.rectangle.roundedbottom.fill</string>
 	<string>record.circle</string>
 	<string>record.circle.fill</string>
 	<string>recordingtape</string>
 	<string>recordingtape.circle</string>
 	<string>recordingtape.circle.fill</string>
 	<string>rectangle</string>
+	<string>rectangle.2.swap</string>
+	<string>rectangle.3.group</string>
 	<string>rectangle.3.group.bubble</string>
 	<string>rectangle.3.group.bubble.fill</string>
+	<string>rectangle.3.group.bubble.left</string>
+	<string>rectangle.3.group.bubble.left.fill</string>
+	<string>rectangle.3.group.fill</string>
+	<string>rectangle.3.offgrid</string>
+	<string>rectangle.3.offgrid.bubble.left</string>
+	<string>rectangle.3.offgrid.bubble.left.fill</string>
+	<string>rectangle.3.offgrid.fill</string>
 	<string>rectangle.and.arrow.up.right.and.arrow.down.left</string>
 	<string>rectangle.and.arrow.up.right.and.arrow.down.left.slash</string>
 	<string>rectangle.and.hand.point.up.left</string>
@@ -4577,41 +5099,139 @@
 	<string>rectangle.and.pencil.and.ellipsis.rtl</string>
 	<string>rectangle.and.text.magnifyingglass</string>
 	<string>rectangle.and.text.magnifyingglass.rtl</string>
+	<string>rectangle.arrowtriangle.2.inward</string>
+	<string>rectangle.arrowtriangle.2.outward</string>
 	<string>rectangle.badge.checkmark</string>
 	<string>rectangle.badge.minus</string>
 	<string>rectangle.badge.person.crop</string>
 	<string>rectangle.badge.plus</string>
 	<string>rectangle.badge.xmark</string>
+	<string>rectangle.bottomhalf.filled</string>
+	<string>rectangle.bottomhalf.inset.filled</string>
+	<string>rectangle.bottomthird.inset.fill</string>
+	<string>rectangle.bottomthird.inset.filled</string>
+	<string>rectangle.center.inset.fill</string>
+	<string>rectangle.center.inset.filled</string>
 	<string>rectangle.center.inset.filled.badge.plus</string>
+	<string>rectangle.checkered</string>
+	<string>rectangle.compress.vertical</string>
+	<string>rectangle.connected.to.line.below</string>
 	<string>rectangle.dashed</string>
 	<string>rectangle.dashed.and.paperclip</string>
 	<string>rectangle.dashed.badge.record</string>
+	<string>rectangle.dock</string>
+	<string>rectangle.expand.vertical</string>
 	<string>rectangle.fill</string>
 	<string>rectangle.fill.badge.checkmark</string>
 	<string>rectangle.fill.badge.minus</string>
 	<string>rectangle.fill.badge.person.crop</string>
 	<string>rectangle.fill.badge.plus</string>
 	<string>rectangle.fill.badge.xmark</string>
+	<string>rectangle.fill.on.rectangle.angled.fill</string>
 	<string>rectangle.fill.on.rectangle.fill</string>
+	<string>rectangle.fill.on.rectangle.fill.circle</string>
+	<string>rectangle.fill.on.rectangle.fill.circle.fill</string>
+	<string>rectangle.fill.on.rectangle.fill.slash.fill</string>
 	<string>rectangle.filled.and.hand.point.up.left</string>
+	<string>rectangle.grid.1x2</string>
+	<string>rectangle.grid.1x2.fill</string>
+	<string>rectangle.grid.2x2</string>
+	<string>rectangle.grid.2x2.fill</string>
+	<string>rectangle.grid.3x2</string>
+	<string>rectangle.grid.3x2.fill</string>
+	<string>rectangle.inset.bottomleading.filled</string>
+	<string>rectangle.inset.bottomleft.fill</string>
+	<string>rectangle.inset.bottomleft.filled</string>
+	<string>rectangle.inset.bottomright.fill</string>
+	<string>rectangle.inset.bottomright.filled</string>
+	<string>rectangle.inset.bottomtrailing.filled</string>
+	<string>rectangle.inset.fill</string>
+	<string>rectangle.inset.filled</string>
 	<string>rectangle.inset.filled.and.cursorarrow</string>
 	<string>rectangle.inset.filled.and.person.filled</string>
 	<string>rectangle.inset.filled.badge.record</string>
+	<string>rectangle.inset.filled.on.rectangle</string>
+	<string>rectangle.inset.topleading.filled</string>
+	<string>rectangle.inset.topleft.fill</string>
+	<string>rectangle.inset.topleft.filled</string>
+	<string>rectangle.inset.topright.fill</string>
+	<string>rectangle.inset.topright.filled</string>
+	<string>rectangle.inset.toptrailing.filled</string>
 	<string>rectangle.landscape.rotate</string>
+	<string>rectangle.leadinghalf.filled</string>
+	<string>rectangle.leadinghalf.inset.filled</string>
+	<string>rectangle.leadinghalf.inset.filled.arrow.leading</string>
+	<string>rectangle.leadingthird.inset.filled</string>
+	<string>rectangle.lefthalf.fill</string>
+	<string>rectangle.lefthalf.filled</string>
+	<string>rectangle.lefthalf.inset.fill</string>
+	<string>rectangle.lefthalf.inset.fill.arrow.left</string>
+	<string>rectangle.lefthalf.inset.filled</string>
+	<string>rectangle.lefthalf.inset.filled.arrow.left</string>
+	<string>rectangle.leftthird.inset.fill</string>
+	<string>rectangle.leftthird.inset.filled</string>
 	<string>rectangle.on.rectangle</string>
+	<string>rectangle.on.rectangle.angled</string>
 	<string>rectangle.on.rectangle.badge.gearshape</string>
 	<string>rectangle.on.rectangle.button.angledtop.vertical.left</string>
 	<string>rectangle.on.rectangle.button.angledtop.vertical.left.fill</string>
 	<string>rectangle.on.rectangle.circle</string>
 	<string>rectangle.on.rectangle.circle.fill</string>
+	<string>rectangle.on.rectangle.slash</string>
+	<string>rectangle.on.rectangle.slash.circle</string>
 	<string>rectangle.on.rectangle.slash.circle.fill</string>
+	<string>rectangle.on.rectangle.slash.fill</string>
 	<string>rectangle.on.rectangle.square</string>
 	<string>rectangle.on.rectangle.square.fill</string>
 	<string>rectangle.portrait</string>
+	<string>rectangle.portrait.and.arrow.forward</string>
+	<string>rectangle.portrait.and.arrow.forward.fill</string>
+	<string>rectangle.portrait.and.arrow.right</string>
+	<string>rectangle.portrait.and.arrow.right.fill</string>
+	<string>rectangle.portrait.arrowtriangle.2.inward</string>
+	<string>rectangle.portrait.arrowtriangle.2.outward</string>
 	<string>rectangle.portrait.badge.plus</string>
 	<string>rectangle.portrait.badge.plus.fill</string>
+	<string>rectangle.portrait.bottomhalf.filled</string>
+	<string>rectangle.portrait.bottomhalf.inset.filled</string>
+	<string>rectangle.portrait.bottomleading.inset.filled</string>
+	<string>rectangle.portrait.bottomleft.inset.filled</string>
+	<string>rectangle.portrait.bottomright.inset.filled</string>
+	<string>rectangle.portrait.bottomthird.inset.filled</string>
+	<string>rectangle.portrait.bottomtrailing.inset.filled</string>
+	<string>rectangle.portrait.center.inset.filled</string>
 	<string>rectangle.portrait.fill</string>
+	<string>rectangle.portrait.inset.filled</string>
+	<string>rectangle.portrait.leadinghalf.inset.filled</string>
+	<string>rectangle.portrait.leadingthird.inset.filled</string>
+	<string>rectangle.portrait.lefthalf.filled</string>
+	<string>rectangle.portrait.lefthalf.inset.filled</string>
+	<string>rectangle.portrait.leftthird.inset.filled</string>
+	<string>rectangle.portrait.on.rectangle.portrait</string>
+	<string>rectangle.portrait.on.rectangle.portrait.angled</string>
+	<string>rectangle.portrait.on.rectangle.portrait.angled.fill</string>
+	<string>rectangle.portrait.on.rectangle.portrait.fill</string>
+	<string>rectangle.portrait.on.rectangle.portrait.slash</string>
+	<string>rectangle.portrait.on.rectangle.portrait.slash.fill</string>
+	<string>rectangle.portrait.righthalf.filled</string>
+	<string>rectangle.portrait.righthalf.inset.filled</string>
+	<string>rectangle.portrait.rightthird.inset.filled</string>
 	<string>rectangle.portrait.rotate</string>
+	<string>rectangle.portrait.slash</string>
+	<string>rectangle.portrait.slash.fill</string>
+	<string>rectangle.portrait.split.2x1</string>
+	<string>rectangle.portrait.split.2x1.fill</string>
+	<string>rectangle.portrait.split.2x1.slash</string>
+	<string>rectangle.portrait.split.2x1.slash.fill</string>
+	<string>rectangle.portrait.tophalf.filled</string>
+	<string>rectangle.portrait.tophalf.inset.filled</string>
+	<string>rectangle.portrait.topleading.inset.filled</string>
+	<string>rectangle.portrait.topleft.inset.filled</string>
+	<string>rectangle.portrait.topright.inset.filled</string>
+	<string>rectangle.portrait.topthird.inset.filled</string>
+	<string>rectangle.portrait.toptrailing.inset.filled</string>
+	<string>rectangle.portrait.trailinghalf.inset.filled</string>
+	<string>rectangle.portrait.trailingthird.inset.filled</string>
 	<string>rectangle.ratio.16.to.9</string>
 	<string>rectangle.ratio.16.to.9.fill</string>
 	<string>rectangle.ratio.3.to.4</string>
@@ -4620,14 +5240,54 @@
 	<string>rectangle.ratio.4.to.3.fill</string>
 	<string>rectangle.ratio.9.to.16</string>
 	<string>rectangle.ratio.9.to.16.fill</string>
+	<string>rectangle.righthalf.fill</string>
+	<string>rectangle.righthalf.filled</string>
+	<string>rectangle.righthalf.inset.fill</string>
+	<string>rectangle.righthalf.inset.fill.arrow.right</string>
+	<string>rectangle.righthalf.inset.filled</string>
+	<string>rectangle.righthalf.inset.filled.arrow.right</string>
+	<string>rectangle.rightthird.inset.fill</string>
+	<string>rectangle.rightthird.inset.filled</string>
+	<string>rectangle.roundedbottom</string>
+	<string>rectangle.roundedbottom.fill</string>
+	<string>rectangle.roundedtop</string>
+	<string>rectangle.roundedtop.fill</string>
+	<string>rectangle.slash</string>
+	<string>rectangle.slash.fill</string>
+	<string>rectangle.split.1x2</string>
+	<string>rectangle.split.1x2.fill</string>
+	<string>rectangle.split.2x1</string>
+	<string>rectangle.split.2x1.fill</string>
+	<string>rectangle.split.2x1.slash</string>
+	<string>rectangle.split.2x1.slash.fill</string>
+	<string>rectangle.split.2x2</string>
+	<string>rectangle.split.2x2.fill</string>
+	<string>rectangle.split.3x1</string>
+	<string>rectangle.split.3x1.fill</string>
+	<string>rectangle.split.3x3</string>
+	<string>rectangle.split.3x3.fill</string>
+	<string>rectangle.stack</string>
 	<string>rectangle.stack.badge.minus</string>
 	<string>rectangle.stack.badge.person.crop</string>
 	<string>rectangle.stack.badge.person.crop.fill</string>
 	<string>rectangle.stack.badge.play</string>
 	<string>rectangle.stack.badge.play.fill</string>
 	<string>rectangle.stack.badge.plus</string>
+	<string>rectangle.stack.fill</string>
 	<string>rectangle.stack.fill.badge.minus</string>
+	<string>rectangle.stack.fill.badge.person.crop</string>
 	<string>rectangle.stack.fill.badge.plus</string>
+	<string>rectangle.stack.person.crop</string>
+	<string>rectangle.stack.person.crop.fill</string>
+	<string>rectangle.tophalf.filled</string>
+	<string>rectangle.tophalf.inset.filled</string>
+	<string>rectangle.topthird.inset</string>
+	<string>rectangle.topthird.inset.fill</string>
+	<string>rectangle.topthird.inset.filled</string>
+	<string>rectangle.trailinghalf.filled</string>
+	<string>rectangle.trailinghalf.inset.filled</string>
+	<string>rectangle.trailinghalf.inset.filled.arrow.trailing</string>
+	<string>rectangle.trailingthird.inset.filled</string>
 	<string>refrigerator</string>
 	<string>refrigerator.fill</string>
 	<string>repeat</string>
@@ -4642,6 +5302,8 @@
 	<string>repeat.1.hi</string>
 	<string>repeat.circle</string>
 	<string>repeat.circle.fill</string>
+	<string>restart</string>
+	<string>restart.circle</string>
 	<string>restart.circle.fill</string>
 	<string>retarder.brakesignal</string>
 	<string>retarder.brakesignal.and.exclamationmark</string>
@@ -4683,6 +5345,8 @@
 	<string>rt.button.roundedtop.horizontal.fill</string>
 	<string>rt.circle</string>
 	<string>rt.circle.fill</string>
+	<string>rt.rectangle.roundedtop</string>
+	<string>rt.rectangle.roundedtop.fill</string>
 	<string>rublesign</string>
 	<string>rublesign.arrow.circlepath</string>
 	<string>rublesign.circle</string>
@@ -4701,6 +5365,7 @@
 	<string>s.circle.fill</string>
 	<string>s.square</string>
 	<string>s.square.fill</string>
+	<string>safari</string>
 	<string>safari.fill</string>
 	<string>sailboat</string>
 	<string>sailboat.circle</string>
@@ -4740,6 +5405,7 @@
 	<string>shared.with.you.slash</string>
 	<string>shareplay</string>
 	<string>shareplay.slash</string>
+	<string>shazam.logo</string>
 	<string>shazam.logo.fill</string>
 	<string>shekelsign</string>
 	<string>shekelsign.arrow.circlepath</string>
@@ -4747,9 +5413,16 @@
 	<string>shekelsign.circle.fill</string>
 	<string>shekelsign.square</string>
 	<string>shekelsign.square.fill</string>
+	<string>sheqelsign.circle</string>
+	<string>sheqelsign.circle.fill</string>
+	<string>sheqelsign.square</string>
+	<string>sheqelsign.square.fill</string>
 	<string>shield</string>
+	<string>shield.checkerboard</string>
 	<string>shield.checkered</string>
 	<string>shield.fill</string>
+	<string>shield.lefthalf.fill</string>
+	<string>shield.lefthalf.fill.slash</string>
 	<string>shield.lefthalf.filled</string>
 	<string>shield.lefthalf.filled.badge.checkmark</string>
 	<string>shield.lefthalf.filled.slash</string>
@@ -4781,6 +5454,14 @@
 	<string>shuffle</string>
 	<string>shuffle.circle</string>
 	<string>shuffle.circle.fill</string>
+	<string>sidebar.leading</string>
+	<string>sidebar.left</string>
+	<string>sidebar.right</string>
+	<string>sidebar.squares.leading</string>
+	<string>sidebar.squares.left</string>
+	<string>sidebar.squares.right</string>
+	<string>sidebar.squares.trailing</string>
+	<string>sidebar.trailing</string>
 	<string>signature</string>
 	<string>signature.ar</string>
 	<string>signature.he</string>
@@ -4814,27 +5495,38 @@
 	<string>skew</string>
 	<string>skis</string>
 	<string>skis.fill</string>
+	<string>slash.circle</string>
 	<string>slash.circle.fill</string>
+	<string>sleep</string>
+	<string>sleep.circle</string>
 	<string>sleep.circle.fill</string>
 	<string>slider.horizontal.2.gobackward</string>
+	<string>slider.horizontal.2.rectangle.and.arrow.triangle.2.circlepath</string>
 	<string>slider.horizontal.2.square</string>
 	<string>slider.horizontal.2.square.badge.arrow.down</string>
 	<string>slider.horizontal.2.square.on.square</string>
 	<string>slider.horizontal.3</string>
 	<string>slider.horizontal.below.rectangle</string>
 	<string>slider.horizontal.below.square.and.square.filled</string>
+	<string>slider.horizontal.below.square.fill.and.square</string>
 	<string>slider.horizontal.below.square.filled.and.square</string>
 	<string>slider.horizontal.below.sun.max</string>
 	<string>slider.vertical.3</string>
 	<string>slowmo</string>
+	<string>smallcircle.circle</string>
 	<string>smallcircle.circle.fill</string>
+	<string>smallcircle.fill.circle</string>
+	<string>smallcircle.fill.circle.fill</string>
 	<string>smallcircle.filled.circle</string>
 	<string>smallcircle.filled.circle.fill</string>
 	<string>smartphone</string>
+	<string>smiley</string>
+	<string>smiley.fill</string>
 	<string>smoke</string>
 	<string>smoke.circle</string>
 	<string>smoke.circle.fill</string>
 	<string>smoke.fill</string>
+	<string>snow</string>
 	<string>snowboard</string>
 	<string>snowboard.fill</string>
 	<string>snowflake</string>
@@ -4851,14 +5543,26 @@
 	<string>soccerball.inverse</string>
 	<string>sofa</string>
 	<string>sofa.fill</string>
+	<string>sos</string>
+	<string>sos.circle</string>
 	<string>sos.circle.fill</string>
 	<string>space</string>
 	<string>sparkle</string>
 	<string>sparkle.magnifyingglass</string>
 	<string>sparkles</string>
+	<string>sparkles.rectangle.stack</string>
+	<string>sparkles.rectangle.stack.fill</string>
+	<string>sparkles.square.fill.on.square</string>
+	<string>sparkles.square.filled.on.square</string>
 	<string>sparkles.tv</string>
 	<string>sparkles.tv.fill</string>
 	<string>speaker</string>
+	<string>speaker.1</string>
+	<string>speaker.1.fill</string>
+	<string>speaker.2</string>
+	<string>speaker.2.fill</string>
+	<string>speaker.3</string>
+	<string>speaker.3.fill</string>
 	<string>speaker.badge.exclamationmark</string>
 	<string>speaker.badge.exclamationmark.fill</string>
 	<string>speaker.circle</string>
@@ -4884,6 +5588,10 @@
 	<string>speaker.wave.2.bubble</string>
 	<string>speaker.wave.2.bubble.fill</string>
 	<string>speaker.wave.2.bubble.fill.rtl</string>
+	<string>speaker.wave.2.bubble.left</string>
+	<string>speaker.wave.2.bubble.left.fill</string>
+	<string>speaker.wave.2.bubble.left.fill.rtl</string>
+	<string>speaker.wave.2.bubble.left.rtl</string>
 	<string>speaker.wave.2.bubble.rtl</string>
 	<string>speaker.wave.2.circle</string>
 	<string>speaker.wave.2.circle.fill</string>
@@ -4894,6 +5602,7 @@
 	<string>speaker.zzz.fill</string>
 	<string>speaker.zzz.fill.rtl</string>
 	<string>speaker.zzz.rtl</string>
+	<string>speedometer</string>
 	<string>spigot</string>
 	<string>spigot.fill</string>
 	<string>sportscourt</string>
@@ -4909,6 +5618,11 @@
 	<string>square.2.layers.3d.bottom.filled</string>
 	<string>square.2.layers.3d.fill</string>
 	<string>square.2.layers.3d.top.filled</string>
+	<string>square.2.stack.3d</string>
+	<string>square.2.stack.3d.bottom.fill</string>
+	<string>square.2.stack.3d.bottom.filled</string>
+	<string>square.2.stack.3d.top.fill</string>
+	<string>square.2.stack.3d.top.filled</string>
 	<string>square.3.layers.3d</string>
 	<string>square.3.layers.3d.bottom.filled</string>
 	<string>square.3.layers.3d.down.backward</string>
@@ -4922,39 +5636,123 @@
 	<string>square.3.layers.3d.middle.filled</string>
 	<string>square.3.layers.3d.slash</string>
 	<string>square.3.layers.3d.top.filled</string>
+	<string>square.3.stack.3d</string>
+	<string>square.3.stack.3d.bottom.fill</string>
+	<string>square.3.stack.3d.bottom.filled</string>
+	<string>square.3.stack.3d.middle.fill</string>
+	<string>square.3.stack.3d.middle.filled</string>
+	<string>square.3.stack.3d.slash</string>
+	<string>square.3.stack.3d.top.fill</string>
+	<string>square.3.stack.3d.top.filled</string>
+	<string>square.and.arrow.down</string>
+	<string>square.and.arrow.down.fill</string>
+	<string>square.and.arrow.down.on.square</string>
+	<string>square.and.arrow.down.on.square.fill</string>
+	<string>square.and.arrow.up</string>
 	<string>square.and.arrow.up.badge.clock</string>
 	<string>square.and.arrow.up.badge.clock.fill</string>
+	<string>square.and.arrow.up.circle</string>
 	<string>square.and.arrow.up.circle.fill</string>
+	<string>square.and.arrow.up.fill</string>
+	<string>square.and.arrow.up.on.square</string>
+	<string>square.and.arrow.up.on.square.fill</string>
 	<string>square.and.arrow.up.trianglebadge.exclamationmark</string>
+	<string>square.and.at.rectangle</string>
+	<string>square.and.at.rectangle.fill</string>
+	<string>square.and.line.vertical.and.square</string>
+	<string>square.and.line.vertical.and.square.fill</string>
+	<string>square.and.line.vertical.and.square.filled</string>
 	<string>square.and.pencil</string>
 	<string>square.and.pencil.circle</string>
 	<string>square.and.pencil.circle.fill</string>
 	<string>square.arrowtriangle.4.outward</string>
 	<string>square.badge.plus</string>
 	<string>square.badge.plus.fill</string>
+	<string>square.bottomhalf.fill</string>
+	<string>square.bottomhalf.filled</string>
+	<string>square.bottomthird.inset.filled</string>
 	<string>square.circle</string>
 	<string>square.circle.fill</string>
 	<string>square.dashed</string>
+	<string>square.dashed.inset.fill</string>
 	<string>square.dashed.inset.filled</string>
+	<string>square.dotted</string>
 	<string>square.fill</string>
+	<string>square.fill.and.line.vertical.and.square</string>
+	<string>square.fill.and.line.vertical.and.square.fill</string>
+	<string>square.fill.and.line.vertical.square.fill</string>
+	<string>square.fill.on.circle.fill</string>
+	<string>square.fill.on.square</string>
+	<string>square.fill.on.square.fill</string>
+	<string>square.fill.text.grid.1x2</string>
+	<string>square.filled.and.line.vertical.and.square</string>
+	<string>square.filled.on.square</string>
+	<string>square.grid.2x2</string>
+	<string>square.grid.2x2.fill</string>
+	<string>square.grid.3x1.below.line.grid.1x2</string>
+	<string>square.grid.3x1.below.line.grid.1x2.fill</string>
+	<string>square.grid.3x1.fill.below.line.grid.1x2</string>
 	<string>square.grid.3x1.folder.badge.plus</string>
 	<string>square.grid.3x1.folder.fill.badge.plus</string>
+	<string>square.grid.3x2</string>
+	<string>square.grid.3x2.fill</string>
+	<string>square.grid.3x3</string>
+	<string>square.grid.3x3.bottomleft.fill</string>
 	<string>square.grid.3x3.bottomleft.filled</string>
+	<string>square.grid.3x3.bottommiddle.fill</string>
 	<string>square.grid.3x3.bottommiddle.filled</string>
+	<string>square.grid.3x3.bottomright.fill</string>
 	<string>square.grid.3x3.bottomright.filled</string>
+	<string>square.grid.3x3.fill</string>
+	<string>square.grid.3x3.fill.square</string>
+	<string>square.grid.3x3.middle.fill</string>
 	<string>square.grid.3x3.middle.filled</string>
+	<string>square.grid.3x3.middleleft.fill</string>
 	<string>square.grid.3x3.middleleft.filled</string>
+	<string>square.grid.3x3.middleright.fill</string>
 	<string>square.grid.3x3.middleright.filled</string>
+	<string>square.grid.3x3.square</string>
+	<string>square.grid.3x3.topleft.fill</string>
 	<string>square.grid.3x3.topleft.filled</string>
+	<string>square.grid.3x3.topmiddle.fill</string>
 	<string>square.grid.3x3.topmiddle.filled</string>
+	<string>square.grid.3x3.topright.fill</string>
 	<string>square.grid.3x3.topright.filled</string>
+	<string>square.grid.4x3.fill</string>
+	<string>square.inset.filled</string>
+	<string>square.leadingthird.inset.filled</string>
+	<string>square.lefthalf.fill</string>
+	<string>square.lefthalf.filled</string>
+	<string>square.leftthird.inset.filled</string>
+	<string>square.on.circle</string>
+	<string>square.on.square</string>
 	<string>square.on.square.badge.person.crop</string>
 	<string>square.on.square.badge.person.crop.fill</string>
+	<string>square.on.square.dashed</string>
+	<string>square.on.square.intersection.dashed</string>
+	<string>square.on.square.squareshape.controlhandles</string>
 	<string>square.resize</string>
 	<string>square.resize.down</string>
 	<string>square.resize.up</string>
+	<string>square.righthalf.fill</string>
+	<string>square.righthalf.filled</string>
+	<string>square.rightthird.inset.filled</string>
+	<string>square.slash</string>
+	<string>square.slash.fill</string>
+	<string>square.split.1x2</string>
+	<string>square.split.1x2.fill</string>
+	<string>square.split.2x1</string>
+	<string>square.split.2x1.fill</string>
+	<string>square.split.2x2</string>
+	<string>square.split.2x2.fill</string>
 	<string>square.split.bottomrightquarter</string>
 	<string>square.split.bottomrightquarter.fill</string>
+	<string>square.split.diagonal</string>
+	<string>square.split.diagonal.2x2</string>
+	<string>square.split.diagonal.2x2.fill</string>
+	<string>square.split.diagonal.fill</string>
+	<string>square.stack</string>
+	<string>square.stack.3d.down.dottedline</string>
 	<string>square.stack.3d.down.forward</string>
 	<string>square.stack.3d.down.forward.fill</string>
 	<string>square.stack.3d.down.right</string>
@@ -4962,13 +5760,36 @@
 	<string>square.stack.3d.forward.dottedline</string>
 	<string>square.stack.3d.forward.dottedline.fill</string>
 	<string>square.stack.3d.up</string>
+	<string>square.stack.3d.up.badge.a</string>
+	<string>square.stack.3d.up.badge.a.fill</string>
 	<string>square.stack.3d.up.badge.automatic</string>
 	<string>square.stack.3d.up.badge.automatic.fill</string>
 	<string>square.stack.3d.up.fill</string>
+	<string>square.stack.3d.up.slash</string>
+	<string>square.stack.3d.up.slash.fill</string>
 	<string>square.stack.3d.up.trianglebadge.exclamationmark</string>
 	<string>square.stack.3d.up.trianglebadge.exclamationmark.fill</string>
+	<string>square.stack.fill</string>
+	<string>square.text.square</string>
 	<string>square.text.square.fill</string>
+	<string>square.tophalf.fill</string>
+	<string>square.tophalf.filled</string>
+	<string>square.topthird.inset.filled</string>
+	<string>square.trailingthird.inset.filled</string>
+	<string>squares.below.rectangle</string>
+	<string>squares.leading.rectangle</string>
 	<string>squares.leading.rectangle.fill</string>
+	<string>squareshape</string>
+	<string>squareshape.controlhandles.on.squareshape.controlhandles</string>
+	<string>squareshape.dashed.squareshape</string>
+	<string>squareshape.dotted.split.2x2</string>
+	<string>squareshape.dotted.squareshape</string>
+	<string>squareshape.fill</string>
+	<string>squareshape.split.2x2</string>
+	<string>squareshape.split.2x2.dotted</string>
+	<string>squareshape.split.3x3</string>
+	<string>squareshape.squareshape.dashed</string>
+	<string>squareshape.squareshape.dotted</string>
 	<string>stairs</string>
 	<string>star</string>
 	<string>star.bubble</string>
@@ -4976,10 +5797,15 @@
 	<string>star.circle</string>
 	<string>star.circle.fill</string>
 	<string>star.fill</string>
+	<string>star.leadinghalf.fill</string>
+	<string>star.leadinghalf.filled</string>
+	<string>star.lefthalf.fill</string>
 	<string>star.slash</string>
 	<string>star.slash.fill</string>
 	<string>star.square</string>
 	<string>star.square.fill</string>
+	<string>star.square.on.square</string>
+	<string>star.square.on.square.fill</string>
 	<string>staroflife</string>
 	<string>staroflife.circle</string>
 	<string>staroflife.circle.fill</string>
@@ -5041,6 +5867,10 @@
 	<string>suitcase.rolling.fill</string>
 	<string>sum</string>
 	<string>sum.ar</string>
+	<string>sun.and.horizon</string>
+	<string>sun.and.horizon.circle</string>
+	<string>sun.and.horizon.circle.fill</string>
+	<string>sun.and.horizon.fill</string>
 	<string>sun.dust</string>
 	<string>sun.dust.circle</string>
 	<string>sun.dust.circle.fill</string>
@@ -5115,22 +5945,37 @@
 	<string>swedishkronasign.circle.fill</string>
 	<string>swedishkronasign.square</string>
 	<string>swedishkronasign.square.fill</string>
+	<string>swift</string>
 	<string>swiftdata</string>
 	<string>swirl.circle.righthalf.filled</string>
 	<string>swirl.circle.righthalf.filled.inverse</string>
+	<string>switch.2</string>
 	<string>switch.programmable</string>
 	<string>switch.programmable.fill</string>
 	<string>switch.programmable.square</string>
 	<string>switch.programmable.square.fill</string>
 	<string>syringe</string>
 	<string>syringe.fill</string>
+	<string>t.bubble</string>
+	<string>t.bubble.ar</string>
+	<string>t.bubble.fill</string>
+	<string>t.bubble.fill.ar</string>
+	<string>t.bubble.fill.he</string>
+	<string>t.bubble.he</string>
 	<string>t.circle</string>
 	<string>t.circle.fill</string>
 	<string>t.square</string>
 	<string>t.square.fill</string>
+	<string>table</string>
+	<string>table.badge.more</string>
+	<string>table.badge.more.fill</string>
+	<string>table.fill</string>
 	<string>table.furniture</string>
 	<string>table.furniture.fill</string>
+	<string>tablecells</string>
 	<string>tablecells.badge.ellipsis</string>
+	<string>tablecells.badge.ellipsis.fill</string>
+	<string>tablecells.fill</string>
 	<string>tablecells.fill.badge.ellipsis</string>
 	<string>tag</string>
 	<string>tag.circle</string>
@@ -5174,10 +6019,13 @@
 	<string>tent.circle</string>
 	<string>tent.circle.fill</string>
 	<string>tent.fill</string>
+	<string>terminal</string>
+	<string>terminal.fill</string>
 	<string>testtube.2</string>
 	<string>text.aligncenter</string>
 	<string>text.alignleft</string>
 	<string>text.alignright</string>
+	<string>text.and.command.macwindow</string>
 	<string>text.append</string>
 	<string>text.badge.checkmark</string>
 	<string>text.badge.checkmark.rtl</string>
@@ -5195,18 +6043,39 @@
 	<string>text.bubble.fill</string>
 	<string>text.bubble.fill.rtl</string>
 	<string>text.bubble.rtl</string>
+	<string>text.cursor</string>
+	<string>text.cursor.ar</string>
+	<string>text.cursor.he</string>
+	<string>text.cursor.hi</string>
+	<string>text.cursor.ja</string>
+	<string>text.cursor.ko</string>
+	<string>text.cursor.th</string>
+	<string>text.cursor.zh</string>
 	<string>text.insert</string>
 	<string>text.justify</string>
 	<string>text.justify.leading</string>
 	<string>text.justify.left</string>
 	<string>text.justify.right</string>
 	<string>text.justify.trailing</string>
+	<string>text.justifyleft</string>
+	<string>text.justifyright</string>
 	<string>text.line.first.and.arrowtriangle.forward</string>
 	<string>text.line.last.and.arrowtriangle.forward</string>
 	<string>text.magnifyingglass</string>
 	<string>text.magnifyingglass.rtl</string>
+	<string>text.quote</string>
+	<string>text.quote.rtl</string>
 	<string>text.redaction</string>
+	<string>text.viewfinder</string>
 	<string>text.word.spacing</string>
+	<string>textbox</string>
+	<string>textbox.ar</string>
+	<string>textbox.he</string>
+	<string>textbox.hi</string>
+	<string>textbox.ja</string>
+	<string>textbox.ko</string>
+	<string>textbox.th</string>
+	<string>textbox.zh</string>
 	<string>textformat</string>
 	<string>textformat.12</string>
 	<string>textformat.12.ar</string>
@@ -5265,6 +6134,7 @@
 	<string>theatermasks.circle</string>
 	<string>theatermasks.circle.fill</string>
 	<string>theatermasks.fill</string>
+	<string>thermometer</string>
 	<string>thermometer.and.liquid.waves</string>
 	<string>thermometer.brakesignal</string>
 	<string>thermometer.high</string>
@@ -5291,6 +6161,7 @@
 	<string>timer.circle.fill</string>
 	<string>timer.square</string>
 	<string>tirepressure</string>
+	<string>togglepower</string>
 	<string>toilet</string>
 	<string>toilet.circle</string>
 	<string>toilet.circle.fill</string>
@@ -5302,6 +6173,7 @@
 	<string>tortoise.circle</string>
 	<string>tortoise.circle.fill</string>
 	<string>tortoise.fill</string>
+	<string>torus</string>
 	<string>touchid</string>
 	<string>traction.control.tirepressure</string>
 	<string>traction.control.tirepressure.exclamationmark</string>
@@ -5314,6 +6186,7 @@
 	<string>tram.circle.fill</string>
 	<string>tram.fill</string>
 	<string>tram.fill.tunnel</string>
+	<string>tram.tunnel.fill</string>
 	<string>transmission</string>
 	<string>trapezoid.and.line.horizontal</string>
 	<string>trapezoid.and.line.horizontal.fill</string>
@@ -5348,9 +6221,16 @@
 	<string>tree.circle.fill</string>
 	<string>tree.fill</string>
 	<string>triangle</string>
+	<string>triangle.bottomhalf.filled</string>
 	<string>triangle.circle</string>
 	<string>triangle.circle.fill</string>
 	<string>triangle.fill</string>
+	<string>triangle.inset.filled</string>
+	<string>triangle.lefthalf.fill</string>
+	<string>triangle.lefthalf.filled</string>
+	<string>triangle.righthalf.fill</string>
+	<string>triangle.righthalf.filled</string>
+	<string>triangle.tophalf.filled</string>
 	<string>triangleshape</string>
 	<string>triangleshape.fill</string>
 	<string>trophy</string>
@@ -5417,12 +6297,15 @@
 	<string>tv.circle.fill</string>
 	<string>tv.fill</string>
 	<string>tv.inset.filled</string>
+	<string>tv.music.note</string>
+	<string>tv.music.note.fill</string>
 	<string>tv.slash</string>
 	<string>tv.slash.fill</string>
 	<string>u.circle</string>
 	<string>u.circle.fill</string>
 	<string>u.square</string>
 	<string>u.square.fill</string>
+	<string>uiwindow.split.2x1</string>
 	<string>umbrella</string>
 	<string>umbrella.fill</string>
 	<string>umbrella.percent</string>
@@ -5436,14 +6319,19 @@
 	<string>v.square.fill</string>
 	<string>vial.viewfinder</string>
 	<string>video</string>
+	<string>video.and.waveform</string>
+	<string>video.and.waveform.fill</string>
 	<string>video.badge.checkmark</string>
 	<string>video.badge.ellipsis</string>
 	<string>video.badge.plus</string>
+	<string>video.badge.plus.fill</string>
 	<string>video.badge.waveform</string>
 	<string>video.badge.waveform.fill</string>
 	<string>video.bubble</string>
 	<string>video.bubble.fill</string>
 	<string>video.bubble.fill.rtl</string>
+	<string>video.bubble.left</string>
+	<string>video.bubble.left.fill</string>
 	<string>video.bubble.rtl</string>
 	<string>video.circle</string>
 	<string>video.circle.fill</string>
@@ -5461,7 +6349,10 @@
 	<string>video.square.fill</string>
 	<string>videoprojector</string>
 	<string>videoprojector.fill</string>
+	<string>view.2d</string>
+	<string>view.3d</string>
 	<string>viewfinder</string>
+	<string>viewfinder.circle</string>
 	<string>viewfinder.circle.fill</string>
 	<string>viewfinder.rectangular</string>
 	<string>viewfinder.trianglebadge.exclamationmark</string>
@@ -5488,6 +6379,8 @@
 	<string>w.circle.fill</string>
 	<string>w.square</string>
 	<string>w.square.fill</string>
+	<string>wake</string>
+	<string>wake.circle</string>
 	<string>wake.circle.fill</string>
 	<string>wallet.pass</string>
 	<string>wallet.pass.fill</string>
@@ -5523,6 +6416,8 @@
 	<string>wave.3.right.circle</string>
 	<string>wave.3.right.circle.fill</string>
 	<string>waveform</string>
+	<string>waveform.and.magnifyingglass</string>
+	<string>waveform.and.mic</string>
 	<string>waveform.and.person.filled</string>
 	<string>waveform.badge.exclamationmark</string>
 	<string>waveform.badge.magnifyingglass</string>
@@ -5531,6 +6426,7 @@
 	<string>waveform.badge.plus</string>
 	<string>waveform.circle</string>
 	<string>waveform.circle.fill</string>
+	<string>waveform.path</string>
 	<string>waveform.path.badge.minus</string>
 	<string>waveform.path.badge.plus</string>
 	<string>waveform.path.ecg</string>
@@ -5568,6 +6464,7 @@
 	<string>window.shade.open</string>
 	<string>window.vertical.closed</string>
 	<string>window.vertical.open</string>
+	<string>windshield.front.and.fluid</string>
 	<string>windshield.front.and.fluid.and.spray</string>
 	<string>windshield.front.and.heat.waves</string>
 	<string>windshield.front.and.spray</string>
@@ -5576,6 +6473,7 @@
 	<string>windshield.front.and.wiper.and.spray</string>
 	<string>windshield.front.and.wiper.exclamationmark</string>
 	<string>windshield.front.and.wiper.intermittent</string>
+	<string>windshield.rear.and.fluid</string>
 	<string>windshield.rear.and.fluid.and.spray</string>
 	<string>windshield.rear.and.heat.waves</string>
 	<string>windshield.rear.and.spray</string>
@@ -5592,10 +6490,12 @@
 	<string>wonsign.circle.fill</string>
 	<string>wonsign.square</string>
 	<string>wonsign.square.fill</string>
+	<string>wrench</string>
 	<string>wrench.adjustable</string>
 	<string>wrench.adjustable.fill</string>
 	<string>wrench.and.screwdriver</string>
 	<string>wrench.and.screwdriver.fill</string>
+	<string>wrench.fill</string>
 	<string>wrongwaysign</string>
 	<string>wrongwaysign.fill</string>
 	<string>x.circle</string>
@@ -5605,6 +6505,7 @@
 	<string>x.squareroot</string>
 	<string>xbox.logo</string>
 	<string>xmark</string>
+	<string>xmark.app</string>
 	<string>xmark.app.fill</string>
 	<string>xmark.bin</string>
 	<string>xmark.bin.circle</string>
@@ -5648,7 +6549,12 @@
 	<string>z.square.fill</string>
 	<string>zl.button.roundedtop.horizontal</string>
 	<string>zl.button.roundedtop.horizontal.fill</string>
+	<string>zl.rectangle.roundedtop</string>
+	<string>zl.rectangle.roundedtop.fill</string>
 	<string>zr.button.roundedtop.horizontal</string>
 	<string>zr.button.roundedtop.horizontal.fill</string>
+	<string>zr.rectangle.roundedtop</string>
+	<string>zr.rectangle.roundedtop.fill</string>
+	<string>zzz</string>
 </array>
 </plist>
